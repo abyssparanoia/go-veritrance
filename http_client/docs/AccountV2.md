@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | **string** |  | 
-**CardInfo** | Pointer to [**CardInfoV2**](CardInfoV2.md) |  | [optional] 
+**CardInfo** | Pointer to [**[]CardInfoV2**](CardInfoV2.md) |  | [optional] 
 
 ## Methods
 
@@ -48,20 +48,20 @@ SetAccountId sets AccountId field to given value.
 
 ### GetCardInfo
 
-`func (o *AccountV2) GetCardInfo() CardInfoV2`
+`func (o *AccountV2) GetCardInfo() []CardInfoV2`
 
 GetCardInfo returns the CardInfo field if non-nil, zero value otherwise.
 
 ### GetCardInfoOk
 
-`func (o *AccountV2) GetCardInfoOk() (*CardInfoV2, bool)`
+`func (o *AccountV2) GetCardInfoOk() (*[]CardInfoV2, bool)`
 
 GetCardInfoOk returns a tuple with the CardInfo field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCardInfo
 
-`func (o *AccountV2) SetCardInfo(v CardInfoV2)`
+`func (o *AccountV2) SetCardInfo(v []CardInfoV2)`
 
 SetCardInfo sets CardInfo field to given value.
 

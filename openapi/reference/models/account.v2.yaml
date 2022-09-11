@@ -6,7 +6,9 @@ properties:
     type: string
     example: account-1662828780
   cardInfo:
-    $ref: ./card_info.v2.yaml
+    type: array
+    items:
+      $ref: ./card_info.v2.yaml
 required:
   - accountId
   - transData

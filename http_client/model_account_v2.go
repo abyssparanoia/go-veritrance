@@ -17,7 +17,7 @@ import (
 // AccountV2 会員情報
 type AccountV2 struct {
 	AccountId string `json:"accountId"`
-	CardInfo *CardInfoV2 `json:"cardInfo,omitempty"`
+	CardInfo []CardInfoV2 `json:"cardInfo,omitempty"`
 }
 
 // NewAccountV2 instantiates a new AccountV2 object
@@ -63,17 +63,17 @@ func (o *AccountV2) SetAccountId(v string) {
 }
 
 // GetCardInfo returns the CardInfo field value if set, zero value otherwise.
-func (o *AccountV2) GetCardInfo() CardInfoV2 {
+func (o *AccountV2) GetCardInfo() []CardInfoV2 {
 	if o == nil || o.CardInfo == nil {
-		var ret CardInfoV2
+		var ret []CardInfoV2
 		return ret
 	}
-	return *o.CardInfo
+	return o.CardInfo
 }
 
 // GetCardInfoOk returns a tuple with the CardInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AccountV2) GetCardInfoOk() (*CardInfoV2, bool) {
+func (o *AccountV2) GetCardInfoOk() ([]CardInfoV2, bool) {
 	if o == nil || o.CardInfo == nil {
 		return nil, false
 	}
@@ -89,9 +89,9 @@ func (o *AccountV2) HasCardInfo() bool {
 	return false
 }
 
-// SetCardInfo gets a reference to the given CardInfoV2 and assigns it to the CardInfo field.
-func (o *AccountV2) SetCardInfo(v CardInfoV2) {
-	o.CardInfo = &v
+// SetCardInfo gets a reference to the given []CardInfoV2 and assigns it to the CardInfo field.
+func (o *AccountV2) SetCardInfo(v []CardInfoV2) {
+	o.CardInfo = v
 }
 
 func (o AccountV2) MarshalJSON() ([]byte, error) {

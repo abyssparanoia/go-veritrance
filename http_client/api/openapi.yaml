@@ -156,7 +156,9 @@ components:
           example: account-1662828780
           type: string
         cardInfo:
-          $ref: '#/components/schemas/card_info.v2'
+          items:
+            $ref: '#/components/schemas/card_info.v2'
+          type: array
       required:
       - accountId
       title: account
