@@ -1,0 +1,204 @@
+openapi: 3.0.2
+info:
+  contact:
+    name: Veritrance
+  description: |
+    Veritrance API
+  title: Veritrance API
+  version: 3.0.0
+servers:
+- description: Production
+  url: https://api.veritrans.co.jp:443
+paths:
+  /paynow/v2/Add/account:
+    post:
+      description: |
+        ・会員 ID を登録します。
+        ・会員 ID の登録と同時に、カード情報および継続課金情報を紐付けることが可能です。
+          継続課金情報を設定する際は、カード情報の同時設定が必要です。
+          カード情報を指定した場合、有効性確認が行われます。
+        ・会員 ID の登録と同時に、カード情報のみを紐付けることが可能です。
+      operationId: paynow-v2-add-account
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AccountAddRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountAddResponse'
+          description: 成功した場合
+      summary: 会員情報を追加します。
+      tags:
+      - Account
+  /paynow/v2/Update/account:
+    post:
+      description: |
+        ・会員 ID の「入会年月日」を更新します。
+      operationId: paynow-v2-update-account
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AccountUpdateRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayNowIdResponse'
+          description: 成功した場合
+      summary: 会員 ID の「入会年月日」を更新します。
+      tags:
+      - Account
+  /paynow/v2/Delete/account:
+    post:
+      description: |
+        ・会員 ID の会員情報を、指定された「退会年月日」に削除します。
+      operationId: paynow-v2-delete-account
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AccountDeleteRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayNowIdResponse'
+          description: 成功した場合
+      summary: 会員 ID の会員情報を、指定された「退会年月日」に削除します。
+      tags:
+      - Account
+components:
+  schemas:
+    AccountAddRequest:
+      properties:
+        accountId:
+          example: account-1662828780
+          type: string
+        cardNumber:
+          example: "4111111111111111"
+          type: string
+        cardExpire:
+          example: 12/25
+          type: string
+        securityCode:
+          example: "123"
+          type: string
+      required:
+      - accountId
+      type: object
+    AccountAddResponse:
+      example:
+        payNowIdResponse: null
+      properties:
+        payNowIdResponse:
+          $ref: '#/components/schemas/AccountAddResponse_payNowIdResponse'
+      type: object
+    AbstractPayNowIdResponse:
+      example:
+        processId: processId
+        message: message
+        status: success
+      properties:
+        processId:
+          description: 会員管理処理を一意に識別する番号
+          type: string
+        status:
+          description: 会員管理処理要求の実行結果
+          enum:
+          - success
+          - failure
+          type: string
+        message:
+          description: 会員管理処理要求の実行結果メッセージ
+          type: string
+      required:
+      - message
+      - processId
+      - status
+      type: object
+    AccountUpdateRequest:
+      properties:
+        accountId:
+          example: account-1662828780
+          type: string
+      required:
+      - accountId
+      type: object
+    PayNowIdResponse:
+      example:
+        payNowIdResponse:
+          processId: processId
+          message: message
+          status: success
+      properties:
+        payNowIdResponse:
+          $ref: '#/components/schemas/AbstractPayNowIdResponse'
+      type: object
+    AccountDeleteRequest:
+      properties:
+        accountId:
+          example: account-1662828780
+          type: string
+      required:
+      - accountId
+      type: object
+    account.v2:
+      description: 会員情報
+      properties:
+        accountId:
+          example: account-1662828780
+          type: string
+        cardInfo:
+          items:
+            $ref: '#/components/schemas/card_info.v2'
+          type: array
+      required:
+      - accountId
+      title: account
+      type: object
+    card_info.v2:
+      description: カード情報
+      properties:
+        cardId:
+          description: 決済サーバーにて付与されたカード ID が返戻されます。
+          type: string
+        cardNumber:
+          description: カード番号の先頭 6 桁と下 2 桁のみ数字表記され、その他は "*"（アスタリスク）に変換されます。
+          example: 411111********11
+          type: string
+        cardExpire:
+          example: 12/25
+          type: string
+        defaultCard:
+          description: |
+            カード情報を明示的に指定せず決済する場合に使用するカードか否かを示すフラグ
+            "1"：決済時、カード情報を明示的に指定しない場合に使用されるカード
+            "0"：決済時、カード情報を明示的に指定しない場合に使用されるカードではない
+          type: integer
+        cardholderName:
+          description: カードの名義人
+          type: string
+      required:
+      - cardExpire
+      - cardId
+      - cardNumber
+      - defaultCard
+      title: card_info
+      type: object
+    AccountAddResponse_payNowIdResponse_allOf:
+      properties:
+        account:
+          $ref: '#/components/schemas/account.v2'
+      type: object
+    AccountAddResponse_payNowIdResponse:
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowIdResponse'
+      - $ref: '#/components/schemas/AccountAddResponse_payNowIdResponse_allOf'
+      type: object

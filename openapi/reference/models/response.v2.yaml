@@ -1,0 +1,36 @@
+AccountAddResponse:
+  type: object
+  properties:
+    payNowIdResponse:
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/AbstractPayNowIdResponse"
+        - type: object
+          properties:
+            account:
+              $ref: ./account.v2.yaml
+PayNowIdResponse:
+  type: object
+  properties:
+    payNowIdResponse:
+      $ref: "#/components/schemas/AbstractPayNowIdResponse"
+components:
+  schemas:
+    AbstractPayNowIdResponse:
+      type: object
+      properties:
+        processId:
+          type: string
+          description: 会員管理処理を一意に識別する番号
+        status:
+          description: 会員管理処理要求の実行結果
+          enum:
+            - success
+            - failure
+        message:
+          type: string
+          description: 会員管理処理要求の実行結果メッセージ 
+      required:
+        - processId
+        - status
+        - message

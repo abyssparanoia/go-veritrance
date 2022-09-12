@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  openapigen:
+    image: openapitools/openapi-generator-cli:v6.0.1
+    volumes:
+      - .:/openapi
+    command: |
+      generate -i
+      openapi/openapi/reference/veritrance.paynow.v2.yaml
+      -g go
+      --git-repo-id=go-veritrance/http_client
+      --git-user-id=abyssparanoia
+      --additional-properties=packageName=veritrance_paynow
+      -o openapi/http_client

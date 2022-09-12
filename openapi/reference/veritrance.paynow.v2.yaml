@@ -1,0 +1,77 @@
+openapi: 3.0.2
+info:
+  title: Veritrance API
+  version: 3.0.0
+  contact:
+    name: Veritrance
+  description: |
+    Veritrance API
+
+servers:
+  - url: "https://api.veritrans.co.jp:443"
+    description: Production
+paths:
+  "/paynow/v2/Add/account":
+    post:
+      operationId: paynow-v2-add-account
+      summary: 会員情報を追加します。
+      description: |
+        ・会員 ID を登録します。
+        ・会員 ID の登録と同時に、カード情報および継続課金情報を紐付けることが可能です。
+          継続課金情報を設定する際は、カード情報の同時設定が必要です。
+          カード情報を指定した場合、有効性確認が行われます。
+        ・会員 ID の登録と同時に、カード情報のみを紐付けることが可能です。
+      tags:
+        - Account
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: ./models/request.v2.yaml#/AccountAddRequest
+      responses:
+        "200":
+          description: 成功した場合
+          content:
+            application/json:
+              schema:
+                $ref: ./models/response.v2.yaml#/AccountAddResponse
+  "/paynow/v2/Update/account":
+    post:
+      operationId: paynow-v2-update-account
+      summary: 会員 ID の「入会年月日」を更新します。
+      description: |
+        ・会員 ID の「入会年月日」を更新します。
+      tags:
+        - Account
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: ./models/request.v2.yaml#/AccountUpdateRequest
+      responses:
+        "200":
+          description: 成功した場合
+          content:
+            application/json:
+              schema:
+                $ref: ./models/response.v2.yaml#/PayNowIdResponse
+  "/paynow/v2/Delete/account":
+    post:
+      operationId: paynow-v2-delete-account
+      summary: 会員 ID の会員情報を、指定された「退会年月日」に削除します。
+      description: |
+        ・会員 ID の会員情報を、指定された「退会年月日」に削除します。
+      tags:
+        - Account
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: ./models/request.v2.yaml#/AccountDeleteRequest
+      responses:
+        "200":
+          description: 成功した場合
+          content:
+            application/json:
+              schema:
+                $ref: ./models/response.v2.yaml#/PayNowIdResponse
