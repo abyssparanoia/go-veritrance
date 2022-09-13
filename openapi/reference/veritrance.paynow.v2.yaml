@@ -34,7 +34,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ./models/response.v2.yaml#/AccountAddResponse
+                $ref: ./models/response.v2.yaml#/AccountResponse
   "/paynow/v2/Update/account":
     post:
       operationId: paynow-v2-update-account
@@ -68,6 +68,88 @@ paths:
           application/x-www-form-urlencoded:
             schema:
               $ref: ./models/request.v2.yaml#/AccountDeleteRequest
+      responses:
+        "200":
+          description: 成功した場合
+          content:
+            application/json:
+              schema:
+                $ref: ./models/response.v2.yaml#/PayNowIdResponse
+  "/paynow/v2/Get/cardinfo":
+    post:
+      operationId: paynow-v2-get-cardinfo
+      summary: 会員 ID に紐付けられた課金情報を取得します
+      description: |
+        ・会員 ID に紐付けられた課金情報を取得します。
+      tags:
+        - Cardinfo
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: ./models/request.v2.yaml#/CardInfoGetRequest
+      responses:
+        "200":
+          description: 成功した場合
+          content:
+            application/json:
+              schema:
+                $ref: ./models/response.v2.yaml#/AccountResponse
+  "/paynow/v2/Add/cardinfo":
+    post:
+      operationId: paynow-v2-add-cardinfo
+      summary: 会員 ID にカード情報を紐付けて登録します
+      description: |
+        ・会員 ID にカード情報を紐付けて登録します。
+        ・当該会員 ID に複数のカード情報を紐付けることが可能です。 ただし、同じカード情報を 2 回登録することはできません。
+          （一度削除したカード情報を、再度登録することは可能です）
+      tags:
+        - Cardinfo
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: ./models/request.v2.yaml#/CardInfoAddRequest
+      responses:
+        "200":
+          description: 成功した場合
+          content:
+            application/json:
+              schema:
+                $ref: ./models/response.v2.yaml#/AccountResponse
+  "/paynow/v2/Update/cardinfo":
+    post:
+      operationId: paynow-v2-update-cardinfo
+      summary: 当該会員 ID、およびカード ID に紐付けられたカード情報を更新します
+      description: |
+        ・当該会員 ID、およびカード ID に紐付けられたカード情報を更新します。 
+      tags:
+        - Cardinfo
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: ./models/request.v2.yaml#/CardInfoUpdateRequest
+      responses:
+        "200":
+          description: 成功した場合
+          content:
+            application/json:
+              schema:
+                $ref: ./models/response.v2.yaml#/AccountResponse
+  "/paynow/v2/Delete/cardinfo":
+    post:
+      operationId: paynow-v2-delete-cardinfo
+      summary: 会員 ID に紐付けられたカード情報を削除します
+      description: |
+        ・会員 ID に紐付けられたカード情報を削除します。
+      tags:
+        - Cardinfo
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: ./models/request.v2.yaml#/CardInfoDeleteRequest
       responses:
         "200":
           description: 成功した場合

@@ -31,3 +31,67 @@ AccountUpdateRequest:
     accountId:
       type: string
       example: account-1662828780
+CardInfoGetRequest:
+  type: object
+  required:
+    - accountId
+  properties:
+    accountId:
+      type: string
+      example: account-1662828780
+CardInfoAddRequest:
+  type: object
+  required:
+    - accountId
+    - cardId
+    - cardNumber
+    - cardExpire
+    - securityCode
+  properties:
+    accountId:
+      type: string
+      example: account-1662828780
+    cardNumber:
+      type: string
+      example: 4111111111111111
+    cardExpire:
+      type: string
+      example: 12/25
+    securityCode:
+      type: string
+      example: 123
+CardInfoUpdateRequest:
+  type: object
+  required:
+    - accountId
+    - cardId
+    - cardNumber
+    - cardExpire
+    - securityCode
+  properties:
+    accountId:
+      type: string
+      example: account-1662828780
+    cardId:
+      type: string
+      example: card-1662828780
+    cardNumber:
+      type: string
+      example: 4111111111111111
+    cardExpire:
+      type: string
+      example: 12/25
+    securityCode:
+      type: string
+      example: 123
+CardInfoDeleteRequest:
+  type: object
+  required:
+    - accountId
+  properties:
+    accountId:
+      type: string
+      example: account-1662828780
+    cardId:
+      type: string
+      example: card-1662828780

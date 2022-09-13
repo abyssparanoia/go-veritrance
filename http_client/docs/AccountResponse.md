@@ -1,52 +1,52 @@
-# AccountAddResponse
+# AccountResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PayNowIdResponse** | Pointer to [**AccountAddResponsePayNowIdResponse**](AccountAddResponsePayNowIdResponse.md) |  | [optional] 
+**PayNowIdResponse** | Pointer to [**AccountResponsePayNowIdResponse**](AccountResponsePayNowIdResponse.md) |  | [optional] 
 
 ## Methods
 
-### NewAccountAddResponse
+### NewAccountResponse
 
-`func NewAccountAddResponse() *AccountAddResponse`
+`func NewAccountResponse() *AccountResponse`
 
-NewAccountAddResponse instantiates a new AccountAddResponse object
+NewAccountResponse instantiates a new AccountResponse object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewAccountAddResponseWithDefaults
+### NewAccountResponseWithDefaults
 
-`func NewAccountAddResponseWithDefaults() *AccountAddResponse`
+`func NewAccountResponseWithDefaults() *AccountResponse`
 
-NewAccountAddResponseWithDefaults instantiates a new AccountAddResponse object
+NewAccountResponseWithDefaults instantiates a new AccountResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetPayNowIdResponse
 
-`func (o *AccountAddResponse) GetPayNowIdResponse() AccountAddResponsePayNowIdResponse`
+`func (o *AccountResponse) GetPayNowIdResponse() AccountResponsePayNowIdResponse`
 
 GetPayNowIdResponse returns the PayNowIdResponse field if non-nil, zero value otherwise.
 
 ### GetPayNowIdResponseOk
 
-`func (o *AccountAddResponse) GetPayNowIdResponseOk() (*AccountAddResponsePayNowIdResponse, bool)`
+`func (o *AccountResponse) GetPayNowIdResponseOk() (*AccountResponsePayNowIdResponse, bool)`
 
 GetPayNowIdResponseOk returns a tuple with the PayNowIdResponse field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPayNowIdResponse
 
-`func (o *AccountAddResponse) SetPayNowIdResponse(v AccountAddResponsePayNowIdResponse)`
+`func (o *AccountResponse) SetPayNowIdResponse(v AccountResponsePayNowIdResponse)`
 
 SetPayNowIdResponse sets PayNowIdResponse field to given value.
 
 ### HasPayNowIdResponse
 
-`func (o *AccountAddResponse) HasPayNowIdResponse() bool`
+`func (o *AccountResponse) HasPayNowIdResponse() bool`
 
 HasPayNowIdResponse returns a boolean if a field has been set.
 

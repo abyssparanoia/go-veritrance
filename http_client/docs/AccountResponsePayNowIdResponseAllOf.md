@@ -1,4 +1,4 @@
-# AccountAddResponsePayNowIdResponseAllOf
+# AccountResponsePayNowIdResponseAllOf
 
 ## Properties
 
@@ -8,45 +8,45 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewAccountAddResponsePayNowIdResponseAllOf
+### NewAccountResponsePayNowIdResponseAllOf
 
-`func NewAccountAddResponsePayNowIdResponseAllOf() *AccountAddResponsePayNowIdResponseAllOf`
+`func NewAccountResponsePayNowIdResponseAllOf() *AccountResponsePayNowIdResponseAllOf`
 
-NewAccountAddResponsePayNowIdResponseAllOf instantiates a new AccountAddResponsePayNowIdResponseAllOf object
+NewAccountResponsePayNowIdResponseAllOf instantiates a new AccountResponsePayNowIdResponseAllOf object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewAccountAddResponsePayNowIdResponseAllOfWithDefaults
+### NewAccountResponsePayNowIdResponseAllOfWithDefaults
 
-`func NewAccountAddResponsePayNowIdResponseAllOfWithDefaults() *AccountAddResponsePayNowIdResponseAllOf`
+`func NewAccountResponsePayNowIdResponseAllOfWithDefaults() *AccountResponsePayNowIdResponseAllOf`
 
-NewAccountAddResponsePayNowIdResponseAllOfWithDefaults instantiates a new AccountAddResponsePayNowIdResponseAllOf object
+NewAccountResponsePayNowIdResponseAllOfWithDefaults instantiates a new AccountResponsePayNowIdResponseAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetAccount
 
-`func (o *AccountAddResponsePayNowIdResponseAllOf) GetAccount() AccountV2`
+`func (o *AccountResponsePayNowIdResponseAllOf) GetAccount() AccountV2`
 
 GetAccount returns the Account field if non-nil, zero value otherwise.
 
 ### GetAccountOk
 
-`func (o *AccountAddResponsePayNowIdResponseAllOf) GetAccountOk() (*AccountV2, bool)`
+`func (o *AccountResponsePayNowIdResponseAllOf) GetAccountOk() (*AccountV2, bool)`
 
 GetAccountOk returns a tuple with the Account field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAccount
 
-`func (o *AccountAddResponsePayNowIdResponseAllOf) SetAccount(v AccountV2)`
+`func (o *AccountResponsePayNowIdResponseAllOf) SetAccount(v AccountV2)`
 
 SetAccount sets Account field to given value.
 
 ### HasAccount
 
-`func (o *AccountAddResponsePayNowIdResponseAllOf) HasAccount() bool`
+`func (o *AccountResponsePayNowIdResponseAllOf) HasAccount() bool`
 
 HasAccount returns a boolean if a field has been set.
 

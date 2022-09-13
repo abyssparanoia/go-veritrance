@@ -29,7 +29,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AccountAddResponse'
+                $ref: '#/components/schemas/AccountResponse'
           description: 成功した場合
       summary: 会員情報を追加します。
       tags:
@@ -74,6 +74,87 @@ paths:
       summary: 会員 ID の会員情報を、指定された「退会年月日」に削除します。
       tags:
       - Account
+  /paynow/v2/Get/cardinfo:
+    post:
+      description: |
+        ・会員 ID に紐付けられた課金情報を取得します。
+      operationId: paynow-v2-get-cardinfo
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CardInfoGetRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountResponse'
+          description: 成功した場合
+      summary: 会員 ID に紐付けられた課金情報を取得します
+      tags:
+      - Cardinfo
+  /paynow/v2/Add/cardinfo:
+    post:
+      description: |
+        ・会員 ID にカード情報を紐付けて登録します。
+        ・当該会員 ID に複数のカード情報を紐付けることが可能です。 ただし、同じカード情報を 2 回登録することはできません。
+          （一度削除したカード情報を、再度登録することは可能です）
+      operationId: paynow-v2-add-cardinfo
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CardInfoAddRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountResponse'
+          description: 成功した場合
+      summary: 会員 ID にカード情報を紐付けて登録します
+      tags:
+      - Cardinfo
+  /paynow/v2/Update/cardinfo:
+    post:
+      description: "・当該会員 ID、およびカード ID に紐付けられたカード情報を更新します。 \n"
+      operationId: paynow-v2-update-cardinfo
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CardInfoUpdateRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountResponse'
+          description: 成功した場合
+      summary: 当該会員 ID、およびカード ID に紐付けられたカード情報を更新します
+      tags:
+      - Cardinfo
+  /paynow/v2/Delete/cardinfo:
+    post:
+      description: |
+        ・会員 ID に紐付けられたカード情報を削除します。
+      operationId: paynow-v2-delete-cardinfo
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CardInfoDeleteRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayNowIdResponse'
+          description: 成功した場合
+      summary: 会員 ID に紐付けられたカード情報を削除します
+      tags:
+      - Cardinfo
 components:
   schemas:
     AccountAddRequest:
@@ -93,12 +174,12 @@ components:
       required:
       - accountId
       type: object
-    AccountAddResponse:
+    AccountResponse:
       example:
         payNowIdResponse: null
       properties:
         payNowIdResponse:
-          $ref: '#/components/schemas/AccountAddResponse_payNowIdResponse'
+          $ref: '#/components/schemas/AccountResponse_payNowIdResponse'
       type: object
     AbstractPayNowIdResponse:
       example:
@@ -149,6 +230,70 @@ components:
       required:
       - accountId
       type: object
+    CardInfoGetRequest:
+      properties:
+        accountId:
+          example: account-1662828780
+          type: string
+      required:
+      - accountId
+      type: object
+    CardInfoAddRequest:
+      properties:
+        accountId:
+          example: account-1662828780
+          type: string
+        cardNumber:
+          example: "4111111111111111"
+          type: string
+        cardExpire:
+          example: 12/25
+          type: string
+        securityCode:
+          example: "123"
+          type: string
+      required:
+      - accountId
+      - cardExpire
+      - cardId
+      - cardNumber
+      - securityCode
+      type: object
+    CardInfoUpdateRequest:
+      properties:
+        accountId:
+          example: account-1662828780
+          type: string
+        cardId:
+          example: card-1662828780
+          type: string
+        cardNumber:
+          example: "4111111111111111"
+          type: string
+        cardExpire:
+          example: 12/25
+          type: string
+        securityCode:
+          example: "123"
+          type: string
+      required:
+      - accountId
+      - cardExpire
+      - cardId
+      - cardNumber
+      - securityCode
+      type: object
+    CardInfoDeleteRequest:
+      properties:
+        accountId:
+          example: account-1662828780
+          type: string
+        cardId:
+          example: card-1662828780
+          type: string
+      required:
+      - accountId
+      type: object
     account.v2:
       description: 会員情報
       properties:
@@ -192,13 +337,13 @@ components:
       - defaultCard
       title: card_info
       type: object
-    AccountAddResponse_payNowIdResponse_allOf:
+    AccountResponse_payNowIdResponse_allOf:
       properties:
         account:
           $ref: '#/components/schemas/account.v2'
       type: object
-    AccountAddResponse_payNowIdResponse:
+    AccountResponse_payNowIdResponse:
       allOf:
       - $ref: '#/components/schemas/AbstractPayNowIdResponse'
-      - $ref: '#/components/schemas/AccountAddResponse_payNowIdResponse_allOf'
+      - $ref: '#/components/schemas/AccountResponse_payNowIdResponse_allOf'
       type: object
