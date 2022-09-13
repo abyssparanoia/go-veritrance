@@ -80,7 +80,7 @@ paths:
       operationId: paynow-v2-get-cardinfo
       summary: 会員 ID に紐付けられた課金情報を取得します
       description: |
-        ・会員 ID に紐付けられた課金情報を取得しま
+        ・会員 ID に紐付けられた課金情報を取得します。
       tags:
         - Cardinfo
       requestBody:

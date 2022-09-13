@@ -77,7 +77,7 @@ paths:
   /paynow/v2/Get/cardinfo:
     post:
       description: |
-        ・会員 ID に紐付けられた課金情報を取得しま
+        ・会員 ID に紐付けられた課金情報を取得します。
       operationId: paynow-v2-get-cardinfo
       requestBody:
         content:

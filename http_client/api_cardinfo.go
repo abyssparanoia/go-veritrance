@@ -301,7 +301,7 @@ func (r ApiPaynowV2GetCardinfoRequest) Execute() (*AccountResponse, *http.Respon
 /*
 PaynowV2GetCardinfo 会員 ID に紐付けられた課金情報を取得します
 
-・会員 ID に紐付けられた課金情報を取得しま
+・会員 ID に紐付けられた課金情報を取得します。
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
