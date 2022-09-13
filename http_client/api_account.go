@@ -51,7 +51,7 @@ func (r ApiPaynowV2AddAccountRequest) SecurityCode(securityCode string) ApiPayno
 	return r
 }
 
-func (r ApiPaynowV2AddAccountRequest) Execute() (*AccountAddResponse, *http.Response, error) {
+func (r ApiPaynowV2AddAccountRequest) Execute() (*AccountResponse, *http.Response, error) {
 	return r.ApiService.PaynowV2AddAccountExecute(r)
 }
 
@@ -76,13 +76,13 @@ func (a *AccountApiService) PaynowV2AddAccount(ctx context.Context) ApiPaynowV2A
 }
 
 // Execute executes the request
-//  @return AccountAddResponse
-func (a *AccountApiService) PaynowV2AddAccountExecute(r ApiPaynowV2AddAccountRequest) (*AccountAddResponse, *http.Response, error) {
+//  @return AccountResponse
+func (a *AccountApiService) PaynowV2AddAccountExecute(r ApiPaynowV2AddAccountRequest) (*AccountResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AccountAddResponse
+		localVarReturnValue  *AccountResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountApiService.PaynowV2AddAccount")

@@ -1,4 +1,4 @@
-# AccountAddResponsePayNowIdResponse
+# AccountResponsePayNowIdResponse
 
 ## Properties
 
@@ -11,105 +11,105 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewAccountAddResponsePayNowIdResponse
+### NewAccountResponsePayNowIdResponse
 
-`func NewAccountAddResponsePayNowIdResponse(processId string, status string, message string, ) *AccountAddResponsePayNowIdResponse`
+`func NewAccountResponsePayNowIdResponse(processId string, status string, message string, ) *AccountResponsePayNowIdResponse`
 
-NewAccountAddResponsePayNowIdResponse instantiates a new AccountAddResponsePayNowIdResponse object
+NewAccountResponsePayNowIdResponse instantiates a new AccountResponsePayNowIdResponse object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewAccountAddResponsePayNowIdResponseWithDefaults
+### NewAccountResponsePayNowIdResponseWithDefaults
 
-`func NewAccountAddResponsePayNowIdResponseWithDefaults() *AccountAddResponsePayNowIdResponse`
+`func NewAccountResponsePayNowIdResponseWithDefaults() *AccountResponsePayNowIdResponse`
 
-NewAccountAddResponsePayNowIdResponseWithDefaults instantiates a new AccountAddResponsePayNowIdResponse object
+NewAccountResponsePayNowIdResponseWithDefaults instantiates a new AccountResponsePayNowIdResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetProcessId
 
-`func (o *AccountAddResponsePayNowIdResponse) GetProcessId() string`
+`func (o *AccountResponsePayNowIdResponse) GetProcessId() string`
 
 GetProcessId returns the ProcessId field if non-nil, zero value otherwise.
 
 ### GetProcessIdOk
 
-`func (o *AccountAddResponsePayNowIdResponse) GetProcessIdOk() (*string, bool)`
+`func (o *AccountResponsePayNowIdResponse) GetProcessIdOk() (*string, bool)`
 
 GetProcessIdOk returns a tuple with the ProcessId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProcessId
 
-`func (o *AccountAddResponsePayNowIdResponse) SetProcessId(v string)`
+`func (o *AccountResponsePayNowIdResponse) SetProcessId(v string)`
 
 SetProcessId sets ProcessId field to given value.
 
 
 ### GetStatus
 
-`func (o *AccountAddResponsePayNowIdResponse) GetStatus() string`
+`func (o *AccountResponsePayNowIdResponse) GetStatus() string`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *AccountAddResponsePayNowIdResponse) GetStatusOk() (*string, bool)`
+`func (o *AccountResponsePayNowIdResponse) GetStatusOk() (*string, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *AccountAddResponsePayNowIdResponse) SetStatus(v string)`
+`func (o *AccountResponsePayNowIdResponse) SetStatus(v string)`
 
 SetStatus sets Status field to given value.
 
 
 ### GetMessage
 
-`func (o *AccountAddResponsePayNowIdResponse) GetMessage() string`
+`func (o *AccountResponsePayNowIdResponse) GetMessage() string`
 
 GetMessage returns the Message field if non-nil, zero value otherwise.
 
 ### GetMessageOk
 
-`func (o *AccountAddResponsePayNowIdResponse) GetMessageOk() (*string, bool)`
+`func (o *AccountResponsePayNowIdResponse) GetMessageOk() (*string, bool)`
 
 GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMessage
 
-`func (o *AccountAddResponsePayNowIdResponse) SetMessage(v string)`
+`func (o *AccountResponsePayNowIdResponse) SetMessage(v string)`
 
 SetMessage sets Message field to given value.
 
 
 ### GetAccount
 
-`func (o *AccountAddResponsePayNowIdResponse) GetAccount() AccountV2`
+`func (o *AccountResponsePayNowIdResponse) GetAccount() AccountV2`
 
 GetAccount returns the Account field if non-nil, zero value otherwise.
 
 ### GetAccountOk
 
-`func (o *AccountAddResponsePayNowIdResponse) GetAccountOk() (*AccountV2, bool)`
+`func (o *AccountResponsePayNowIdResponse) GetAccountOk() (*AccountV2, bool)`
 
 GetAccountOk returns a tuple with the Account field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAccount
 
-`func (o *AccountAddResponsePayNowIdResponse) SetAccount(v AccountV2)`
+`func (o *AccountResponsePayNowIdResponse) SetAccount(v AccountV2)`
 
 SetAccount sets Account field to given value.
 
 ### HasAccount
 
-`func (o *AccountAddResponsePayNowIdResponse) HasAccount() bool`
+`func (o *AccountResponsePayNowIdResponse) HasAccount() bool`
 
 HasAccount returns a boolean if a field has been set.
 

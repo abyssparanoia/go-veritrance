@@ -82,14 +82,18 @@ Class | Method | HTTP request | Description
 *AccountApi* | [**PaynowV2AddAccount**](docs/AccountApi.md#paynowv2addaccount) | **Post** /paynow/v2/Add/account | 会員情報を追加します。
 *AccountApi* | [**PaynowV2DeleteAccount**](docs/AccountApi.md#paynowv2deleteaccount) | **Post** /paynow/v2/Delete/account | 会員 ID の会員情報を、指定された「退会年月日」に削除します。
 *AccountApi* | [**PaynowV2UpdateAccount**](docs/AccountApi.md#paynowv2updateaccount) | **Post** /paynow/v2/Update/account | 会員 ID の「入会年月日」を更新します。
+*CardinfoApi* | [**PaynowV2AddCardinfo**](docs/CardinfoApi.md#paynowv2addcardinfo) | **Post** /paynow/v2/Add/cardinfo | 会員 ID にカード情報を紐付けて登録します
+*CardinfoApi* | [**PaynowV2DeleteCardinfo**](docs/CardinfoApi.md#paynowv2deletecardinfo) | **Post** /paynow/v2/Delete/cardinfo | 会員 ID に紐付けられたカード情報を削除します
+*CardinfoApi* | [**PaynowV2GetCardinfo**](docs/CardinfoApi.md#paynowv2getcardinfo) | **Post** /paynow/v2/Get/cardinfo | 会員 ID に紐付けられた課金情報を取得します
+*CardinfoApi* | [**PaynowV2UpdateCardinfo**](docs/CardinfoApi.md#paynowv2updatecardinfo) | **Post** /paynow/v2/Update/cardinfo | 当該会員 ID、およびカード ID に紐付けられたカード情報を更新します
 
 
 ## Documentation For Models
 
  - [AbstractPayNowIdResponse](docs/AbstractPayNowIdResponse.md)
- - [AccountAddResponse](docs/AccountAddResponse.md)
- - [AccountAddResponsePayNowIdResponse](docs/AccountAddResponsePayNowIdResponse.md)
- - [AccountAddResponsePayNowIdResponseAllOf](docs/AccountAddResponsePayNowIdResponseAllOf.md)
+ - [AccountResponse](docs/AccountResponse.md)
+ - [AccountResponsePayNowIdResponse](docs/AccountResponsePayNowIdResponse.md)
+ - [AccountResponsePayNowIdResponseAllOf](docs/AccountResponsePayNowIdResponseAllOf.md)
  - [AccountV2](docs/AccountV2.md)
  - [CardInfoV2](docs/CardInfoV2.md)
  - [PayNowIdResponse](docs/PayNowIdResponse.md)

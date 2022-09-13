@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## PaynowV2AddAccount
 
-> AccountAddResponse PaynowV2AddAccount(ctx).AccountId(accountId).CardNumber(cardNumber).CardExpire(cardExpire).SecurityCode(securityCode).Execute()
+> AccountResponse PaynowV2AddAccount(ctx).AccountId(accountId).CardNumber(cardNumber).CardExpire(cardExpire).SecurityCode(securityCode).Execute()
 
 会員情報を追加します。
 
@@ -43,7 +43,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.PaynowV2AddAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PaynowV2AddAccount`: AccountAddResponse
+    // response from `PaynowV2AddAccount`: AccountResponse
     fmt.Fprintf(os.Stdout, "Response from `AccountApi.PaynowV2AddAccount`: %v\n", resp)
 }
 ```
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AccountAddResponse**](AccountAddResponse.md)
+[**AccountResponse**](AccountResponse.md)
 
 ### Authorization
 

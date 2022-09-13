@@ -14,8 +14,8 @@ import (
 	"encoding/json"
 )
 
-// AccountAddResponsePayNowIdResponse struct for AccountAddResponsePayNowIdResponse
-type AccountAddResponsePayNowIdResponse struct {
+// AccountResponsePayNowIdResponse struct for AccountResponsePayNowIdResponse
+type AccountResponsePayNowIdResponse struct {
 	// 会員管理処理を一意に識別する番号
 	ProcessId string `json:"processId"`
 	// 会員管理処理要求の実行結果
@@ -25,28 +25,28 @@ type AccountAddResponsePayNowIdResponse struct {
 	Account *AccountV2 `json:"account,omitempty"`
 }
 
-// NewAccountAddResponsePayNowIdResponse instantiates a new AccountAddResponsePayNowIdResponse object
+// NewAccountResponsePayNowIdResponse instantiates a new AccountResponsePayNowIdResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAccountAddResponsePayNowIdResponse(processId string, status string, message string) *AccountAddResponsePayNowIdResponse {
-	this := AccountAddResponsePayNowIdResponse{}
+func NewAccountResponsePayNowIdResponse(processId string, status string, message string) *AccountResponsePayNowIdResponse {
+	this := AccountResponsePayNowIdResponse{}
 	this.ProcessId = processId
 	this.Status = status
 	this.Message = message
 	return &this
 }
 
-// NewAccountAddResponsePayNowIdResponseWithDefaults instantiates a new AccountAddResponsePayNowIdResponse object
+// NewAccountResponsePayNowIdResponseWithDefaults instantiates a new AccountResponsePayNowIdResponse object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewAccountAddResponsePayNowIdResponseWithDefaults() *AccountAddResponsePayNowIdResponse {
-	this := AccountAddResponsePayNowIdResponse{}
+func NewAccountResponsePayNowIdResponseWithDefaults() *AccountResponsePayNowIdResponse {
+	this := AccountResponsePayNowIdResponse{}
 	return &this
 }
 
 // GetProcessId returns the ProcessId field value
-func (o *AccountAddResponsePayNowIdResponse) GetProcessId() string {
+func (o *AccountResponsePayNowIdResponse) GetProcessId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -57,7 +57,7 @@ func (o *AccountAddResponsePayNowIdResponse) GetProcessId() string {
 
 // GetProcessIdOk returns a tuple with the ProcessId field value
 // and a boolean to check if the value has been set.
-func (o *AccountAddResponsePayNowIdResponse) GetProcessIdOk() (*string, bool) {
+func (o *AccountResponsePayNowIdResponse) GetProcessIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,12 +65,12 @@ func (o *AccountAddResponsePayNowIdResponse) GetProcessIdOk() (*string, bool) {
 }
 
 // SetProcessId sets field value
-func (o *AccountAddResponsePayNowIdResponse) SetProcessId(v string) {
+func (o *AccountResponsePayNowIdResponse) SetProcessId(v string) {
 	o.ProcessId = v
 }
 
 // GetStatus returns the Status field value
-func (o *AccountAddResponsePayNowIdResponse) GetStatus() string {
+func (o *AccountResponsePayNowIdResponse) GetStatus() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -81,7 +81,7 @@ func (o *AccountAddResponsePayNowIdResponse) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *AccountAddResponsePayNowIdResponse) GetStatusOk() (*string, bool) {
+func (o *AccountResponsePayNowIdResponse) GetStatusOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -89,12 +89,12 @@ func (o *AccountAddResponsePayNowIdResponse) GetStatusOk() (*string, bool) {
 }
 
 // SetStatus sets field value
-func (o *AccountAddResponsePayNowIdResponse) SetStatus(v string) {
+func (o *AccountResponsePayNowIdResponse) SetStatus(v string) {
 	o.Status = v
 }
 
 // GetMessage returns the Message field value
-func (o *AccountAddResponsePayNowIdResponse) GetMessage() string {
+func (o *AccountResponsePayNowIdResponse) GetMessage() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -105,7 +105,7 @@ func (o *AccountAddResponsePayNowIdResponse) GetMessage() string {
 
 // GetMessageOk returns a tuple with the Message field value
 // and a boolean to check if the value has been set.
-func (o *AccountAddResponsePayNowIdResponse) GetMessageOk() (*string, bool) {
+func (o *AccountResponsePayNowIdResponse) GetMessageOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -113,12 +113,12 @@ func (o *AccountAddResponsePayNowIdResponse) GetMessageOk() (*string, bool) {
 }
 
 // SetMessage sets field value
-func (o *AccountAddResponsePayNowIdResponse) SetMessage(v string) {
+func (o *AccountResponsePayNowIdResponse) SetMessage(v string) {
 	o.Message = v
 }
 
 // GetAccount returns the Account field value if set, zero value otherwise.
-func (o *AccountAddResponsePayNowIdResponse) GetAccount() AccountV2 {
+func (o *AccountResponsePayNowIdResponse) GetAccount() AccountV2 {
 	if o == nil || o.Account == nil {
 		var ret AccountV2
 		return ret
@@ -128,7 +128,7 @@ func (o *AccountAddResponsePayNowIdResponse) GetAccount() AccountV2 {
 
 // GetAccountOk returns a tuple with the Account field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AccountAddResponsePayNowIdResponse) GetAccountOk() (*AccountV2, bool) {
+func (o *AccountResponsePayNowIdResponse) GetAccountOk() (*AccountV2, bool) {
 	if o == nil || o.Account == nil {
 		return nil, false
 	}
@@ -136,7 +136,7 @@ func (o *AccountAddResponsePayNowIdResponse) GetAccountOk() (*AccountV2, bool) {
 }
 
 // HasAccount returns a boolean if a field has been set.
-func (o *AccountAddResponsePayNowIdResponse) HasAccount() bool {
+func (o *AccountResponsePayNowIdResponse) HasAccount() bool {
 	if o != nil && o.Account != nil {
 		return true
 	}
@@ -145,11 +145,11 @@ func (o *AccountAddResponsePayNowIdResponse) HasAccount() bool {
 }
 
 // SetAccount gets a reference to the given AccountV2 and assigns it to the Account field.
-func (o *AccountAddResponsePayNowIdResponse) SetAccount(v AccountV2) {
+func (o *AccountResponsePayNowIdResponse) SetAccount(v AccountV2) {
 	o.Account = &v
 }
 
-func (o AccountAddResponsePayNowIdResponse) MarshalJSON() ([]byte, error) {
+func (o AccountResponsePayNowIdResponse) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["processId"] = o.ProcessId
@@ -166,38 +166,38 @@ func (o AccountAddResponsePayNowIdResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableAccountAddResponsePayNowIdResponse struct {
-	value *AccountAddResponsePayNowIdResponse
+type NullableAccountResponsePayNowIdResponse struct {
+	value *AccountResponsePayNowIdResponse
 	isSet bool
 }
 
-func (v NullableAccountAddResponsePayNowIdResponse) Get() *AccountAddResponsePayNowIdResponse {
+func (v NullableAccountResponsePayNowIdResponse) Get() *AccountResponsePayNowIdResponse {
 	return v.value
 }
 
-func (v *NullableAccountAddResponsePayNowIdResponse) Set(val *AccountAddResponsePayNowIdResponse) {
+func (v *NullableAccountResponsePayNowIdResponse) Set(val *AccountResponsePayNowIdResponse) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableAccountAddResponsePayNowIdResponse) IsSet() bool {
+func (v NullableAccountResponsePayNowIdResponse) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableAccountAddResponsePayNowIdResponse) Unset() {
+func (v *NullableAccountResponsePayNowIdResponse) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableAccountAddResponsePayNowIdResponse(val *AccountAddResponsePayNowIdResponse) *NullableAccountAddResponsePayNowIdResponse {
-	return &NullableAccountAddResponsePayNowIdResponse{value: val, isSet: true}
+func NewNullableAccountResponsePayNowIdResponse(val *AccountResponsePayNowIdResponse) *NullableAccountResponsePayNowIdResponse {
+	return &NullableAccountResponsePayNowIdResponse{value: val, isSet: true}
 }
 
-func (v NullableAccountAddResponsePayNowIdResponse) MarshalJSON() ([]byte, error) {
+func (v NullableAccountResponsePayNowIdResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableAccountAddResponsePayNowIdResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableAccountResponsePayNowIdResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
