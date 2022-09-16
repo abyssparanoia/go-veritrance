@@ -3,6 +3,7 @@
 README.md
 api/openapi.yaml
 api_account.go
+api_card.go
 api_cardinfo.go
 client.go
 configuration.go
@@ -12,6 +13,10 @@ docs/AccountResponse.md
 docs/AccountResponsePayNowIdResponse.md
 docs/AccountResponsePayNowIdResponseAllOf.md
 docs/AccountV2.md
+docs/CardApi.md
+docs/CardAuthorizeResponse.md
+docs/CardCancelResponse.md
+docs/CardCaptureResponse.md
 docs/CardInfoV2.md
 docs/CardinfoApi.md
 docs/PayNowIdResponse.md
@@ -23,6 +28,9 @@ model_account_response.go
 model_account_response_pay_now_id_response.go
 model_account_response_pay_now_id_response_all_of.go
 model_account_v2.go
+model_card_authorize_response.go
+model_card_cancel_response.go
+model_card_capture_response.go
 model_card_info_v2.go
 model_pay_now_id_response.go
 response.go

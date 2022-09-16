@@ -157,3 +157,75 @@ paths:
             application/json:
               schema:
                 $ref: ./models/response.v2.yaml#/PayNowIdResponse
+  "/paynow/v2/Authorize/card":
+    post:
+      operationId: paynow-v2-authorize-cardinfo
+      summary: 決済の与信を行います
+      tags:
+        - Card
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: ./models/request.v2.yaml#/CardAuthorizeRequest
+      responses:
+        "200":
+          description: 成功した場合
+          content:
+            application/json:
+              schema:
+                $ref: ./models/response.v2.yaml#/CardAuthorizeResponse
+  "/paynow/v2/ReAuthorize/card":
+    post:
+      operationId: paynow-v2-reAuthorize-cardinfo
+      summary: 決済の再与信を行います
+      tags:
+        - Card
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: ./models/request.v2.yaml#/CardReAuthorizeRequest
+      responses:
+        "200":
+          description: 成功した場合
+          content:
+            application/json:
+              schema:
+                $ref: ./models/response.v2.yaml#/CardAuthorizeResponse
+  "/paynow/v2/Capture/card":
+    post:
+      operationId: paynow-v2-capture-cardinfo
+      summary: 決済の売上確定を行います
+      tags:
+        - Card
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: ./models/request.v2.yaml#/CardCaptureRequest
+      responses:
+        "200":
+          description: 成功した場合
+          content:
+            application/json:
+              schema:
+                $ref: ./models/response.v2.yaml#/CardCaptureResponse
+  "/paynow/v2/Cancel/card":
+    post:
+      operationId: paynow-v2-cancel-cardinfo
+      summary: 決済のキャンセルを行います
+      tags:
+        - Card
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: ./models/request.v2.yaml#/CardCancelRequest
+      responses:
+        "200":
+          description: 成功した場合
+          content:
+            application/json:
+              schema:
+                $ref: ./models/response.v2.yaml#/CardCancelResponse
