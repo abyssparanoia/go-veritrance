@@ -82,6 +82,10 @@ Class | Method | HTTP request | Description
 *AccountApi* | [**PaynowV2AddAccount**](docs/AccountApi.md#paynowv2addaccount) | **Post** /paynow/v2/Add/account | 会員情報を追加します。
 *AccountApi* | [**PaynowV2DeleteAccount**](docs/AccountApi.md#paynowv2deleteaccount) | **Post** /paynow/v2/Delete/account | 会員 ID の会員情報を、指定された「退会年月日」に削除します。
 *AccountApi* | [**PaynowV2UpdateAccount**](docs/AccountApi.md#paynowv2updateaccount) | **Post** /paynow/v2/Update/account | 会員 ID の「入会年月日」を更新します。
+*CardApi* | [**PaynowV2AuthorizeCardinfo**](docs/CardApi.md#paynowv2authorizecardinfo) | **Post** /paynow/v2/Authorize/card | 決済の与信を行います
+*CardApi* | [**PaynowV2CancelCardinfo**](docs/CardApi.md#paynowv2cancelcardinfo) | **Post** /paynow/v2/Cancel/card | 決済のキャンセルを行います
+*CardApi* | [**PaynowV2CaptureCardinfo**](docs/CardApi.md#paynowv2capturecardinfo) | **Post** /paynow/v2/Capture/card | 決済の売上確定を行います
+*CardApi* | [**PaynowV2ReAuthorizeCardinfo**](docs/CardApi.md#paynowv2reauthorizecardinfo) | **Post** /paynow/v2/ReAuthorize/card | 決済の再与信を行います
 *CardinfoApi* | [**PaynowV2AddCardinfo**](docs/CardinfoApi.md#paynowv2addcardinfo) | **Post** /paynow/v2/Add/cardinfo | 会員 ID にカード情報を紐付けて登録します
 *CardinfoApi* | [**PaynowV2DeleteCardinfo**](docs/CardinfoApi.md#paynowv2deletecardinfo) | **Post** /paynow/v2/Delete/cardinfo | 会員 ID に紐付けられたカード情報を削除します
 *CardinfoApi* | [**PaynowV2GetCardinfo**](docs/CardinfoApi.md#paynowv2getcardinfo) | **Post** /paynow/v2/Get/cardinfo | 会員 ID に紐付けられた課金情報を取得します
@@ -95,6 +99,9 @@ Class | Method | HTTP request | Description
  - [AccountResponsePayNowIdResponse](docs/AccountResponsePayNowIdResponse.md)
  - [AccountResponsePayNowIdResponseAllOf](docs/AccountResponsePayNowIdResponseAllOf.md)
  - [AccountV2](docs/AccountV2.md)
+ - [CardAuthorizeResponse](docs/CardAuthorizeResponse.md)
+ - [CardCancelResponse](docs/CardCancelResponse.md)
+ - [CardCaptureResponse](docs/CardCaptureResponse.md)
  - [CardInfoV2](docs/CardInfoV2.md)
  - [PayNowIdResponse](docs/PayNowIdResponse.md)
 
