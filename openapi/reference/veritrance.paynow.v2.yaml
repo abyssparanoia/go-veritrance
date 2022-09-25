@@ -87,7 +87,12 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: ./models/request.v2.yaml#/CardInfoGetRequest
+              type: object
+              properties:
+                params:
+                  $ref: ./models/request.v2.yaml#/CardInfoGetRequest
+                authHash:
+                  type: string
       responses:
         "200":
           description: 成功した場合
@@ -109,7 +114,12 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: ./models/request.v2.yaml#/CardInfoAddRequest
+              type: object
+              properties:
+                params:
+                  $ref: ./models/request.v2.yaml#/CardInfoAddRequest
+                authHash:
+                  type: string
       responses:
         "200":
           description: 成功した場合
@@ -129,7 +139,12 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: ./models/request.v2.yaml#/CardInfoUpdateRequest
+              type: object
+              properties:
+                params:
+                  $ref: ./models/request.v2.yaml#/CardInfoUpdateRequest
+                authHash:
+                  type: string
       responses:
         "200":
           description: 成功した場合
@@ -149,7 +164,12 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: ./models/request.v2.yaml#/CardInfoDeleteRequest
+              type: object
+              properties:
+                params:
+                  $ref: ./models/request.v2.yaml#/CardInfoDeleteRequest
+                authHash:
+                  type: string
       responses:
         "200":
           description: 成功した場合
@@ -167,7 +187,12 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: ./models/request.v2.yaml#/CardAuthorizeRequest
+              type: object
+              properties:
+                params:
+                  $ref: ./models/request.v2.yaml#/CardAuthorizeRequest
+                authHash:
+                  type: string
       responses:
         "200":
           description: 成功した場合
@@ -185,7 +210,12 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: ./models/request.v2.yaml#/CardReAuthorizeRequest
+              type: object
+              properties:
+                params:
+                  $ref: ./models/request.v2.yaml#/CardReAuthorizeRequest
+                authHash:
+                  type: string
       responses:
         "200":
           description: 成功した場合
@@ -203,7 +233,12 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: ./models/request.v2.yaml#/CardCaptureRequest
+              type: object
+              properties:
+                params:
+                  $ref: ./models/request.v2.yaml#/CardCaptureRequest
+                authHash:
+                  type: string
       responses:
         "200":
           description: 成功した場合
@@ -221,7 +256,12 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: ./models/request.v2.yaml#/CardCancelRequest
+              type: object
+              properties:
+                params:
+                 $ref: ./models/request.v2.yaml#/CardCancelRequest
+                authHash:
+                  type: string
       responses:
         "200":
           description: 成功した場合

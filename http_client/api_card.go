@@ -25,72 +25,17 @@ type CardApiService service
 type ApiPaynowV2AuthorizeCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardApiService
-	orderId *string
-	originalOrderId *string
-	amount *string
-	token *string
-	cardNumber *string
-	cardExpire *string
-	securityCode *string
-	cardOptionType *string
-	jpo *string
-	withCapture *bool
+	params *CardAuthorizeRequest
+	authHash *string
 }
 
-func (r ApiPaynowV2AuthorizeCardinfoRequest) OrderId(orderId string) ApiPaynowV2AuthorizeCardinfoRequest {
-	r.orderId = &orderId
+func (r ApiPaynowV2AuthorizeCardinfoRequest) Params(params CardAuthorizeRequest) ApiPaynowV2AuthorizeCardinfoRequest {
+	r.params = &params
 	return r
 }
 
-func (r ApiPaynowV2AuthorizeCardinfoRequest) OriginalOrderId(originalOrderId string) ApiPaynowV2AuthorizeCardinfoRequest {
-	r.originalOrderId = &originalOrderId
-	return r
-}
-
-func (r ApiPaynowV2AuthorizeCardinfoRequest) Amount(amount string) ApiPaynowV2AuthorizeCardinfoRequest {
-	r.amount = &amount
-	return r
-}
-
-// トークンサーバーが発行した、クレジットカード情報の識別に用いるトークンの値
-func (r ApiPaynowV2AuthorizeCardinfoRequest) Token(token string) ApiPaynowV2AuthorizeCardinfoRequest {
-	r.token = &token
-	return r
-}
-
-// （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-func (r ApiPaynowV2AuthorizeCardinfoRequest) CardNumber(cardNumber string) ApiPaynowV2AuthorizeCardinfoRequest {
-	r.cardNumber = &cardNumber
-	return r
-}
-
-// （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-func (r ApiPaynowV2AuthorizeCardinfoRequest) CardExpire(cardExpire string) ApiPaynowV2AuthorizeCardinfoRequest {
-	r.cardExpire = &cardExpire
-	return r
-}
-
-// （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-func (r ApiPaynowV2AuthorizeCardinfoRequest) SecurityCode(securityCode string) ApiPaynowV2AuthorizeCardinfoRequest {
-	r.securityCode = &securityCode
-	return r
-}
-
-// カードオプションタイプ （MPI 有り/無し）
-func (r ApiPaynowV2AuthorizeCardinfoRequest) CardOptionType(cardOptionType string) ApiPaynowV2AuthorizeCardinfoRequest {
-	r.cardOptionType = &cardOptionType
-	return r
-}
-
-// 支払種別 \\\&quot;10\\\&quot;： 一括払い \\\&quot;21\\\&quot;： ボーナス一括 \\\&quot;61Cxx\\\&quot;： 分割払い、xx に分割回数指定 “80”： リボルビング払い ※指定が無い場合は、\\\&quot;10\\\&quot;（一括払い）が適用されます。 
-func (r ApiPaynowV2AuthorizeCardinfoRequest) Jpo(jpo string) ApiPaynowV2AuthorizeCardinfoRequest {
-	r.jpo = &jpo
-	return r
-}
-
-// 売上フラグ \\\&quot;true\\\&quot;： 与信・売上 \\\&quot;false\\\&quot;： 与信のみ 
-func (r ApiPaynowV2AuthorizeCardinfoRequest) WithCapture(withCapture bool) ApiPaynowV2AuthorizeCardinfoRequest {
-	r.withCapture = &withCapture
+func (r ApiPaynowV2AuthorizeCardinfoRequest) AuthHash(authHash string) ApiPaynowV2AuthorizeCardinfoRequest {
+	r.authHash = &authHash
 	return r
 }
 
@@ -131,12 +76,6 @@ func (a *CardApiService) PaynowV2AuthorizeCardinfoExecute(r ApiPaynowV2Authorize
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.orderId == nil {
-		return localVarReturnValue, nil, reportError("orderId is required and must be specified")
-	}
-	if r.originalOrderId == nil {
-		return localVarReturnValue, nil, reportError("originalOrderId is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
@@ -155,31 +94,15 @@ func (a *CardApiService) PaynowV2AuthorizeCardinfoExecute(r ApiPaynowV2Authorize
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	localVarFormParams.Add("orderId", parameterToString(*r.orderId, ""))
-	localVarFormParams.Add("originalOrderId", parameterToString(*r.originalOrderId, ""))
-	if r.amount != nil {
-		localVarFormParams.Add("amount", parameterToString(*r.amount, ""))
+	if r.params != nil {
+		paramJson, err := parameterToJson(*r.params)
+		if err != nil {
+			return localVarReturnValue, nil, err
+		}
+		localVarFormParams.Add("params", paramJson)
 	}
-	if r.token != nil {
-		localVarFormParams.Add("token", parameterToString(*r.token, ""))
-	}
-	if r.cardNumber != nil {
-		localVarFormParams.Add("cardNumber", parameterToString(*r.cardNumber, ""))
-	}
-	if r.cardExpire != nil {
-		localVarFormParams.Add("cardExpire", parameterToString(*r.cardExpire, ""))
-	}
-	if r.securityCode != nil {
-		localVarFormParams.Add("securityCode", parameterToString(*r.securityCode, ""))
-	}
-	if r.cardOptionType != nil {
-		localVarFormParams.Add("cardOptionType", parameterToString(*r.cardOptionType, ""))
-	}
-	if r.jpo != nil {
-		localVarFormParams.Add("jpo", parameterToString(*r.jpo, ""))
-	}
-	if r.withCapture != nil {
-		localVarFormParams.Add("withCapture", parameterToString(*r.withCapture, ""))
+	if r.authHash != nil {
+		localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -221,17 +144,17 @@ func (a *CardApiService) PaynowV2AuthorizeCardinfoExecute(r ApiPaynowV2Authorize
 type ApiPaynowV2CancelCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardApiService
-	orderId *string
-	amount *string
+	params *CardCancelRequest
+	authHash *string
 }
 
-func (r ApiPaynowV2CancelCardinfoRequest) OrderId(orderId string) ApiPaynowV2CancelCardinfoRequest {
-	r.orderId = &orderId
+func (r ApiPaynowV2CancelCardinfoRequest) Params(params CardCancelRequest) ApiPaynowV2CancelCardinfoRequest {
+	r.params = &params
 	return r
 }
 
-func (r ApiPaynowV2CancelCardinfoRequest) Amount(amount string) ApiPaynowV2CancelCardinfoRequest {
-	r.amount = &amount
+func (r ApiPaynowV2CancelCardinfoRequest) AuthHash(authHash string) ApiPaynowV2CancelCardinfoRequest {
+	r.authHash = &authHash
 	return r
 }
 
@@ -272,12 +195,6 @@ func (a *CardApiService) PaynowV2CancelCardinfoExecute(r ApiPaynowV2CancelCardin
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.orderId == nil {
-		return localVarReturnValue, nil, reportError("orderId is required and must be specified")
-	}
-	if r.amount == nil {
-		return localVarReturnValue, nil, reportError("amount is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
@@ -296,8 +213,16 @@ func (a *CardApiService) PaynowV2CancelCardinfoExecute(r ApiPaynowV2CancelCardin
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	localVarFormParams.Add("orderId", parameterToString(*r.orderId, ""))
-	localVarFormParams.Add("amount", parameterToString(*r.amount, ""))
+	if r.params != nil {
+		paramJson, err := parameterToJson(*r.params)
+		if err != nil {
+			return localVarReturnValue, nil, err
+		}
+		localVarFormParams.Add("params", paramJson)
+	}
+	if r.authHash != nil {
+		localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -338,17 +263,17 @@ func (a *CardApiService) PaynowV2CancelCardinfoExecute(r ApiPaynowV2CancelCardin
 type ApiPaynowV2CaptureCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardApiService
-	orderId *string
-	amount *string
+	params *CardCaptureRequest
+	authHash *string
 }
 
-func (r ApiPaynowV2CaptureCardinfoRequest) OrderId(orderId string) ApiPaynowV2CaptureCardinfoRequest {
-	r.orderId = &orderId
+func (r ApiPaynowV2CaptureCardinfoRequest) Params(params CardCaptureRequest) ApiPaynowV2CaptureCardinfoRequest {
+	r.params = &params
 	return r
 }
 
-func (r ApiPaynowV2CaptureCardinfoRequest) Amount(amount string) ApiPaynowV2CaptureCardinfoRequest {
-	r.amount = &amount
+func (r ApiPaynowV2CaptureCardinfoRequest) AuthHash(authHash string) ApiPaynowV2CaptureCardinfoRequest {
+	r.authHash = &authHash
 	return r
 }
 
@@ -389,12 +314,6 @@ func (a *CardApiService) PaynowV2CaptureCardinfoExecute(r ApiPaynowV2CaptureCard
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.orderId == nil {
-		return localVarReturnValue, nil, reportError("orderId is required and must be specified")
-	}
-	if r.amount == nil {
-		return localVarReturnValue, nil, reportError("amount is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
@@ -413,8 +332,16 @@ func (a *CardApiService) PaynowV2CaptureCardinfoExecute(r ApiPaynowV2CaptureCard
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	localVarFormParams.Add("orderId", parameterToString(*r.orderId, ""))
-	localVarFormParams.Add("amount", parameterToString(*r.amount, ""))
+	if r.params != nil {
+		paramJson, err := parameterToJson(*r.params)
+		if err != nil {
+			return localVarReturnValue, nil, err
+		}
+		localVarFormParams.Add("params", paramJson)
+	}
+	if r.authHash != nil {
+		localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -455,66 +382,17 @@ func (a *CardApiService) PaynowV2CaptureCardinfoExecute(r ApiPaynowV2CaptureCard
 type ApiPaynowV2ReAuthorizeCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardApiService
-	orderId *string
-	amount *string
-	token *string
-	cardNumber *string
-	cardExpire *string
-	securityCode *string
-	cardOptionType *string
-	jpo *string
-	withCapture *bool
+	params *CardReAuthorizeRequest
+	authHash *string
 }
 
-func (r ApiPaynowV2ReAuthorizeCardinfoRequest) OrderId(orderId string) ApiPaynowV2ReAuthorizeCardinfoRequest {
-	r.orderId = &orderId
+func (r ApiPaynowV2ReAuthorizeCardinfoRequest) Params(params CardReAuthorizeRequest) ApiPaynowV2ReAuthorizeCardinfoRequest {
+	r.params = &params
 	return r
 }
 
-func (r ApiPaynowV2ReAuthorizeCardinfoRequest) Amount(amount string) ApiPaynowV2ReAuthorizeCardinfoRequest {
-	r.amount = &amount
-	return r
-}
-
-// トークンサーバーが発行した、クレジットカード情報の識別に用いるトークンの値
-func (r ApiPaynowV2ReAuthorizeCardinfoRequest) Token(token string) ApiPaynowV2ReAuthorizeCardinfoRequest {
-	r.token = &token
-	return r
-}
-
-// （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-func (r ApiPaynowV2ReAuthorizeCardinfoRequest) CardNumber(cardNumber string) ApiPaynowV2ReAuthorizeCardinfoRequest {
-	r.cardNumber = &cardNumber
-	return r
-}
-
-// （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-func (r ApiPaynowV2ReAuthorizeCardinfoRequest) CardExpire(cardExpire string) ApiPaynowV2ReAuthorizeCardinfoRequest {
-	r.cardExpire = &cardExpire
-	return r
-}
-
-// （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-func (r ApiPaynowV2ReAuthorizeCardinfoRequest) SecurityCode(securityCode string) ApiPaynowV2ReAuthorizeCardinfoRequest {
-	r.securityCode = &securityCode
-	return r
-}
-
-// カードオプションタイプ （MPI 有り/無し）
-func (r ApiPaynowV2ReAuthorizeCardinfoRequest) CardOptionType(cardOptionType string) ApiPaynowV2ReAuthorizeCardinfoRequest {
-	r.cardOptionType = &cardOptionType
-	return r
-}
-
-// 支払種別 \\\&quot;10\\\&quot;： 一括払い \\\&quot;21\\\&quot;： ボーナス一括 \\\&quot;61Cxx\\\&quot;： 分割払い、xx に分割回数指定 “80”： リボルビング払い ※指定が無い場合は、\\\&quot;10\\\&quot;（一括払い）が適用されます。 
-func (r ApiPaynowV2ReAuthorizeCardinfoRequest) Jpo(jpo string) ApiPaynowV2ReAuthorizeCardinfoRequest {
-	r.jpo = &jpo
-	return r
-}
-
-// 売上フラグ \\\&quot;true\\\&quot;： 与信・売上 \\\&quot;false\\\&quot;： 与信のみ 
-func (r ApiPaynowV2ReAuthorizeCardinfoRequest) WithCapture(withCapture bool) ApiPaynowV2ReAuthorizeCardinfoRequest {
-	r.withCapture = &withCapture
+func (r ApiPaynowV2ReAuthorizeCardinfoRequest) AuthHash(authHash string) ApiPaynowV2ReAuthorizeCardinfoRequest {
+	r.authHash = &authHash
 	return r
 }
 
@@ -555,12 +433,6 @@ func (a *CardApiService) PaynowV2ReAuthorizeCardinfoExecute(r ApiPaynowV2ReAutho
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.orderId == nil {
-		return localVarReturnValue, nil, reportError("orderId is required and must be specified")
-	}
-	if r.amount == nil {
-		return localVarReturnValue, nil, reportError("amount is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
@@ -579,28 +451,15 @@ func (a *CardApiService) PaynowV2ReAuthorizeCardinfoExecute(r ApiPaynowV2ReAutho
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	localVarFormParams.Add("orderId", parameterToString(*r.orderId, ""))
-	localVarFormParams.Add("amount", parameterToString(*r.amount, ""))
-	if r.token != nil {
-		localVarFormParams.Add("token", parameterToString(*r.token, ""))
+	if r.params != nil {
+		paramJson, err := parameterToJson(*r.params)
+		if err != nil {
+			return localVarReturnValue, nil, err
+		}
+		localVarFormParams.Add("params", paramJson)
 	}
-	if r.cardNumber != nil {
-		localVarFormParams.Add("cardNumber", parameterToString(*r.cardNumber, ""))
-	}
-	if r.cardExpire != nil {
-		localVarFormParams.Add("cardExpire", parameterToString(*r.cardExpire, ""))
-	}
-	if r.securityCode != nil {
-		localVarFormParams.Add("securityCode", parameterToString(*r.securityCode, ""))
-	}
-	if r.cardOptionType != nil {
-		localVarFormParams.Add("cardOptionType", parameterToString(*r.cardOptionType, ""))
-	}
-	if r.jpo != nil {
-		localVarFormParams.Add("jpo", parameterToString(*r.jpo, ""))
-	}
-	if r.withCapture != nil {
-		localVarFormParams.Add("withCapture", parameterToString(*r.withCapture, ""))
+	if r.authHash != nil {
+		localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {

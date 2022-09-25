@@ -42,15 +42,14 @@ CardInfoGetRequest:
 CardInfoAddRequest:
   type: object
   required:
-    - accountId
-    - cardId
-    - cardNumber
-    - cardExpire
-    - securityCode
+    - token
   properties:
     accountId:
       type: string
       example: account-1662828780
+    token:
+      type: string
+      example: 80b66157-6f6f-4a38-a6e4-43e306f0084f
     cardNumber:
       type: string
       example: 4111111111111111

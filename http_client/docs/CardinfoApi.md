@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## PaynowV2AddCardinfo
 
-> AccountResponse PaynowV2AddCardinfo(ctx).AccountId(accountId).CardNumber(cardNumber).CardExpire(cardExpire).SecurityCode(securityCode).Execute()
+> AccountResponse PaynowV2AddCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
 
 会員 ID にカード情報を紐付けて登録します
 
@@ -32,14 +32,12 @@ import (
 )
 
 func main() {
-    accountId := "accountId_example" // string | 
-    cardNumber := "cardNumber_example" // string | 
-    cardExpire := "cardExpire_example" // string | 
-    securityCode := "securityCode_example" // string | 
+    params := TODO // CardInfoAddRequest |  (optional)
+    authHash := "authHash_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CardinfoApi.PaynowV2AddCardinfo(context.Background()).AccountId(accountId).CardNumber(cardNumber).CardExpire(cardExpire).SecurityCode(securityCode).Execute()
+    resp, r, err := apiClient.CardinfoApi.PaynowV2AddCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CardinfoApi.PaynowV2AddCardinfo``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -60,10 +58,8 @@ Other parameters are passed through a pointer to a apiPaynowV2AddCardinfoRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **string** |  | 
- **cardNumber** | **string** |  | 
- **cardExpire** | **string** |  | 
- **securityCode** | **string** |  | 
+ **params** | [**CardInfoAddRequest**](CardInfoAddRequest.md) |  | 
+ **authHash** | **string** |  | 
 
 ### Return type
 
@@ -85,7 +81,7 @@ No authorization required
 
 ## PaynowV2DeleteCardinfo
 
-> PayNowIdResponse PaynowV2DeleteCardinfo(ctx).AccountId(accountId).CardId(cardId).Execute()
+> PayNowIdResponse PaynowV2DeleteCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
 
 会員 ID に紐付けられたカード情報を削除します
 
@@ -104,12 +100,12 @@ import (
 )
 
 func main() {
-    accountId := "accountId_example" // string | 
-    cardId := "cardId_example" // string |  (optional)
+    params := TODO // CardInfoDeleteRequest |  (optional)
+    authHash := "authHash_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CardinfoApi.PaynowV2DeleteCardinfo(context.Background()).AccountId(accountId).CardId(cardId).Execute()
+    resp, r, err := apiClient.CardinfoApi.PaynowV2DeleteCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CardinfoApi.PaynowV2DeleteCardinfo``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -130,8 +126,8 @@ Other parameters are passed through a pointer to a apiPaynowV2DeleteCardinfoRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **string** |  | 
- **cardId** | **string** |  | 
+ **params** | [**CardInfoDeleteRequest**](CardInfoDeleteRequest.md) |  | 
+ **authHash** | **string** |  | 
 
 ### Return type
 
@@ -153,7 +149,7 @@ No authorization required
 
 ## PaynowV2GetCardinfo
 
-> AccountResponse PaynowV2GetCardinfo(ctx).AccountId(accountId).Execute()
+> AccountResponse PaynowV2GetCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
 
 会員 ID に紐付けられた課金情報を取得します
 
@@ -172,11 +168,12 @@ import (
 )
 
 func main() {
-    accountId := "accountId_example" // string | 
+    params := TODO // CardInfoGetRequest |  (optional)
+    authHash := "authHash_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CardinfoApi.PaynowV2GetCardinfo(context.Background()).AccountId(accountId).Execute()
+    resp, r, err := apiClient.CardinfoApi.PaynowV2GetCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CardinfoApi.PaynowV2GetCardinfo``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -197,7 +194,8 @@ Other parameters are passed through a pointer to a apiPaynowV2GetCardinfoRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **string** |  | 
+ **params** | [**CardInfoGetRequest**](CardInfoGetRequest.md) |  | 
+ **authHash** | **string** |  | 
 
 ### Return type
 
@@ -219,7 +217,7 @@ No authorization required
 
 ## PaynowV2UpdateCardinfo
 
-> AccountResponse PaynowV2UpdateCardinfo(ctx).AccountId(accountId).CardId(cardId).CardNumber(cardNumber).CardExpire(cardExpire).SecurityCode(securityCode).Execute()
+> AccountResponse PaynowV2UpdateCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
 
 当該会員 ID、およびカード ID に紐付けられたカード情報を更新します
 
@@ -238,15 +236,12 @@ import (
 )
 
 func main() {
-    accountId := "accountId_example" // string | 
-    cardId := "cardId_example" // string | 
-    cardNumber := "cardNumber_example" // string | 
-    cardExpire := "cardExpire_example" // string | 
-    securityCode := "securityCode_example" // string | 
+    params := TODO // CardInfoUpdateRequest |  (optional)
+    authHash := "authHash_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CardinfoApi.PaynowV2UpdateCardinfo(context.Background()).AccountId(accountId).CardId(cardId).CardNumber(cardNumber).CardExpire(cardExpire).SecurityCode(securityCode).Execute()
+    resp, r, err := apiClient.CardinfoApi.PaynowV2UpdateCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CardinfoApi.PaynowV2UpdateCardinfo``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -267,11 +262,8 @@ Other parameters are passed through a pointer to a apiPaynowV2UpdateCardinfoRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **string** |  | 
- **cardId** | **string** |  | 
- **cardNumber** | **string** |  | 
- **cardExpire** | **string** |  | 
- **securityCode** | **string** |  | 
+ **params** | [**CardInfoUpdateRequest**](CardInfoUpdateRequest.md) |  | 
+ **authHash** | **string** |  | 
 
 ### Return type
 

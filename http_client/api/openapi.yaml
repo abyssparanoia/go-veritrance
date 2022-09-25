@@ -83,7 +83,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/CardInfoGetRequest'
+              $ref: '#/components/schemas/paynow_v2_get_cardinfo_request'
       responses:
         "200":
           content:
@@ -105,7 +105,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/CardInfoAddRequest'
+              $ref: '#/components/schemas/paynow_v2_add_cardinfo_request'
       responses:
         "200":
           content:
@@ -124,7 +124,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/CardInfoUpdateRequest'
+              $ref: '#/components/schemas/paynow_v2_update_cardinfo_request'
       responses:
         "200":
           content:
@@ -144,7 +144,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/CardInfoDeleteRequest'
+              $ref: '#/components/schemas/paynow_v2_delete_cardinfo_request'
       responses:
         "200":
           content:
@@ -162,7 +162,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/CardAuthorizeRequest'
+              $ref: '#/components/schemas/paynow_v2_authorize_cardinfo_request'
       responses:
         "200":
           content:
@@ -180,7 +180,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/CardReAuthorizeRequest'
+              $ref: '#/components/schemas/paynow_v2_reAuthorize_cardinfo_request'
       responses:
         "200":
           content:
@@ -198,7 +198,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/CardCaptureRequest'
+              $ref: '#/components/schemas/paynow_v2_capture_cardinfo_request'
       responses:
         "200":
           content:
@@ -216,7 +216,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/CardCancelRequest'
+              $ref: '#/components/schemas/paynow_v2_cancel_cardinfo_request'
       responses:
         "200":
           content:
@@ -315,6 +315,9 @@ components:
         accountId:
           example: account-1662828780
           type: string
+        token:
+          example: 80b66157-6f6f-4a38-a6e4-43e306f0084f
+          type: string
         cardNumber:
           example: "4111111111111111"
           type: string
@@ -325,11 +328,7 @@ components:
           example: "123"
           type: string
       required:
-      - accountId
-      - cardExpire
-      - cardId
-      - cardNumber
-      - securityCode
+      - token
       type: object
     CardInfoUpdateRequest:
       properties:
@@ -819,6 +818,62 @@ components:
       - cardNumber
       - defaultCard
       title: card_info
+      type: object
+    paynow_v2_get_cardinfo_request:
+      properties:
+        params:
+          $ref: '#/components/schemas/CardInfoGetRequest'
+        authHash:
+          type: string
+      type: object
+    paynow_v2_add_cardinfo_request:
+      properties:
+        params:
+          $ref: '#/components/schemas/CardInfoAddRequest'
+        authHash:
+          type: string
+      type: object
+    paynow_v2_update_cardinfo_request:
+      properties:
+        params:
+          $ref: '#/components/schemas/CardInfoUpdateRequest'
+        authHash:
+          type: string
+      type: object
+    paynow_v2_delete_cardinfo_request:
+      properties:
+        params:
+          $ref: '#/components/schemas/CardInfoDeleteRequest'
+        authHash:
+          type: string
+      type: object
+    paynow_v2_authorize_cardinfo_request:
+      properties:
+        params:
+          $ref: '#/components/schemas/CardAuthorizeRequest'
+        authHash:
+          type: string
+      type: object
+    paynow_v2_reAuthorize_cardinfo_request:
+      properties:
+        params:
+          $ref: '#/components/schemas/CardReAuthorizeRequest'
+        authHash:
+          type: string
+      type: object
+    paynow_v2_capture_cardinfo_request:
+      properties:
+        params:
+          $ref: '#/components/schemas/CardCaptureRequest'
+        authHash:
+          type: string
+      type: object
+    paynow_v2_cancel_cardinfo_request:
+      properties:
+        params:
+          $ref: '#/components/schemas/CardCancelRequest'
+        authHash:
+          type: string
       type: object
     AccountResponse_payNowIdResponse_allOf:
       properties:
