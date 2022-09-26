@@ -22,29 +22,29 @@ import (
 // AccountApiService AccountApi service
 type AccountApiService service
 
-type ApiPaynowV1AddAccountRequest struct {
+type ApiPaynowidV1AddAccountRequest struct {
 	ctx context.Context
 	ApiService *AccountApiService
 	params *string
 	authHash *string
 }
 
-func (r ApiPaynowV1AddAccountRequest) Params(params string) ApiPaynowV1AddAccountRequest {
+func (r ApiPaynowidV1AddAccountRequest) Params(params string) ApiPaynowidV1AddAccountRequest {
 	r.params = &params
 	return r
 }
 
-func (r ApiPaynowV1AddAccountRequest) AuthHash(authHash string) ApiPaynowV1AddAccountRequest {
+func (r ApiPaynowidV1AddAccountRequest) AuthHash(authHash string) ApiPaynowidV1AddAccountRequest {
 	r.authHash = &authHash
 	return r
 }
 
-func (r ApiPaynowV1AddAccountRequest) Execute() (*AccountResponse, *http.Response, error) {
-	return r.ApiService.PaynowV1AddAccountExecute(r)
+func (r ApiPaynowidV1AddAccountRequest) Execute() (*AccountResponse, *http.Response, error) {
+	return r.ApiService.PaynowidV1AddAccountExecute(r)
 }
 
 /*
-PaynowV1AddAccount 会員情報を追加します。
+PaynowidV1AddAccount 会員情報を追加します。
 
 ・会員 ID を登録します。
 ・会員 ID の登録と同時に、カード情報および継続課金情報を紐付けることが可能です。
@@ -54,10 +54,10 @@ PaynowV1AddAccount 会員情報を追加します。
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPaynowV1AddAccountRequest
+ @return ApiPaynowidV1AddAccountRequest
 */
-func (a *AccountApiService) PaynowV1AddAccount(ctx context.Context) ApiPaynowV1AddAccountRequest {
-	return ApiPaynowV1AddAccountRequest{
+func (a *AccountApiService) PaynowidV1AddAccount(ctx context.Context) ApiPaynowidV1AddAccountRequest {
+	return ApiPaynowidV1AddAccountRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -65,7 +65,7 @@ func (a *AccountApiService) PaynowV1AddAccount(ctx context.Context) ApiPaynowV1A
 
 // Execute executes the request
 //  @return AccountResponse
-func (a *AccountApiService) PaynowV1AddAccountExecute(r ApiPaynowV1AddAccountRequest) (*AccountResponse, *http.Response, error) {
+func (a *AccountApiService) PaynowidV1AddAccountExecute(r ApiPaynowidV1AddAccountRequest) (*AccountResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -73,12 +73,12 @@ func (a *AccountApiService) PaynowV1AddAccountExecute(r ApiPaynowV1AddAccountReq
 		localVarReturnValue  *AccountResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountApiService.PaynowV1AddAccount")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountApiService.PaynowidV1AddAccount")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/paynow/v1/Add/account"
+	localVarPath := localBasePath + "/paynowid/v1/Add/account"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -146,38 +146,38 @@ func (a *AccountApiService) PaynowV1AddAccountExecute(r ApiPaynowV1AddAccountReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPaynowV1DeleteAccountRequest struct {
+type ApiPaynowidV1DeleteAccountRequest struct {
 	ctx context.Context
 	ApiService *AccountApiService
 	params *string
 	authHash *string
 }
 
-func (r ApiPaynowV1DeleteAccountRequest) Params(params string) ApiPaynowV1DeleteAccountRequest {
+func (r ApiPaynowidV1DeleteAccountRequest) Params(params string) ApiPaynowidV1DeleteAccountRequest {
 	r.params = &params
 	return r
 }
 
-func (r ApiPaynowV1DeleteAccountRequest) AuthHash(authHash string) ApiPaynowV1DeleteAccountRequest {
+func (r ApiPaynowidV1DeleteAccountRequest) AuthHash(authHash string) ApiPaynowidV1DeleteAccountRequest {
 	r.authHash = &authHash
 	return r
 }
 
-func (r ApiPaynowV1DeleteAccountRequest) Execute() (*PayNowIdResponse, *http.Response, error) {
-	return r.ApiService.PaynowV1DeleteAccountExecute(r)
+func (r ApiPaynowidV1DeleteAccountRequest) Execute() (*PayNowIdResponse, *http.Response, error) {
+	return r.ApiService.PaynowidV1DeleteAccountExecute(r)
 }
 
 /*
-PaynowV1DeleteAccount 会員 ID の会員情報を、指定された「退会年月日」に削除します。
+PaynowidV1DeleteAccount 会員 ID の会員情報を、指定された「退会年月日」に削除します。
 
 ・会員 ID の会員情報を、指定された「退会年月日」に削除します。
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPaynowV1DeleteAccountRequest
+ @return ApiPaynowidV1DeleteAccountRequest
 */
-func (a *AccountApiService) PaynowV1DeleteAccount(ctx context.Context) ApiPaynowV1DeleteAccountRequest {
-	return ApiPaynowV1DeleteAccountRequest{
+func (a *AccountApiService) PaynowidV1DeleteAccount(ctx context.Context) ApiPaynowidV1DeleteAccountRequest {
+	return ApiPaynowidV1DeleteAccountRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -185,7 +185,7 @@ func (a *AccountApiService) PaynowV1DeleteAccount(ctx context.Context) ApiPaynow
 
 // Execute executes the request
 //  @return PayNowIdResponse
-func (a *AccountApiService) PaynowV1DeleteAccountExecute(r ApiPaynowV1DeleteAccountRequest) (*PayNowIdResponse, *http.Response, error) {
+func (a *AccountApiService) PaynowidV1DeleteAccountExecute(r ApiPaynowidV1DeleteAccountRequest) (*PayNowIdResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -193,12 +193,12 @@ func (a *AccountApiService) PaynowV1DeleteAccountExecute(r ApiPaynowV1DeleteAcco
 		localVarReturnValue  *PayNowIdResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountApiService.PaynowV1DeleteAccount")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountApiService.PaynowidV1DeleteAccount")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/paynow/v1/Delete/account"
+	localVarPath := localBasePath + "/paynowid/v1/Delete/account"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -266,38 +266,38 @@ func (a *AccountApiService) PaynowV1DeleteAccountExecute(r ApiPaynowV1DeleteAcco
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPaynowV1UpdateAccountRequest struct {
+type ApiPaynowidV1UpdateAccountRequest struct {
 	ctx context.Context
 	ApiService *AccountApiService
 	params *string
 	authHash *string
 }
 
-func (r ApiPaynowV1UpdateAccountRequest) Params(params string) ApiPaynowV1UpdateAccountRequest {
+func (r ApiPaynowidV1UpdateAccountRequest) Params(params string) ApiPaynowidV1UpdateAccountRequest {
 	r.params = &params
 	return r
 }
 
-func (r ApiPaynowV1UpdateAccountRequest) AuthHash(authHash string) ApiPaynowV1UpdateAccountRequest {
+func (r ApiPaynowidV1UpdateAccountRequest) AuthHash(authHash string) ApiPaynowidV1UpdateAccountRequest {
 	r.authHash = &authHash
 	return r
 }
 
-func (r ApiPaynowV1UpdateAccountRequest) Execute() (*PayNowIdResponse, *http.Response, error) {
-	return r.ApiService.PaynowV1UpdateAccountExecute(r)
+func (r ApiPaynowidV1UpdateAccountRequest) Execute() (*PayNowIdResponse, *http.Response, error) {
+	return r.ApiService.PaynowidV1UpdateAccountExecute(r)
 }
 
 /*
-PaynowV1UpdateAccount 会員 ID の「入会年月日」を更新します。
+PaynowidV1UpdateAccount 会員 ID の「入会年月日」を更新します。
 
 ・会員 ID の「入会年月日」を更新します。
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPaynowV1UpdateAccountRequest
+ @return ApiPaynowidV1UpdateAccountRequest
 */
-func (a *AccountApiService) PaynowV1UpdateAccount(ctx context.Context) ApiPaynowV1UpdateAccountRequest {
-	return ApiPaynowV1UpdateAccountRequest{
+func (a *AccountApiService) PaynowidV1UpdateAccount(ctx context.Context) ApiPaynowidV1UpdateAccountRequest {
+	return ApiPaynowidV1UpdateAccountRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -305,7 +305,7 @@ func (a *AccountApiService) PaynowV1UpdateAccount(ctx context.Context) ApiPaynow
 
 // Execute executes the request
 //  @return PayNowIdResponse
-func (a *AccountApiService) PaynowV1UpdateAccountExecute(r ApiPaynowV1UpdateAccountRequest) (*PayNowIdResponse, *http.Response, error) {
+func (a *AccountApiService) PaynowidV1UpdateAccountExecute(r ApiPaynowidV1UpdateAccountRequest) (*PayNowIdResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -313,12 +313,12 @@ func (a *AccountApiService) PaynowV1UpdateAccountExecute(r ApiPaynowV1UpdateAcco
 		localVarReturnValue  *PayNowIdResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountApiService.PaynowV1UpdateAccount")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountApiService.PaynowidV1UpdateAccount")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/paynow/v1/Update/account"
+	localVarPath := localBasePath + "/paynowid/v1/Update/account"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

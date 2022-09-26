@@ -11,7 +11,7 @@ servers:
 - description: Production
   url: https://api.veritrans.co.jp:443
 paths:
-  /paynow/v1/Add/account:
+  /paynowid/v1/Add/account:
     post:
       description: |
         ・会員 ID を登録します。
@@ -19,12 +19,12 @@ paths:
           継続課金情報を設定する際は、カード情報の同時設定が必要です。
           カード情報を指定した場合、有効性確認が行われます。
         ・会員 ID の登録と同時に、カード情報のみを紐付けることが可能です。
-      operationId: paynow-v1-add-account
+      operationId: paynowid-v1-add-account
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_add_account_request'
       responses:
         "200":
           content:
@@ -35,16 +35,16 @@ paths:
       summary: 会員情報を追加します。
       tags:
       - Account
-  /paynow/v1/Update/account:
+  /paynowid/v1/Update/account:
     post:
       description: |
         ・会員 ID の「入会年月日」を更新します。
-      operationId: paynow-v1-update-account
+      operationId: paynowid-v1-update-account
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_add_account_request'
       responses:
         "200":
           content:
@@ -55,16 +55,16 @@ paths:
       summary: 会員 ID の「入会年月日」を更新します。
       tags:
       - Account
-  /paynow/v1/Delete/account:
+  /paynowid/v1/Delete/account:
     post:
       description: |
         ・会員 ID の会員情報を、指定された「退会年月日」に削除します。
-      operationId: paynow-v1-delete-account
+      operationId: paynowid-v1-delete-account
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_add_account_request'
       responses:
         "200":
           content:
@@ -75,16 +75,16 @@ paths:
       summary: 会員 ID の会員情報を、指定された「退会年月日」に削除します。
       tags:
       - Account
-  /paynow/v1/Get/cardinfo:
+  /paynowid/v1/Get/cardinfo:
     post:
       description: |
         ・会員 ID に紐付けられた課金情報を取得します。
-      operationId: paynow-v1-get-cardinfo
+      operationId: paynowid-v1-get-cardinfo
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_add_account_request'
       responses:
         "200":
           content:
@@ -95,18 +95,18 @@ paths:
       summary: 会員 ID に紐付けられた課金情報を取得します
       tags:
       - Cardinfo
-  /paynow/v1/Add/cardinfo:
+  /paynowid/v1/Add/cardinfo:
     post:
       description: |
         ・会員 ID にカード情報を紐付けて登録します。
         ・当該会員 ID に複数のカード情報を紐付けることが可能です。 ただし、同じカード情報を 2 回登録することはできません。
           （一度削除したカード情報を、再度登録することは可能です）
-      operationId: paynow-v1-add-cardinfo
+      operationId: paynowid-v1-add-cardinfo
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_add_account_request'
       responses:
         "200":
           content:
@@ -117,15 +117,15 @@ paths:
       summary: 会員 ID にカード情報を紐付けて登録します
       tags:
       - Cardinfo
-  /paynow/v1/Update/cardinfo:
+  /paynowid/v1/Update/cardinfo:
     post:
       description: "・当該会員 ID、およびカード ID に紐付けられたカード情報を更新します。 \n"
-      operationId: paynow-v1-update-cardinfo
+      operationId: paynowid-v1-update-cardinfo
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_add_account_request'
       responses:
         "200":
           content:
@@ -136,16 +136,16 @@ paths:
       summary: 当該会員 ID、およびカード ID に紐付けられたカード情報を更新します
       tags:
       - Cardinfo
-  /paynow/v1/Delete/cardinfo:
+  /paynowid/v1/Delete/cardinfo:
     post:
       description: |
         ・会員 ID に紐付けられたカード情報を削除します。
-      operationId: paynow-v1-delete-cardinfo
+      operationId: paynowid-v1-delete-cardinfo
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_add_account_request'
       responses:
         "200":
           content:
@@ -156,14 +156,14 @@ paths:
       summary: 会員 ID に紐付けられたカード情報を削除します
       tags:
       - Cardinfo
-  /paynow/v1/Authorize/card:
+  /paynowid/v1/Authorize/card:
     post:
-      operationId: paynow-v1-authorize-cardinfo
+      operationId: paynowid-v1-authorize-cardinfo
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_add_account_request'
       responses:
         "200":
           content:
@@ -174,14 +174,14 @@ paths:
       summary: 決済の与信を行います
       tags:
       - Card
-  /paynow/v1/ReAuthorize/card:
+  /paynowid/v1/ReAuthorize/card:
     post:
-      operationId: paynow-v1-reAuthorize-cardinfo
+      operationId: paynowid-v1-reAuthorize-cardinfo
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_add_account_request'
       responses:
         "200":
           content:
@@ -192,14 +192,14 @@ paths:
       summary: 決済の再与信を行います
       tags:
       - Card
-  /paynow/v1/Capture/card:
+  /paynowid/v1/Capture/card:
     post:
-      operationId: paynow-v1-capture-cardinfo
+      operationId: paynowid-v1-capture-cardinfo
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_add_account_request'
       responses:
         "200":
           content:
@@ -210,14 +210,14 @@ paths:
       summary: 決済の売上確定を行います
       tags:
       - Card
-  /paynow/v1/Cancel/card:
+  /paynowid/v1/Cancel/card:
     post:
-      operationId: paynow-v1-cancel-cardinfo
+      operationId: paynowid-v1-cancel-cardinfo
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_add_account_request'
       responses:
         "200":
           content:
@@ -700,7 +700,7 @@ components:
       - defaultCard
       title: card_info
       type: object
-    paynow_v1_add_account_request:
+    paynowid_v1_add_account_request:
       properties:
         params:
           type: string

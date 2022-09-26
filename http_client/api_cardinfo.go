@@ -22,29 +22,29 @@ import (
 // CardinfoApiService CardinfoApi service
 type CardinfoApiService service
 
-type ApiPaynowV1AddCardinfoRequest struct {
+type ApiPaynowidV1AddCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardinfoApiService
 	params *string
 	authHash *string
 }
 
-func (r ApiPaynowV1AddCardinfoRequest) Params(params string) ApiPaynowV1AddCardinfoRequest {
+func (r ApiPaynowidV1AddCardinfoRequest) Params(params string) ApiPaynowidV1AddCardinfoRequest {
 	r.params = &params
 	return r
 }
 
-func (r ApiPaynowV1AddCardinfoRequest) AuthHash(authHash string) ApiPaynowV1AddCardinfoRequest {
+func (r ApiPaynowidV1AddCardinfoRequest) AuthHash(authHash string) ApiPaynowidV1AddCardinfoRequest {
 	r.authHash = &authHash
 	return r
 }
 
-func (r ApiPaynowV1AddCardinfoRequest) Execute() (*AccountResponse, *http.Response, error) {
-	return r.ApiService.PaynowV1AddCardinfoExecute(r)
+func (r ApiPaynowidV1AddCardinfoRequest) Execute() (*AccountResponse, *http.Response, error) {
+	return r.ApiService.PaynowidV1AddCardinfoExecute(r)
 }
 
 /*
-PaynowV1AddCardinfo 会員 ID にカード情報を紐付けて登録します
+PaynowidV1AddCardinfo 会員 ID にカード情報を紐付けて登録します
 
 ・会員 ID にカード情報を紐付けて登録します。
 ・当該会員 ID に複数のカード情報を紐付けることが可能です。 ただし、同じカード情報を 2 回登録することはできません。
@@ -52,10 +52,10 @@ PaynowV1AddCardinfo 会員 ID にカード情報を紐付けて登録します
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPaynowV1AddCardinfoRequest
+ @return ApiPaynowidV1AddCardinfoRequest
 */
-func (a *CardinfoApiService) PaynowV1AddCardinfo(ctx context.Context) ApiPaynowV1AddCardinfoRequest {
-	return ApiPaynowV1AddCardinfoRequest{
+func (a *CardinfoApiService) PaynowidV1AddCardinfo(ctx context.Context) ApiPaynowidV1AddCardinfoRequest {
+	return ApiPaynowidV1AddCardinfoRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -63,7 +63,7 @@ func (a *CardinfoApiService) PaynowV1AddCardinfo(ctx context.Context) ApiPaynowV
 
 // Execute executes the request
 //  @return AccountResponse
-func (a *CardinfoApiService) PaynowV1AddCardinfoExecute(r ApiPaynowV1AddCardinfoRequest) (*AccountResponse, *http.Response, error) {
+func (a *CardinfoApiService) PaynowidV1AddCardinfoExecute(r ApiPaynowidV1AddCardinfoRequest) (*AccountResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -71,12 +71,12 @@ func (a *CardinfoApiService) PaynowV1AddCardinfoExecute(r ApiPaynowV1AddCardinfo
 		localVarReturnValue  *AccountResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardinfoApiService.PaynowV1AddCardinfo")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardinfoApiService.PaynowidV1AddCardinfo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/paynow/v1/Add/cardinfo"
+	localVarPath := localBasePath + "/paynowid/v1/Add/cardinfo"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -144,38 +144,38 @@ func (a *CardinfoApiService) PaynowV1AddCardinfoExecute(r ApiPaynowV1AddCardinfo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPaynowV1DeleteCardinfoRequest struct {
+type ApiPaynowidV1DeleteCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardinfoApiService
 	params *string
 	authHash *string
 }
 
-func (r ApiPaynowV1DeleteCardinfoRequest) Params(params string) ApiPaynowV1DeleteCardinfoRequest {
+func (r ApiPaynowidV1DeleteCardinfoRequest) Params(params string) ApiPaynowidV1DeleteCardinfoRequest {
 	r.params = &params
 	return r
 }
 
-func (r ApiPaynowV1DeleteCardinfoRequest) AuthHash(authHash string) ApiPaynowV1DeleteCardinfoRequest {
+func (r ApiPaynowidV1DeleteCardinfoRequest) AuthHash(authHash string) ApiPaynowidV1DeleteCardinfoRequest {
 	r.authHash = &authHash
 	return r
 }
 
-func (r ApiPaynowV1DeleteCardinfoRequest) Execute() (*PayNowIdResponse, *http.Response, error) {
-	return r.ApiService.PaynowV1DeleteCardinfoExecute(r)
+func (r ApiPaynowidV1DeleteCardinfoRequest) Execute() (*PayNowIdResponse, *http.Response, error) {
+	return r.ApiService.PaynowidV1DeleteCardinfoExecute(r)
 }
 
 /*
-PaynowV1DeleteCardinfo 会員 ID に紐付けられたカード情報を削除します
+PaynowidV1DeleteCardinfo 会員 ID に紐付けられたカード情報を削除します
 
 ・会員 ID に紐付けられたカード情報を削除します。
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPaynowV1DeleteCardinfoRequest
+ @return ApiPaynowidV1DeleteCardinfoRequest
 */
-func (a *CardinfoApiService) PaynowV1DeleteCardinfo(ctx context.Context) ApiPaynowV1DeleteCardinfoRequest {
-	return ApiPaynowV1DeleteCardinfoRequest{
+func (a *CardinfoApiService) PaynowidV1DeleteCardinfo(ctx context.Context) ApiPaynowidV1DeleteCardinfoRequest {
+	return ApiPaynowidV1DeleteCardinfoRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -183,7 +183,7 @@ func (a *CardinfoApiService) PaynowV1DeleteCardinfo(ctx context.Context) ApiPayn
 
 // Execute executes the request
 //  @return PayNowIdResponse
-func (a *CardinfoApiService) PaynowV1DeleteCardinfoExecute(r ApiPaynowV1DeleteCardinfoRequest) (*PayNowIdResponse, *http.Response, error) {
+func (a *CardinfoApiService) PaynowidV1DeleteCardinfoExecute(r ApiPaynowidV1DeleteCardinfoRequest) (*PayNowIdResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -191,12 +191,12 @@ func (a *CardinfoApiService) PaynowV1DeleteCardinfoExecute(r ApiPaynowV1DeleteCa
 		localVarReturnValue  *PayNowIdResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardinfoApiService.PaynowV1DeleteCardinfo")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardinfoApiService.PaynowidV1DeleteCardinfo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/paynow/v1/Delete/cardinfo"
+	localVarPath := localBasePath + "/paynowid/v1/Delete/cardinfo"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -264,38 +264,38 @@ func (a *CardinfoApiService) PaynowV1DeleteCardinfoExecute(r ApiPaynowV1DeleteCa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPaynowV1GetCardinfoRequest struct {
+type ApiPaynowidV1GetCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardinfoApiService
 	params *string
 	authHash *string
 }
 
-func (r ApiPaynowV1GetCardinfoRequest) Params(params string) ApiPaynowV1GetCardinfoRequest {
+func (r ApiPaynowidV1GetCardinfoRequest) Params(params string) ApiPaynowidV1GetCardinfoRequest {
 	r.params = &params
 	return r
 }
 
-func (r ApiPaynowV1GetCardinfoRequest) AuthHash(authHash string) ApiPaynowV1GetCardinfoRequest {
+func (r ApiPaynowidV1GetCardinfoRequest) AuthHash(authHash string) ApiPaynowidV1GetCardinfoRequest {
 	r.authHash = &authHash
 	return r
 }
 
-func (r ApiPaynowV1GetCardinfoRequest) Execute() (*AccountResponse, *http.Response, error) {
-	return r.ApiService.PaynowV1GetCardinfoExecute(r)
+func (r ApiPaynowidV1GetCardinfoRequest) Execute() (*AccountResponse, *http.Response, error) {
+	return r.ApiService.PaynowidV1GetCardinfoExecute(r)
 }
 
 /*
-PaynowV1GetCardinfo 会員 ID に紐付けられた課金情報を取得します
+PaynowidV1GetCardinfo 会員 ID に紐付けられた課金情報を取得します
 
 ・会員 ID に紐付けられた課金情報を取得します。
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPaynowV1GetCardinfoRequest
+ @return ApiPaynowidV1GetCardinfoRequest
 */
-func (a *CardinfoApiService) PaynowV1GetCardinfo(ctx context.Context) ApiPaynowV1GetCardinfoRequest {
-	return ApiPaynowV1GetCardinfoRequest{
+func (a *CardinfoApiService) PaynowidV1GetCardinfo(ctx context.Context) ApiPaynowidV1GetCardinfoRequest {
+	return ApiPaynowidV1GetCardinfoRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -303,7 +303,7 @@ func (a *CardinfoApiService) PaynowV1GetCardinfo(ctx context.Context) ApiPaynowV
 
 // Execute executes the request
 //  @return AccountResponse
-func (a *CardinfoApiService) PaynowV1GetCardinfoExecute(r ApiPaynowV1GetCardinfoRequest) (*AccountResponse, *http.Response, error) {
+func (a *CardinfoApiService) PaynowidV1GetCardinfoExecute(r ApiPaynowidV1GetCardinfoRequest) (*AccountResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -311,12 +311,12 @@ func (a *CardinfoApiService) PaynowV1GetCardinfoExecute(r ApiPaynowV1GetCardinfo
 		localVarReturnValue  *AccountResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardinfoApiService.PaynowV1GetCardinfo")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardinfoApiService.PaynowidV1GetCardinfo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/paynow/v1/Get/cardinfo"
+	localVarPath := localBasePath + "/paynowid/v1/Get/cardinfo"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -384,38 +384,38 @@ func (a *CardinfoApiService) PaynowV1GetCardinfoExecute(r ApiPaynowV1GetCardinfo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPaynowV1UpdateCardinfoRequest struct {
+type ApiPaynowidV1UpdateCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardinfoApiService
 	params *string
 	authHash *string
 }
 
-func (r ApiPaynowV1UpdateCardinfoRequest) Params(params string) ApiPaynowV1UpdateCardinfoRequest {
+func (r ApiPaynowidV1UpdateCardinfoRequest) Params(params string) ApiPaynowidV1UpdateCardinfoRequest {
 	r.params = &params
 	return r
 }
 
-func (r ApiPaynowV1UpdateCardinfoRequest) AuthHash(authHash string) ApiPaynowV1UpdateCardinfoRequest {
+func (r ApiPaynowidV1UpdateCardinfoRequest) AuthHash(authHash string) ApiPaynowidV1UpdateCardinfoRequest {
 	r.authHash = &authHash
 	return r
 }
 
-func (r ApiPaynowV1UpdateCardinfoRequest) Execute() (*AccountResponse, *http.Response, error) {
-	return r.ApiService.PaynowV1UpdateCardinfoExecute(r)
+func (r ApiPaynowidV1UpdateCardinfoRequest) Execute() (*AccountResponse, *http.Response, error) {
+	return r.ApiService.PaynowidV1UpdateCardinfoExecute(r)
 }
 
 /*
-PaynowV1UpdateCardinfo 当該会員 ID、およびカード ID に紐付けられたカード情報を更新します
+PaynowidV1UpdateCardinfo 当該会員 ID、およびカード ID に紐付けられたカード情報を更新します
 
 ・当該会員 ID、およびカード ID に紐付けられたカード情報を更新します。 
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPaynowV1UpdateCardinfoRequest
+ @return ApiPaynowidV1UpdateCardinfoRequest
 */
-func (a *CardinfoApiService) PaynowV1UpdateCardinfo(ctx context.Context) ApiPaynowV1UpdateCardinfoRequest {
-	return ApiPaynowV1UpdateCardinfoRequest{
+func (a *CardinfoApiService) PaynowidV1UpdateCardinfo(ctx context.Context) ApiPaynowidV1UpdateCardinfoRequest {
+	return ApiPaynowidV1UpdateCardinfoRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -423,7 +423,7 @@ func (a *CardinfoApiService) PaynowV1UpdateCardinfo(ctx context.Context) ApiPayn
 
 // Execute executes the request
 //  @return AccountResponse
-func (a *CardinfoApiService) PaynowV1UpdateCardinfoExecute(r ApiPaynowV1UpdateCardinfoRequest) (*AccountResponse, *http.Response, error) {
+func (a *CardinfoApiService) PaynowidV1UpdateCardinfoExecute(r ApiPaynowidV1UpdateCardinfoRequest) (*AccountResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -431,12 +431,12 @@ func (a *CardinfoApiService) PaynowV1UpdateCardinfoExecute(r ApiPaynowV1UpdateCa
 		localVarReturnValue  *AccountResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardinfoApiService.PaynowV1UpdateCardinfo")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardinfoApiService.PaynowidV1UpdateCardinfo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/paynow/v1/Update/cardinfo"
+	localVarPath := localBasePath + "/paynowid/v1/Update/cardinfo"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

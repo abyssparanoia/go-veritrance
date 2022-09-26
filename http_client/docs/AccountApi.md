@@ -4,15 +4,15 @@ All URIs are relative to *https://api.veritrans.co.jp:443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PaynowV1AddAccount**](AccountApi.md#PaynowV1AddAccount) | **Post** /paynow/v1/Add/account | 会員情報を追加します。
-[**PaynowV1DeleteAccount**](AccountApi.md#PaynowV1DeleteAccount) | **Post** /paynow/v1/Delete/account | 会員 ID の会員情報を、指定された「退会年月日」に削除します。
-[**PaynowV1UpdateAccount**](AccountApi.md#PaynowV1UpdateAccount) | **Post** /paynow/v1/Update/account | 会員 ID の「入会年月日」を更新します。
+[**PaynowidV1AddAccount**](AccountApi.md#PaynowidV1AddAccount) | **Post** /paynowid/v1/Add/account | 会員情報を追加します。
+[**PaynowidV1DeleteAccount**](AccountApi.md#PaynowidV1DeleteAccount) | **Post** /paynowid/v1/Delete/account | 会員 ID の会員情報を、指定された「退会年月日」に削除します。
+[**PaynowidV1UpdateAccount**](AccountApi.md#PaynowidV1UpdateAccount) | **Post** /paynowid/v1/Update/account | 会員 ID の「入会年月日」を更新します。
 
 
 
-## PaynowV1AddAccount
+## PaynowidV1AddAccount
 
-> AccountResponse PaynowV1AddAccount(ctx).Params(params).AuthHash(authHash).Execute()
+> AccountResponse PaynowidV1AddAccount(ctx).Params(params).AuthHash(authHash).Execute()
 
 会員情報を追加します。
 
@@ -36,13 +36,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountApi.PaynowV1AddAccount(context.Background()).Params(params).AuthHash(authHash).Execute()
+    resp, r, err := apiClient.AccountApi.PaynowidV1AddAccount(context.Background()).Params(params).AuthHash(authHash).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.PaynowV1AddAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.PaynowidV1AddAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PaynowV1AddAccount`: AccountResponse
-    fmt.Fprintf(os.Stdout, "Response from `AccountApi.PaynowV1AddAccount`: %v\n", resp)
+    // response from `PaynowidV1AddAccount`: AccountResponse
+    fmt.Fprintf(os.Stdout, "Response from `AccountApi.PaynowidV1AddAccount`: %v\n", resp)
 }
 ```
 
@@ -52,7 +52,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPaynowV1AddAccountRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPaynowidV1AddAccountRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -78,9 +78,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PaynowV1DeleteAccount
+## PaynowidV1DeleteAccount
 
-> PayNowIdResponse PaynowV1DeleteAccount(ctx).Params(params).AuthHash(authHash).Execute()
+> PayNowIdResponse PaynowidV1DeleteAccount(ctx).Params(params).AuthHash(authHash).Execute()
 
 会員 ID の会員情報を、指定された「退会年月日」に削除します。
 
@@ -104,13 +104,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountApi.PaynowV1DeleteAccount(context.Background()).Params(params).AuthHash(authHash).Execute()
+    resp, r, err := apiClient.AccountApi.PaynowidV1DeleteAccount(context.Background()).Params(params).AuthHash(authHash).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.PaynowV1DeleteAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.PaynowidV1DeleteAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PaynowV1DeleteAccount`: PayNowIdResponse
-    fmt.Fprintf(os.Stdout, "Response from `AccountApi.PaynowV1DeleteAccount`: %v\n", resp)
+    // response from `PaynowidV1DeleteAccount`: PayNowIdResponse
+    fmt.Fprintf(os.Stdout, "Response from `AccountApi.PaynowidV1DeleteAccount`: %v\n", resp)
 }
 ```
 
@@ -120,7 +120,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPaynowV1DeleteAccountRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPaynowidV1DeleteAccountRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -146,9 +146,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PaynowV1UpdateAccount
+## PaynowidV1UpdateAccount
 
-> PayNowIdResponse PaynowV1UpdateAccount(ctx).Params(params).AuthHash(authHash).Execute()
+> PayNowIdResponse PaynowidV1UpdateAccount(ctx).Params(params).AuthHash(authHash).Execute()
 
 会員 ID の「入会年月日」を更新します。
 
@@ -172,13 +172,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountApi.PaynowV1UpdateAccount(context.Background()).Params(params).AuthHash(authHash).Execute()
+    resp, r, err := apiClient.AccountApi.PaynowidV1UpdateAccount(context.Background()).Params(params).AuthHash(authHash).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.PaynowV1UpdateAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.PaynowidV1UpdateAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PaynowV1UpdateAccount`: PayNowIdResponse
-    fmt.Fprintf(os.Stdout, "Response from `AccountApi.PaynowV1UpdateAccount`: %v\n", resp)
+    // response from `PaynowidV1UpdateAccount`: PayNowIdResponse
+    fmt.Fprintf(os.Stdout, "Response from `AccountApi.PaynowidV1UpdateAccount`: %v\n", resp)
 }
 ```
 
@@ -188,7 +188,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPaynowV1UpdateAccountRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPaynowidV1UpdateAccountRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
