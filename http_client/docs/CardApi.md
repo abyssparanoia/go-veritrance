@@ -4,16 +4,16 @@ All URIs are relative to *https://api.veritrans.co.jp:443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PaynowV2AuthorizeCardinfo**](CardApi.md#PaynowV2AuthorizeCardinfo) | **Post** /paynow/v2/Authorize/card | 決済の与信を行います
-[**PaynowV2CancelCardinfo**](CardApi.md#PaynowV2CancelCardinfo) | **Post** /paynow/v2/Cancel/card | 決済のキャンセルを行います
-[**PaynowV2CaptureCardinfo**](CardApi.md#PaynowV2CaptureCardinfo) | **Post** /paynow/v2/Capture/card | 決済の売上確定を行います
-[**PaynowV2ReAuthorizeCardinfo**](CardApi.md#PaynowV2ReAuthorizeCardinfo) | **Post** /paynow/v2/ReAuthorize/card | 決済の再与信を行います
+[**PaynowV1AuthorizeCardinfo**](CardApi.md#PaynowV1AuthorizeCardinfo) | **Post** /paynow/v1/Authorize/card | 決済の与信を行います
+[**PaynowV1CancelCardinfo**](CardApi.md#PaynowV1CancelCardinfo) | **Post** /paynow/v1/Cancel/card | 決済のキャンセルを行います
+[**PaynowV1CaptureCardinfo**](CardApi.md#PaynowV1CaptureCardinfo) | **Post** /paynow/v1/Capture/card | 決済の売上確定を行います
+[**PaynowV1ReAuthorizeCardinfo**](CardApi.md#PaynowV1ReAuthorizeCardinfo) | **Post** /paynow/v1/ReAuthorize/card | 決済の再与信を行います
 
 
 
-## PaynowV2AuthorizeCardinfo
+## PaynowV1AuthorizeCardinfo
 
-> CardAuthorizeResponse PaynowV2AuthorizeCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
+> CardAuthorizeResponse PaynowV1AuthorizeCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
 
 決済の与信を行います
 
@@ -35,13 +35,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CardApi.PaynowV2AuthorizeCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
+    resp, r, err := apiClient.CardApi.PaynowV1AuthorizeCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CardApi.PaynowV2AuthorizeCardinfo``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CardApi.PaynowV1AuthorizeCardinfo``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PaynowV2AuthorizeCardinfo`: CardAuthorizeResponse
-    fmt.Fprintf(os.Stdout, "Response from `CardApi.PaynowV2AuthorizeCardinfo`: %v\n", resp)
+    // response from `PaynowV1AuthorizeCardinfo`: CardAuthorizeResponse
+    fmt.Fprintf(os.Stdout, "Response from `CardApi.PaynowV1AuthorizeCardinfo`: %v\n", resp)
 }
 ```
 
@@ -51,7 +51,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPaynowV2AuthorizeCardinfoRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPaynowV1AuthorizeCardinfoRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -77,9 +77,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PaynowV2CancelCardinfo
+## PaynowV1CancelCardinfo
 
-> CardCancelResponse PaynowV2CancelCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
+> CardCancelResponse PaynowV1CancelCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
 
 決済のキャンセルを行います
 
@@ -101,13 +101,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CardApi.PaynowV2CancelCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
+    resp, r, err := apiClient.CardApi.PaynowV1CancelCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CardApi.PaynowV2CancelCardinfo``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CardApi.PaynowV1CancelCardinfo``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PaynowV2CancelCardinfo`: CardCancelResponse
-    fmt.Fprintf(os.Stdout, "Response from `CardApi.PaynowV2CancelCardinfo`: %v\n", resp)
+    // response from `PaynowV1CancelCardinfo`: CardCancelResponse
+    fmt.Fprintf(os.Stdout, "Response from `CardApi.PaynowV1CancelCardinfo`: %v\n", resp)
 }
 ```
 
@@ -117,7 +117,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPaynowV2CancelCardinfoRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPaynowV1CancelCardinfoRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -143,9 +143,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PaynowV2CaptureCardinfo
+## PaynowV1CaptureCardinfo
 
-> CardCaptureResponse PaynowV2CaptureCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
+> CardCaptureResponse PaynowV1CaptureCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
 
 決済の売上確定を行います
 
@@ -167,13 +167,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CardApi.PaynowV2CaptureCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
+    resp, r, err := apiClient.CardApi.PaynowV1CaptureCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CardApi.PaynowV2CaptureCardinfo``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CardApi.PaynowV1CaptureCardinfo``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PaynowV2CaptureCardinfo`: CardCaptureResponse
-    fmt.Fprintf(os.Stdout, "Response from `CardApi.PaynowV2CaptureCardinfo`: %v\n", resp)
+    // response from `PaynowV1CaptureCardinfo`: CardCaptureResponse
+    fmt.Fprintf(os.Stdout, "Response from `CardApi.PaynowV1CaptureCardinfo`: %v\n", resp)
 }
 ```
 
@@ -183,7 +183,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPaynowV2CaptureCardinfoRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPaynowV1CaptureCardinfoRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -209,9 +209,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PaynowV2ReAuthorizeCardinfo
+## PaynowV1ReAuthorizeCardinfo
 
-> CardAuthorizeResponse PaynowV2ReAuthorizeCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
+> CardAuthorizeResponse PaynowV1ReAuthorizeCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
 
 決済の再与信を行います
 
@@ -233,13 +233,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CardApi.PaynowV2ReAuthorizeCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
+    resp, r, err := apiClient.CardApi.PaynowV1ReAuthorizeCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CardApi.PaynowV2ReAuthorizeCardinfo``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CardApi.PaynowV1ReAuthorizeCardinfo``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PaynowV2ReAuthorizeCardinfo`: CardAuthorizeResponse
-    fmt.Fprintf(os.Stdout, "Response from `CardApi.PaynowV2ReAuthorizeCardinfo`: %v\n", resp)
+    // response from `PaynowV1ReAuthorizeCardinfo`: CardAuthorizeResponse
+    fmt.Fprintf(os.Stdout, "Response from `CardApi.PaynowV1ReAuthorizeCardinfo`: %v\n", resp)
 }
 ```
 
@@ -249,7 +249,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPaynowV2ReAuthorizeCardinfoRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPaynowV1ReAuthorizeCardinfoRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

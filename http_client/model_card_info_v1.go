@@ -14,8 +14,8 @@ import (
 	"encoding/json"
 )
 
-// CardInfoV2 カード情報
-type CardInfoV2 struct {
+// CardInfoV1 カード情報
+type CardInfoV1 struct {
 	// 決済サーバーにて付与されたカード ID が返戻されます。
 	CardId string `json:"cardId"`
 	// カード番号の先頭 6 桁と下 2 桁のみ数字表記され、その他は \"*\"（アスタリスク）に変換されます。
@@ -27,12 +27,12 @@ type CardInfoV2 struct {
 	CardholderName *string `json:"cardholderName,omitempty"`
 }
 
-// NewCardInfoV2 instantiates a new CardInfoV2 object
+// NewCardInfoV1 instantiates a new CardInfoV1 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCardInfoV2(cardId string, cardNumber string, cardExpire string, defaultCard int32) *CardInfoV2 {
-	this := CardInfoV2{}
+func NewCardInfoV1(cardId string, cardNumber string, cardExpire string, defaultCard int32) *CardInfoV1 {
+	this := CardInfoV1{}
 	this.CardId = cardId
 	this.CardNumber = cardNumber
 	this.CardExpire = cardExpire
@@ -40,16 +40,16 @@ func NewCardInfoV2(cardId string, cardNumber string, cardExpire string, defaultC
 	return &this
 }
 
-// NewCardInfoV2WithDefaults instantiates a new CardInfoV2 object
+// NewCardInfoV1WithDefaults instantiates a new CardInfoV1 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewCardInfoV2WithDefaults() *CardInfoV2 {
-	this := CardInfoV2{}
+func NewCardInfoV1WithDefaults() *CardInfoV1 {
+	this := CardInfoV1{}
 	return &this
 }
 
 // GetCardId returns the CardId field value
-func (o *CardInfoV2) GetCardId() string {
+func (o *CardInfoV1) GetCardId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -60,7 +60,7 @@ func (o *CardInfoV2) GetCardId() string {
 
 // GetCardIdOk returns a tuple with the CardId field value
 // and a boolean to check if the value has been set.
-func (o *CardInfoV2) GetCardIdOk() (*string, bool) {
+func (o *CardInfoV1) GetCardIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,12 +68,12 @@ func (o *CardInfoV2) GetCardIdOk() (*string, bool) {
 }
 
 // SetCardId sets field value
-func (o *CardInfoV2) SetCardId(v string) {
+func (o *CardInfoV1) SetCardId(v string) {
 	o.CardId = v
 }
 
 // GetCardNumber returns the CardNumber field value
-func (o *CardInfoV2) GetCardNumber() string {
+func (o *CardInfoV1) GetCardNumber() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -84,7 +84,7 @@ func (o *CardInfoV2) GetCardNumber() string {
 
 // GetCardNumberOk returns a tuple with the CardNumber field value
 // and a boolean to check if the value has been set.
-func (o *CardInfoV2) GetCardNumberOk() (*string, bool) {
+func (o *CardInfoV1) GetCardNumberOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,12 +92,12 @@ func (o *CardInfoV2) GetCardNumberOk() (*string, bool) {
 }
 
 // SetCardNumber sets field value
-func (o *CardInfoV2) SetCardNumber(v string) {
+func (o *CardInfoV1) SetCardNumber(v string) {
 	o.CardNumber = v
 }
 
 // GetCardExpire returns the CardExpire field value
-func (o *CardInfoV2) GetCardExpire() string {
+func (o *CardInfoV1) GetCardExpire() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -108,7 +108,7 @@ func (o *CardInfoV2) GetCardExpire() string {
 
 // GetCardExpireOk returns a tuple with the CardExpire field value
 // and a boolean to check if the value has been set.
-func (o *CardInfoV2) GetCardExpireOk() (*string, bool) {
+func (o *CardInfoV1) GetCardExpireOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -116,12 +116,12 @@ func (o *CardInfoV2) GetCardExpireOk() (*string, bool) {
 }
 
 // SetCardExpire sets field value
-func (o *CardInfoV2) SetCardExpire(v string) {
+func (o *CardInfoV1) SetCardExpire(v string) {
 	o.CardExpire = v
 }
 
 // GetDefaultCard returns the DefaultCard field value
-func (o *CardInfoV2) GetDefaultCard() int32 {
+func (o *CardInfoV1) GetDefaultCard() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -132,7 +132,7 @@ func (o *CardInfoV2) GetDefaultCard() int32 {
 
 // GetDefaultCardOk returns a tuple with the DefaultCard field value
 // and a boolean to check if the value has been set.
-func (o *CardInfoV2) GetDefaultCardOk() (*int32, bool) {
+func (o *CardInfoV1) GetDefaultCardOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -140,12 +140,12 @@ func (o *CardInfoV2) GetDefaultCardOk() (*int32, bool) {
 }
 
 // SetDefaultCard sets field value
-func (o *CardInfoV2) SetDefaultCard(v int32) {
+func (o *CardInfoV1) SetDefaultCard(v int32) {
 	o.DefaultCard = v
 }
 
 // GetCardholderName returns the CardholderName field value if set, zero value otherwise.
-func (o *CardInfoV2) GetCardholderName() string {
+func (o *CardInfoV1) GetCardholderName() string {
 	if o == nil || o.CardholderName == nil {
 		var ret string
 		return ret
@@ -155,7 +155,7 @@ func (o *CardInfoV2) GetCardholderName() string {
 
 // GetCardholderNameOk returns a tuple with the CardholderName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CardInfoV2) GetCardholderNameOk() (*string, bool) {
+func (o *CardInfoV1) GetCardholderNameOk() (*string, bool) {
 	if o == nil || o.CardholderName == nil {
 		return nil, false
 	}
@@ -163,7 +163,7 @@ func (o *CardInfoV2) GetCardholderNameOk() (*string, bool) {
 }
 
 // HasCardholderName returns a boolean if a field has been set.
-func (o *CardInfoV2) HasCardholderName() bool {
+func (o *CardInfoV1) HasCardholderName() bool {
 	if o != nil && o.CardholderName != nil {
 		return true
 	}
@@ -172,11 +172,11 @@ func (o *CardInfoV2) HasCardholderName() bool {
 }
 
 // SetCardholderName gets a reference to the given string and assigns it to the CardholderName field.
-func (o *CardInfoV2) SetCardholderName(v string) {
+func (o *CardInfoV1) SetCardholderName(v string) {
 	o.CardholderName = &v
 }
 
-func (o CardInfoV2) MarshalJSON() ([]byte, error) {
+func (o CardInfoV1) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["cardId"] = o.CardId
@@ -196,38 +196,38 @@ func (o CardInfoV2) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableCardInfoV2 struct {
-	value *CardInfoV2
+type NullableCardInfoV1 struct {
+	value *CardInfoV1
 	isSet bool
 }
 
-func (v NullableCardInfoV2) Get() *CardInfoV2 {
+func (v NullableCardInfoV1) Get() *CardInfoV1 {
 	return v.value
 }
 
-func (v *NullableCardInfoV2) Set(val *CardInfoV2) {
+func (v *NullableCardInfoV1) Set(val *CardInfoV1) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableCardInfoV2) IsSet() bool {
+func (v NullableCardInfoV1) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableCardInfoV2) Unset() {
+func (v *NullableCardInfoV1) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableCardInfoV2(val *CardInfoV2) *NullableCardInfoV2 {
-	return &NullableCardInfoV2{value: val, isSet: true}
+func NewNullableCardInfoV1(val *CardInfoV1) *NullableCardInfoV1 {
+	return &NullableCardInfoV1{value: val, isSet: true}
 }
 
-func (v NullableCardInfoV2) MarshalJSON() ([]byte, error) {
+func (v NullableCardInfoV1) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableCardInfoV2) UnmarshalJSON(src []byte) error {
+func (v *NullableCardInfoV1) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

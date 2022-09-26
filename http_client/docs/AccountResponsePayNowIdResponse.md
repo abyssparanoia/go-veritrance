@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ProcessId** | **string** | 会員管理処理を一意に識別する番号 | 
 **Status** | **string** | 会員管理処理要求の実行結果 | 
 **Message** | **string** | 会員管理処理要求の実行結果メッセージ | 
-**Account** | Pointer to [**AccountV2**](AccountV2.md) |  | [optional] 
+**Account** | Pointer to [**AccountV1**](AccountV1.md) |  | [optional] 
 
 ## Methods
 
@@ -90,20 +90,20 @@ SetMessage sets Message field to given value.
 
 ### GetAccount
 
-`func (o *AccountResponsePayNowIdResponse) GetAccount() AccountV2`
+`func (o *AccountResponsePayNowIdResponse) GetAccount() AccountV1`
 
 GetAccount returns the Account field if non-nil, zero value otherwise.
 
 ### GetAccountOk
 
-`func (o *AccountResponsePayNowIdResponse) GetAccountOk() (*AccountV2, bool)`
+`func (o *AccountResponsePayNowIdResponse) GetAccountOk() (*AccountV1, bool)`
 
 GetAccountOk returns a tuple with the Account field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAccount
 
-`func (o *AccountResponsePayNowIdResponse) SetAccount(v AccountV2)`
+`func (o *AccountResponsePayNowIdResponse) SetAccount(v AccountV1)`
 
 SetAccount sets Account field to given value.
 

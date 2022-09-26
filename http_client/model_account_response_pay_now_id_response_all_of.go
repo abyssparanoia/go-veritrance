@@ -16,7 +16,7 @@ import (
 
 // AccountResponsePayNowIdResponseAllOf struct for AccountResponsePayNowIdResponseAllOf
 type AccountResponsePayNowIdResponseAllOf struct {
-	Account *AccountV2 `json:"account,omitempty"`
+	Account *AccountV1 `json:"account,omitempty"`
 }
 
 // NewAccountResponsePayNowIdResponseAllOf instantiates a new AccountResponsePayNowIdResponseAllOf object
@@ -37,9 +37,9 @@ func NewAccountResponsePayNowIdResponseAllOfWithDefaults() *AccountResponsePayNo
 }
 
 // GetAccount returns the Account field value if set, zero value otherwise.
-func (o *AccountResponsePayNowIdResponseAllOf) GetAccount() AccountV2 {
+func (o *AccountResponsePayNowIdResponseAllOf) GetAccount() AccountV1 {
 	if o == nil || o.Account == nil {
-		var ret AccountV2
+		var ret AccountV1
 		return ret
 	}
 	return *o.Account
@@ -47,7 +47,7 @@ func (o *AccountResponsePayNowIdResponseAllOf) GetAccount() AccountV2 {
 
 // GetAccountOk returns a tuple with the Account field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AccountResponsePayNowIdResponseAllOf) GetAccountOk() (*AccountV2, bool) {
+func (o *AccountResponsePayNowIdResponseAllOf) GetAccountOk() (*AccountV1, bool) {
 	if o == nil || o.Account == nil {
 		return nil, false
 	}
@@ -63,8 +63,8 @@ func (o *AccountResponsePayNowIdResponseAllOf) HasAccount() bool {
 	return false
 }
 
-// SetAccount gets a reference to the given AccountV2 and assigns it to the Account field.
-func (o *AccountResponsePayNowIdResponseAllOf) SetAccount(v AccountV2) {
+// SetAccount gets a reference to the given AccountV1 and assigns it to the Account field.
+func (o *AccountResponsePayNowIdResponseAllOf) SetAccount(v AccountV1) {
 	o.Account = &v
 }
 

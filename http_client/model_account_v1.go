@@ -14,32 +14,32 @@ import (
 	"encoding/json"
 )
 
-// AccountV2 会員情報
-type AccountV2 struct {
+// AccountV1 会員情報
+type AccountV1 struct {
 	AccountId string `json:"accountId"`
-	CardInfo []CardInfoV2 `json:"cardInfo,omitempty"`
+	CardInfo []CardInfoV1 `json:"cardInfo,omitempty"`
 }
 
-// NewAccountV2 instantiates a new AccountV2 object
+// NewAccountV1 instantiates a new AccountV1 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAccountV2(accountId string) *AccountV2 {
-	this := AccountV2{}
+func NewAccountV1(accountId string) *AccountV1 {
+	this := AccountV1{}
 	this.AccountId = accountId
 	return &this
 }
 
-// NewAccountV2WithDefaults instantiates a new AccountV2 object
+// NewAccountV1WithDefaults instantiates a new AccountV1 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewAccountV2WithDefaults() *AccountV2 {
-	this := AccountV2{}
+func NewAccountV1WithDefaults() *AccountV1 {
+	this := AccountV1{}
 	return &this
 }
 
 // GetAccountId returns the AccountId field value
-func (o *AccountV2) GetAccountId() string {
+func (o *AccountV1) GetAccountId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -50,7 +50,7 @@ func (o *AccountV2) GetAccountId() string {
 
 // GetAccountIdOk returns a tuple with the AccountId field value
 // and a boolean to check if the value has been set.
-func (o *AccountV2) GetAccountIdOk() (*string, bool) {
+func (o *AccountV1) GetAccountIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -58,14 +58,14 @@ func (o *AccountV2) GetAccountIdOk() (*string, bool) {
 }
 
 // SetAccountId sets field value
-func (o *AccountV2) SetAccountId(v string) {
+func (o *AccountV1) SetAccountId(v string) {
 	o.AccountId = v
 }
 
 // GetCardInfo returns the CardInfo field value if set, zero value otherwise.
-func (o *AccountV2) GetCardInfo() []CardInfoV2 {
+func (o *AccountV1) GetCardInfo() []CardInfoV1 {
 	if o == nil || o.CardInfo == nil {
-		var ret []CardInfoV2
+		var ret []CardInfoV1
 		return ret
 	}
 	return o.CardInfo
@@ -73,7 +73,7 @@ func (o *AccountV2) GetCardInfo() []CardInfoV2 {
 
 // GetCardInfoOk returns a tuple with the CardInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AccountV2) GetCardInfoOk() ([]CardInfoV2, bool) {
+func (o *AccountV1) GetCardInfoOk() ([]CardInfoV1, bool) {
 	if o == nil || o.CardInfo == nil {
 		return nil, false
 	}
@@ -81,7 +81,7 @@ func (o *AccountV2) GetCardInfoOk() ([]CardInfoV2, bool) {
 }
 
 // HasCardInfo returns a boolean if a field has been set.
-func (o *AccountV2) HasCardInfo() bool {
+func (o *AccountV1) HasCardInfo() bool {
 	if o != nil && o.CardInfo != nil {
 		return true
 	}
@@ -89,12 +89,12 @@ func (o *AccountV2) HasCardInfo() bool {
 	return false
 }
 
-// SetCardInfo gets a reference to the given []CardInfoV2 and assigns it to the CardInfo field.
-func (o *AccountV2) SetCardInfo(v []CardInfoV2) {
+// SetCardInfo gets a reference to the given []CardInfoV1 and assigns it to the CardInfo field.
+func (o *AccountV1) SetCardInfo(v []CardInfoV1) {
 	o.CardInfo = v
 }
 
-func (o AccountV2) MarshalJSON() ([]byte, error) {
+func (o AccountV1) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["accountId"] = o.AccountId
@@ -105,38 +105,38 @@ func (o AccountV2) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableAccountV2 struct {
-	value *AccountV2
+type NullableAccountV1 struct {
+	value *AccountV1
 	isSet bool
 }
 
-func (v NullableAccountV2) Get() *AccountV2 {
+func (v NullableAccountV1) Get() *AccountV1 {
 	return v.value
 }
 
-func (v *NullableAccountV2) Set(val *AccountV2) {
+func (v *NullableAccountV1) Set(val *AccountV1) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableAccountV2) IsSet() bool {
+func (v NullableAccountV1) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableAccountV2) Unset() {
+func (v *NullableAccountV1) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableAccountV2(val *AccountV2) *NullableAccountV2 {
-	return &NullableAccountV2{value: val, isSet: true}
+func NewNullableAccountV1(val *AccountV1) *NullableAccountV1 {
+	return &NullableAccountV1{value: val, isSet: true}
 }
 
-func (v NullableAccountV2) MarshalJSON() ([]byte, error) {
+func (v NullableAccountV1) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableAccountV2) UnmarshalJSON(src []byte) error {
+func (v *NullableAccountV1) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

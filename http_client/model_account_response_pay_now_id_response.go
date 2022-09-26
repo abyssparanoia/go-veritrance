@@ -22,7 +22,7 @@ type AccountResponsePayNowIdResponse struct {
 	Status string `json:"status"`
 	// 会員管理処理要求の実行結果メッセージ
 	Message string `json:"message"`
-	Account *AccountV2 `json:"account,omitempty"`
+	Account *AccountV1 `json:"account,omitempty"`
 }
 
 // NewAccountResponsePayNowIdResponse instantiates a new AccountResponsePayNowIdResponse object
@@ -118,9 +118,9 @@ func (o *AccountResponsePayNowIdResponse) SetMessage(v string) {
 }
 
 // GetAccount returns the Account field value if set, zero value otherwise.
-func (o *AccountResponsePayNowIdResponse) GetAccount() AccountV2 {
+func (o *AccountResponsePayNowIdResponse) GetAccount() AccountV1 {
 	if o == nil || o.Account == nil {
-		var ret AccountV2
+		var ret AccountV1
 		return ret
 	}
 	return *o.Account
@@ -128,7 +128,7 @@ func (o *AccountResponsePayNowIdResponse) GetAccount() AccountV2 {
 
 // GetAccountOk returns a tuple with the Account field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AccountResponsePayNowIdResponse) GetAccountOk() (*AccountV2, bool) {
+func (o *AccountResponsePayNowIdResponse) GetAccountOk() (*AccountV1, bool) {
 	if o == nil || o.Account == nil {
 		return nil, false
 	}
@@ -144,8 +144,8 @@ func (o *AccountResponsePayNowIdResponse) HasAccount() bool {
 	return false
 }
 
-// SetAccount gets a reference to the given AccountV2 and assigns it to the Account field.
-func (o *AccountResponsePayNowIdResponse) SetAccount(v AccountV2) {
+// SetAccount gets a reference to the given AccountV1 and assigns it to the Account field.
+func (o *AccountResponsePayNowIdResponse) SetAccount(v AccountV1) {
 	o.Account = &v
 }
 
