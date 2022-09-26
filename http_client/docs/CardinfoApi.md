@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## PaynowidV1AddCardinfo
 
-> AccountResponse PaynowidV1AddCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
+> AccountResponse PaynowidV1AddCardinfo(ctx).Body(body).Execute()
 
 会員 ID にカード情報を紐付けて登録します
 
@@ -32,12 +32,11 @@ import (
 )
 
 func main() {
-    params := "params_example" // string | 
-    authHash := "authHash_example" // string | 
+    body := "body_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CardinfoApi.PaynowidV1AddCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
+    resp, r, err := apiClient.CardinfoApi.PaynowidV1AddCardinfo(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CardinfoApi.PaynowidV1AddCardinfo``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -58,8 +57,7 @@ Other parameters are passed through a pointer to a apiPaynowidV1AddCardinfoReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **string** |  | 
- **authHash** | **string** |  | 
+ **body** | **string** |  | 
 
 ### Return type
 
@@ -71,7 +69,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: text/plain
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
