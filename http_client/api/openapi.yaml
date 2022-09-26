@@ -259,11 +259,14 @@ components:
       - accountId
       type: object
     CardInfoAddRequest:
-      allOf:
-      - $ref: '#/components/schemas/AbstractPayNowRequest'
-      - $ref: '#/components/schemas/CardInfoAddRequest_allOf'
+      properties:
+        params:
+          $ref: '#/components/schemas/CardInfoAddRequest_params'
+        authHash:
+          type: string
       required:
-      - token
+      - authHash
+      - params
       type: object
     CardInfoUpdateRequest:
       allOf:
@@ -731,7 +734,7 @@ components:
           example: account-1662828780
           type: string
       type: object
-    CardInfoAddRequest_allOf_payNowIdParam_accountParam_cardParam:
+    CardInfoAddRequest_params_allOf_payNowIdParam_accountParam_cardParam:
       properties:
         token:
           example: 80b66157-6f6f-4a38-a6e4-43e306f0084f
@@ -739,28 +742,33 @@ components:
       required:
       - token
       type: object
-    CardInfoAddRequest_allOf_payNowIdParam_accountParam:
+    CardInfoAddRequest_params_allOf_payNowIdParam_accountParam:
       properties:
         accountId:
           example: account-1662828780
           type: string
         cardParam:
-          $ref: '#/components/schemas/CardInfoAddRequest_allOf_payNowIdParam_accountParam_cardParam'
+          $ref: '#/components/schemas/CardInfoAddRequest_params_allOf_payNowIdParam_accountParam_cardParam'
       required:
       - accountId
       - cardParam
       type: object
-    CardInfoAddRequest_allOf_payNowIdParam:
+    CardInfoAddRequest_params_allOf_payNowIdParam:
       properties:
         accountParam:
-          $ref: '#/components/schemas/CardInfoAddRequest_allOf_payNowIdParam_accountParam'
+          $ref: '#/components/schemas/CardInfoAddRequest_params_allOf_payNowIdParam_accountParam'
       required:
       - accountParam
       type: object
-    CardInfoAddRequest_allOf:
+    CardInfoAddRequest_params_allOf:
       properties:
         payNowIdParam:
-          $ref: '#/components/schemas/CardInfoAddRequest_allOf_payNowIdParam'
+          $ref: '#/components/schemas/CardInfoAddRequest_params_allOf_payNowIdParam'
+      type: object
+    CardInfoAddRequest_params:
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/CardInfoAddRequest_params_allOf'
       required:
       - payNowIdParam
       type: object
