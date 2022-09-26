@@ -131,17 +131,9 @@ paths:
         - Cardinfo
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          text/plain:
             schema:
-              type: object
-              required:
-                - params
-                - authHash
-              properties:
-                params:
-                  type: string
-                authHash:
-                  type: string
+              type: string
       responses:
         "200":
           description: 成功した場合
