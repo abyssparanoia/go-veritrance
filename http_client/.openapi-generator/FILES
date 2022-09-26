@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -29,10 +30,11 @@ docs/CardCaptureRequest.md
 docs/CardCaptureRequestAllOf.md
 docs/CardCaptureResponse.md
 docs/CardInfoAddRequest.md
-docs/CardInfoAddRequestAllOf.md
-docs/CardInfoAddRequestAllOfPayNowIdParam.md
-docs/CardInfoAddRequestAllOfPayNowIdParamAccountParam.md
-docs/CardInfoAddRequestAllOfPayNowIdParamAccountParamCardParam.md
+docs/CardInfoAddRequestParams.md
+docs/CardInfoAddRequestParamsAllOf.md
+docs/CardInfoAddRequestParamsAllOfPayNowIdParam.md
+docs/CardInfoAddRequestParamsAllOfPayNowIdParamAccountParam.md
+docs/CardInfoAddRequestParamsAllOfPayNowIdParamAccountParamCardParam.md
 docs/CardInfoDeleteRequest.md
 docs/CardInfoDeleteRequestAllOf.md
 docs/CardInfoGetRequest.md
@@ -66,10 +68,11 @@ model_card_capture_request.go
 model_card_capture_request_all_of.go
 model_card_capture_response.go
 model_card_info_add_request.go
-model_card_info_add_request_all_of.go
-model_card_info_add_request_all_of_pay_now_id_param.go
-model_card_info_add_request_all_of_pay_now_id_param_account_param.go
-model_card_info_add_request_all_of_pay_now_id_param_account_param_card_param.go
+model_card_info_add_request_params.go
+model_card_info_add_request_params_all_of.go
+model_card_info_add_request_params_all_of_pay_now_id_param.go
+model_card_info_add_request_params_all_of_pay_now_id_param_account_param.go
+model_card_info_add_request_params_all_of_pay_now_id_param_account_param_card_param.go
 model_card_info_delete_request.go
 model_card_info_delete_request_all_of.go
 model_card_info_get_request.go

@@ -367,35 +367,41 @@ components:
     CardInfoAddRequest:
       type: object
       required:
-        - token
-      allOf:
-        - $ref: "#/components/schemas/AbstractPayNowRequest"
-        - type: object
+        - params
+        - authHash
+      properties:
+        params:
+          type: object
           required:
             - payNowIdParam
-          properties:
-            payNowIdParam:
-              type: object
-              required:
-                - accountParam
+          allOf:
+            - $ref: "#/components/schemas/AbstractPayNowRequest"
+            - type: object
               properties:
-                accountParam:
+                payNowIdParam:
                   type: object
                   required:
-                    - accountId
-                    - cardParam
+                    - accountParam
                   properties:
-                    accountId:
-                      type: string
-                      example: account-1662828780
-                    cardParam:
+                    accountParam:
                       type: object
                       required:
-                        - token
+                        - accountId
+                        - cardParam
                       properties:
-                        token:
+                        accountId:
                           type: string
-                          example: 80b66157-6f6f-4a38-a6e4-43e306f0084f
+                          example: account-1662828780
+                        cardParam:
+                          type: object
+                          required:
+                            - token
+                          properties:
+                            token:
+                              type: string
+                              example: 80b66157-6f6f-4a38-a6e4-43e306f0084f
+        authHash:
+          type: string
     CardInfoUpdateRequest:
       type: object
       required:
