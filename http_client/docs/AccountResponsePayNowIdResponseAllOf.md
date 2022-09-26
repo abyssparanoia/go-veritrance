@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Account** | Pointer to [**AccountV2**](AccountV2.md) |  | [optional] 
+**Account** | Pointer to [**AccountV1**](AccountV1.md) |  | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAccount
 
-`func (o *AccountResponsePayNowIdResponseAllOf) GetAccount() AccountV2`
+`func (o *AccountResponsePayNowIdResponseAllOf) GetAccount() AccountV1`
 
 GetAccount returns the Account field if non-nil, zero value otherwise.
 
 ### GetAccountOk
 
-`func (o *AccountResponsePayNowIdResponseAllOf) GetAccountOk() (*AccountV2, bool)`
+`func (o *AccountResponsePayNowIdResponseAllOf) GetAccountOk() (*AccountV1, bool)`
 
 GetAccountOk returns a tuple with the Account field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAccount
 
-`func (o *AccountResponsePayNowIdResponseAllOf) SetAccount(v AccountV2)`
+`func (o *AccountResponsePayNowIdResponseAllOf) SetAccount(v AccountV1)`
 
 SetAccount sets Account field to given value.
 

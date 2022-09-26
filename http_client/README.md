@@ -80,17 +80,17 @@ All URIs are relative to *https://api.veritrans.co.jp:443*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccountApi* | [**PaynowV2AddAccount**](docs/AccountApi.md#paynowv2addaccount) | **Post** /paynow/v2/Add/account | 会員情報を追加します。
-*AccountApi* | [**PaynowV2DeleteAccount**](docs/AccountApi.md#paynowv2deleteaccount) | **Post** /paynow/v2/Delete/account | 会員 ID の会員情報を、指定された「退会年月日」に削除します。
-*AccountApi* | [**PaynowV2UpdateAccount**](docs/AccountApi.md#paynowv2updateaccount) | **Post** /paynow/v2/Update/account | 会員 ID の「入会年月日」を更新します。
-*CardApi* | [**PaynowV2AuthorizeCardinfo**](docs/CardApi.md#paynowv2authorizecardinfo) | **Post** /paynow/v2/Authorize/card | 決済の与信を行います
-*CardApi* | [**PaynowV2CancelCardinfo**](docs/CardApi.md#paynowv2cancelcardinfo) | **Post** /paynow/v2/Cancel/card | 決済のキャンセルを行います
-*CardApi* | [**PaynowV2CaptureCardinfo**](docs/CardApi.md#paynowv2capturecardinfo) | **Post** /paynow/v2/Capture/card | 決済の売上確定を行います
-*CardApi* | [**PaynowV2ReAuthorizeCardinfo**](docs/CardApi.md#paynowv2reauthorizecardinfo) | **Post** /paynow/v2/ReAuthorize/card | 決済の再与信を行います
-*CardinfoApi* | [**PaynowV2AddCardinfo**](docs/CardinfoApi.md#paynowv2addcardinfo) | **Post** /paynow/v2/Add/cardinfo | 会員 ID にカード情報を紐付けて登録します
-*CardinfoApi* | [**PaynowV2DeleteCardinfo**](docs/CardinfoApi.md#paynowv2deletecardinfo) | **Post** /paynow/v2/Delete/cardinfo | 会員 ID に紐付けられたカード情報を削除します
-*CardinfoApi* | [**PaynowV2GetCardinfo**](docs/CardinfoApi.md#paynowv2getcardinfo) | **Post** /paynow/v2/Get/cardinfo | 会員 ID に紐付けられた課金情報を取得します
-*CardinfoApi* | [**PaynowV2UpdateCardinfo**](docs/CardinfoApi.md#paynowv2updatecardinfo) | **Post** /paynow/v2/Update/cardinfo | 当該会員 ID、およびカード ID に紐付けられたカード情報を更新します
+*AccountApi* | [**PaynowV1AddAccount**](docs/AccountApi.md#paynowv1addaccount) | **Post** /paynow/v1/Add/account | 会員情報を追加します。
+*AccountApi* | [**PaynowV1DeleteAccount**](docs/AccountApi.md#paynowv1deleteaccount) | **Post** /paynow/v1/Delete/account | 会員 ID の会員情報を、指定された「退会年月日」に削除します。
+*AccountApi* | [**PaynowV1UpdateAccount**](docs/AccountApi.md#paynowv1updateaccount) | **Post** /paynow/v1/Update/account | 会員 ID の「入会年月日」を更新します。
+*CardApi* | [**PaynowV1AuthorizeCardinfo**](docs/CardApi.md#paynowv1authorizecardinfo) | **Post** /paynow/v1/Authorize/card | 決済の与信を行います
+*CardApi* | [**PaynowV1CancelCardinfo**](docs/CardApi.md#paynowv1cancelcardinfo) | **Post** /paynow/v1/Cancel/card | 決済のキャンセルを行います
+*CardApi* | [**PaynowV1CaptureCardinfo**](docs/CardApi.md#paynowv1capturecardinfo) | **Post** /paynow/v1/Capture/card | 決済の売上確定を行います
+*CardApi* | [**PaynowV1ReAuthorizeCardinfo**](docs/CardApi.md#paynowv1reauthorizecardinfo) | **Post** /paynow/v1/ReAuthorize/card | 決済の再与信を行います
+*CardinfoApi* | [**PaynowV1AddCardinfo**](docs/CardinfoApi.md#paynowv1addcardinfo) | **Post** /paynow/v1/Add/cardinfo | 会員 ID にカード情報を紐付けて登録します
+*CardinfoApi* | [**PaynowV1DeleteCardinfo**](docs/CardinfoApi.md#paynowv1deletecardinfo) | **Post** /paynow/v1/Delete/cardinfo | 会員 ID に紐付けられたカード情報を削除します
+*CardinfoApi* | [**PaynowV1GetCardinfo**](docs/CardinfoApi.md#paynowv1getcardinfo) | **Post** /paynow/v1/Get/cardinfo | 会員 ID に紐付けられた課金情報を取得します
+*CardinfoApi* | [**PaynowV1UpdateCardinfo**](docs/CardinfoApi.md#paynowv1updatecardinfo) | **Post** /paynow/v1/Update/cardinfo | 当該会員 ID、およびカード ID に紐付けられたカード情報を更新します
 
 
 ## Documentation For Models
@@ -105,7 +105,7 @@ Class | Method | HTTP request | Description
  - [AccountResponsePayNowIdResponse](docs/AccountResponsePayNowIdResponse.md)
  - [AccountResponsePayNowIdResponseAllOf](docs/AccountResponsePayNowIdResponseAllOf.md)
  - [AccountUpdateRequest](docs/AccountUpdateRequest.md)
- - [AccountV2](docs/AccountV2.md)
+ - [AccountV1](docs/AccountV1.md)
  - [CardAuthorizeRequest](docs/CardAuthorizeRequest.md)
  - [CardAuthorizeRequestAllOf](docs/CardAuthorizeRequestAllOf.md)
  - [CardAuthorizeResponse](docs/CardAuthorizeResponse.md)
@@ -121,7 +121,7 @@ Class | Method | HTTP request | Description
  - [CardInfoGetRequest](docs/CardInfoGetRequest.md)
  - [CardInfoUpdateRequest](docs/CardInfoUpdateRequest.md)
  - [CardInfoUpdateRequestAllOf](docs/CardInfoUpdateRequestAllOf.md)
- - [CardInfoV2](docs/CardInfoV2.md)
+ - [CardInfoV1](docs/CardInfoV1.md)
  - [CardReAuthorizeRequest](docs/CardReAuthorizeRequest.md)
  - [CardReAuthorizeRequestAllOf](docs/CardReAuthorizeRequestAllOf.md)
  - [PayNowIdResponse](docs/PayNowIdResponse.md)

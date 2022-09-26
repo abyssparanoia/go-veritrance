@@ -8,7 +8,7 @@ properties:
   cardInfo:
     type: array
     items:
-      $ref: ./card_info.v2.yaml
+      $ref: ./card_info.v1.yaml
 required:
   - accountId
   - transData

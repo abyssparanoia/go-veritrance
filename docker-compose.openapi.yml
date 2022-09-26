@@ -7,7 +7,7 @@ services:
       - .:/openapi
     command: |
       generate -i
-      openapi/openapi/reference/veritrance.paynow.v2.yaml
+      openapi/openapi/reference/veritrance.paynow.v1.yaml
       -g go
       --git-repo-id=go-veritrance/http_client
       --git-user-id=abyssparanoia

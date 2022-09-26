@@ -22,35 +22,35 @@ import (
 // CardApiService CardApi service
 type CardApiService service
 
-type ApiPaynowV2AuthorizeCardinfoRequest struct {
+type ApiPaynowV1AuthorizeCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardApiService
 	params *string
 	authHash *string
 }
 
-func (r ApiPaynowV2AuthorizeCardinfoRequest) Params(params string) ApiPaynowV2AuthorizeCardinfoRequest {
+func (r ApiPaynowV1AuthorizeCardinfoRequest) Params(params string) ApiPaynowV1AuthorizeCardinfoRequest {
 	r.params = &params
 	return r
 }
 
-func (r ApiPaynowV2AuthorizeCardinfoRequest) AuthHash(authHash string) ApiPaynowV2AuthorizeCardinfoRequest {
+func (r ApiPaynowV1AuthorizeCardinfoRequest) AuthHash(authHash string) ApiPaynowV1AuthorizeCardinfoRequest {
 	r.authHash = &authHash
 	return r
 }
 
-func (r ApiPaynowV2AuthorizeCardinfoRequest) Execute() (*CardAuthorizeResponse, *http.Response, error) {
-	return r.ApiService.PaynowV2AuthorizeCardinfoExecute(r)
+func (r ApiPaynowV1AuthorizeCardinfoRequest) Execute() (*CardAuthorizeResponse, *http.Response, error) {
+	return r.ApiService.PaynowV1AuthorizeCardinfoExecute(r)
 }
 
 /*
-PaynowV2AuthorizeCardinfo 決済の与信を行います
+PaynowV1AuthorizeCardinfo 決済の与信を行います
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPaynowV2AuthorizeCardinfoRequest
+ @return ApiPaynowV1AuthorizeCardinfoRequest
 */
-func (a *CardApiService) PaynowV2AuthorizeCardinfo(ctx context.Context) ApiPaynowV2AuthorizeCardinfoRequest {
-	return ApiPaynowV2AuthorizeCardinfoRequest{
+func (a *CardApiService) PaynowV1AuthorizeCardinfo(ctx context.Context) ApiPaynowV1AuthorizeCardinfoRequest {
+	return ApiPaynowV1AuthorizeCardinfoRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -58,7 +58,7 @@ func (a *CardApiService) PaynowV2AuthorizeCardinfo(ctx context.Context) ApiPayno
 
 // Execute executes the request
 //  @return CardAuthorizeResponse
-func (a *CardApiService) PaynowV2AuthorizeCardinfoExecute(r ApiPaynowV2AuthorizeCardinfoRequest) (*CardAuthorizeResponse, *http.Response, error) {
+func (a *CardApiService) PaynowV1AuthorizeCardinfoExecute(r ApiPaynowV1AuthorizeCardinfoRequest) (*CardAuthorizeResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -66,12 +66,12 @@ func (a *CardApiService) PaynowV2AuthorizeCardinfoExecute(r ApiPaynowV2Authorize
 		localVarReturnValue  *CardAuthorizeResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardApiService.PaynowV2AuthorizeCardinfo")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardApiService.PaynowV1AuthorizeCardinfo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/paynow/v2/Authorize/card"
+	localVarPath := localBasePath + "/paynow/v1/Authorize/card"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -139,35 +139,35 @@ func (a *CardApiService) PaynowV2AuthorizeCardinfoExecute(r ApiPaynowV2Authorize
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPaynowV2CancelCardinfoRequest struct {
+type ApiPaynowV1CancelCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardApiService
 	params *string
 	authHash *string
 }
 
-func (r ApiPaynowV2CancelCardinfoRequest) Params(params string) ApiPaynowV2CancelCardinfoRequest {
+func (r ApiPaynowV1CancelCardinfoRequest) Params(params string) ApiPaynowV1CancelCardinfoRequest {
 	r.params = &params
 	return r
 }
 
-func (r ApiPaynowV2CancelCardinfoRequest) AuthHash(authHash string) ApiPaynowV2CancelCardinfoRequest {
+func (r ApiPaynowV1CancelCardinfoRequest) AuthHash(authHash string) ApiPaynowV1CancelCardinfoRequest {
 	r.authHash = &authHash
 	return r
 }
 
-func (r ApiPaynowV2CancelCardinfoRequest) Execute() (*CardCancelResponse, *http.Response, error) {
-	return r.ApiService.PaynowV2CancelCardinfoExecute(r)
+func (r ApiPaynowV1CancelCardinfoRequest) Execute() (*CardCancelResponse, *http.Response, error) {
+	return r.ApiService.PaynowV1CancelCardinfoExecute(r)
 }
 
 /*
-PaynowV2CancelCardinfo 決済のキャンセルを行います
+PaynowV1CancelCardinfo 決済のキャンセルを行います
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPaynowV2CancelCardinfoRequest
+ @return ApiPaynowV1CancelCardinfoRequest
 */
-func (a *CardApiService) PaynowV2CancelCardinfo(ctx context.Context) ApiPaynowV2CancelCardinfoRequest {
-	return ApiPaynowV2CancelCardinfoRequest{
+func (a *CardApiService) PaynowV1CancelCardinfo(ctx context.Context) ApiPaynowV1CancelCardinfoRequest {
+	return ApiPaynowV1CancelCardinfoRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -175,7 +175,7 @@ func (a *CardApiService) PaynowV2CancelCardinfo(ctx context.Context) ApiPaynowV2
 
 // Execute executes the request
 //  @return CardCancelResponse
-func (a *CardApiService) PaynowV2CancelCardinfoExecute(r ApiPaynowV2CancelCardinfoRequest) (*CardCancelResponse, *http.Response, error) {
+func (a *CardApiService) PaynowV1CancelCardinfoExecute(r ApiPaynowV1CancelCardinfoRequest) (*CardCancelResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -183,12 +183,12 @@ func (a *CardApiService) PaynowV2CancelCardinfoExecute(r ApiPaynowV2CancelCardin
 		localVarReturnValue  *CardCancelResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardApiService.PaynowV2CancelCardinfo")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardApiService.PaynowV1CancelCardinfo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/paynow/v2/Cancel/card"
+	localVarPath := localBasePath + "/paynow/v1/Cancel/card"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -256,35 +256,35 @@ func (a *CardApiService) PaynowV2CancelCardinfoExecute(r ApiPaynowV2CancelCardin
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPaynowV2CaptureCardinfoRequest struct {
+type ApiPaynowV1CaptureCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardApiService
 	params *string
 	authHash *string
 }
 
-func (r ApiPaynowV2CaptureCardinfoRequest) Params(params string) ApiPaynowV2CaptureCardinfoRequest {
+func (r ApiPaynowV1CaptureCardinfoRequest) Params(params string) ApiPaynowV1CaptureCardinfoRequest {
 	r.params = &params
 	return r
 }
 
-func (r ApiPaynowV2CaptureCardinfoRequest) AuthHash(authHash string) ApiPaynowV2CaptureCardinfoRequest {
+func (r ApiPaynowV1CaptureCardinfoRequest) AuthHash(authHash string) ApiPaynowV1CaptureCardinfoRequest {
 	r.authHash = &authHash
 	return r
 }
 
-func (r ApiPaynowV2CaptureCardinfoRequest) Execute() (*CardCaptureResponse, *http.Response, error) {
-	return r.ApiService.PaynowV2CaptureCardinfoExecute(r)
+func (r ApiPaynowV1CaptureCardinfoRequest) Execute() (*CardCaptureResponse, *http.Response, error) {
+	return r.ApiService.PaynowV1CaptureCardinfoExecute(r)
 }
 
 /*
-PaynowV2CaptureCardinfo 決済の売上確定を行います
+PaynowV1CaptureCardinfo 決済の売上確定を行います
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPaynowV2CaptureCardinfoRequest
+ @return ApiPaynowV1CaptureCardinfoRequest
 */
-func (a *CardApiService) PaynowV2CaptureCardinfo(ctx context.Context) ApiPaynowV2CaptureCardinfoRequest {
-	return ApiPaynowV2CaptureCardinfoRequest{
+func (a *CardApiService) PaynowV1CaptureCardinfo(ctx context.Context) ApiPaynowV1CaptureCardinfoRequest {
+	return ApiPaynowV1CaptureCardinfoRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -292,7 +292,7 @@ func (a *CardApiService) PaynowV2CaptureCardinfo(ctx context.Context) ApiPaynowV
 
 // Execute executes the request
 //  @return CardCaptureResponse
-func (a *CardApiService) PaynowV2CaptureCardinfoExecute(r ApiPaynowV2CaptureCardinfoRequest) (*CardCaptureResponse, *http.Response, error) {
+func (a *CardApiService) PaynowV1CaptureCardinfoExecute(r ApiPaynowV1CaptureCardinfoRequest) (*CardCaptureResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -300,12 +300,12 @@ func (a *CardApiService) PaynowV2CaptureCardinfoExecute(r ApiPaynowV2CaptureCard
 		localVarReturnValue  *CardCaptureResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardApiService.PaynowV2CaptureCardinfo")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardApiService.PaynowV1CaptureCardinfo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/paynow/v2/Capture/card"
+	localVarPath := localBasePath + "/paynow/v1/Capture/card"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -373,35 +373,35 @@ func (a *CardApiService) PaynowV2CaptureCardinfoExecute(r ApiPaynowV2CaptureCard
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPaynowV2ReAuthorizeCardinfoRequest struct {
+type ApiPaynowV1ReAuthorizeCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardApiService
 	params *string
 	authHash *string
 }
 
-func (r ApiPaynowV2ReAuthorizeCardinfoRequest) Params(params string) ApiPaynowV2ReAuthorizeCardinfoRequest {
+func (r ApiPaynowV1ReAuthorizeCardinfoRequest) Params(params string) ApiPaynowV1ReAuthorizeCardinfoRequest {
 	r.params = &params
 	return r
 }
 
-func (r ApiPaynowV2ReAuthorizeCardinfoRequest) AuthHash(authHash string) ApiPaynowV2ReAuthorizeCardinfoRequest {
+func (r ApiPaynowV1ReAuthorizeCardinfoRequest) AuthHash(authHash string) ApiPaynowV1ReAuthorizeCardinfoRequest {
 	r.authHash = &authHash
 	return r
 }
 
-func (r ApiPaynowV2ReAuthorizeCardinfoRequest) Execute() (*CardAuthorizeResponse, *http.Response, error) {
-	return r.ApiService.PaynowV2ReAuthorizeCardinfoExecute(r)
+func (r ApiPaynowV1ReAuthorizeCardinfoRequest) Execute() (*CardAuthorizeResponse, *http.Response, error) {
+	return r.ApiService.PaynowV1ReAuthorizeCardinfoExecute(r)
 }
 
 /*
-PaynowV2ReAuthorizeCardinfo 決済の再与信を行います
+PaynowV1ReAuthorizeCardinfo 決済の再与信を行います
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPaynowV2ReAuthorizeCardinfoRequest
+ @return ApiPaynowV1ReAuthorizeCardinfoRequest
 */
-func (a *CardApiService) PaynowV2ReAuthorizeCardinfo(ctx context.Context) ApiPaynowV2ReAuthorizeCardinfoRequest {
-	return ApiPaynowV2ReAuthorizeCardinfoRequest{
+func (a *CardApiService) PaynowV1ReAuthorizeCardinfo(ctx context.Context) ApiPaynowV1ReAuthorizeCardinfoRequest {
+	return ApiPaynowV1ReAuthorizeCardinfoRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -409,7 +409,7 @@ func (a *CardApiService) PaynowV2ReAuthorizeCardinfo(ctx context.Context) ApiPay
 
 // Execute executes the request
 //  @return CardAuthorizeResponse
-func (a *CardApiService) PaynowV2ReAuthorizeCardinfoExecute(r ApiPaynowV2ReAuthorizeCardinfoRequest) (*CardAuthorizeResponse, *http.Response, error) {
+func (a *CardApiService) PaynowV1ReAuthorizeCardinfoExecute(r ApiPaynowV1ReAuthorizeCardinfoRequest) (*CardAuthorizeResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -417,12 +417,12 @@ func (a *CardApiService) PaynowV2ReAuthorizeCardinfoExecute(r ApiPaynowV2ReAutho
 		localVarReturnValue  *CardAuthorizeResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardApiService.PaynowV2ReAuthorizeCardinfo")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardApiService.PaynowV1ReAuthorizeCardinfo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/paynow/v2/ReAuthorize/card"
+	localVarPath := localBasePath + "/paynow/v1/ReAuthorize/card"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

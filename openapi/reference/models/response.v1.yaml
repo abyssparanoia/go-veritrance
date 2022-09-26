@@ -8,7 +8,7 @@ AccountResponse:
         - type: object
           properties:
             account:
-              $ref: ./account.v2.yaml
+              $ref: ./account.v1.yaml
 PayNowIdResponse:
   type: object
   properties:
