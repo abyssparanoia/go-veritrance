@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## PaynowV2AddAccount
 
-> AccountResponse PaynowV2AddAccount(ctx).AccountId(accountId).CardNumber(cardNumber).CardExpire(cardExpire).SecurityCode(securityCode).Execute()
+> AccountResponse PaynowV2AddAccount(ctx).Params(params).AuthHash(authHash).Execute()
 
 会員情報を追加します。
 
@@ -31,14 +31,12 @@ import (
 )
 
 func main() {
-    accountId := "accountId_example" // string | 
-    cardNumber := "cardNumber_example" // string |  (optional)
-    cardExpire := "cardExpire_example" // string |  (optional)
-    securityCode := "securityCode_example" // string |  (optional)
+    params := "params_example" // string | 
+    authHash := "authHash_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountApi.PaynowV2AddAccount(context.Background()).AccountId(accountId).CardNumber(cardNumber).CardExpire(cardExpire).SecurityCode(securityCode).Execute()
+    resp, r, err := apiClient.AccountApi.PaynowV2AddAccount(context.Background()).Params(params).AuthHash(authHash).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.PaynowV2AddAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -59,10 +57,8 @@ Other parameters are passed through a pointer to a apiPaynowV2AddAccountRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **string** |  | 
- **cardNumber** | **string** |  | 
- **cardExpire** | **string** |  | 
- **securityCode** | **string** |  | 
+ **params** | **string** |  | 
+ **authHash** | **string** |  | 
 
 ### Return type
 
@@ -84,7 +80,7 @@ No authorization required
 
 ## PaynowV2DeleteAccount
 
-> PayNowIdResponse PaynowV2DeleteAccount(ctx).AccountId(accountId).Execute()
+> PayNowIdResponse PaynowV2DeleteAccount(ctx).Params(params).AuthHash(authHash).Execute()
 
 会員 ID の会員情報を、指定された「退会年月日」に削除します。
 
@@ -103,11 +99,12 @@ import (
 )
 
 func main() {
-    accountId := "accountId_example" // string | 
+    params := "params_example" // string | 
+    authHash := "authHash_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountApi.PaynowV2DeleteAccount(context.Background()).AccountId(accountId).Execute()
+    resp, r, err := apiClient.AccountApi.PaynowV2DeleteAccount(context.Background()).Params(params).AuthHash(authHash).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.PaynowV2DeleteAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -128,7 +125,8 @@ Other parameters are passed through a pointer to a apiPaynowV2DeleteAccountReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **string** |  | 
+ **params** | **string** |  | 
+ **authHash** | **string** |  | 
 
 ### Return type
 
@@ -150,7 +148,7 @@ No authorization required
 
 ## PaynowV2UpdateAccount
 
-> PayNowIdResponse PaynowV2UpdateAccount(ctx).AccountId(accountId).Execute()
+> PayNowIdResponse PaynowV2UpdateAccount(ctx).Params(params).AuthHash(authHash).Execute()
 
 会員 ID の「入会年月日」を更新します。
 
@@ -169,11 +167,12 @@ import (
 )
 
 func main() {
-    accountId := "accountId_example" // string | 
+    params := "params_example" // string | 
+    authHash := "authHash_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountApi.PaynowV2UpdateAccount(context.Background()).AccountId(accountId).Execute()
+    resp, r, err := apiClient.AccountApi.PaynowV2UpdateAccount(context.Background()).Params(params).AuthHash(authHash).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.PaynowV2UpdateAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -194,7 +193,8 @@ Other parameters are passed through a pointer to a apiPaynowV2UpdateAccountReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **string** |  | 
+ **params** | **string** |  | 
+ **authHash** | **string** |  | 
 
 ### Return type
 

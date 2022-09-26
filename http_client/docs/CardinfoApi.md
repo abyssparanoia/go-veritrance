@@ -32,8 +32,8 @@ import (
 )
 
 func main() {
-    params := TODO // CardInfoAddRequest |  (optional)
-    authHash := "authHash_example" // string |  (optional)
+    params := "params_example" // string | 
+    authHash := "authHash_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -58,7 +58,7 @@ Other parameters are passed through a pointer to a apiPaynowV2AddCardinfoRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | [**CardInfoAddRequest**](CardInfoAddRequest.md) |  | 
+ **params** | **string** |  | 
  **authHash** | **string** |  | 
 
 ### Return type
@@ -100,8 +100,8 @@ import (
 )
 
 func main() {
-    params := TODO // CardInfoDeleteRequest |  (optional)
-    authHash := "authHash_example" // string |  (optional)
+    params := "params_example" // string | 
+    authHash := "authHash_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -126,7 +126,7 @@ Other parameters are passed through a pointer to a apiPaynowV2DeleteCardinfoRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | [**CardInfoDeleteRequest**](CardInfoDeleteRequest.md) |  | 
+ **params** | **string** |  | 
  **authHash** | **string** |  | 
 
 ### Return type
@@ -168,8 +168,8 @@ import (
 )
 
 func main() {
-    params := TODO // CardInfoGetRequest |  (optional)
-    authHash := "authHash_example" // string |  (optional)
+    params := "params_example" // string | 
+    authHash := "authHash_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -194,7 +194,7 @@ Other parameters are passed through a pointer to a apiPaynowV2GetCardinfoRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | [**CardInfoGetRequest**](CardInfoGetRequest.md) |  | 
+ **params** | **string** |  | 
  **authHash** | **string** |  | 
 
 ### Return type
@@ -236,8 +236,8 @@ import (
 )
 
 func main() {
-    params := TODO // CardInfoUpdateRequest |  (optional)
-    authHash := "authHash_example" // string |  (optional)
+    params := "params_example" // string | 
+    authHash := "authHash_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -262,7 +262,7 @@ Other parameters are passed through a pointer to a apiPaynowV2UpdateCardinfoRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | [**CardInfoUpdateRequest**](CardInfoUpdateRequest.md) |  | 
+ **params** | **string** |  | 
  **authHash** | **string** |  | 
 
 ### Return type

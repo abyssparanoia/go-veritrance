@@ -95,14 +95,25 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AbstractPayNowIdResponse](docs/AbstractPayNowIdResponse.md)
+ - [AccountAddRequest](docs/AccountAddRequest.md)
+ - [AccountDeleteRequest](docs/AccountDeleteRequest.md)
  - [AccountResponse](docs/AccountResponse.md)
  - [AccountResponsePayNowIdResponse](docs/AccountResponsePayNowIdResponse.md)
  - [AccountResponsePayNowIdResponseAllOf](docs/AccountResponsePayNowIdResponseAllOf.md)
+ - [AccountUpdateRequest](docs/AccountUpdateRequest.md)
  - [AccountV2](docs/AccountV2.md)
+ - [CardAuthorizeRequest](docs/CardAuthorizeRequest.md)
  - [CardAuthorizeResponse](docs/CardAuthorizeResponse.md)
+ - [CardCancelRequest](docs/CardCancelRequest.md)
  - [CardCancelResponse](docs/CardCancelResponse.md)
+ - [CardCaptureRequest](docs/CardCaptureRequest.md)
  - [CardCaptureResponse](docs/CardCaptureResponse.md)
+ - [CardInfoAddRequest](docs/CardInfoAddRequest.md)
+ - [CardInfoDeleteRequest](docs/CardInfoDeleteRequest.md)
+ - [CardInfoGetRequest](docs/CardInfoGetRequest.md)
+ - [CardInfoUpdateRequest](docs/CardInfoUpdateRequest.md)
  - [CardInfoV2](docs/CardInfoV2.md)
+ - [CardReAuthorizeRequest](docs/CardReAuthorizeRequest.md)
  - [PayNowIdResponse](docs/PayNowIdResponse.md)
 
 

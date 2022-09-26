@@ -25,29 +25,17 @@ type AccountApiService service
 type ApiPaynowV2AddAccountRequest struct {
 	ctx context.Context
 	ApiService *AccountApiService
-	accountId *string
-	cardNumber *string
-	cardExpire *string
-	securityCode *string
+	params *string
+	authHash *string
 }
 
-func (r ApiPaynowV2AddAccountRequest) AccountId(accountId string) ApiPaynowV2AddAccountRequest {
-	r.accountId = &accountId
+func (r ApiPaynowV2AddAccountRequest) Params(params string) ApiPaynowV2AddAccountRequest {
+	r.params = &params
 	return r
 }
 
-func (r ApiPaynowV2AddAccountRequest) CardNumber(cardNumber string) ApiPaynowV2AddAccountRequest {
-	r.cardNumber = &cardNumber
-	return r
-}
-
-func (r ApiPaynowV2AddAccountRequest) CardExpire(cardExpire string) ApiPaynowV2AddAccountRequest {
-	r.cardExpire = &cardExpire
-	return r
-}
-
-func (r ApiPaynowV2AddAccountRequest) SecurityCode(securityCode string) ApiPaynowV2AddAccountRequest {
-	r.securityCode = &securityCode
+func (r ApiPaynowV2AddAccountRequest) AuthHash(authHash string) ApiPaynowV2AddAccountRequest {
+	r.authHash = &authHash
 	return r
 }
 
@@ -95,8 +83,11 @@ func (a *AccountApiService) PaynowV2AddAccountExecute(r ApiPaynowV2AddAccountReq
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.accountId == nil {
-		return localVarReturnValue, nil, reportError("accountId is required and must be specified")
+	if r.params == nil {
+		return localVarReturnValue, nil, reportError("params is required and must be specified")
+	}
+	if r.authHash == nil {
+		return localVarReturnValue, nil, reportError("authHash is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -116,16 +107,8 @@ func (a *AccountApiService) PaynowV2AddAccountExecute(r ApiPaynowV2AddAccountReq
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	localVarFormParams.Add("accountId", parameterToString(*r.accountId, ""))
-	if r.cardNumber != nil {
-		localVarFormParams.Add("cardNumber", parameterToString(*r.cardNumber, ""))
-	}
-	if r.cardExpire != nil {
-		localVarFormParams.Add("cardExpire", parameterToString(*r.cardExpire, ""))
-	}
-	if r.securityCode != nil {
-		localVarFormParams.Add("securityCode", parameterToString(*r.securityCode, ""))
-	}
+	localVarFormParams.Add("params", parameterToString(*r.params, ""))
+	localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -166,11 +149,17 @@ func (a *AccountApiService) PaynowV2AddAccountExecute(r ApiPaynowV2AddAccountReq
 type ApiPaynowV2DeleteAccountRequest struct {
 	ctx context.Context
 	ApiService *AccountApiService
-	accountId *string
+	params *string
+	authHash *string
 }
 
-func (r ApiPaynowV2DeleteAccountRequest) AccountId(accountId string) ApiPaynowV2DeleteAccountRequest {
-	r.accountId = &accountId
+func (r ApiPaynowV2DeleteAccountRequest) Params(params string) ApiPaynowV2DeleteAccountRequest {
+	r.params = &params
+	return r
+}
+
+func (r ApiPaynowV2DeleteAccountRequest) AuthHash(authHash string) ApiPaynowV2DeleteAccountRequest {
+	r.authHash = &authHash
 	return r
 }
 
@@ -214,8 +203,11 @@ func (a *AccountApiService) PaynowV2DeleteAccountExecute(r ApiPaynowV2DeleteAcco
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.accountId == nil {
-		return localVarReturnValue, nil, reportError("accountId is required and must be specified")
+	if r.params == nil {
+		return localVarReturnValue, nil, reportError("params is required and must be specified")
+	}
+	if r.authHash == nil {
+		return localVarReturnValue, nil, reportError("authHash is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -235,7 +227,8 @@ func (a *AccountApiService) PaynowV2DeleteAccountExecute(r ApiPaynowV2DeleteAcco
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	localVarFormParams.Add("accountId", parameterToString(*r.accountId, ""))
+	localVarFormParams.Add("params", parameterToString(*r.params, ""))
+	localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -276,11 +269,17 @@ func (a *AccountApiService) PaynowV2DeleteAccountExecute(r ApiPaynowV2DeleteAcco
 type ApiPaynowV2UpdateAccountRequest struct {
 	ctx context.Context
 	ApiService *AccountApiService
-	accountId *string
+	params *string
+	authHash *string
 }
 
-func (r ApiPaynowV2UpdateAccountRequest) AccountId(accountId string) ApiPaynowV2UpdateAccountRequest {
-	r.accountId = &accountId
+func (r ApiPaynowV2UpdateAccountRequest) Params(params string) ApiPaynowV2UpdateAccountRequest {
+	r.params = &params
+	return r
+}
+
+func (r ApiPaynowV2UpdateAccountRequest) AuthHash(authHash string) ApiPaynowV2UpdateAccountRequest {
+	r.authHash = &authHash
 	return r
 }
 
@@ -324,8 +323,11 @@ func (a *AccountApiService) PaynowV2UpdateAccountExecute(r ApiPaynowV2UpdateAcco
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.accountId == nil {
-		return localVarReturnValue, nil, reportError("accountId is required and must be specified")
+	if r.params == nil {
+		return localVarReturnValue, nil, reportError("params is required and must be specified")
+	}
+	if r.authHash == nil {
+		return localVarReturnValue, nil, reportError("authHash is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -345,7 +347,8 @@ func (a *AccountApiService) PaynowV2UpdateAccountExecute(r ApiPaynowV2UpdateAcco
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	localVarFormParams.Add("accountId", parameterToString(*r.accountId, ""))
+	localVarFormParams.Add("params", parameterToString(*r.params, ""))
+	localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
