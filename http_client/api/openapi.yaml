@@ -23,7 +23,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AccountAddRequest'
+              $ref: '#/components/schemas/paynow_v2_add_account_request'
       responses:
         "200":
           content:
@@ -43,7 +43,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AccountUpdateRequest'
+              $ref: '#/components/schemas/paynow_v2_add_account_request'
       responses:
         "200":
           content:
@@ -63,7 +63,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AccountDeleteRequest'
+              $ref: '#/components/schemas/paynow_v2_add_account_request'
       responses:
         "200":
           content:
@@ -83,7 +83,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v2_get_cardinfo_request'
+              $ref: '#/components/schemas/paynow_v2_add_account_request'
       responses:
         "200":
           content:
@@ -105,7 +105,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v2_add_cardinfo_request'
+              $ref: '#/components/schemas/paynow_v2_add_account_request'
       responses:
         "200":
           content:
@@ -124,7 +124,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v2_update_cardinfo_request'
+              $ref: '#/components/schemas/paynow_v2_add_account_request'
       responses:
         "200":
           content:
@@ -144,7 +144,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v2_delete_cardinfo_request'
+              $ref: '#/components/schemas/paynow_v2_add_account_request'
       responses:
         "200":
           content:
@@ -162,7 +162,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v2_authorize_cardinfo_request'
+              $ref: '#/components/schemas/paynow_v2_add_account_request'
       responses:
         "200":
           content:
@@ -180,7 +180,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v2_reAuthorize_cardinfo_request'
+              $ref: '#/components/schemas/paynow_v2_add_account_request'
       responses:
         "200":
           content:
@@ -198,7 +198,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v2_capture_cardinfo_request'
+              $ref: '#/components/schemas/paynow_v2_add_account_request'
       responses:
         "200":
           content:
@@ -216,7 +216,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynow_v2_cancel_cardinfo_request'
+              $ref: '#/components/schemas/paynow_v2_add_account_request'
       responses:
         "200":
           content:
@@ -246,37 +246,7 @@ components:
       required:
       - accountId
       type: object
-    AccountResponse:
-      example:
-        payNowIdResponse: null
-      properties:
-        payNowIdResponse:
-          $ref: '#/components/schemas/AccountResponse_payNowIdResponse'
-      type: object
-    AbstractPayNowIdResponse:
-      example:
-        processId: processId
-        message: message
-        status: success
-      properties:
-        processId:
-          description: 会員管理処理を一意に識別する番号
-          type: string
-        status:
-          description: 会員管理処理要求の実行結果
-          enum:
-          - success
-          - failure
-          type: string
-        message:
-          description: 会員管理処理要求の実行結果メッセージ
-          type: string
-      required:
-      - message
-      - processId
-      - status
-      type: object
-    AccountUpdateRequest:
+    AccountDeleteRequest:
       properties:
         accountId:
           example: account-1662828780
@@ -284,17 +254,7 @@ components:
       required:
       - accountId
       type: object
-    PayNowIdResponse:
-      example:
-        payNowIdResponse:
-          processId: processId
-          message: message
-          status: success
-      properties:
-        payNowIdResponse:
-          $ref: '#/components/schemas/AbstractPayNowIdResponse'
-      type: object
-    AccountDeleteRequest:
+    AccountUpdateRequest:
       properties:
         accountId:
           example: account-1662828780
@@ -416,6 +376,118 @@ components:
       - orderId
       - originalOrderId
       type: object
+    CardReAuthorizeRequest:
+      properties:
+        orderId:
+          example: order-1662828780
+          type: string
+        amount:
+          example: "1000"
+          type: string
+        token:
+          description: トークンサーバーが発行した、クレジットカード情報の識別に用いるトークンの値
+          example: abcdef01-2345-6789-abcd-ef0123456789
+          type: string
+        cardNumber:
+          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+          example: "4111111111111111"
+          type: string
+        cardExpire:
+          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+          example: 12/25
+          type: string
+        securityCode:
+          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+          example: "123"
+          type: string
+        cardOptionType:
+          description: カードオプションタイプ （MPI 有り/無し）
+          enum:
+          - mpi
+          type: string
+        jpo:
+          description: |
+            支払種別
+            "10"： 一括払い
+            "21"： ボーナス一括
+            "61Cxx"： 分割払い、xx に分割回数指定
+            “80”： リボルビング払い
+            ※指定が無い場合は、"10"（一括払い）が適用されます。
+          type: string
+        withCapture:
+          description: |
+            売上フラグ
+            "true"： 与信・売上
+            "false"： 与信のみ
+          type: boolean
+      required:
+      - amount
+      - orderId
+      type: object
+    CardCaptureRequest:
+      properties:
+        orderId:
+          example: order-1662828780
+          type: string
+        amount:
+          example: "1000"
+          type: string
+      required:
+      - amount
+      - orderId
+      type: object
+    CardCancelRequest:
+      properties:
+        orderId:
+          example: order-1662828780
+          type: string
+        amount:
+          example: "1000"
+          type: string
+      required:
+      - amount
+      - orderId
+      type: object
+    AccountResponse:
+      example:
+        payNowIdResponse: null
+      properties:
+        payNowIdResponse:
+          $ref: '#/components/schemas/AccountResponse_payNowIdResponse'
+      type: object
+    AbstractPayNowIdResponse:
+      example:
+        processId: processId
+        message: message
+        status: success
+      properties:
+        processId:
+          description: 会員管理処理を一意に識別する番号
+          type: string
+        status:
+          description: 会員管理処理要求の実行結果
+          enum:
+          - success
+          - failure
+          type: string
+        message:
+          description: 会員管理処理要求の実行結果メッセージ
+          type: string
+      required:
+      - message
+      - processId
+      - status
+      type: object
+    PayNowIdResponse:
+      example:
+        payNowIdResponse:
+          processId: processId
+          message: message
+          status: success
+      properties:
+        payNowIdResponse:
+          $ref: '#/components/schemas/AbstractPayNowIdResponse'
+      type: object
     CardAuthorizeResponse:
       example:
         serviceType: serviceType
@@ -512,66 +584,6 @@ components:
         acquirerCode:
           type: string
       type: object
-    CardReAuthorizeRequest:
-      properties:
-        orderId:
-          example: order-1662828780
-          type: string
-        amount:
-          example: "1000"
-          type: string
-        token:
-          description: トークンサーバーが発行した、クレジットカード情報の識別に用いるトークンの値
-          example: abcdef01-2345-6789-abcd-ef0123456789
-          type: string
-        cardNumber:
-          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-          example: "4111111111111111"
-          type: string
-        cardExpire:
-          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-          example: 12/25
-          type: string
-        securityCode:
-          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-          example: "123"
-          type: string
-        cardOptionType:
-          description: カードオプションタイプ （MPI 有り/無し）
-          enum:
-          - mpi
-          type: string
-        jpo:
-          description: |
-            支払種別
-            "10"： 一括払い
-            "21"： ボーナス一括
-            "61Cxx"： 分割払い、xx に分割回数指定
-            “80”： リボルビング払い
-            ※指定が無い場合は、"10"（一括払い）が適用されます。
-          type: string
-        withCapture:
-          description: |
-            売上フラグ
-            "true"： 与信・売上
-            "false"： 与信のみ
-          type: boolean
-      required:
-      - amount
-      - orderId
-      type: object
-    CardCaptureRequest:
-      properties:
-        orderId:
-          example: order-1662828780
-          type: string
-        amount:
-          example: "1000"
-          type: string
-      required:
-      - amount
-      - orderId
-      type: object
     CardCaptureResponse:
       example:
         serviceType: serviceType
@@ -667,18 +679,6 @@ components:
           type: string
         acquirerCode:
           type: string
-      type: object
-    CardCancelRequest:
-      properties:
-        orderId:
-          example: order-1662828780
-          type: string
-        amount:
-          example: "1000"
-          type: string
-      required:
-      - amount
-      - orderId
       type: object
     CardCancelResponse:
       example:
@@ -819,61 +819,15 @@ components:
       - defaultCard
       title: card_info
       type: object
-    paynow_v2_get_cardinfo_request:
+    paynow_v2_add_account_request:
       properties:
         params:
-          $ref: '#/components/schemas/CardInfoGetRequest'
+          type: string
         authHash:
           type: string
-      type: object
-    paynow_v2_add_cardinfo_request:
-      properties:
-        params:
-          $ref: '#/components/schemas/CardInfoAddRequest'
-        authHash:
-          type: string
-      type: object
-    paynow_v2_update_cardinfo_request:
-      properties:
-        params:
-          $ref: '#/components/schemas/CardInfoUpdateRequest'
-        authHash:
-          type: string
-      type: object
-    paynow_v2_delete_cardinfo_request:
-      properties:
-        params:
-          $ref: '#/components/schemas/CardInfoDeleteRequest'
-        authHash:
-          type: string
-      type: object
-    paynow_v2_authorize_cardinfo_request:
-      properties:
-        params:
-          $ref: '#/components/schemas/CardAuthorizeRequest'
-        authHash:
-          type: string
-      type: object
-    paynow_v2_reAuthorize_cardinfo_request:
-      properties:
-        params:
-          $ref: '#/components/schemas/CardReAuthorizeRequest'
-        authHash:
-          type: string
-      type: object
-    paynow_v2_capture_cardinfo_request:
-      properties:
-        params:
-          $ref: '#/components/schemas/CardCaptureRequest'
-        authHash:
-          type: string
-      type: object
-    paynow_v2_cancel_cardinfo_request:
-      properties:
-        params:
-          $ref: '#/components/schemas/CardCancelRequest'
-        authHash:
-          type: string
+      required:
+      - authHash
+      - params
       type: object
     AccountResponse_payNowIdResponse_allOf:
       properties:

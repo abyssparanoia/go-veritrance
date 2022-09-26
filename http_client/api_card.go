@@ -25,11 +25,11 @@ type CardApiService service
 type ApiPaynowV2AuthorizeCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardApiService
-	params *CardAuthorizeRequest
+	params *string
 	authHash *string
 }
 
-func (r ApiPaynowV2AuthorizeCardinfoRequest) Params(params CardAuthorizeRequest) ApiPaynowV2AuthorizeCardinfoRequest {
+func (r ApiPaynowV2AuthorizeCardinfoRequest) Params(params string) ApiPaynowV2AuthorizeCardinfoRequest {
 	r.params = &params
 	return r
 }
@@ -76,6 +76,12 @@ func (a *CardApiService) PaynowV2AuthorizeCardinfoExecute(r ApiPaynowV2Authorize
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.params == nil {
+		return localVarReturnValue, nil, reportError("params is required and must be specified")
+	}
+	if r.authHash == nil {
+		return localVarReturnValue, nil, reportError("authHash is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
@@ -94,16 +100,8 @@ func (a *CardApiService) PaynowV2AuthorizeCardinfoExecute(r ApiPaynowV2Authorize
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.params != nil {
-		paramJson, err := parameterToJson(*r.params)
-		if err != nil {
-			return localVarReturnValue, nil, err
-		}
-		localVarFormParams.Add("params", paramJson)
-	}
-	if r.authHash != nil {
-		localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
-	}
+	localVarFormParams.Add("params", parameterToString(*r.params, ""))
+	localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -144,11 +142,11 @@ func (a *CardApiService) PaynowV2AuthorizeCardinfoExecute(r ApiPaynowV2Authorize
 type ApiPaynowV2CancelCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardApiService
-	params *CardCancelRequest
+	params *string
 	authHash *string
 }
 
-func (r ApiPaynowV2CancelCardinfoRequest) Params(params CardCancelRequest) ApiPaynowV2CancelCardinfoRequest {
+func (r ApiPaynowV2CancelCardinfoRequest) Params(params string) ApiPaynowV2CancelCardinfoRequest {
 	r.params = &params
 	return r
 }
@@ -195,6 +193,12 @@ func (a *CardApiService) PaynowV2CancelCardinfoExecute(r ApiPaynowV2CancelCardin
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.params == nil {
+		return localVarReturnValue, nil, reportError("params is required and must be specified")
+	}
+	if r.authHash == nil {
+		return localVarReturnValue, nil, reportError("authHash is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
@@ -213,16 +217,8 @@ func (a *CardApiService) PaynowV2CancelCardinfoExecute(r ApiPaynowV2CancelCardin
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.params != nil {
-		paramJson, err := parameterToJson(*r.params)
-		if err != nil {
-			return localVarReturnValue, nil, err
-		}
-		localVarFormParams.Add("params", paramJson)
-	}
-	if r.authHash != nil {
-		localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
-	}
+	localVarFormParams.Add("params", parameterToString(*r.params, ""))
+	localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -263,11 +259,11 @@ func (a *CardApiService) PaynowV2CancelCardinfoExecute(r ApiPaynowV2CancelCardin
 type ApiPaynowV2CaptureCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardApiService
-	params *CardCaptureRequest
+	params *string
 	authHash *string
 }
 
-func (r ApiPaynowV2CaptureCardinfoRequest) Params(params CardCaptureRequest) ApiPaynowV2CaptureCardinfoRequest {
+func (r ApiPaynowV2CaptureCardinfoRequest) Params(params string) ApiPaynowV2CaptureCardinfoRequest {
 	r.params = &params
 	return r
 }
@@ -314,6 +310,12 @@ func (a *CardApiService) PaynowV2CaptureCardinfoExecute(r ApiPaynowV2CaptureCard
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.params == nil {
+		return localVarReturnValue, nil, reportError("params is required and must be specified")
+	}
+	if r.authHash == nil {
+		return localVarReturnValue, nil, reportError("authHash is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
@@ -332,16 +334,8 @@ func (a *CardApiService) PaynowV2CaptureCardinfoExecute(r ApiPaynowV2CaptureCard
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.params != nil {
-		paramJson, err := parameterToJson(*r.params)
-		if err != nil {
-			return localVarReturnValue, nil, err
-		}
-		localVarFormParams.Add("params", paramJson)
-	}
-	if r.authHash != nil {
-		localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
-	}
+	localVarFormParams.Add("params", parameterToString(*r.params, ""))
+	localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -382,11 +376,11 @@ func (a *CardApiService) PaynowV2CaptureCardinfoExecute(r ApiPaynowV2CaptureCard
 type ApiPaynowV2ReAuthorizeCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardApiService
-	params *CardReAuthorizeRequest
+	params *string
 	authHash *string
 }
 
-func (r ApiPaynowV2ReAuthorizeCardinfoRequest) Params(params CardReAuthorizeRequest) ApiPaynowV2ReAuthorizeCardinfoRequest {
+func (r ApiPaynowV2ReAuthorizeCardinfoRequest) Params(params string) ApiPaynowV2ReAuthorizeCardinfoRequest {
 	r.params = &params
 	return r
 }
@@ -433,6 +427,12 @@ func (a *CardApiService) PaynowV2ReAuthorizeCardinfoExecute(r ApiPaynowV2ReAutho
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.params == nil {
+		return localVarReturnValue, nil, reportError("params is required and must be specified")
+	}
+	if r.authHash == nil {
+		return localVarReturnValue, nil, reportError("authHash is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
@@ -451,16 +451,8 @@ func (a *CardApiService) PaynowV2ReAuthorizeCardinfoExecute(r ApiPaynowV2ReAutho
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.params != nil {
-		paramJson, err := parameterToJson(*r.params)
-		if err != nil {
-			return localVarReturnValue, nil, err
-		}
-		localVarFormParams.Add("params", paramJson)
-	}
-	if r.authHash != nil {
-		localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
-	}
+	localVarFormParams.Add("params", parameterToString(*r.params, ""))
+	localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
