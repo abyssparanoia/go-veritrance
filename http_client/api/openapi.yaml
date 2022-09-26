@@ -22,9 +22,9 @@ paths:
       operationId: paynowid-v1-add-account
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          text/plain:
             schema:
-              $ref: '#/components/schemas/paynowid_v1_add_account_request'
+              type: string
       responses:
         "200":
           content:
@@ -44,7 +44,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynowid_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_update_account_request'
       responses:
         "200":
           content:
@@ -64,7 +64,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynowid_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_update_account_request'
       responses:
         "200":
           content:
@@ -84,7 +84,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynowid_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_update_account_request'
       responses:
         "200":
           content:
@@ -106,7 +106,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynowid_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_update_account_request'
       responses:
         "200":
           content:
@@ -125,7 +125,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynowid_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_update_account_request'
       responses:
         "200":
           content:
@@ -145,7 +145,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynowid_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_update_account_request'
       responses:
         "200":
           content:
@@ -163,7 +163,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynowid_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_update_account_request'
       responses:
         "200":
           content:
@@ -181,7 +181,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynowid_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_update_account_request'
       responses:
         "200":
           content:
@@ -199,7 +199,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynowid_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_update_account_request'
       responses:
         "200":
           content:
@@ -217,7 +217,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/paynowid_v1_add_account_request'
+              $ref: '#/components/schemas/paynowid_v1_update_account_request'
       responses:
         "200":
           content:
@@ -700,7 +700,7 @@ components:
       - defaultCard
       title: card_info
       type: object
-    paynowid_v1_add_account_request:
+    paynowid_v1_update_account_request:
       properties:
         params:
           type: string

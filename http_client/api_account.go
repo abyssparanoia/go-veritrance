@@ -25,17 +25,11 @@ type AccountApiService service
 type ApiPaynowidV1AddAccountRequest struct {
 	ctx context.Context
 	ApiService *AccountApiService
-	params *string
-	authHash *string
+	body *string
 }
 
-func (r ApiPaynowidV1AddAccountRequest) Params(params string) ApiPaynowidV1AddAccountRequest {
-	r.params = &params
-	return r
-}
-
-func (r ApiPaynowidV1AddAccountRequest) AuthHash(authHash string) ApiPaynowidV1AddAccountRequest {
-	r.authHash = &authHash
+func (r ApiPaynowidV1AddAccountRequest) Body(body string) ApiPaynowidV1AddAccountRequest {
+	r.body = &body
 	return r
 }
 
@@ -83,15 +77,9 @@ func (a *AccountApiService) PaynowidV1AddAccountExecute(r ApiPaynowidV1AddAccoun
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.params == nil {
-		return localVarReturnValue, nil, reportError("params is required and must be specified")
-	}
-	if r.authHash == nil {
-		return localVarReturnValue, nil, reportError("authHash is required and must be specified")
-	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
+	localVarHTTPContentTypes := []string{"text/plain"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -107,8 +95,8 @@ func (a *AccountApiService) PaynowidV1AddAccountExecute(r ApiPaynowidV1AddAccoun
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	localVarFormParams.Add("params", parameterToString(*r.params, ""))
-	localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
+	// body params
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
