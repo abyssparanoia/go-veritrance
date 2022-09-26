@@ -16,6 +16,9 @@ import (
 
 // CardCancelRequest struct for CardCancelRequest
 type CardCancelRequest struct {
+	TxnVersion string `json:"txnVersion"`
+	DummyRequest string `json:"dummyRequest"`
+	MerchantCcid string `json:"merchantCcid"`
 	OrderId string `json:"orderId"`
 	Amount string `json:"amount"`
 }
@@ -24,8 +27,11 @@ type CardCancelRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCardCancelRequest(orderId string, amount string) *CardCancelRequest {
+func NewCardCancelRequest(txnVersion string, dummyRequest string, merchantCcid string, orderId string, amount string) *CardCancelRequest {
 	this := CardCancelRequest{}
+	this.TxnVersion = txnVersion
+	this.DummyRequest = dummyRequest
+	this.MerchantCcid = merchantCcid
 	this.OrderId = orderId
 	this.Amount = amount
 	return &this
@@ -37,6 +43,78 @@ func NewCardCancelRequest(orderId string, amount string) *CardCancelRequest {
 func NewCardCancelRequestWithDefaults() *CardCancelRequest {
 	this := CardCancelRequest{}
 	return &this
+}
+
+// GetTxnVersion returns the TxnVersion field value
+func (o *CardCancelRequest) GetTxnVersion() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.TxnVersion
+}
+
+// GetTxnVersionOk returns a tuple with the TxnVersion field value
+// and a boolean to check if the value has been set.
+func (o *CardCancelRequest) GetTxnVersionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TxnVersion, true
+}
+
+// SetTxnVersion sets field value
+func (o *CardCancelRequest) SetTxnVersion(v string) {
+	o.TxnVersion = v
+}
+
+// GetDummyRequest returns the DummyRequest field value
+func (o *CardCancelRequest) GetDummyRequest() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.DummyRequest
+}
+
+// GetDummyRequestOk returns a tuple with the DummyRequest field value
+// and a boolean to check if the value has been set.
+func (o *CardCancelRequest) GetDummyRequestOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DummyRequest, true
+}
+
+// SetDummyRequest sets field value
+func (o *CardCancelRequest) SetDummyRequest(v string) {
+	o.DummyRequest = v
+}
+
+// GetMerchantCcid returns the MerchantCcid field value
+func (o *CardCancelRequest) GetMerchantCcid() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.MerchantCcid
+}
+
+// GetMerchantCcidOk returns a tuple with the MerchantCcid field value
+// and a boolean to check if the value has been set.
+func (o *CardCancelRequest) GetMerchantCcidOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MerchantCcid, true
+}
+
+// SetMerchantCcid sets field value
+func (o *CardCancelRequest) SetMerchantCcid(v string) {
+	o.MerchantCcid = v
 }
 
 // GetOrderId returns the OrderId field value
@@ -89,6 +167,15 @@ func (o *CardCancelRequest) SetAmount(v string) {
 
 func (o CardCancelRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["txnVersion"] = o.TxnVersion
+	}
+	if true {
+		toSerialize["dummyRequest"] = o.DummyRequest
+	}
+	if true {
+		toSerialize["merchantCcid"] = o.MerchantCcid
+	}
 	if true {
 		toSerialize["orderId"] = o.OrderId
 	}

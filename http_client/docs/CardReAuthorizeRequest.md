@@ -4,6 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**TxnVersion** | **string** |  | 
+**DummyRequest** | **string** |  | 
+**MerchantCcid** | **string** |  | 
 **OrderId** | **string** |  | 
 **Amount** | **string** |  | 
 **Token** | Pointer to **string** | トークンサーバーが発行した、クレジットカード情報の識別に用いるトークンの値 | [optional] 
@@ -18,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewCardReAuthorizeRequest
 
-`func NewCardReAuthorizeRequest(orderId string, amount string, ) *CardReAuthorizeRequest`
+`func NewCardReAuthorizeRequest(txnVersion string, dummyRequest string, merchantCcid string, orderId string, amount string, ) *CardReAuthorizeRequest`
 
 NewCardReAuthorizeRequest instantiates a new CardReAuthorizeRequest object
 This constructor will assign default values to properties that have it defined,
@@ -32,6 +35,66 @@ will change when the set of required properties is changed
 NewCardReAuthorizeRequestWithDefaults instantiates a new CardReAuthorizeRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetTxnVersion
+
+`func (o *CardReAuthorizeRequest) GetTxnVersion() string`
+
+GetTxnVersion returns the TxnVersion field if non-nil, zero value otherwise.
+
+### GetTxnVersionOk
+
+`func (o *CardReAuthorizeRequest) GetTxnVersionOk() (*string, bool)`
+
+GetTxnVersionOk returns a tuple with the TxnVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTxnVersion
+
+`func (o *CardReAuthorizeRequest) SetTxnVersion(v string)`
+
+SetTxnVersion sets TxnVersion field to given value.
+
+
+### GetDummyRequest
+
+`func (o *CardReAuthorizeRequest) GetDummyRequest() string`
+
+GetDummyRequest returns the DummyRequest field if non-nil, zero value otherwise.
+
+### GetDummyRequestOk
+
+`func (o *CardReAuthorizeRequest) GetDummyRequestOk() (*string, bool)`
+
+GetDummyRequestOk returns a tuple with the DummyRequest field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDummyRequest
+
+`func (o *CardReAuthorizeRequest) SetDummyRequest(v string)`
+
+SetDummyRequest sets DummyRequest field to given value.
+
+
+### GetMerchantCcid
+
+`func (o *CardReAuthorizeRequest) GetMerchantCcid() string`
+
+GetMerchantCcid returns the MerchantCcid field if non-nil, zero value otherwise.
+
+### GetMerchantCcidOk
+
+`func (o *CardReAuthorizeRequest) GetMerchantCcidOk() (*string, bool)`
+
+GetMerchantCcidOk returns a tuple with the MerchantCcid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMerchantCcid
+
+`func (o *CardReAuthorizeRequest) SetMerchantCcid(v string)`
+
+SetMerchantCcid sets MerchantCcid field to given value.
+
 
 ### GetOrderId
 

@@ -16,6 +16,9 @@ import (
 
 // CardInfoDeleteRequest struct for CardInfoDeleteRequest
 type CardInfoDeleteRequest struct {
+	TxnVersion string `json:"txnVersion"`
+	DummyRequest string `json:"dummyRequest"`
+	MerchantCcid string `json:"merchantCcid"`
 	AccountId string `json:"accountId"`
 	CardId *string `json:"cardId,omitempty"`
 }
@@ -24,8 +27,11 @@ type CardInfoDeleteRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCardInfoDeleteRequest(accountId string) *CardInfoDeleteRequest {
+func NewCardInfoDeleteRequest(txnVersion string, dummyRequest string, merchantCcid string, accountId string) *CardInfoDeleteRequest {
 	this := CardInfoDeleteRequest{}
+	this.TxnVersion = txnVersion
+	this.DummyRequest = dummyRequest
+	this.MerchantCcid = merchantCcid
 	this.AccountId = accountId
 	return &this
 }
@@ -36,6 +42,78 @@ func NewCardInfoDeleteRequest(accountId string) *CardInfoDeleteRequest {
 func NewCardInfoDeleteRequestWithDefaults() *CardInfoDeleteRequest {
 	this := CardInfoDeleteRequest{}
 	return &this
+}
+
+// GetTxnVersion returns the TxnVersion field value
+func (o *CardInfoDeleteRequest) GetTxnVersion() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.TxnVersion
+}
+
+// GetTxnVersionOk returns a tuple with the TxnVersion field value
+// and a boolean to check if the value has been set.
+func (o *CardInfoDeleteRequest) GetTxnVersionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TxnVersion, true
+}
+
+// SetTxnVersion sets field value
+func (o *CardInfoDeleteRequest) SetTxnVersion(v string) {
+	o.TxnVersion = v
+}
+
+// GetDummyRequest returns the DummyRequest field value
+func (o *CardInfoDeleteRequest) GetDummyRequest() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.DummyRequest
+}
+
+// GetDummyRequestOk returns a tuple with the DummyRequest field value
+// and a boolean to check if the value has been set.
+func (o *CardInfoDeleteRequest) GetDummyRequestOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DummyRequest, true
+}
+
+// SetDummyRequest sets field value
+func (o *CardInfoDeleteRequest) SetDummyRequest(v string) {
+	o.DummyRequest = v
+}
+
+// GetMerchantCcid returns the MerchantCcid field value
+func (o *CardInfoDeleteRequest) GetMerchantCcid() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.MerchantCcid
+}
+
+// GetMerchantCcidOk returns a tuple with the MerchantCcid field value
+// and a boolean to check if the value has been set.
+func (o *CardInfoDeleteRequest) GetMerchantCcidOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MerchantCcid, true
+}
+
+// SetMerchantCcid sets field value
+func (o *CardInfoDeleteRequest) SetMerchantCcid(v string) {
+	o.MerchantCcid = v
 }
 
 // GetAccountId returns the AccountId field value
@@ -96,6 +174,15 @@ func (o *CardInfoDeleteRequest) SetCardId(v string) {
 
 func (o CardInfoDeleteRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["txnVersion"] = o.TxnVersion
+	}
+	if true {
+		toSerialize["dummyRequest"] = o.DummyRequest
+	}
+	if true {
+		toSerialize["merchantCcid"] = o.MerchantCcid
+	}
 	if true {
 		toSerialize["accountId"] = o.AccountId
 	}

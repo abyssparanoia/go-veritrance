@@ -14,37 +14,35 @@ import (
 	"encoding/json"
 )
 
-// CardInfoGetRequest struct for CardInfoGetRequest
-type CardInfoGetRequest struct {
+// AbstractPayNowRequest struct for AbstractPayNowRequest
+type AbstractPayNowRequest struct {
 	TxnVersion string `json:"txnVersion"`
 	DummyRequest string `json:"dummyRequest"`
 	MerchantCcid string `json:"merchantCcid"`
-	AccountId string `json:"accountId"`
 }
 
-// NewCardInfoGetRequest instantiates a new CardInfoGetRequest object
+// NewAbstractPayNowRequest instantiates a new AbstractPayNowRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCardInfoGetRequest(txnVersion string, dummyRequest string, merchantCcid string, accountId string) *CardInfoGetRequest {
-	this := CardInfoGetRequest{}
+func NewAbstractPayNowRequest(txnVersion string, dummyRequest string, merchantCcid string) *AbstractPayNowRequest {
+	this := AbstractPayNowRequest{}
 	this.TxnVersion = txnVersion
 	this.DummyRequest = dummyRequest
 	this.MerchantCcid = merchantCcid
-	this.AccountId = accountId
 	return &this
 }
 
-// NewCardInfoGetRequestWithDefaults instantiates a new CardInfoGetRequest object
+// NewAbstractPayNowRequestWithDefaults instantiates a new AbstractPayNowRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewCardInfoGetRequestWithDefaults() *CardInfoGetRequest {
-	this := CardInfoGetRequest{}
+func NewAbstractPayNowRequestWithDefaults() *AbstractPayNowRequest {
+	this := AbstractPayNowRequest{}
 	return &this
 }
 
 // GetTxnVersion returns the TxnVersion field value
-func (o *CardInfoGetRequest) GetTxnVersion() string {
+func (o *AbstractPayNowRequest) GetTxnVersion() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -55,7 +53,7 @@ func (o *CardInfoGetRequest) GetTxnVersion() string {
 
 // GetTxnVersionOk returns a tuple with the TxnVersion field value
 // and a boolean to check if the value has been set.
-func (o *CardInfoGetRequest) GetTxnVersionOk() (*string, bool) {
+func (o *AbstractPayNowRequest) GetTxnVersionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -63,12 +61,12 @@ func (o *CardInfoGetRequest) GetTxnVersionOk() (*string, bool) {
 }
 
 // SetTxnVersion sets field value
-func (o *CardInfoGetRequest) SetTxnVersion(v string) {
+func (o *AbstractPayNowRequest) SetTxnVersion(v string) {
 	o.TxnVersion = v
 }
 
 // GetDummyRequest returns the DummyRequest field value
-func (o *CardInfoGetRequest) GetDummyRequest() string {
+func (o *AbstractPayNowRequest) GetDummyRequest() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -79,7 +77,7 @@ func (o *CardInfoGetRequest) GetDummyRequest() string {
 
 // GetDummyRequestOk returns a tuple with the DummyRequest field value
 // and a boolean to check if the value has been set.
-func (o *CardInfoGetRequest) GetDummyRequestOk() (*string, bool) {
+func (o *AbstractPayNowRequest) GetDummyRequestOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -87,12 +85,12 @@ func (o *CardInfoGetRequest) GetDummyRequestOk() (*string, bool) {
 }
 
 // SetDummyRequest sets field value
-func (o *CardInfoGetRequest) SetDummyRequest(v string) {
+func (o *AbstractPayNowRequest) SetDummyRequest(v string) {
 	o.DummyRequest = v
 }
 
 // GetMerchantCcid returns the MerchantCcid field value
-func (o *CardInfoGetRequest) GetMerchantCcid() string {
+func (o *AbstractPayNowRequest) GetMerchantCcid() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -103,7 +101,7 @@ func (o *CardInfoGetRequest) GetMerchantCcid() string {
 
 // GetMerchantCcidOk returns a tuple with the MerchantCcid field value
 // and a boolean to check if the value has been set.
-func (o *CardInfoGetRequest) GetMerchantCcidOk() (*string, bool) {
+func (o *AbstractPayNowRequest) GetMerchantCcidOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -111,35 +109,11 @@ func (o *CardInfoGetRequest) GetMerchantCcidOk() (*string, bool) {
 }
 
 // SetMerchantCcid sets field value
-func (o *CardInfoGetRequest) SetMerchantCcid(v string) {
+func (o *AbstractPayNowRequest) SetMerchantCcid(v string) {
 	o.MerchantCcid = v
 }
 
-// GetAccountId returns the AccountId field value
-func (o *CardInfoGetRequest) GetAccountId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.AccountId
-}
-
-// GetAccountIdOk returns a tuple with the AccountId field value
-// and a boolean to check if the value has been set.
-func (o *CardInfoGetRequest) GetAccountIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AccountId, true
-}
-
-// SetAccountId sets field value
-func (o *CardInfoGetRequest) SetAccountId(v string) {
-	o.AccountId = v
-}
-
-func (o CardInfoGetRequest) MarshalJSON() ([]byte, error) {
+func (o AbstractPayNowRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["txnVersion"] = o.TxnVersion
@@ -150,44 +124,41 @@ func (o CardInfoGetRequest) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["merchantCcid"] = o.MerchantCcid
 	}
-	if true {
-		toSerialize["accountId"] = o.AccountId
-	}
 	return json.Marshal(toSerialize)
 }
 
-type NullableCardInfoGetRequest struct {
-	value *CardInfoGetRequest
+type NullableAbstractPayNowRequest struct {
+	value *AbstractPayNowRequest
 	isSet bool
 }
 
-func (v NullableCardInfoGetRequest) Get() *CardInfoGetRequest {
+func (v NullableAbstractPayNowRequest) Get() *AbstractPayNowRequest {
 	return v.value
 }
 
-func (v *NullableCardInfoGetRequest) Set(val *CardInfoGetRequest) {
+func (v *NullableAbstractPayNowRequest) Set(val *AbstractPayNowRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableCardInfoGetRequest) IsSet() bool {
+func (v NullableAbstractPayNowRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableCardInfoGetRequest) Unset() {
+func (v *NullableAbstractPayNowRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableCardInfoGetRequest(val *CardInfoGetRequest) *NullableCardInfoGetRequest {
-	return &NullableCardInfoGetRequest{value: val, isSet: true}
+func NewNullableAbstractPayNowRequest(val *AbstractPayNowRequest) *NullableAbstractPayNowRequest {
+	return &NullableAbstractPayNowRequest{value: val, isSet: true}
 }
 
-func (v NullableCardInfoGetRequest) MarshalJSON() ([]byte, error) {
+func (v NullableAbstractPayNowRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableCardInfoGetRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableAbstractPayNowRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
