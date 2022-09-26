@@ -731,23 +731,38 @@ components:
           example: account-1662828780
           type: string
       type: object
-    CardInfoAddRequest_allOf:
+    CardInfoAddRequest_allOf_payNowIdParam_accountParam_cardParam:
+      properties:
+        token:
+          example: 80b66157-6f6f-4a38-a6e4-43e306f0084f
+          type: string
+      required:
+      - token
+      type: object
+    CardInfoAddRequest_allOf_payNowIdParam_accountParam:
       properties:
         accountId:
           example: account-1662828780
           type: string
-        token:
-          example: 80b66157-6f6f-4a38-a6e4-43e306f0084f
-          type: string
-        cardNumber:
-          example: "4111111111111111"
-          type: string
-        cardExpire:
-          example: 12/25
-          type: string
-        securityCode:
-          example: "123"
-          type: string
+        cardParam:
+          $ref: '#/components/schemas/CardInfoAddRequest_allOf_payNowIdParam_accountParam_cardParam'
+      required:
+      - accountId
+      - cardParam
+      type: object
+    CardInfoAddRequest_allOf_payNowIdParam:
+      properties:
+        accountParam:
+          $ref: '#/components/schemas/CardInfoAddRequest_allOf_payNowIdParam_accountParam'
+      required:
+      - accountParam
+      type: object
+    CardInfoAddRequest_allOf:
+      properties:
+        payNowIdParam:
+          $ref: '#/components/schemas/CardInfoAddRequest_allOf_payNowIdParam'
+      required:
+      - payNowIdParam
       type: object
     CardInfoUpdateRequest_allOf:
       properties:
