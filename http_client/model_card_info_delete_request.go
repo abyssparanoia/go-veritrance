@@ -1,7 +1,7 @@
 /*
 Veritrance API
 
-Veritrance API 
+Veritrance API Requestの形式はcomponentsを参照。文字列にしたものを各Requestのparamsに用いる 
 
 API version: 3.0.0
 */

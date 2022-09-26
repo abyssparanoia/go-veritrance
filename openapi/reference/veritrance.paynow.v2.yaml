@@ -6,7 +6,7 @@ info:
     name: Veritrance
   description: |
     Veritrance API
-
+    Requestの形式はcomponentsを参照。文字列にしたものを各Requestのparamsに用いる
 servers:
   - url: "https://api.veritrans.co.jp:443"
     description: Production

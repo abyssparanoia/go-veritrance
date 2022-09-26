@@ -1,6 +1,7 @@
 # Go API client for veritrance_paynow
 
 Veritrance API
+Requestの形式はcomponentsを参照。文字列にしたものを各Requestのparamsに用いる
 
 
 ## Overview
