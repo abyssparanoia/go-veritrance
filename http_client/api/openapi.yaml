@@ -231,83 +231,44 @@ paths:
 components:
   schemas:
     AccountAddRequest:
-      properties:
-        accountId:
-          example: account-1662828780
-          type: string
-        cardNumber:
-          example: "4111111111111111"
-          type: string
-        cardExpire:
-          example: 12/25
-          type: string
-        securityCode:
-          example: "123"
-          type: string
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/AccountAddRequest_allOf'
       required:
       - accountId
       type: object
     AccountDeleteRequest:
-      properties:
-        accountId:
-          example: account-1662828780
-          type: string
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/AccountDeleteRequest_allOf'
       required:
       - accountId
       type: object
     AccountUpdateRequest:
-      properties:
-        accountId:
-          example: account-1662828780
-          type: string
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/AccountDeleteRequest_allOf'
       required:
       - accountId
       type: object
     CardInfoGetRequest:
-      properties:
-        accountId:
-          example: account-1662828780
-          type: string
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/AccountDeleteRequest_allOf'
       required:
       - accountId
       type: object
     CardInfoAddRequest:
-      properties:
-        accountId:
-          example: account-1662828780
-          type: string
-        token:
-          example: 80b66157-6f6f-4a38-a6e4-43e306f0084f
-          type: string
-        cardNumber:
-          example: "4111111111111111"
-          type: string
-        cardExpire:
-          example: 12/25
-          type: string
-        securityCode:
-          example: "123"
-          type: string
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/CardInfoAddRequest_allOf'
       required:
       - token
       type: object
     CardInfoUpdateRequest:
-      properties:
-        accountId:
-          example: account-1662828780
-          type: string
-        cardId:
-          example: card-1662828780
-          type: string
-        cardNumber:
-          example: "4111111111111111"
-          type: string
-        cardExpire:
-          example: 12/25
-          type: string
-        securityCode:
-          example: "123"
-          type: string
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/CardInfoUpdateRequest_allOf'
       required:
       - accountId
       - cardExpire
@@ -316,138 +277,56 @@ components:
       - securityCode
       type: object
     CardInfoDeleteRequest:
-      properties:
-        accountId:
-          example: account-1662828780
-          type: string
-        cardId:
-          example: card-1662828780
-          type: string
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/CardInfoDeleteRequest_allOf'
       required:
       - accountId
       type: object
     CardAuthorizeRequest:
-      properties:
-        orderId:
-          example: order-1662828780
-          type: string
-        originalOrderId:
-          example: order-1662828781
-          type: string
-        amount:
-          example: "1000"
-          type: string
-        token:
-          description: トークンサーバーが発行した、クレジットカード情報の識別に用いるトークンの値
-          example: abcdef01-2345-6789-abcd-ef0123456789
-          type: string
-        cardNumber:
-          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-          example: "4111111111111111"
-          type: string
-        cardExpire:
-          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-          example: 12/25
-          type: string
-        securityCode:
-          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-          example: "123"
-          type: string
-        cardOptionType:
-          description: カードオプションタイプ （MPI 有り/無し）
-          enum:
-          - mpi
-          type: string
-        jpo:
-          description: |
-            支払種別
-            "10"： 一括払い
-            "21"： ボーナス一括
-            "61Cxx"： 分割払い、xx に分割回数指定
-            “80”： リボルビング払い
-            ※指定が無い場合は、"10"（一括払い）が適用されます。
-          type: string
-        withCapture:
-          description: |
-            売上フラグ
-            "true"： 与信・売上
-            "false"： 与信のみ
-          type: boolean
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/CardAuthorizeRequest_allOf'
       required:
       - orderId
       - originalOrderId
       type: object
     CardReAuthorizeRequest:
-      properties:
-        orderId:
-          example: order-1662828780
-          type: string
-        amount:
-          example: "1000"
-          type: string
-        token:
-          description: トークンサーバーが発行した、クレジットカード情報の識別に用いるトークンの値
-          example: abcdef01-2345-6789-abcd-ef0123456789
-          type: string
-        cardNumber:
-          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-          example: "4111111111111111"
-          type: string
-        cardExpire:
-          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-          example: 12/25
-          type: string
-        securityCode:
-          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-          example: "123"
-          type: string
-        cardOptionType:
-          description: カードオプションタイプ （MPI 有り/無し）
-          enum:
-          - mpi
-          type: string
-        jpo:
-          description: |
-            支払種別
-            "10"： 一括払い
-            "21"： ボーナス一括
-            "61Cxx"： 分割払い、xx に分割回数指定
-            “80”： リボルビング払い
-            ※指定が無い場合は、"10"（一括払い）が適用されます。
-          type: string
-        withCapture:
-          description: |
-            売上フラグ
-            "true"： 与信・売上
-            "false"： 与信のみ
-          type: boolean
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/CardReAuthorizeRequest_allOf'
       required:
       - amount
       - orderId
       type: object
     CardCaptureRequest:
-      properties:
-        orderId:
-          example: order-1662828780
-          type: string
-        amount:
-          example: "1000"
-          type: string
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/CardCaptureRequest_allOf'
       required:
       - amount
       - orderId
       type: object
     CardCancelRequest:
-      properties:
-        orderId:
-          example: order-1662828780
-          type: string
-        amount:
-          example: "1000"
-          type: string
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/CardCaptureRequest_allOf'
       required:
       - amount
       - orderId
+      type: object
+    AbstractPayNowRequest:
+      properties:
+        txnVersion:
+          type: string
+        dummyRequest:
+          type: string
+        merchantCcid:
+          type: string
+      required:
+      - dummyRequest
+      - merchantCcid
+      - txnVersion
       type: object
     AccountResponse:
       example:
@@ -829,6 +708,174 @@ components:
       required:
       - authHash
       - params
+      type: object
+    AccountAddRequest_allOf:
+      properties:
+        accountId:
+          example: account-1662828780
+          type: string
+        cardNumber:
+          example: "4111111111111111"
+          type: string
+        cardExpire:
+          example: 12/25
+          type: string
+        securityCode:
+          example: "123"
+          type: string
+      type: object
+    AccountDeleteRequest_allOf:
+      properties:
+        accountId:
+          example: account-1662828780
+          type: string
+      type: object
+    CardInfoAddRequest_allOf:
+      properties:
+        accountId:
+          example: account-1662828780
+          type: string
+        token:
+          example: 80b66157-6f6f-4a38-a6e4-43e306f0084f
+          type: string
+        cardNumber:
+          example: "4111111111111111"
+          type: string
+        cardExpire:
+          example: 12/25
+          type: string
+        securityCode:
+          example: "123"
+          type: string
+      type: object
+    CardInfoUpdateRequest_allOf:
+      properties:
+        accountId:
+          example: account-1662828780
+          type: string
+        cardId:
+          example: card-1662828780
+          type: string
+        cardNumber:
+          example: "4111111111111111"
+          type: string
+        cardExpire:
+          example: 12/25
+          type: string
+        securityCode:
+          example: "123"
+          type: string
+      type: object
+    CardInfoDeleteRequest_allOf:
+      properties:
+        accountId:
+          example: account-1662828780
+          type: string
+        cardId:
+          example: card-1662828780
+          type: string
+      type: object
+    CardAuthorizeRequest_allOf:
+      properties:
+        orderId:
+          example: order-1662828780
+          type: string
+        originalOrderId:
+          example: order-1662828781
+          type: string
+        amount:
+          example: "1000"
+          type: string
+        token:
+          description: トークンサーバーが発行した、クレジットカード情報の識別に用いるトークンの値
+          example: abcdef01-2345-6789-abcd-ef0123456789
+          type: string
+        cardNumber:
+          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+          example: "4111111111111111"
+          type: string
+        cardExpire:
+          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+          example: 12/25
+          type: string
+        securityCode:
+          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+          example: "123"
+          type: string
+        cardOptionType:
+          description: カードオプションタイプ （MPI 有り/無し）
+          enum:
+          - mpi
+          type: string
+        jpo:
+          description: |
+            支払種別
+            "10"： 一括払い
+            "21"： ボーナス一括
+            "61Cxx"： 分割払い、xx に分割回数指定
+            “80”： リボルビング払い
+            ※指定が無い場合は、"10"（一括払い）が適用されます。
+          type: string
+        withCapture:
+          description: |
+            売上フラグ
+            "true"： 与信・売上
+            "false"： 与信のみ
+          type: boolean
+      type: object
+    CardReAuthorizeRequest_allOf:
+      properties:
+        orderId:
+          example: order-1662828780
+          type: string
+        amount:
+          example: "1000"
+          type: string
+        token:
+          description: トークンサーバーが発行した、クレジットカード情報の識別に用いるトークンの値
+          example: abcdef01-2345-6789-abcd-ef0123456789
+          type: string
+        cardNumber:
+          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+          example: "4111111111111111"
+          type: string
+        cardExpire:
+          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+          example: 12/25
+          type: string
+        securityCode:
+          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+          example: "123"
+          type: string
+        cardOptionType:
+          description: カードオプションタイプ （MPI 有り/無し）
+          enum:
+          - mpi
+          type: string
+        jpo:
+          description: |
+            支払種別
+            "10"： 一括払い
+            "21"： ボーナス一括
+            "61Cxx"： 分割払い、xx に分割回数指定
+            “80”： リボルビング払い
+            ※指定が無い場合は、"10"（一括払い）が適用されます。
+          type: string
+        withCapture:
+          description: |
+            売上フラグ
+            "true"： 与信・売上
+            "false"： 与信のみ
+          type: boolean
+      type: object
+    CardCaptureRequest_allOf:
+      properties:
+        orderId:
+          example: order-1662828780
+          type: string
+        amount:
+          example: "1000"
+          type: string
       type: object
     AccountResponse_payNowIdResponse_allOf:
       properties:

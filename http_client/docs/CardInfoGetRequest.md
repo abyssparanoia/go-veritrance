@@ -4,13 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**TxnVersion** | **string** |  | 
+**DummyRequest** | **string** |  | 
+**MerchantCcid** | **string** |  | 
 **AccountId** | **string** |  | 
 
 ## Methods
 
 ### NewCardInfoGetRequest
 
-`func NewCardInfoGetRequest(accountId string, ) *CardInfoGetRequest`
+`func NewCardInfoGetRequest(txnVersion string, dummyRequest string, merchantCcid string, accountId string, ) *CardInfoGetRequest`
 
 NewCardInfoGetRequest instantiates a new CardInfoGetRequest object
 This constructor will assign default values to properties that have it defined,
@@ -24,6 +27,66 @@ will change when the set of required properties is changed
 NewCardInfoGetRequestWithDefaults instantiates a new CardInfoGetRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetTxnVersion
+
+`func (o *CardInfoGetRequest) GetTxnVersion() string`
+
+GetTxnVersion returns the TxnVersion field if non-nil, zero value otherwise.
+
+### GetTxnVersionOk
+
+`func (o *CardInfoGetRequest) GetTxnVersionOk() (*string, bool)`
+
+GetTxnVersionOk returns a tuple with the TxnVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTxnVersion
+
+`func (o *CardInfoGetRequest) SetTxnVersion(v string)`
+
+SetTxnVersion sets TxnVersion field to given value.
+
+
+### GetDummyRequest
+
+`func (o *CardInfoGetRequest) GetDummyRequest() string`
+
+GetDummyRequest returns the DummyRequest field if non-nil, zero value otherwise.
+
+### GetDummyRequestOk
+
+`func (o *CardInfoGetRequest) GetDummyRequestOk() (*string, bool)`
+
+GetDummyRequestOk returns a tuple with the DummyRequest field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDummyRequest
+
+`func (o *CardInfoGetRequest) SetDummyRequest(v string)`
+
+SetDummyRequest sets DummyRequest field to given value.
+
+
+### GetMerchantCcid
+
+`func (o *CardInfoGetRequest) GetMerchantCcid() string`
+
+GetMerchantCcid returns the MerchantCcid field if non-nil, zero value otherwise.
+
+### GetMerchantCcidOk
+
+`func (o *CardInfoGetRequest) GetMerchantCcidOk() (*string, bool)`
+
+GetMerchantCcidOk returns a tuple with the MerchantCcid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMerchantCcid
+
+`func (o *CardInfoGetRequest) SetMerchantCcid(v string)`
+
+SetMerchantCcid sets MerchantCcid field to given value.
+
 
 ### GetAccountId
 

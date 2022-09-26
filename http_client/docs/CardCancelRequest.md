@@ -4,6 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**TxnVersion** | **string** |  | 
+**DummyRequest** | **string** |  | 
+**MerchantCcid** | **string** |  | 
 **OrderId** | **string** |  | 
 **Amount** | **string** |  | 
 
@@ -11,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewCardCancelRequest
 
-`func NewCardCancelRequest(orderId string, amount string, ) *CardCancelRequest`
+`func NewCardCancelRequest(txnVersion string, dummyRequest string, merchantCcid string, orderId string, amount string, ) *CardCancelRequest`
 
 NewCardCancelRequest instantiates a new CardCancelRequest object
 This constructor will assign default values to properties that have it defined,
@@ -25,6 +28,66 @@ will change when the set of required properties is changed
 NewCardCancelRequestWithDefaults instantiates a new CardCancelRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetTxnVersion
+
+`func (o *CardCancelRequest) GetTxnVersion() string`
+
+GetTxnVersion returns the TxnVersion field if non-nil, zero value otherwise.
+
+### GetTxnVersionOk
+
+`func (o *CardCancelRequest) GetTxnVersionOk() (*string, bool)`
+
+GetTxnVersionOk returns a tuple with the TxnVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTxnVersion
+
+`func (o *CardCancelRequest) SetTxnVersion(v string)`
+
+SetTxnVersion sets TxnVersion field to given value.
+
+
+### GetDummyRequest
+
+`func (o *CardCancelRequest) GetDummyRequest() string`
+
+GetDummyRequest returns the DummyRequest field if non-nil, zero value otherwise.
+
+### GetDummyRequestOk
+
+`func (o *CardCancelRequest) GetDummyRequestOk() (*string, bool)`
+
+GetDummyRequestOk returns a tuple with the DummyRequest field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDummyRequest
+
+`func (o *CardCancelRequest) SetDummyRequest(v string)`
+
+SetDummyRequest sets DummyRequest field to given value.
+
+
+### GetMerchantCcid
+
+`func (o *CardCancelRequest) GetMerchantCcid() string`
+
+GetMerchantCcid returns the MerchantCcid field if non-nil, zero value otherwise.
+
+### GetMerchantCcidOk
+
+`func (o *CardCancelRequest) GetMerchantCcidOk() (*string, bool)`
+
+GetMerchantCcidOk returns a tuple with the MerchantCcid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMerchantCcid
+
+`func (o *CardCancelRequest) SetMerchantCcid(v string)`
+
+SetMerchantCcid sets MerchantCcid field to given value.
+
 
 ### GetOrderId
 

@@ -4,6 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**TxnVersion** | **string** |  | 
+**DummyRequest** | **string** |  | 
+**MerchantCcid** | **string** |  | 
 **AccountId** | **string** |  | 
 **CardNumber** | Pointer to **string** |  | [optional] 
 **CardExpire** | Pointer to **string** |  | [optional] 
@@ -13,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewAccountAddRequest
 
-`func NewAccountAddRequest(accountId string, ) *AccountAddRequest`
+`func NewAccountAddRequest(txnVersion string, dummyRequest string, merchantCcid string, accountId string, ) *AccountAddRequest`
 
 NewAccountAddRequest instantiates a new AccountAddRequest object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +30,66 @@ will change when the set of required properties is changed
 NewAccountAddRequestWithDefaults instantiates a new AccountAddRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetTxnVersion
+
+`func (o *AccountAddRequest) GetTxnVersion() string`
+
+GetTxnVersion returns the TxnVersion field if non-nil, zero value otherwise.
+
+### GetTxnVersionOk
+
+`func (o *AccountAddRequest) GetTxnVersionOk() (*string, bool)`
+
+GetTxnVersionOk returns a tuple with the TxnVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTxnVersion
+
+`func (o *AccountAddRequest) SetTxnVersion(v string)`
+
+SetTxnVersion sets TxnVersion field to given value.
+
+
+### GetDummyRequest
+
+`func (o *AccountAddRequest) GetDummyRequest() string`
+
+GetDummyRequest returns the DummyRequest field if non-nil, zero value otherwise.
+
+### GetDummyRequestOk
+
+`func (o *AccountAddRequest) GetDummyRequestOk() (*string, bool)`
+
+GetDummyRequestOk returns a tuple with the DummyRequest field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDummyRequest
+
+`func (o *AccountAddRequest) SetDummyRequest(v string)`
+
+SetDummyRequest sets DummyRequest field to given value.
+
+
+### GetMerchantCcid
+
+`func (o *AccountAddRequest) GetMerchantCcid() string`
+
+GetMerchantCcid returns the MerchantCcid field if non-nil, zero value otherwise.
+
+### GetMerchantCcidOk
+
+`func (o *AccountAddRequest) GetMerchantCcidOk() (*string, bool)`
+
+GetMerchantCcidOk returns a tuple with the MerchantCcid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMerchantCcid
+
+`func (o *AccountAddRequest) SetMerchantCcid(v string)`
+
+SetMerchantCcid sets MerchantCcid field to given value.
+
 
 ### GetAccountId
 
