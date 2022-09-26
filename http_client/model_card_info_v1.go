@@ -22,7 +22,7 @@ type CardInfoV1 struct {
 	CardNumber string `json:"cardNumber"`
 	CardExpire string `json:"cardExpire"`
 	// カード情報を明示的に指定せず決済する場合に使用するカードか否かを示すフラグ \"1\"：決済時、カード情報を明示的に指定しない場合に使用されるカード \"0\"：決済時、カード情報を明示的に指定しない場合に使用されるカードではない 
-	DefaultCard int32 `json:"defaultCard"`
+	DefaultCard string `json:"defaultCard"`
 	// カードの名義人
 	CardholderName *string `json:"cardholderName,omitempty"`
 }
@@ -31,7 +31,7 @@ type CardInfoV1 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCardInfoV1(cardId string, cardNumber string, cardExpire string, defaultCard int32) *CardInfoV1 {
+func NewCardInfoV1(cardId string, cardNumber string, cardExpire string, defaultCard string) *CardInfoV1 {
 	this := CardInfoV1{}
 	this.CardId = cardId
 	this.CardNumber = cardNumber
@@ -121,9 +121,9 @@ func (o *CardInfoV1) SetCardExpire(v string) {
 }
 
 // GetDefaultCard returns the DefaultCard field value
-func (o *CardInfoV1) GetDefaultCard() int32 {
+func (o *CardInfoV1) GetDefaultCard() string {
 	if o == nil {
-		var ret int32
+		var ret string
 		return ret
 	}
 
@@ -132,7 +132,7 @@ func (o *CardInfoV1) GetDefaultCard() int32 {
 
 // GetDefaultCardOk returns a tuple with the DefaultCard field value
 // and a boolean to check if the value has been set.
-func (o *CardInfoV1) GetDefaultCardOk() (*int32, bool) {
+func (o *CardInfoV1) GetDefaultCardOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -140,7 +140,7 @@ func (o *CardInfoV1) GetDefaultCardOk() (*int32, bool) {
 }
 
 // SetDefaultCard sets field value
-func (o *CardInfoV1) SetDefaultCard(v int32) {
+func (o *CardInfoV1) SetDefaultCard(v string) {
 	o.DefaultCard = v
 }
 

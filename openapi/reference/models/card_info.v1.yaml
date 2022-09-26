@@ -13,7 +13,7 @@ properties:
     type: string
     example: 12/25
   defaultCard:
-    type: integer
+    type: string
     description: |
       カード情報を明示的に指定せず決済する場合に使用するカードか否かを示すフラグ
       "1"：決済時、カード情報を明示的に指定しない場合に使用されるカード

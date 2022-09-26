@@ -692,7 +692,7 @@ components:
             カード情報を明示的に指定せず決済する場合に使用するカードか否かを示すフラグ
             "1"：決済時、カード情報を明示的に指定しない場合に使用されるカード
             "0"：決済時、カード情報を明示的に指定しない場合に使用されるカードではない
-          type: integer
+          type: string
         cardholderName:
           description: カードの名義人
           type: string
