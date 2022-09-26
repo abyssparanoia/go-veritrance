@@ -11,9 +11,9 @@ servers:
   - url: "https://api.veritrans.co.jp:443"
     description: Production
 paths:
-  "/paynow/v1/Add/account":
+  "/paynowid/v1/Add/account":
     post:
-      operationId: paynow-v1-add-account
+      operationId: paynowid-v1-add-account
       summary: 会員情報を追加します。
       description: |
         ・会員 ID を登録します。
@@ -43,9 +43,9 @@ paths:
             application/json:
               schema:
                 $ref: ./models/response.v1.yaml#/AccountResponse
-  "/paynow/v1/Update/account":
+  "/paynowid/v1/Update/account":
     post:
-      operationId: paynow-v1-update-account
+      operationId: paynowid-v1-update-account
       summary: 会員 ID の「入会年月日」を更新します。
       description: |
         ・会員 ID の「入会年月日」を更新します。
@@ -71,9 +71,9 @@ paths:
             application/json:
               schema:
                 $ref: ./models/response.v1.yaml#/PayNowIdResponse
-  "/paynow/v1/Delete/account":
+  "/paynowid/v1/Delete/account":
     post:
-      operationId: paynow-v1-delete-account
+      operationId: paynowid-v1-delete-account
       summary: 会員 ID の会員情報を、指定された「退会年月日」に削除します。
       description: |
         ・会員 ID の会員情報を、指定された「退会年月日」に削除します。
@@ -99,9 +99,9 @@ paths:
             application/json:
               schema:
                 $ref: ./models/response.v1.yaml#/PayNowIdResponse
-  "/paynow/v1/Get/cardinfo":
+  "/paynowid/v1/Get/cardinfo":
     post:
-      operationId: paynow-v1-get-cardinfo
+      operationId: paynowid-v1-get-cardinfo
       summary: 会員 ID に紐付けられた課金情報を取得します
       description: |
         ・会員 ID に紐付けられた課金情報を取得します。
@@ -127,9 +127,9 @@ paths:
             application/json:
               schema:
                 $ref: ./models/response.v1.yaml#/AccountResponse
-  "/paynow/v1/Add/cardinfo":
+  "/paynowid/v1/Add/cardinfo":
     post:
-      operationId: paynow-v1-add-cardinfo
+      operationId: paynowid-v1-add-cardinfo
       summary: 会員 ID にカード情報を紐付けて登録します
       description: |
         ・会員 ID にカード情報を紐付けて登録します。
@@ -157,9 +157,9 @@ paths:
             application/json:
               schema:
                 $ref: ./models/response.v1.yaml#/AccountResponse
-  "/paynow/v1/Update/cardinfo":
+  "/paynowid/v1/Update/cardinfo":
     post:
-      operationId: paynow-v1-update-cardinfo
+      operationId: paynowid-v1-update-cardinfo
       summary: 当該会員 ID、およびカード ID に紐付けられたカード情報を更新します
       description: |
         ・当該会員 ID、およびカード ID に紐付けられたカード情報を更新します。 
@@ -185,9 +185,9 @@ paths:
             application/json:
               schema:
                 $ref: ./models/response.v1.yaml#/AccountResponse
-  "/paynow/v1/Delete/cardinfo":
+  "/paynowid/v1/Delete/cardinfo":
     post:
-      operationId: paynow-v1-delete-cardinfo
+      operationId: paynowid-v1-delete-cardinfo
       summary: 会員 ID に紐付けられたカード情報を削除します
       description: |
         ・会員 ID に紐付けられたカード情報を削除します。
@@ -213,9 +213,9 @@ paths:
             application/json:
               schema:
                 $ref: ./models/response.v1.yaml#/PayNowIdResponse
-  "/paynow/v1/Authorize/card":
+  "/paynowid/v1/Authorize/card":
     post:
-      operationId: paynow-v1-authorize-cardinfo
+      operationId: paynowid-v1-authorize-cardinfo
       summary: 決済の与信を行います
       tags:
         - Card
@@ -239,9 +239,9 @@ paths:
             application/json:
               schema:
                 $ref: ./models/response.v1.yaml#/CardAuthorizeResponse
-  "/paynow/v1/ReAuthorize/card":
+  "/paynowid/v1/ReAuthorize/card":
     post:
-      operationId: paynow-v1-reAuthorize-cardinfo
+      operationId: paynowid-v1-reAuthorize-cardinfo
       summary: 決済の再与信を行います
       tags:
         - Card
@@ -265,9 +265,9 @@ paths:
             application/json:
               schema:
                 $ref: ./models/response.v1.yaml#/CardAuthorizeResponse
-  "/paynow/v1/Capture/card":
+  "/paynowid/v1/Capture/card":
     post:
-      operationId: paynow-v1-capture-cardinfo
+      operationId: paynowid-v1-capture-cardinfo
       summary: 決済の売上確定を行います
       tags:
         - Card
@@ -291,9 +291,9 @@ paths:
             application/json:
               schema:
                 $ref: ./models/response.v1.yaml#/CardCaptureResponse
-  "/paynow/v1/Cancel/card":
+  "/paynowid/v1/Cancel/card":
     post:
-      operationId: paynow-v1-cancel-cardinfo
+      operationId: paynowid-v1-cancel-cardinfo
       summary: 決済のキャンセルを行います
       tags:
         - Card

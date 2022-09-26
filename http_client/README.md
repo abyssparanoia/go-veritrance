@@ -80,17 +80,17 @@ All URIs are relative to *https://api.veritrans.co.jp:443*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccountApi* | [**PaynowV1AddAccount**](docs/AccountApi.md#paynowv1addaccount) | **Post** /paynow/v1/Add/account | 会員情報を追加します。
-*AccountApi* | [**PaynowV1DeleteAccount**](docs/AccountApi.md#paynowv1deleteaccount) | **Post** /paynow/v1/Delete/account | 会員 ID の会員情報を、指定された「退会年月日」に削除します。
-*AccountApi* | [**PaynowV1UpdateAccount**](docs/AccountApi.md#paynowv1updateaccount) | **Post** /paynow/v1/Update/account | 会員 ID の「入会年月日」を更新します。
-*CardApi* | [**PaynowV1AuthorizeCardinfo**](docs/CardApi.md#paynowv1authorizecardinfo) | **Post** /paynow/v1/Authorize/card | 決済の与信を行います
-*CardApi* | [**PaynowV1CancelCardinfo**](docs/CardApi.md#paynowv1cancelcardinfo) | **Post** /paynow/v1/Cancel/card | 決済のキャンセルを行います
-*CardApi* | [**PaynowV1CaptureCardinfo**](docs/CardApi.md#paynowv1capturecardinfo) | **Post** /paynow/v1/Capture/card | 決済の売上確定を行います
-*CardApi* | [**PaynowV1ReAuthorizeCardinfo**](docs/CardApi.md#paynowv1reauthorizecardinfo) | **Post** /paynow/v1/ReAuthorize/card | 決済の再与信を行います
-*CardinfoApi* | [**PaynowV1AddCardinfo**](docs/CardinfoApi.md#paynowv1addcardinfo) | **Post** /paynow/v1/Add/cardinfo | 会員 ID にカード情報を紐付けて登録します
-*CardinfoApi* | [**PaynowV1DeleteCardinfo**](docs/CardinfoApi.md#paynowv1deletecardinfo) | **Post** /paynow/v1/Delete/cardinfo | 会員 ID に紐付けられたカード情報を削除します
-*CardinfoApi* | [**PaynowV1GetCardinfo**](docs/CardinfoApi.md#paynowv1getcardinfo) | **Post** /paynow/v1/Get/cardinfo | 会員 ID に紐付けられた課金情報を取得します
-*CardinfoApi* | [**PaynowV1UpdateCardinfo**](docs/CardinfoApi.md#paynowv1updatecardinfo) | **Post** /paynow/v1/Update/cardinfo | 当該会員 ID、およびカード ID に紐付けられたカード情報を更新します
+*AccountApi* | [**PaynowidV1AddAccount**](docs/AccountApi.md#paynowidv1addaccount) | **Post** /paynowid/v1/Add/account | 会員情報を追加します。
+*AccountApi* | [**PaynowidV1DeleteAccount**](docs/AccountApi.md#paynowidv1deleteaccount) | **Post** /paynowid/v1/Delete/account | 会員 ID の会員情報を、指定された「退会年月日」に削除します。
+*AccountApi* | [**PaynowidV1UpdateAccount**](docs/AccountApi.md#paynowidv1updateaccount) | **Post** /paynowid/v1/Update/account | 会員 ID の「入会年月日」を更新します。
+*CardApi* | [**PaynowidV1AuthorizeCardinfo**](docs/CardApi.md#paynowidv1authorizecardinfo) | **Post** /paynowid/v1/Authorize/card | 決済の与信を行います
+*CardApi* | [**PaynowidV1CancelCardinfo**](docs/CardApi.md#paynowidv1cancelcardinfo) | **Post** /paynowid/v1/Cancel/card | 決済のキャンセルを行います
+*CardApi* | [**PaynowidV1CaptureCardinfo**](docs/CardApi.md#paynowidv1capturecardinfo) | **Post** /paynowid/v1/Capture/card | 決済の売上確定を行います
+*CardApi* | [**PaynowidV1ReAuthorizeCardinfo**](docs/CardApi.md#paynowidv1reauthorizecardinfo) | **Post** /paynowid/v1/ReAuthorize/card | 決済の再与信を行います
+*CardinfoApi* | [**PaynowidV1AddCardinfo**](docs/CardinfoApi.md#paynowidv1addcardinfo) | **Post** /paynowid/v1/Add/cardinfo | 会員 ID にカード情報を紐付けて登録します
+*CardinfoApi* | [**PaynowidV1DeleteCardinfo**](docs/CardinfoApi.md#paynowidv1deletecardinfo) | **Post** /paynowid/v1/Delete/cardinfo | 会員 ID に紐付けられたカード情報を削除します
+*CardinfoApi* | [**PaynowidV1GetCardinfo**](docs/CardinfoApi.md#paynowidv1getcardinfo) | **Post** /paynowid/v1/Get/cardinfo | 会員 ID に紐付けられた課金情報を取得します
+*CardinfoApi* | [**PaynowidV1UpdateCardinfo**](docs/CardinfoApi.md#paynowidv1updatecardinfo) | **Post** /paynowid/v1/Update/cardinfo | 当該会員 ID、およびカード ID に紐付けられたカード情報を更新します
 
 
 ## Documentation For Models
