@@ -316,6 +316,7 @@ components:
       - orderId
       type: object
     AbstractPayNowRequest:
+      description: PayNowのリクエストに必須なパラメーター群
       properties:
         txnVersion:
           type: string

@@ -570,6 +570,7 @@ components:
               type: string
               example: 1000
     AbstractPayNowRequest:
+      description: PayNowのリクエストに必須なパラメーター群
       type: object
       properties:
         txnVersion:

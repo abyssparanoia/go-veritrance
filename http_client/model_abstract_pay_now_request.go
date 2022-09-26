@@ -14,7 +14,7 @@ import (
 	"encoding/json"
 )
 
-// AbstractPayNowRequest struct for AbstractPayNowRequest
+// AbstractPayNowRequest PayNowのリクエストに必須なパラメーター群
 type AbstractPayNowRequest struct {
 	TxnVersion string `json:"txnVersion"`
 	DummyRequest string `json:"dummyRequest"`
