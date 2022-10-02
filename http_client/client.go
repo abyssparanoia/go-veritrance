@@ -375,6 +375,8 @@ func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err err
 	if len(b) == 0 {
 		return nil
 	}
+
+	println("response body: ", string(b))
 	if s, ok := v.(*string); ok {
 		*s = string(b)
 		return nil
