@@ -186,8 +186,6 @@ func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
 		}
 		log.Printf("\n%s\n", string(dump))
 	}
-
-	fmt.Printf("(%%+v) %+v\n", resp)
 	return resp, err
 }
 
@@ -276,7 +274,6 @@ func (c *APIClient) prepareRequest(
 			return nil, errors.New("Cannot specify postBody and x-www-form-urlencoded form at the same time.")
 		}
 		body = &bytes.Buffer{}
-		println("formParams.Encode() = ", formParams.Encode())
 		body.WriteString(formParams.Encode())
 		// Set Content-Length
 		headerParams["Content-Length"] = fmt.Sprintf("%d", body.Len())
@@ -309,7 +306,6 @@ func (c *APIClient) prepareRequest(
 	// Encode the parameters.
 	url.RawQuery = query.Encode()
 
-	println("Url: ", url.String())
 	// Generate a new request
 	if body != nil {
 		localVarRequest, err = http.NewRequest(method, url.String(), body)

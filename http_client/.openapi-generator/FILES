@@ -10,7 +10,10 @@ configuration.go
 docs/AbstractPayNowIdResponse.md
 docs/AbstractPayNowRequest.md
 docs/AccountAddRequest.md
-docs/AccountAddRequestAllOf.md
+docs/AccountAddRequestParams.md
+docs/AccountAddRequestParamsAllOf.md
+docs/AccountAddRequestParamsAllOfPayNowIdParam.md
+docs/AccountAddRequestParamsAllOfPayNowIdParamAccountParam.md
 docs/AccountApi.md
 docs/AccountDeleteRequest.md
 docs/AccountDeleteRequestAllOf.md
@@ -50,7 +53,10 @@ go.sum
 model_abstract_pay_now_id_response.go
 model_abstract_pay_now_request.go
 model_account_add_request.go
-model_account_add_request_all_of.go
+model_account_add_request_params.go
+model_account_add_request_params_all_of.go
+model_account_add_request_params_all_of_pay_now_id_param.go
+model_account_add_request_params_all_of_pay_now_id_param_account_param.go
 model_account_delete_request.go
 model_account_delete_request_all_of.go
 model_account_response.go

@@ -255,17 +255,11 @@ func (a *CardinfoApiService) PaynowidV1DeleteCardinfoExecute(r ApiPaynowidV1Dele
 type ApiPaynowidV1GetCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardinfoApiService
-	params *string
-	authHash *string
+	body *string
 }
 
-func (r ApiPaynowidV1GetCardinfoRequest) Params(params string) ApiPaynowidV1GetCardinfoRequest {
-	r.params = &params
-	return r
-}
-
-func (r ApiPaynowidV1GetCardinfoRequest) AuthHash(authHash string) ApiPaynowidV1GetCardinfoRequest {
-	r.authHash = &authHash
+func (r ApiPaynowidV1GetCardinfoRequest) Body(body string) ApiPaynowidV1GetCardinfoRequest {
+	r.body = &body
 	return r
 }
 
@@ -309,15 +303,9 @@ func (a *CardinfoApiService) PaynowidV1GetCardinfoExecute(r ApiPaynowidV1GetCard
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.params == nil {
-		return localVarReturnValue, nil, reportError("params is required and must be specified")
-	}
-	if r.authHash == nil {
-		return localVarReturnValue, nil, reportError("authHash is required and must be specified")
-	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
+	localVarHTTPContentTypes := []string{"text/plain"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -333,8 +321,8 @@ func (a *CardinfoApiService) PaynowidV1GetCardinfoExecute(r ApiPaynowidV1GetCard
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	localVarFormParams.Add("params", parameterToString(*r.params, ""))
-	localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
+	// body params
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

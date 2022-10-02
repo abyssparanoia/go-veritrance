@@ -82,9 +82,9 @@ paths:
       operationId: paynowid-v1-get-cardinfo
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          text/plain:
             schema:
-              $ref: '#/components/schemas/paynowid_v1_update_account_request'
+              type: string
       responses:
         "200":
           content:
@@ -231,11 +231,14 @@ paths:
 components:
   schemas:
     AccountAddRequest:
-      allOf:
-      - $ref: '#/components/schemas/AbstractPayNowRequest'
-      - $ref: '#/components/schemas/AccountAddRequest_allOf'
+      properties:
+        params:
+          $ref: '#/components/schemas/AccountAddRequest_params'
+        authHash:
+          type: string
       required:
-      - accountId
+      - authHash
+      - params
       type: object
     AccountDeleteRequest:
       allOf:
@@ -252,11 +255,14 @@ components:
       - accountId
       type: object
     CardInfoGetRequest:
-      allOf:
-      - $ref: '#/components/schemas/AbstractPayNowRequest'
-      - $ref: '#/components/schemas/AccountDeleteRequest_allOf'
+      properties:
+        params:
+          $ref: '#/components/schemas/AccountAddRequest_params'
+        authHash:
+          type: string
       required:
-      - accountId
+      - authHash
+      - params
       type: object
     CardInfoAddRequest:
       properties:
@@ -713,20 +719,32 @@ components:
       - authHash
       - params
       type: object
-    AccountAddRequest_allOf:
+    AccountAddRequest_params_allOf_payNowIdParam_accountParam:
       properties:
         accountId:
           example: account-1662828780
           type: string
-        cardNumber:
-          example: "4111111111111111"
-          type: string
-        cardExpire:
-          example: 12/25
-          type: string
-        securityCode:
-          example: "123"
-          type: string
+      required:
+      - accountId
+      type: object
+    AccountAddRequest_params_allOf_payNowIdParam:
+      properties:
+        accountParam:
+          $ref: '#/components/schemas/AccountAddRequest_params_allOf_payNowIdParam_accountParam'
+      required:
+      - accountParam
+      type: object
+    AccountAddRequest_params_allOf:
+      properties:
+        payNowIdParam:
+          $ref: '#/components/schemas/AccountAddRequest_params_allOf_payNowIdParam'
+      type: object
+    AccountAddRequest_params:
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/AccountAddRequest_params_allOf'
+      required:
+      - payNowIdParam
       type: object
     AccountDeleteRequest_allOf:
       properties:

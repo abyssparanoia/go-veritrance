@@ -16,25 +16,18 @@ import (
 
 // AccountAddRequest struct for AccountAddRequest
 type AccountAddRequest struct {
-	TxnVersion string `json:"txnVersion"`
-	DummyRequest string `json:"dummyRequest"`
-	MerchantCcid string `json:"merchantCcid"`
-	AccountId string `json:"accountId"`
-	CardNumber *string `json:"cardNumber,omitempty"`
-	CardExpire *string `json:"cardExpire,omitempty"`
-	SecurityCode *string `json:"securityCode,omitempty"`
+	Params AccountAddRequestParams `json:"params"`
+	AuthHash string `json:"authHash"`
 }
 
 // NewAccountAddRequest instantiates a new AccountAddRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAccountAddRequest(txnVersion string, dummyRequest string, merchantCcid string, accountId string) *AccountAddRequest {
+func NewAccountAddRequest(params AccountAddRequestParams, authHash string) *AccountAddRequest {
 	this := AccountAddRequest{}
-	this.TxnVersion = txnVersion
-	this.DummyRequest = dummyRequest
-	this.MerchantCcid = merchantCcid
-	this.AccountId = accountId
+	this.Params = params
+	this.AuthHash = authHash
 	return &this
 }
 
@@ -46,220 +39,61 @@ func NewAccountAddRequestWithDefaults() *AccountAddRequest {
 	return &this
 }
 
-// GetTxnVersion returns the TxnVersion field value
-func (o *AccountAddRequest) GetTxnVersion() string {
+// GetParams returns the Params field value
+func (o *AccountAddRequest) GetParams() AccountAddRequestParams {
+	if o == nil {
+		var ret AccountAddRequestParams
+		return ret
+	}
+
+	return o.Params
+}
+
+// GetParamsOk returns a tuple with the Params field value
+// and a boolean to check if the value has been set.
+func (o *AccountAddRequest) GetParamsOk() (*AccountAddRequestParams, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Params, true
+}
+
+// SetParams sets field value
+func (o *AccountAddRequest) SetParams(v AccountAddRequestParams) {
+	o.Params = v
+}
+
+// GetAuthHash returns the AuthHash field value
+func (o *AccountAddRequest) GetAuthHash() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.TxnVersion
+	return o.AuthHash
 }
 
-// GetTxnVersionOk returns a tuple with the TxnVersion field value
+// GetAuthHashOk returns a tuple with the AuthHash field value
 // and a boolean to check if the value has been set.
-func (o *AccountAddRequest) GetTxnVersionOk() (*string, bool) {
+func (o *AccountAddRequest) GetAuthHashOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.TxnVersion, true
+	return &o.AuthHash, true
 }
 
-// SetTxnVersion sets field value
-func (o *AccountAddRequest) SetTxnVersion(v string) {
-	o.TxnVersion = v
-}
-
-// GetDummyRequest returns the DummyRequest field value
-func (o *AccountAddRequest) GetDummyRequest() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.DummyRequest
-}
-
-// GetDummyRequestOk returns a tuple with the DummyRequest field value
-// and a boolean to check if the value has been set.
-func (o *AccountAddRequest) GetDummyRequestOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.DummyRequest, true
-}
-
-// SetDummyRequest sets field value
-func (o *AccountAddRequest) SetDummyRequest(v string) {
-	o.DummyRequest = v
-}
-
-// GetMerchantCcid returns the MerchantCcid field value
-func (o *AccountAddRequest) GetMerchantCcid() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.MerchantCcid
-}
-
-// GetMerchantCcidOk returns a tuple with the MerchantCcid field value
-// and a boolean to check if the value has been set.
-func (o *AccountAddRequest) GetMerchantCcidOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.MerchantCcid, true
-}
-
-// SetMerchantCcid sets field value
-func (o *AccountAddRequest) SetMerchantCcid(v string) {
-	o.MerchantCcid = v
-}
-
-// GetAccountId returns the AccountId field value
-func (o *AccountAddRequest) GetAccountId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.AccountId
-}
-
-// GetAccountIdOk returns a tuple with the AccountId field value
-// and a boolean to check if the value has been set.
-func (o *AccountAddRequest) GetAccountIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AccountId, true
-}
-
-// SetAccountId sets field value
-func (o *AccountAddRequest) SetAccountId(v string) {
-	o.AccountId = v
-}
-
-// GetCardNumber returns the CardNumber field value if set, zero value otherwise.
-func (o *AccountAddRequest) GetCardNumber() string {
-	if o == nil || o.CardNumber == nil {
-		var ret string
-		return ret
-	}
-	return *o.CardNumber
-}
-
-// GetCardNumberOk returns a tuple with the CardNumber field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AccountAddRequest) GetCardNumberOk() (*string, bool) {
-	if o == nil || o.CardNumber == nil {
-		return nil, false
-	}
-	return o.CardNumber, true
-}
-
-// HasCardNumber returns a boolean if a field has been set.
-func (o *AccountAddRequest) HasCardNumber() bool {
-	if o != nil && o.CardNumber != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetCardNumber gets a reference to the given string and assigns it to the CardNumber field.
-func (o *AccountAddRequest) SetCardNumber(v string) {
-	o.CardNumber = &v
-}
-
-// GetCardExpire returns the CardExpire field value if set, zero value otherwise.
-func (o *AccountAddRequest) GetCardExpire() string {
-	if o == nil || o.CardExpire == nil {
-		var ret string
-		return ret
-	}
-	return *o.CardExpire
-}
-
-// GetCardExpireOk returns a tuple with the CardExpire field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AccountAddRequest) GetCardExpireOk() (*string, bool) {
-	if o == nil || o.CardExpire == nil {
-		return nil, false
-	}
-	return o.CardExpire, true
-}
-
-// HasCardExpire returns a boolean if a field has been set.
-func (o *AccountAddRequest) HasCardExpire() bool {
-	if o != nil && o.CardExpire != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetCardExpire gets a reference to the given string and assigns it to the CardExpire field.
-func (o *AccountAddRequest) SetCardExpire(v string) {
-	o.CardExpire = &v
-}
-
-// GetSecurityCode returns the SecurityCode field value if set, zero value otherwise.
-func (o *AccountAddRequest) GetSecurityCode() string {
-	if o == nil || o.SecurityCode == nil {
-		var ret string
-		return ret
-	}
-	return *o.SecurityCode
-}
-
-// GetSecurityCodeOk returns a tuple with the SecurityCode field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AccountAddRequest) GetSecurityCodeOk() (*string, bool) {
-	if o == nil || o.SecurityCode == nil {
-		return nil, false
-	}
-	return o.SecurityCode, true
-}
-
-// HasSecurityCode returns a boolean if a field has been set.
-func (o *AccountAddRequest) HasSecurityCode() bool {
-	if o != nil && o.SecurityCode != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetSecurityCode gets a reference to the given string and assigns it to the SecurityCode field.
-func (o *AccountAddRequest) SetSecurityCode(v string) {
-	o.SecurityCode = &v
+// SetAuthHash sets field value
+func (o *AccountAddRequest) SetAuthHash(v string) {
+	o.AuthHash = v
 }
 
 func (o AccountAddRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
-		toSerialize["txnVersion"] = o.TxnVersion
+		toSerialize["params"] = o.Params
 	}
 	if true {
-		toSerialize["dummyRequest"] = o.DummyRequest
-	}
-	if true {
-		toSerialize["merchantCcid"] = o.MerchantCcid
-	}
-	if true {
-		toSerialize["accountId"] = o.AccountId
-	}
-	if o.CardNumber != nil {
-		toSerialize["cardNumber"] = o.CardNumber
-	}
-	if o.CardExpire != nil {
-		toSerialize["cardExpire"] = o.CardExpire
-	}
-	if o.SecurityCode != nil {
-		toSerialize["securityCode"] = o.SecurityCode
+		toSerialize["authHash"] = o.AuthHash
 	}
 	return json.Marshal(toSerialize)
 }
