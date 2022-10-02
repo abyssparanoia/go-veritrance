@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PayNowIdResponse** | Pointer to [**AccountResponsePayNowIdResponse**](AccountResponsePayNowIdResponse.md) |  | [optional] 
-**Result** | Pointer to **map[string]interface{}** |  | [optional] 
+**Result** | Pointer to [**Result**](Result.md) |  | [optional] 
 
 ## Methods
 
@@ -53,20 +53,20 @@ HasPayNowIdResponse returns a boolean if a field has been set.
 
 ### GetResult
 
-`func (o *AccountResponse) GetResult() map[string]interface{}`
+`func (o *AccountResponse) GetResult() Result`
 
 GetResult returns the Result field if non-nil, zero value otherwise.
 
 ### GetResultOk
 
-`func (o *AccountResponse) GetResultOk() (*map[string]interface{}, bool)`
+`func (o *AccountResponse) GetResultOk() (*Result, bool)`
 
 GetResultOk returns a tuple with the Result field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResult
 
-`func (o *AccountResponse) SetResult(v map[string]interface{})`
+`func (o *AccountResponse) SetResult(v Result)`
 
 SetResult sets Result field to given value.
 

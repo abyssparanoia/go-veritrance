@@ -17,6 +17,7 @@ import (
 // PayNowIdResponse struct for PayNowIdResponse
 type PayNowIdResponse struct {
 	PayNowIdResponse *AbstractPayNowIdResponse `json:"payNowIdResponse,omitempty"`
+	Result *Result `json:"result,omitempty"`
 }
 
 // NewPayNowIdResponse instantiates a new PayNowIdResponse object
@@ -68,10 +69,45 @@ func (o *PayNowIdResponse) SetPayNowIdResponse(v AbstractPayNowIdResponse) {
 	o.PayNowIdResponse = &v
 }
 
+// GetResult returns the Result field value if set, zero value otherwise.
+func (o *PayNowIdResponse) GetResult() Result {
+	if o == nil || o.Result == nil {
+		var ret Result
+		return ret
+	}
+	return *o.Result
+}
+
+// GetResultOk returns a tuple with the Result field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PayNowIdResponse) GetResultOk() (*Result, bool) {
+	if o == nil || o.Result == nil {
+		return nil, false
+	}
+	return o.Result, true
+}
+
+// HasResult returns a boolean if a field has been set.
+func (o *PayNowIdResponse) HasResult() bool {
+	if o != nil && o.Result != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetResult gets a reference to the given Result and assigns it to the Result field.
+func (o *PayNowIdResponse) SetResult(v Result) {
+	o.Result = &v
+}
+
 func (o PayNowIdResponse) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.PayNowIdResponse != nil {
 		toSerialize["payNowIdResponse"] = o.PayNowIdResponse
+	}
+	if o.Result != nil {
+		toSerialize["result"] = o.Result
 	}
 	return json.Marshal(toSerialize)
 }

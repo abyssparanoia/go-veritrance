@@ -17,7 +17,7 @@ import (
 // AccountResponse struct for AccountResponse
 type AccountResponse struct {
 	PayNowIdResponse *AccountResponsePayNowIdResponse `json:"payNowIdResponse,omitempty"`
-	Result map[string]interface{} `json:"result,omitempty"`
+	Result *Result `json:"result,omitempty"`
 }
 
 // NewAccountResponse instantiates a new AccountResponse object
@@ -70,17 +70,17 @@ func (o *AccountResponse) SetPayNowIdResponse(v AccountResponsePayNowIdResponse)
 }
 
 // GetResult returns the Result field value if set, zero value otherwise.
-func (o *AccountResponse) GetResult() map[string]interface{} {
+func (o *AccountResponse) GetResult() Result {
 	if o == nil || o.Result == nil {
-		var ret map[string]interface{}
+		var ret Result
 		return ret
 	}
-	return o.Result
+	return *o.Result
 }
 
 // GetResultOk returns a tuple with the Result field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AccountResponse) GetResultOk() (map[string]interface{}, bool) {
+func (o *AccountResponse) GetResultOk() (*Result, bool) {
 	if o == nil || o.Result == nil {
 		return nil, false
 	}
@@ -96,9 +96,9 @@ func (o *AccountResponse) HasResult() bool {
 	return false
 }
 
-// SetResult gets a reference to the given map[string]interface{} and assigns it to the Result field.
-func (o *AccountResponse) SetResult(v map[string]interface{}) {
-	o.Result = v
+// SetResult gets a reference to the given Result and assigns it to the Result field.
+func (o *AccountResponse) SetResult(v Result) {
+	o.Result = &v
 }
 
 func (o AccountResponse) MarshalJSON() ([]byte, error) {
