@@ -311,6 +311,7 @@ func (c *APIClient) prepareRequest(
 	// Encode the parameters.
 	url.RawQuery = query.Encode()
 
+	println("Content-Type: ", headerParams["Content-Type"])
 	println("Url: ", url.String())
 	println("Body: ", body.String())
 	// Generate a new request
