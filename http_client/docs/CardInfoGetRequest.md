@@ -4,16 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TxnVersion** | **string** |  | 
-**DummyRequest** | **string** |  | 
-**MerchantCcid** | **string** |  | 
-**AccountId** | **string** |  | 
+**Params** | [**AccountAddRequestParams**](AccountAddRequestParams.md) |  | 
+**AuthHash** | **string** |  | 
 
 ## Methods
 
 ### NewCardInfoGetRequest
 
-`func NewCardInfoGetRequest(txnVersion string, dummyRequest string, merchantCcid string, accountId string, ) *CardInfoGetRequest`
+`func NewCardInfoGetRequest(params AccountAddRequestParams, authHash string, ) *CardInfoGetRequest`
 
 NewCardInfoGetRequest instantiates a new CardInfoGetRequest object
 This constructor will assign default values to properties that have it defined,
@@ -28,84 +26,44 @@ NewCardInfoGetRequestWithDefaults instantiates a new CardInfoGetRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetTxnVersion
+### GetParams
 
-`func (o *CardInfoGetRequest) GetTxnVersion() string`
+`func (o *CardInfoGetRequest) GetParams() AccountAddRequestParams`
 
-GetTxnVersion returns the TxnVersion field if non-nil, zero value otherwise.
+GetParams returns the Params field if non-nil, zero value otherwise.
 
-### GetTxnVersionOk
+### GetParamsOk
 
-`func (o *CardInfoGetRequest) GetTxnVersionOk() (*string, bool)`
+`func (o *CardInfoGetRequest) GetParamsOk() (*AccountAddRequestParams, bool)`
 
-GetTxnVersionOk returns a tuple with the TxnVersion field if it's non-nil, zero value otherwise
+GetParamsOk returns a tuple with the Params field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTxnVersion
+### SetParams
 
-`func (o *CardInfoGetRequest) SetTxnVersion(v string)`
+`func (o *CardInfoGetRequest) SetParams(v AccountAddRequestParams)`
 
-SetTxnVersion sets TxnVersion field to given value.
+SetParams sets Params field to given value.
 
 
-### GetDummyRequest
+### GetAuthHash
 
-`func (o *CardInfoGetRequest) GetDummyRequest() string`
+`func (o *CardInfoGetRequest) GetAuthHash() string`
 
-GetDummyRequest returns the DummyRequest field if non-nil, zero value otherwise.
+GetAuthHash returns the AuthHash field if non-nil, zero value otherwise.
 
-### GetDummyRequestOk
+### GetAuthHashOk
 
-`func (o *CardInfoGetRequest) GetDummyRequestOk() (*string, bool)`
+`func (o *CardInfoGetRequest) GetAuthHashOk() (*string, bool)`
 
-GetDummyRequestOk returns a tuple with the DummyRequest field if it's non-nil, zero value otherwise
+GetAuthHashOk returns a tuple with the AuthHash field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDummyRequest
+### SetAuthHash
 
-`func (o *CardInfoGetRequest) SetDummyRequest(v string)`
+`func (o *CardInfoGetRequest) SetAuthHash(v string)`
 
-SetDummyRequest sets DummyRequest field to given value.
-
-
-### GetMerchantCcid
-
-`func (o *CardInfoGetRequest) GetMerchantCcid() string`
-
-GetMerchantCcid returns the MerchantCcid field if non-nil, zero value otherwise.
-
-### GetMerchantCcidOk
-
-`func (o *CardInfoGetRequest) GetMerchantCcidOk() (*string, bool)`
-
-GetMerchantCcidOk returns a tuple with the MerchantCcid field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMerchantCcid
-
-`func (o *CardInfoGetRequest) SetMerchantCcid(v string)`
-
-SetMerchantCcid sets MerchantCcid field to given value.
-
-
-### GetAccountId
-
-`func (o *CardInfoGetRequest) GetAccountId() string`
-
-GetAccountId returns the AccountId field if non-nil, zero value otherwise.
-
-### GetAccountIdOk
-
-`func (o *CardInfoGetRequest) GetAccountIdOk() (*string, bool)`
-
-GetAccountIdOk returns a tuple with the AccountId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountId
-
-`func (o *CardInfoGetRequest) SetAccountId(v string)`
-
-SetAccountId sets AccountId field to given value.
+SetAuthHash sets AuthHash field to given value.
 
 
 

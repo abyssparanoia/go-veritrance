@@ -101,17 +101,9 @@ paths:
         - Cardinfo
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          text/plain:
             schema:
-              type: object
-              required:
-                - params
-                - authHash
-              properties:
-                params:
-                  type: string
-                authHash:
-                  type: string
+              type: string
       responses:
         "200":
           description: 成功した場合
@@ -306,23 +298,32 @@ components:
     AccountAddRequest:
       type: object
       required:
-        - accountId
-      allOf:
-        - $ref: "#/components/schemas/AbstractPayNowRequest"
-        - type: object
-          properties:
-            accountId:
-              type: string
-              example: account-1662828780
-            cardNumber:
-              type: string
-              example: 4111111111111111
-            cardExpire:
-              type: string
-              example: 12/25
-            securityCode:
-              type: string
-              example: 123
+        - params
+        - authHash
+      properties:
+        params:
+          type: object
+          required:
+            - payNowIdParam
+          allOf:
+            - $ref: "#/components/schemas/AbstractPayNowRequest"
+            - type: object
+              properties:
+                payNowIdParam:
+                  type: object
+                  required:
+                    - accountParam
+                  properties:
+                    accountParam:
+                      type: object
+                      required:
+                        - accountId
+                      properties:
+                        accountId:
+                          type: string
+                          example: account-1662828780
+        authHash:
+          type: string
     AccountDeleteRequest:
       type: object
       required:
@@ -348,14 +349,32 @@ components:
     CardInfoGetRequest:
       type: object
       required:
-        - accountId
-      allOf:
-        - $ref: "#/components/schemas/AbstractPayNowRequest"
-        - type: object
-          properties:
-            accountId:
-              type: string
-              example: account-1662828780
+        - params
+        - authHash
+      properties:
+        params:
+          type: object
+          required:
+            - payNowIdParam
+          allOf:
+            - $ref: "#/components/schemas/AbstractPayNowRequest"
+            - type: object
+              properties:
+                payNowIdParam:
+                  type: object
+                  required:
+                    - accountParam
+                  properties:
+                    accountParam:
+                      type: object
+                      required:
+                        - accountId
+                      properties:
+                        accountId:
+                          type: string
+                          example: account-1662828780
+        authHash:
+          type: string
     CardInfoAddRequest:
       type: object
       required:
