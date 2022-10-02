@@ -77,7 +77,7 @@ func (a *CardinfoApiService) PaynowidV1AddCardinfoExecute(r ApiPaynowidV1AddCard
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"text/plain"}
+	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
