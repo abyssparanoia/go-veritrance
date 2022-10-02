@@ -342,32 +342,13 @@ components:
       type: object
     AccountResponse:
       example:
-        serviceType: serviceType
+        result: "{}"
         payNowIdResponse: null
-        merrMsg: merrMsg
-        vResultCode: vResultCode
-        status: success
       properties:
         payNowIdResponse:
           $ref: '#/components/schemas/AccountResponse_payNowIdResponse'
-        serviceType:
-          description: 要求電文を送信した決済サービスタイプ
-          type: string
-        status:
-          description: 処理結果コード
-          enum:
-          - success
-          - failure
-          - pending
-          type: string
-        vResultCode:
-          description: |
-            処理の結果を詳細に表すコード
-            4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。
-          type: string
-        merrMsg:
-          description: 処理結果を日本語で表示します。
-          type: string
+        result:
+          type: object
       type: object
     AbstractPayNowIdResponse:
       example:
@@ -391,6 +372,8 @@ components:
       - message
       - processId
       - status
+      type: object
+    Result:
       type: object
     PayNowIdResponse:
       example:

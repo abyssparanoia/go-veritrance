@@ -17,14 +17,7 @@ import (
 // AccountResponse struct for AccountResponse
 type AccountResponse struct {
 	PayNowIdResponse *AccountResponsePayNowIdResponse `json:"payNowIdResponse,omitempty"`
-	// 要求電文を送信した決済サービスタイプ
-	ServiceType *string `json:"serviceType,omitempty"`
-	// 処理結果コード
-	Status *string `json:"status,omitempty"`
-	// 処理の結果を詳細に表すコード 4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。 
-	VResultCode *string `json:"vResultCode,omitempty"`
-	// 処理結果を日本語で表示します。
-	MerrMsg *string `json:"merrMsg,omitempty"`
+	Result map[string]interface{} `json:"result,omitempty"`
 }
 
 // NewAccountResponse instantiates a new AccountResponse object
@@ -76,132 +69,36 @@ func (o *AccountResponse) SetPayNowIdResponse(v AccountResponsePayNowIdResponse)
 	o.PayNowIdResponse = &v
 }
 
-// GetServiceType returns the ServiceType field value if set, zero value otherwise.
-func (o *AccountResponse) GetServiceType() string {
-	if o == nil || o.ServiceType == nil {
-		var ret string
+// GetResult returns the Result field value if set, zero value otherwise.
+func (o *AccountResponse) GetResult() map[string]interface{} {
+	if o == nil || o.Result == nil {
+		var ret map[string]interface{}
 		return ret
 	}
-	return *o.ServiceType
+	return o.Result
 }
 
-// GetServiceTypeOk returns a tuple with the ServiceType field value if set, nil otherwise
+// GetResultOk returns a tuple with the Result field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AccountResponse) GetServiceTypeOk() (*string, bool) {
-	if o == nil || o.ServiceType == nil {
+func (o *AccountResponse) GetResultOk() (map[string]interface{}, bool) {
+	if o == nil || o.Result == nil {
 		return nil, false
 	}
-	return o.ServiceType, true
+	return o.Result, true
 }
 
-// HasServiceType returns a boolean if a field has been set.
-func (o *AccountResponse) HasServiceType() bool {
-	if o != nil && o.ServiceType != nil {
+// HasResult returns a boolean if a field has been set.
+func (o *AccountResponse) HasResult() bool {
+	if o != nil && o.Result != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetServiceType gets a reference to the given string and assigns it to the ServiceType field.
-func (o *AccountResponse) SetServiceType(v string) {
-	o.ServiceType = &v
-}
-
-// GetStatus returns the Status field value if set, zero value otherwise.
-func (o *AccountResponse) GetStatus() string {
-	if o == nil || o.Status == nil {
-		var ret string
-		return ret
-	}
-	return *o.Status
-}
-
-// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AccountResponse) GetStatusOk() (*string, bool) {
-	if o == nil || o.Status == nil {
-		return nil, false
-	}
-	return o.Status, true
-}
-
-// HasStatus returns a boolean if a field has been set.
-func (o *AccountResponse) HasStatus() bool {
-	if o != nil && o.Status != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetStatus gets a reference to the given string and assigns it to the Status field.
-func (o *AccountResponse) SetStatus(v string) {
-	o.Status = &v
-}
-
-// GetVResultCode returns the VResultCode field value if set, zero value otherwise.
-func (o *AccountResponse) GetVResultCode() string {
-	if o == nil || o.VResultCode == nil {
-		var ret string
-		return ret
-	}
-	return *o.VResultCode
-}
-
-// GetVResultCodeOk returns a tuple with the VResultCode field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AccountResponse) GetVResultCodeOk() (*string, bool) {
-	if o == nil || o.VResultCode == nil {
-		return nil, false
-	}
-	return o.VResultCode, true
-}
-
-// HasVResultCode returns a boolean if a field has been set.
-func (o *AccountResponse) HasVResultCode() bool {
-	if o != nil && o.VResultCode != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetVResultCode gets a reference to the given string and assigns it to the VResultCode field.
-func (o *AccountResponse) SetVResultCode(v string) {
-	o.VResultCode = &v
-}
-
-// GetMerrMsg returns the MerrMsg field value if set, zero value otherwise.
-func (o *AccountResponse) GetMerrMsg() string {
-	if o == nil || o.MerrMsg == nil {
-		var ret string
-		return ret
-	}
-	return *o.MerrMsg
-}
-
-// GetMerrMsgOk returns a tuple with the MerrMsg field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AccountResponse) GetMerrMsgOk() (*string, bool) {
-	if o == nil || o.MerrMsg == nil {
-		return nil, false
-	}
-	return o.MerrMsg, true
-}
-
-// HasMerrMsg returns a boolean if a field has been set.
-func (o *AccountResponse) HasMerrMsg() bool {
-	if o != nil && o.MerrMsg != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetMerrMsg gets a reference to the given string and assigns it to the MerrMsg field.
-func (o *AccountResponse) SetMerrMsg(v string) {
-	o.MerrMsg = &v
+// SetResult gets a reference to the given map[string]interface{} and assigns it to the Result field.
+func (o *AccountResponse) SetResult(v map[string]interface{}) {
+	o.Result = v
 }
 
 func (o AccountResponse) MarshalJSON() ([]byte, error) {
@@ -209,17 +106,8 @@ func (o AccountResponse) MarshalJSON() ([]byte, error) {
 	if o.PayNowIdResponse != nil {
 		toSerialize["payNowIdResponse"] = o.PayNowIdResponse
 	}
-	if o.ServiceType != nil {
-		toSerialize["serviceType"] = o.ServiceType
-	}
-	if o.Status != nil {
-		toSerialize["status"] = o.Status
-	}
-	if o.VResultCode != nil {
-		toSerialize["vResultCode"] = o.VResultCode
-	}
-	if o.MerrMsg != nil {
-		toSerialize["merrMsg"] = o.MerrMsg
+	if o.Result != nil {
+		toSerialize["result"] = o.Result
 	}
 	return json.Marshal(toSerialize)
 }
