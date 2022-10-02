@@ -291,6 +291,8 @@ components:
       properties:
         params:
           $ref: '#/components/schemas/CardInfoDeleteRequest_params'
+        authHash:
+          type: string
       required:
       - authHash
       - params

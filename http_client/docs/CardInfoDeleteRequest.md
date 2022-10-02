@@ -5,12 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Params** | [**CardInfoDeleteRequestParams**](CardInfoDeleteRequestParams.md) |  | 
+**AuthHash** | **string** |  | 
 
 ## Methods
 
 ### NewCardInfoDeleteRequest
 
-`func NewCardInfoDeleteRequest(params CardInfoDeleteRequestParams, ) *CardInfoDeleteRequest`
+`func NewCardInfoDeleteRequest(params CardInfoDeleteRequestParams, authHash string, ) *CardInfoDeleteRequest`
 
 NewCardInfoDeleteRequest instantiates a new CardInfoDeleteRequest object
 This constructor will assign default values to properties that have it defined,
@@ -43,6 +44,26 @@ and a boolean to check if the value has been set.
 `func (o *CardInfoDeleteRequest) SetParams(v CardInfoDeleteRequestParams)`
 
 SetParams sets Params field to given value.
+
+
+### GetAuthHash
+
+`func (o *CardInfoDeleteRequest) GetAuthHash() string`
+
+GetAuthHash returns the AuthHash field if non-nil, zero value otherwise.
+
+### GetAuthHashOk
+
+`func (o *CardInfoDeleteRequest) GetAuthHashOk() (*string, bool)`
+
+GetAuthHashOk returns a tuple with the AuthHash field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAuthHash
+
+`func (o *CardInfoDeleteRequest) SetAuthHash(v string)`
+
+SetAuthHash sets AuthHash field to given value.
 
 
 
