@@ -229,6 +229,7 @@ func (c *APIClient) prepareRequest(
 		}
 	}
 
+	println(headerParams["Content-Type"], len(formParams))
 	// add form parameters and file if available.
 	if strings.HasPrefix(headerParams["Content-Type"], "multipart/form-data") && len(formParams) > 0 || (len(formFiles) > 0) {
 		if body != nil {
@@ -271,6 +272,7 @@ func (c *APIClient) prepareRequest(
 		w.Close()
 	}
 
+	println(headerParams["Content-Type"], len(formParams))
 	if strings.HasPrefix(headerParams["Content-Type"], "application/x-www-form-urlencoded") && len(formParams) > 0 {
 		if body != nil {
 			return nil, errors.New("Cannot specify postBody and x-www-form-urlencoded form at the same time.")
