@@ -324,28 +324,6 @@ components:
                           example: account-1662828780
         authHash:
           type: string
-    AccountDeleteRequest:
-      type: object
-      required:
-        - accountId
-      allOf:
-        - $ref: "#/components/schemas/AbstractPayNowRequest"
-        - type: object
-          properties:
-            accountId:
-              type: string
-              example: account-1662828780
-    AccountUpdateRequest:
-      type: object
-      required:
-        - accountId
-      allOf:
-        - $ref: "#/components/schemas/AbstractPayNowRequest"
-        - type: object
-          properties:
-            accountId:
-              type: string
-              example: account-1662828780
     CardInfoGetRequest:
       type: object
       required:
@@ -375,6 +353,28 @@ components:
                           example: account-1662828780
         authHash:
           type: string
+    AccountDeleteRequest:
+      type: object
+      required:
+        - accountId
+      allOf:
+        - $ref: "#/components/schemas/AbstractPayNowRequest"
+        - type: object
+          properties:
+            accountId:
+              type: string
+              example: account-1662828780
+    AccountUpdateRequest:
+      type: object
+      required:
+        - accountId
+      allOf:
+        - $ref: "#/components/schemas/AbstractPayNowRequest"
+        - type: object
+          properties:
+            accountId:
+              type: string
+              example: account-1662828780
     CardInfoAddRequest:
       type: object
       required:

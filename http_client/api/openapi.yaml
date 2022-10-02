@@ -240,6 +240,16 @@ components:
       - authHash
       - params
       type: object
+    CardInfoGetRequest:
+      properties:
+        params:
+          $ref: '#/components/schemas/AccountAddRequest_params'
+        authHash:
+          type: string
+      required:
+      - authHash
+      - params
+      type: object
     AccountDeleteRequest:
       allOf:
       - $ref: '#/components/schemas/AbstractPayNowRequest'
@@ -253,16 +263,6 @@ components:
       - $ref: '#/components/schemas/AccountDeleteRequest_allOf'
       required:
       - accountId
-      type: object
-    CardInfoGetRequest:
-      properties:
-        params:
-          $ref: '#/components/schemas/AccountAddRequest_params'
-        authHash:
-          type: string
-      required:
-      - authHash
-      - params
       type: object
     CardInfoAddRequest:
       properties:
