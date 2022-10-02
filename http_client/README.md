@@ -133,6 +133,7 @@ Class | Method | HTTP request | Description
  - [CardReAuthorizeRequest](docs/CardReAuthorizeRequest.md)
  - [CardReAuthorizeRequestAllOf](docs/CardReAuthorizeRequestAllOf.md)
  - [PayNowIdResponse](docs/PayNowIdResponse.md)
+ - [Result](docs/Result.md)
 
 
 ## Documentation For Authorization

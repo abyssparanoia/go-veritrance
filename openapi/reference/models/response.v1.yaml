@@ -10,13 +10,14 @@ AccountResponse:
             account:
               $ref: ./account.v1.yaml
     result:
-      type: object
       $ref: "#/components/schemas/Result"
 PayNowIdResponse:
   type: object
   properties:
     payNowIdResponse:
       $ref: "#/components/schemas/AbstractPayNowIdResponse"
+    result:
+      $ref: "#/components/schemas/Result"
 CardAuthorizeResponse:
   type: object
   properties:
@@ -276,20 +277,25 @@ components:
         - message
     Result:
       type: object
-      serviceType:
-        type: string
-        description: 要求電文を送信した決済サービスタイプ
-      status:
-        description: 処理結果コード
-        enum:
-          - success
-          - failure
-          - pending
-      vResultCode:
-        description: |
-          処理の結果を詳細に表すコード
-          4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。
-        type: string
-      merrMsg:
-        type: string
-        description: 処理結果を日本語で表示します。
+      properties:
+        serviceType:
+          type: string
+          description: 要求電文を送信した決済サービスタイプ
+        status:
+          description: 処理結果コード
+          enum:
+            - success
+            - failure
+            - pending
+        vResultCode:
+          description: |
+            処理の結果を詳細に表すコード
+            4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。
+          type: string
+        merrMsg:
+          type: string
+          description: 処理結果を日本語で表示します。
+      required:
+        - serviceType
+        - status
+        - vResultCode
