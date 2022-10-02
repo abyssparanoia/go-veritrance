@@ -49,6 +49,7 @@ docs/CardReAuthorizeRequestAllOf.md
 docs/CardinfoApi.md
 docs/PayNowIdResponse.md
 docs/Result.md
+docs/Status.md
 git_push.sh
 go.mod
 go.sum
@@ -91,5 +92,6 @@ model_card_re_authorize_request.go
 model_card_re_authorize_request_all_of.go
 model_pay_now_id_response.go
 model_result.go
+model_status.go
 response.go
 utils.go

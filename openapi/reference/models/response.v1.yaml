@@ -282,11 +282,7 @@ components:
           type: string
           description: 要求電文を送信した決済サービスタイプ
         status:
-          description: 処理結果コード
-          enum:
-            - success
-            - failure
-            - pending
+          $ref: "#/components/schemas/Status"
         vResultCode:
           description: |
             処理の結果を詳細に表すコード
@@ -299,3 +295,9 @@ components:
         - serviceType
         - status
         - vResultCode
+    Status:
+      description: 処理結果コード
+      enum:
+        - success
+        - failure
+        - pending

@@ -346,7 +346,7 @@ components:
           serviceType: serviceType
           merrMsg: merrMsg
           vResultCode: vResultCode
-          status: success
+          status: null
         payNowIdResponse: null
       properties:
         payNowIdResponse:
@@ -382,18 +382,13 @@ components:
         serviceType: serviceType
         merrMsg: merrMsg
         vResultCode: vResultCode
-        status: success
+        status: null
       properties:
         serviceType:
           description: 要求電文を送信した決済サービスタイプ
           type: string
         status:
-          description: 処理結果コード
-          enum:
-          - success
-          - failure
-          - pending
-          type: string
+          $ref: '#/components/schemas/Status'
         vResultCode:
           description: |
             処理の結果を詳細に表すコード
@@ -407,13 +402,20 @@ components:
       - status
       - vResultCode
       type: object
+    Status:
+      description: 処理結果コード
+      enum:
+      - success
+      - failure
+      - pending
+      type: string
     PayNowIdResponse:
       example:
         result:
           serviceType: serviceType
           merrMsg: merrMsg
           vResultCode: vResultCode
-          status: success
+          status: null
         payNowIdResponse:
           processId: processId
           message: message
