@@ -17,15 +17,17 @@ import (
 // CardInfoDeleteRequest struct for CardInfoDeleteRequest
 type CardInfoDeleteRequest struct {
 	Params CardInfoDeleteRequestParams `json:"params"`
+	AuthHash string `json:"authHash"`
 }
 
 // NewCardInfoDeleteRequest instantiates a new CardInfoDeleteRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCardInfoDeleteRequest(params CardInfoDeleteRequestParams) *CardInfoDeleteRequest {
+func NewCardInfoDeleteRequest(params CardInfoDeleteRequestParams, authHash string) *CardInfoDeleteRequest {
 	this := CardInfoDeleteRequest{}
 	this.Params = params
+	this.AuthHash = authHash
 	return &this
 }
 
@@ -61,10 +63,37 @@ func (o *CardInfoDeleteRequest) SetParams(v CardInfoDeleteRequestParams) {
 	o.Params = v
 }
 
+// GetAuthHash returns the AuthHash field value
+func (o *CardInfoDeleteRequest) GetAuthHash() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.AuthHash
+}
+
+// GetAuthHashOk returns a tuple with the AuthHash field value
+// and a boolean to check if the value has been set.
+func (o *CardInfoDeleteRequest) GetAuthHashOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AuthHash, true
+}
+
+// SetAuthHash sets field value
+func (o *CardInfoDeleteRequest) SetAuthHash(v string) {
+	o.AuthHash = v
+}
+
 func (o CardInfoDeleteRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["params"] = o.Params
+	}
+	if true {
+		toSerialize["authHash"] = o.AuthHash
 	}
 	return json.Marshal(toSerialize)
 }

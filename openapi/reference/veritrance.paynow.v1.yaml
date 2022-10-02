@@ -472,6 +472,8 @@ components:
                             cardId:
                               type: string
                               example: card-1662828780
+        authHash:
+          type: string
     CardAuthorizeRequest:
       type: object
       required:
