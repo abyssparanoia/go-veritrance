@@ -79,7 +79,7 @@ No authorization required
 
 ## PaynowidV1DeleteCardinfo
 
-> PayNowIdResponse PaynowidV1DeleteCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
+> PayNowIdResponse PaynowidV1DeleteCardinfo(ctx).Body(body).Execute()
 
 会員 ID に紐付けられたカード情報を削除します
 
@@ -98,12 +98,11 @@ import (
 )
 
 func main() {
-    params := "params_example" // string | 
-    authHash := "authHash_example" // string | 
+    body := "body_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CardinfoApi.PaynowidV1DeleteCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
+    resp, r, err := apiClient.CardinfoApi.PaynowidV1DeleteCardinfo(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CardinfoApi.PaynowidV1DeleteCardinfo``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -124,8 +123,7 @@ Other parameters are passed through a pointer to a apiPaynowidV1DeleteCardinfoRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **string** |  | 
- **authHash** | **string** |  | 
+ **body** | **string** |  | 
 
 ### Return type
 
@@ -137,7 +135,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: text/plain
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
