@@ -143,9 +143,9 @@ paths:
       operationId: paynowid-v1-delete-cardinfo
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          text/plain:
             schema:
-              $ref: '#/components/schemas/paynowid_v1_update_account_request'
+              type: string
       responses:
         "200":
           content:
@@ -288,11 +288,12 @@ components:
       - securityCode
       type: object
     CardInfoDeleteRequest:
-      allOf:
-      - $ref: '#/components/schemas/AbstractPayNowRequest'
-      - $ref: '#/components/schemas/CardInfoDeleteRequest_allOf'
+      properties:
+        params:
+          $ref: '#/components/schemas/CardInfoDeleteRequest_params'
       required:
-      - accountId
+      - authHash
+      - params
       type: object
     CardAuthorizeRequest:
       allOf:
@@ -865,14 +866,43 @@ components:
           example: "123"
           type: string
       type: object
-    CardInfoDeleteRequest_allOf:
+    CardInfoDeleteRequest_params_allOf_payNowIdParam_accountParam_cardParam:
+      properties:
+        cardId:
+          example: card-1662828780
+          type: string
+      required:
+      - cardId
+      type: object
+    CardInfoDeleteRequest_params_allOf_payNowIdParam_accountParam:
       properties:
         accountId:
           example: account-1662828780
           type: string
-        cardId:
-          example: card-1662828780
-          type: string
+        cardParam:
+          $ref: '#/components/schemas/CardInfoDeleteRequest_params_allOf_payNowIdParam_accountParam_cardParam'
+      required:
+      - accountId
+      - cardParam
+      type: object
+    CardInfoDeleteRequest_params_allOf_payNowIdParam:
+      properties:
+        accountParam:
+          $ref: '#/components/schemas/CardInfoDeleteRequest_params_allOf_payNowIdParam_accountParam'
+      required:
+      - accountParam
+      type: object
+    CardInfoDeleteRequest_params_allOf:
+      properties:
+        payNowIdParam:
+          $ref: '#/components/schemas/CardInfoDeleteRequest_params_allOf_payNowIdParam'
+      type: object
+    CardInfoDeleteRequest_params:
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/CardInfoDeleteRequest_params_allOf'
+      required:
+      - payNowIdParam
       type: object
     CardAuthorizeRequest_allOf:
       properties:

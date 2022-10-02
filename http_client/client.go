@@ -186,8 +186,6 @@ func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
 		}
 		log.Printf("\n%s\n", string(dump))
 	}
-
-	fmt.Printf("(%%+v) %+v\n", resp)
 	return resp, err
 }
 
@@ -229,7 +227,6 @@ func (c *APIClient) prepareRequest(
 		}
 	}
 
-	println(headerParams["Content-Type"], len(formParams))
 	// add form parameters and file if available.
 	if strings.HasPrefix(headerParams["Content-Type"], "multipart/form-data") && len(formParams) > 0 || (len(formFiles) > 0) {
 		if body != nil {
@@ -272,13 +269,11 @@ func (c *APIClient) prepareRequest(
 		w.Close()
 	}
 
-	println(headerParams["Content-Type"], len(formParams))
 	if strings.HasPrefix(headerParams["Content-Type"], "application/x-www-form-urlencoded") && len(formParams) > 0 {
 		if body != nil {
 			return nil, errors.New("Cannot specify postBody and x-www-form-urlencoded form at the same time.")
 		}
 		body = &bytes.Buffer{}
-		println("formParams.Encode() = ", formParams.Encode())
 		body.WriteString(formParams.Encode())
 		// Set Content-Length
 		headerParams["Content-Length"] = fmt.Sprintf("%d", body.Len())
@@ -311,9 +306,6 @@ func (c *APIClient) prepareRequest(
 	// Encode the parameters.
 	url.RawQuery = query.Encode()
 
-	println("Content-Type: ", headerParams["Content-Type"])
-	println("Url: ", url.String())
-	println("Body: ", body.String())
 	// Generate a new request
 	if body != nil {
 		localVarRequest, err = http.NewRequest(method, url.String(), body)
@@ -375,8 +367,6 @@ func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err err
 	if len(b) == 0 {
 		return nil
 	}
-
-	println("response body: ", string(b))
 	if s, ok := v.(*string); ok {
 		*s = string(b)
 		return nil

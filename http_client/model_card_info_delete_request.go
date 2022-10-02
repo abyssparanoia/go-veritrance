@@ -16,23 +16,16 @@ import (
 
 // CardInfoDeleteRequest struct for CardInfoDeleteRequest
 type CardInfoDeleteRequest struct {
-	TxnVersion string `json:"txnVersion"`
-	DummyRequest string `json:"dummyRequest"`
-	MerchantCcid string `json:"merchantCcid"`
-	AccountId string `json:"accountId"`
-	CardId *string `json:"cardId,omitempty"`
+	Params CardInfoDeleteRequestParams `json:"params"`
 }
 
 // NewCardInfoDeleteRequest instantiates a new CardInfoDeleteRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCardInfoDeleteRequest(txnVersion string, dummyRequest string, merchantCcid string, accountId string) *CardInfoDeleteRequest {
+func NewCardInfoDeleteRequest(params CardInfoDeleteRequestParams) *CardInfoDeleteRequest {
 	this := CardInfoDeleteRequest{}
-	this.TxnVersion = txnVersion
-	this.DummyRequest = dummyRequest
-	this.MerchantCcid = merchantCcid
-	this.AccountId = accountId
+	this.Params = params
 	return &this
 }
 
@@ -44,150 +37,34 @@ func NewCardInfoDeleteRequestWithDefaults() *CardInfoDeleteRequest {
 	return &this
 }
 
-// GetTxnVersion returns the TxnVersion field value
-func (o *CardInfoDeleteRequest) GetTxnVersion() string {
+// GetParams returns the Params field value
+func (o *CardInfoDeleteRequest) GetParams() CardInfoDeleteRequestParams {
 	if o == nil {
-		var ret string
+		var ret CardInfoDeleteRequestParams
 		return ret
 	}
 
-	return o.TxnVersion
+	return o.Params
 }
 
-// GetTxnVersionOk returns a tuple with the TxnVersion field value
+// GetParamsOk returns a tuple with the Params field value
 // and a boolean to check if the value has been set.
-func (o *CardInfoDeleteRequest) GetTxnVersionOk() (*string, bool) {
+func (o *CardInfoDeleteRequest) GetParamsOk() (*CardInfoDeleteRequestParams, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.TxnVersion, true
+	return &o.Params, true
 }
 
-// SetTxnVersion sets field value
-func (o *CardInfoDeleteRequest) SetTxnVersion(v string) {
-	o.TxnVersion = v
-}
-
-// GetDummyRequest returns the DummyRequest field value
-func (o *CardInfoDeleteRequest) GetDummyRequest() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.DummyRequest
-}
-
-// GetDummyRequestOk returns a tuple with the DummyRequest field value
-// and a boolean to check if the value has been set.
-func (o *CardInfoDeleteRequest) GetDummyRequestOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.DummyRequest, true
-}
-
-// SetDummyRequest sets field value
-func (o *CardInfoDeleteRequest) SetDummyRequest(v string) {
-	o.DummyRequest = v
-}
-
-// GetMerchantCcid returns the MerchantCcid field value
-func (o *CardInfoDeleteRequest) GetMerchantCcid() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.MerchantCcid
-}
-
-// GetMerchantCcidOk returns a tuple with the MerchantCcid field value
-// and a boolean to check if the value has been set.
-func (o *CardInfoDeleteRequest) GetMerchantCcidOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.MerchantCcid, true
-}
-
-// SetMerchantCcid sets field value
-func (o *CardInfoDeleteRequest) SetMerchantCcid(v string) {
-	o.MerchantCcid = v
-}
-
-// GetAccountId returns the AccountId field value
-func (o *CardInfoDeleteRequest) GetAccountId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.AccountId
-}
-
-// GetAccountIdOk returns a tuple with the AccountId field value
-// and a boolean to check if the value has been set.
-func (o *CardInfoDeleteRequest) GetAccountIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AccountId, true
-}
-
-// SetAccountId sets field value
-func (o *CardInfoDeleteRequest) SetAccountId(v string) {
-	o.AccountId = v
-}
-
-// GetCardId returns the CardId field value if set, zero value otherwise.
-func (o *CardInfoDeleteRequest) GetCardId() string {
-	if o == nil || o.CardId == nil {
-		var ret string
-		return ret
-	}
-	return *o.CardId
-}
-
-// GetCardIdOk returns a tuple with the CardId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CardInfoDeleteRequest) GetCardIdOk() (*string, bool) {
-	if o == nil || o.CardId == nil {
-		return nil, false
-	}
-	return o.CardId, true
-}
-
-// HasCardId returns a boolean if a field has been set.
-func (o *CardInfoDeleteRequest) HasCardId() bool {
-	if o != nil && o.CardId != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetCardId gets a reference to the given string and assigns it to the CardId field.
-func (o *CardInfoDeleteRequest) SetCardId(v string) {
-	o.CardId = &v
+// SetParams sets field value
+func (o *CardInfoDeleteRequest) SetParams(v CardInfoDeleteRequestParams) {
+	o.Params = v
 }
 
 func (o CardInfoDeleteRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
-		toSerialize["txnVersion"] = o.TxnVersion
-	}
-	if true {
-		toSerialize["dummyRequest"] = o.DummyRequest
-	}
-	if true {
-		toSerialize["merchantCcid"] = o.MerchantCcid
-	}
-	if true {
-		toSerialize["accountId"] = o.AccountId
-	}
-	if o.CardId != nil {
-		toSerialize["cardId"] = o.CardId
+		toSerialize["params"] = o.Params
 	}
 	return json.Marshal(toSerialize)
 }

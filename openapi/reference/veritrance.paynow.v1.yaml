@@ -171,17 +171,9 @@ paths:
         - Cardinfo
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          text/plain:
             schema:
-              type: object
-              required:
-                - params
-                - authHash
-              properties:
-                params:
-                  type: string
-                authHash:
-                  type: string
+              type: string
       responses:
         "200":
           description: 成功した場合
@@ -447,17 +439,39 @@ components:
     CardInfoDeleteRequest:
       type: object
       required:
-        - accountId
-      allOf:
-        - $ref: "#/components/schemas/AbstractPayNowRequest"
-        - type: object
-          properties:
-            accountId:
-              type: string
-              example: account-1662828780
-            cardId:
-              type: string
-              example: card-1662828780
+        - params
+        - authHash
+      properties:
+        params:
+          type: object
+          required:
+            - payNowIdParam
+          allOf:
+            - $ref: "#/components/schemas/AbstractPayNowRequest"
+            - type: object
+              properties:
+                payNowIdParam:
+                  type: object
+                  required:
+                    - accountParam
+                  properties:
+                    accountParam:
+                      type: object
+                      required:
+                        - accountId
+                        - cardParam
+                      properties:
+                        accountId:
+                          type: string
+                          example: account-1662828780
+                        cardParam:
+                          type: object
+                          required:
+                            - cardId
+                          properties:
+                            cardId:
+                              type: string
+                              example: card-1662828780
     CardAuthorizeRequest:
       type: object
       required:
