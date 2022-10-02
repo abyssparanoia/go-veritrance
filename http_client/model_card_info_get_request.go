@@ -16,7 +16,7 @@ import (
 
 // CardInfoGetRequest struct for CardInfoGetRequest
 type CardInfoGetRequest struct {
-	Params AccountAddRequestParams `json:"params"`
+	Params CardInfoGetRequestParams `json:"params"`
 	AuthHash string `json:"authHash"`
 }
 
@@ -24,7 +24,7 @@ type CardInfoGetRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCardInfoGetRequest(params AccountAddRequestParams, authHash string) *CardInfoGetRequest {
+func NewCardInfoGetRequest(params CardInfoGetRequestParams, authHash string) *CardInfoGetRequest {
 	this := CardInfoGetRequest{}
 	this.Params = params
 	this.AuthHash = authHash
@@ -40,9 +40,9 @@ func NewCardInfoGetRequestWithDefaults() *CardInfoGetRequest {
 }
 
 // GetParams returns the Params field value
-func (o *CardInfoGetRequest) GetParams() AccountAddRequestParams {
+func (o *CardInfoGetRequest) GetParams() CardInfoGetRequestParams {
 	if o == nil {
-		var ret AccountAddRequestParams
+		var ret CardInfoGetRequestParams
 		return ret
 	}
 
@@ -51,7 +51,7 @@ func (o *CardInfoGetRequest) GetParams() AccountAddRequestParams {
 
 // GetParamsOk returns a tuple with the Params field value
 // and a boolean to check if the value has been set.
-func (o *CardInfoGetRequest) GetParamsOk() (*AccountAddRequestParams, bool) {
+func (o *CardInfoGetRequest) GetParamsOk() (*CardInfoGetRequestParams, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -59,7 +59,7 @@ func (o *CardInfoGetRequest) GetParamsOk() (*AccountAddRequestParams, bool) {
 }
 
 // SetParams sets field value
-func (o *CardInfoGetRequest) SetParams(v AccountAddRequestParams) {
+func (o *CardInfoGetRequest) SetParams(v CardInfoGetRequestParams) {
 	o.Params = v
 }
 

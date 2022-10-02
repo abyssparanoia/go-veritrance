@@ -233,22 +233,13 @@ components:
     AccountAddRequest:
       properties:
         params:
-          $ref: '#/components/schemas/AccountAddRequest_params'
+          $ref: '#/components/schemas/AccountAddRequestParams'
         authHash:
           type: string
       required:
       - authHash
       - params
-      type: object
-    CardInfoGetRequest:
-      properties:
-        params:
-          $ref: '#/components/schemas/AccountAddRequest_params'
-        authHash:
-          type: string
-      required:
-      - authHash
-      - params
+      title: AccountAddRequest
       type: object
     AccountDeleteRequest:
       allOf:
@@ -263,6 +254,17 @@ components:
       - $ref: '#/components/schemas/AccountDeleteRequest_allOf'
       required:
       - accountId
+      type: object
+    CardInfoGetRequest:
+      properties:
+        params:
+          $ref: '#/components/schemas/CardInfoGetRequestParams'
+        authHash:
+          type: string
+      required:
+      - authHash
+      - params
+      title: CardInfoGetRequest
       type: object
     CardInfoAddRequest:
       properties:
@@ -719,7 +721,7 @@ components:
       - authHash
       - params
       type: object
-    AccountAddRequest_params_allOf_payNowIdParam_accountParam:
+    AccountAddRequestParams_allOf_payNowIdParam_accountParam:
       properties:
         accountId:
           example: account-1662828780
@@ -727,30 +729,39 @@ components:
       required:
       - accountId
       type: object
-    AccountAddRequest_params_allOf_payNowIdParam:
+    AccountAddRequestParams_allOf_payNowIdParam:
       properties:
         accountParam:
-          $ref: '#/components/schemas/AccountAddRequest_params_allOf_payNowIdParam_accountParam'
+          $ref: '#/components/schemas/AccountAddRequestParams_allOf_payNowIdParam_accountParam'
       required:
       - accountParam
       type: object
-    AccountAddRequest_params_allOf:
+    AccountAddRequestParams_allOf:
       properties:
         payNowIdParam:
-          $ref: '#/components/schemas/AccountAddRequest_params_allOf_payNowIdParam'
+          $ref: '#/components/schemas/AccountAddRequestParams_allOf_payNowIdParam'
       type: object
-    AccountAddRequest_params:
+    AccountAddRequestParams:
       allOf:
       - $ref: '#/components/schemas/AbstractPayNowRequest'
-      - $ref: '#/components/schemas/AccountAddRequest_params_allOf'
+      - $ref: '#/components/schemas/AccountAddRequestParams_allOf'
       required:
       - payNowIdParam
+      title: AccountAddRequestParams
       type: object
     AccountDeleteRequest_allOf:
       properties:
         accountId:
           example: account-1662828780
           type: string
+      type: object
+    CardInfoGetRequestParams:
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/AccountAddRequestParams_allOf'
+      required:
+      - payNowIdParam
+      title: CardInfoGetRequestParams
       type: object
     CardInfoAddRequest_params_allOf_payNowIdParam_accountParam_cardParam:
       properties:
