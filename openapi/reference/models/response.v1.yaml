@@ -281,7 +281,7 @@ components:
         serviceType:
           type: string
           description: 要求電文を送信した決済サービスタイプ
-        status:
+        mstatus:
           $ref: "#/components/schemas/Status"
         vResultCode:
           description: |
@@ -293,7 +293,7 @@ components:
           description: 処理結果を日本語で表示します。
       required:
         - serviceType
-        - status
+        - mstatus
         - vResultCode
     Status:
       description: 処理結果コード

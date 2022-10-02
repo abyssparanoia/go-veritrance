@@ -18,7 +18,7 @@ import (
 type Result struct {
 	// 要求電文を送信した決済サービスタイプ
 	ServiceType string `json:"serviceType"`
-	Status Status `json:"status"`
+	Mstatus Status `json:"mstatus"`
 	// 処理の結果を詳細に表すコード 4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。 
 	VResultCode string `json:"vResultCode"`
 	// 処理結果を日本語で表示します。
@@ -29,10 +29,10 @@ type Result struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewResult(serviceType string, status Status, vResultCode string) *Result {
+func NewResult(serviceType string, mstatus Status, vResultCode string) *Result {
 	this := Result{}
 	this.ServiceType = serviceType
-	this.Status = status
+	this.Mstatus = mstatus
 	this.VResultCode = vResultCode
 	return &this
 }
@@ -69,28 +69,28 @@ func (o *Result) SetServiceType(v string) {
 	o.ServiceType = v
 }
 
-// GetStatus returns the Status field value
-func (o *Result) GetStatus() Status {
+// GetMstatus returns the Mstatus field value
+func (o *Result) GetMstatus() Status {
 	if o == nil {
 		var ret Status
 		return ret
 	}
 
-	return o.Status
+	return o.Mstatus
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetMstatusOk returns a tuple with the Mstatus field value
 // and a boolean to check if the value has been set.
-func (o *Result) GetStatusOk() (*Status, bool) {
+func (o *Result) GetMstatusOk() (*Status, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Status, true
+	return &o.Mstatus, true
 }
 
-// SetStatus sets field value
-func (o *Result) SetStatus(v Status) {
-	o.Status = v
+// SetMstatus sets field value
+func (o *Result) SetMstatus(v Status) {
+	o.Mstatus = v
 }
 
 // GetVResultCode returns the VResultCode field value
@@ -155,7 +155,7 @@ func (o Result) MarshalJSON() ([]byte, error) {
 		toSerialize["serviceType"] = o.ServiceType
 	}
 	if true {
-		toSerialize["status"] = o.Status
+		toSerialize["mstatus"] = o.Mstatus
 	}
 	if true {
 		toSerialize["vResultCode"] = o.VResultCode

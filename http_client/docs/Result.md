@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ServiceType** | **string** | 要求電文を送信した決済サービスタイプ | 
-**Status** | [**Status**](Status.md) |  | 
+**Mstatus** | [**Status**](Status.md) |  | 
 **VResultCode** | **string** | 処理の結果を詳細に表すコード 4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。  | 
 **MerrMsg** | Pointer to **string** | 処理結果を日本語で表示します。 | [optional] 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewResult
 
-`func NewResult(serviceType string, status Status, vResultCode string, ) *Result`
+`func NewResult(serviceType string, mstatus Status, vResultCode string, ) *Result`
 
 NewResult instantiates a new Result object
 This constructor will assign default values to properties that have it defined,
@@ -48,24 +48,24 @@ and a boolean to check if the value has been set.
 SetServiceType sets ServiceType field to given value.
 
 
-### GetStatus
+### GetMstatus
 
-`func (o *Result) GetStatus() Status`
+`func (o *Result) GetMstatus() Status`
 
-GetStatus returns the Status field if non-nil, zero value otherwise.
+GetMstatus returns the Mstatus field if non-nil, zero value otherwise.
 
-### GetStatusOk
+### GetMstatusOk
 
-`func (o *Result) GetStatusOk() (*Status, bool)`
+`func (o *Result) GetMstatusOk() (*Status, bool)`
 
-GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+GetMstatusOk returns a tuple with the Mstatus field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetStatus
+### SetMstatus
 
-`func (o *Result) SetStatus(v Status)`
+`func (o *Result) SetMstatus(v Status)`
 
-SetStatus sets Status field to given value.
+SetMstatus sets Mstatus field to given value.
 
 
 ### GetVResultCode

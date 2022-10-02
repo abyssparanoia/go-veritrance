@@ -345,8 +345,8 @@ components:
         result:
           serviceType: serviceType
           merrMsg: merrMsg
+          mstatus: null
           vResultCode: vResultCode
-          status: null
         payNowIdResponse: null
       properties:
         payNowIdResponse:
@@ -381,13 +381,13 @@ components:
       example:
         serviceType: serviceType
         merrMsg: merrMsg
+        mstatus: null
         vResultCode: vResultCode
-        status: null
       properties:
         serviceType:
           description: 要求電文を送信した決済サービスタイプ
           type: string
-        status:
+        mstatus:
           $ref: '#/components/schemas/Status'
         vResultCode:
           description: |
@@ -398,8 +398,8 @@ components:
           description: 処理結果を日本語で表示します。
           type: string
       required:
+      - mstatus
       - serviceType
-      - status
       - vResultCode
       type: object
     Status:
@@ -414,8 +414,8 @@ components:
         result:
           serviceType: serviceType
           merrMsg: merrMsg
+          mstatus: null
           vResultCode: vResultCode
-          status: null
         payNowIdResponse:
           processId: processId
           message: message
