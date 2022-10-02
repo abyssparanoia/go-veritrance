@@ -40,6 +40,7 @@ docs/CardInfoAddRequestParamsAllOfPayNowIdParamAccountParamCardParam.md
 docs/CardInfoDeleteRequest.md
 docs/CardInfoDeleteRequestAllOf.md
 docs/CardInfoGetRequest.md
+docs/CardInfoGetRequestParams.md
 docs/CardInfoUpdateRequest.md
 docs/CardInfoUpdateRequestAllOf.md
 docs/CardInfoV1.md
@@ -81,6 +82,7 @@ model_card_info_add_request_params_all_of_pay_now_id_param_account_param_card_pa
 model_card_info_delete_request.go
 model_card_info_delete_request_all_of.go
 model_card_info_get_request.go
+model_card_info_get_request_params.go
 model_card_info_update_request.go
 model_card_info_update_request_all_of.go
 model_card_info_v1.go

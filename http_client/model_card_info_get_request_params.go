@@ -19,14 +19,14 @@ type CardInfoGetRequestParams struct {
 	TxnVersion string `json:"txnVersion"`
 	DummyRequest string `json:"dummyRequest"`
 	MerchantCcid string `json:"merchantCcid"`
-	PayNowIdParam CardInfoGetRequestParamsAllOfPayNowIdParam `json:"payNowIdParam"`
+	PayNowIdParam AccountAddRequestParamsAllOfPayNowIdParam `json:"payNowIdParam"`
 }
 
 // NewCardInfoGetRequestParams instantiates a new CardInfoGetRequestParams object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCardInfoGetRequestParams(txnVersion string, dummyRequest string, merchantCcid string, payNowIdParam CardInfoGetRequestParamsAllOfPayNowIdParam) *CardInfoGetRequestParams {
+func NewCardInfoGetRequestParams(txnVersion string, dummyRequest string, merchantCcid string, payNowIdParam AccountAddRequestParamsAllOfPayNowIdParam) *CardInfoGetRequestParams {
 	this := CardInfoGetRequestParams{}
 	this.TxnVersion = txnVersion
 	this.DummyRequest = dummyRequest
@@ -116,9 +116,9 @@ func (o *CardInfoGetRequestParams) SetMerchantCcid(v string) {
 }
 
 // GetPayNowIdParam returns the PayNowIdParam field value
-func (o *CardInfoGetRequestParams) GetPayNowIdParam() CardInfoGetRequestParamsAllOfPayNowIdParam {
+func (o *CardInfoGetRequestParams) GetPayNowIdParam() AccountAddRequestParamsAllOfPayNowIdParam {
 	if o == nil {
-		var ret CardInfoGetRequestParamsAllOfPayNowIdParam
+		var ret AccountAddRequestParamsAllOfPayNowIdParam
 		return ret
 	}
 
@@ -127,7 +127,7 @@ func (o *CardInfoGetRequestParams) GetPayNowIdParam() CardInfoGetRequestParamsAl
 
 // GetPayNowIdParamOk returns a tuple with the PayNowIdParam field value
 // and a boolean to check if the value has been set.
-func (o *CardInfoGetRequestParams) GetPayNowIdParamOk() (*CardInfoGetRequestParamsAllOfPayNowIdParam, bool) {
+func (o *CardInfoGetRequestParams) GetPayNowIdParamOk() (*AccountAddRequestParamsAllOfPayNowIdParam, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -135,7 +135,7 @@ func (o *CardInfoGetRequestParams) GetPayNowIdParamOk() (*CardInfoGetRequestPara
 }
 
 // SetPayNowIdParam sets field value
-func (o *CardInfoGetRequestParams) SetPayNowIdParam(v CardInfoGetRequestParamsAllOfPayNowIdParam) {
+func (o *CardInfoGetRequestParams) SetPayNowIdParam(v AccountAddRequestParamsAllOfPayNowIdParam) {
 	o.PayNowIdParam = v
 }
 

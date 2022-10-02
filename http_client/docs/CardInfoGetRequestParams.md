@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **TxnVersion** | **string** |  | 
 **DummyRequest** | **string** |  | 
 **MerchantCcid** | **string** |  | 
-**PayNowIdParam** | [**CardInfoGetRequestParamsAllOfPayNowIdParam**](CardInfoGetRequestParamsAllOfPayNowIdParam.md) |  | 
+**PayNowIdParam** | [**AccountAddRequestParamsAllOfPayNowIdParam**](AccountAddRequestParamsAllOfPayNowIdParam.md) |  | 
 
 ## Methods
 
 ### NewCardInfoGetRequestParams
 
-`func NewCardInfoGetRequestParams(txnVersion string, dummyRequest string, merchantCcid string, payNowIdParam CardInfoGetRequestParamsAllOfPayNowIdParam, ) *CardInfoGetRequestParams`
+`func NewCardInfoGetRequestParams(txnVersion string, dummyRequest string, merchantCcid string, payNowIdParam AccountAddRequestParamsAllOfPayNowIdParam, ) *CardInfoGetRequestParams`
 
 NewCardInfoGetRequestParams instantiates a new CardInfoGetRequestParams object
 This constructor will assign default values to properties that have it defined,
@@ -90,20 +90,20 @@ SetMerchantCcid sets MerchantCcid field to given value.
 
 ### GetPayNowIdParam
 
-`func (o *CardInfoGetRequestParams) GetPayNowIdParam() CardInfoGetRequestParamsAllOfPayNowIdParam`
+`func (o *CardInfoGetRequestParams) GetPayNowIdParam() AccountAddRequestParamsAllOfPayNowIdParam`
 
 GetPayNowIdParam returns the PayNowIdParam field if non-nil, zero value otherwise.
 
 ### GetPayNowIdParamOk
 
-`func (o *CardInfoGetRequestParams) GetPayNowIdParamOk() (*CardInfoGetRequestParamsAllOfPayNowIdParam, bool)`
+`func (o *CardInfoGetRequestParams) GetPayNowIdParamOk() (*AccountAddRequestParamsAllOfPayNowIdParam, bool)`
 
 GetPayNowIdParamOk returns a tuple with the PayNowIdParam field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPayNowIdParam
 
-`func (o *CardInfoGetRequestParams) SetPayNowIdParam(v CardInfoGetRequestParamsAllOfPayNowIdParam)`
+`func (o *CardInfoGetRequestParams) SetPayNowIdParam(v AccountAddRequestParamsAllOfPayNowIdParam)`
 
 SetPayNowIdParam sets PayNowIdParam field to given value.
 

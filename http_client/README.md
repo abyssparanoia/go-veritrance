@@ -126,6 +126,7 @@ Class | Method | HTTP request | Description
  - [CardInfoDeleteRequest](docs/CardInfoDeleteRequest.md)
  - [CardInfoDeleteRequestAllOf](docs/CardInfoDeleteRequestAllOf.md)
  - [CardInfoGetRequest](docs/CardInfoGetRequest.md)
+ - [CardInfoGetRequestParams](docs/CardInfoGetRequestParams.md)
  - [CardInfoUpdateRequest](docs/CardInfoUpdateRequest.md)
  - [CardInfoUpdateRequestAllOf](docs/CardInfoUpdateRequestAllOf.md)
  - [CardInfoV1](docs/CardInfoV1.md)
