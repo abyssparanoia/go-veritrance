@@ -123,9 +123,9 @@ paths:
       operationId: paynowid-v1-update-cardinfo
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          text/plain:
             schema:
-              $ref: '#/components/schemas/paynowid_v1_update_account_request'
+              type: string
       responses:
         "200":
           content:
@@ -277,15 +277,14 @@ components:
       - params
       type: object
     CardInfoUpdateRequest:
-      allOf:
-      - $ref: '#/components/schemas/AbstractPayNowRequest'
-      - $ref: '#/components/schemas/CardInfoUpdateRequest_allOf'
+      properties:
+        params:
+          $ref: '#/components/schemas/CardInfoUpdateRequest_params'
+        authHash:
+          type: string
       required:
-      - accountId
-      - cardExpire
-      - cardId
-      - cardNumber
-      - securityCode
+      - authHash
+      - params
       type: object
     CardInfoDeleteRequest:
       properties:
@@ -850,23 +849,47 @@ components:
       required:
       - payNowIdParam
       type: object
-    CardInfoUpdateRequest_allOf:
+    CardInfoUpdateRequest_params_allOf_payNowIdParam_accountParam_cardParam:
+      properties:
+        cardId:
+          example: card-1662828780
+          type: string
+        token:
+          example: 80b66157-6f6f-4a38-a6e4-43e306f0084f
+          type: string
+      required:
+      - cardId
+      - token
+      type: object
+    CardInfoUpdateRequest_params_allOf_payNowIdParam_accountParam:
       properties:
         accountId:
           example: account-1662828780
           type: string
-        cardId:
-          example: card-1662828780
-          type: string
-        cardNumber:
-          example: "4111111111111111"
-          type: string
-        cardExpire:
-          example: 12/25
-          type: string
-        securityCode:
-          example: "123"
-          type: string
+        cardParam:
+          $ref: '#/components/schemas/CardInfoUpdateRequest_params_allOf_payNowIdParam_accountParam_cardParam'
+      required:
+      - accountId
+      - cardParam
+      type: object
+    CardInfoUpdateRequest_params_allOf_payNowIdParam:
+      properties:
+        accountParam:
+          $ref: '#/components/schemas/CardInfoUpdateRequest_params_allOf_payNowIdParam_accountParam'
+      required:
+      - accountParam
+      type: object
+    CardInfoUpdateRequest_params_allOf:
+      properties:
+        payNowIdParam:
+          $ref: '#/components/schemas/CardInfoUpdateRequest_params_allOf_payNowIdParam'
+      type: object
+    CardInfoUpdateRequest_params:
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/CardInfoUpdateRequest_params_allOf'
+      required:
+      - payNowIdParam
       type: object
     CardInfoDeleteRequest_params_allOf_payNowIdParam_accountParam_cardParam:
       properties:
