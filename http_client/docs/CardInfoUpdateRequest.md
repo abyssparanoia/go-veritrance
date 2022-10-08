@@ -4,20 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TxnVersion** | **string** |  | 
-**DummyRequest** | **string** |  | 
-**MerchantCcid** | **string** |  | 
-**AccountId** | **string** |  | 
-**CardId** | **string** |  | 
-**CardNumber** | **string** |  | 
-**CardExpire** | **string** |  | 
-**SecurityCode** | **string** |  | 
+**Params** | [**CardInfoUpdateRequestParams**](CardInfoUpdateRequestParams.md) |  | 
+**AuthHash** | **string** |  | 
 
 ## Methods
 
 ### NewCardInfoUpdateRequest
 
-`func NewCardInfoUpdateRequest(txnVersion string, dummyRequest string, merchantCcid string, accountId string, cardId string, cardNumber string, cardExpire string, securityCode string, ) *CardInfoUpdateRequest`
+`func NewCardInfoUpdateRequest(params CardInfoUpdateRequestParams, authHash string, ) *CardInfoUpdateRequest`
 
 NewCardInfoUpdateRequest instantiates a new CardInfoUpdateRequest object
 This constructor will assign default values to properties that have it defined,
@@ -32,164 +26,44 @@ NewCardInfoUpdateRequestWithDefaults instantiates a new CardInfoUpdateRequest ob
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetTxnVersion
+### GetParams
 
-`func (o *CardInfoUpdateRequest) GetTxnVersion() string`
+`func (o *CardInfoUpdateRequest) GetParams() CardInfoUpdateRequestParams`
 
-GetTxnVersion returns the TxnVersion field if non-nil, zero value otherwise.
+GetParams returns the Params field if non-nil, zero value otherwise.
 
-### GetTxnVersionOk
+### GetParamsOk
 
-`func (o *CardInfoUpdateRequest) GetTxnVersionOk() (*string, bool)`
+`func (o *CardInfoUpdateRequest) GetParamsOk() (*CardInfoUpdateRequestParams, bool)`
 
-GetTxnVersionOk returns a tuple with the TxnVersion field if it's non-nil, zero value otherwise
+GetParamsOk returns a tuple with the Params field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTxnVersion
+### SetParams
 
-`func (o *CardInfoUpdateRequest) SetTxnVersion(v string)`
+`func (o *CardInfoUpdateRequest) SetParams(v CardInfoUpdateRequestParams)`
 
-SetTxnVersion sets TxnVersion field to given value.
+SetParams sets Params field to given value.
 
 
-### GetDummyRequest
+### GetAuthHash
 
-`func (o *CardInfoUpdateRequest) GetDummyRequest() string`
+`func (o *CardInfoUpdateRequest) GetAuthHash() string`
 
-GetDummyRequest returns the DummyRequest field if non-nil, zero value otherwise.
+GetAuthHash returns the AuthHash field if non-nil, zero value otherwise.
 
-### GetDummyRequestOk
+### GetAuthHashOk
 
-`func (o *CardInfoUpdateRequest) GetDummyRequestOk() (*string, bool)`
+`func (o *CardInfoUpdateRequest) GetAuthHashOk() (*string, bool)`
 
-GetDummyRequestOk returns a tuple with the DummyRequest field if it's non-nil, zero value otherwise
+GetAuthHashOk returns a tuple with the AuthHash field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDummyRequest
+### SetAuthHash
 
-`func (o *CardInfoUpdateRequest) SetDummyRequest(v string)`
+`func (o *CardInfoUpdateRequest) SetAuthHash(v string)`
 
-SetDummyRequest sets DummyRequest field to given value.
-
-
-### GetMerchantCcid
-
-`func (o *CardInfoUpdateRequest) GetMerchantCcid() string`
-
-GetMerchantCcid returns the MerchantCcid field if non-nil, zero value otherwise.
-
-### GetMerchantCcidOk
-
-`func (o *CardInfoUpdateRequest) GetMerchantCcidOk() (*string, bool)`
-
-GetMerchantCcidOk returns a tuple with the MerchantCcid field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMerchantCcid
-
-`func (o *CardInfoUpdateRequest) SetMerchantCcid(v string)`
-
-SetMerchantCcid sets MerchantCcid field to given value.
-
-
-### GetAccountId
-
-`func (o *CardInfoUpdateRequest) GetAccountId() string`
-
-GetAccountId returns the AccountId field if non-nil, zero value otherwise.
-
-### GetAccountIdOk
-
-`func (o *CardInfoUpdateRequest) GetAccountIdOk() (*string, bool)`
-
-GetAccountIdOk returns a tuple with the AccountId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountId
-
-`func (o *CardInfoUpdateRequest) SetAccountId(v string)`
-
-SetAccountId sets AccountId field to given value.
-
-
-### GetCardId
-
-`func (o *CardInfoUpdateRequest) GetCardId() string`
-
-GetCardId returns the CardId field if non-nil, zero value otherwise.
-
-### GetCardIdOk
-
-`func (o *CardInfoUpdateRequest) GetCardIdOk() (*string, bool)`
-
-GetCardIdOk returns a tuple with the CardId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCardId
-
-`func (o *CardInfoUpdateRequest) SetCardId(v string)`
-
-SetCardId sets CardId field to given value.
-
-
-### GetCardNumber
-
-`func (o *CardInfoUpdateRequest) GetCardNumber() string`
-
-GetCardNumber returns the CardNumber field if non-nil, zero value otherwise.
-
-### GetCardNumberOk
-
-`func (o *CardInfoUpdateRequest) GetCardNumberOk() (*string, bool)`
-
-GetCardNumberOk returns a tuple with the CardNumber field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCardNumber
-
-`func (o *CardInfoUpdateRequest) SetCardNumber(v string)`
-
-SetCardNumber sets CardNumber field to given value.
-
-
-### GetCardExpire
-
-`func (o *CardInfoUpdateRequest) GetCardExpire() string`
-
-GetCardExpire returns the CardExpire field if non-nil, zero value otherwise.
-
-### GetCardExpireOk
-
-`func (o *CardInfoUpdateRequest) GetCardExpireOk() (*string, bool)`
-
-GetCardExpireOk returns a tuple with the CardExpire field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCardExpire
-
-`func (o *CardInfoUpdateRequest) SetCardExpire(v string)`
-
-SetCardExpire sets CardExpire field to given value.
-
-
-### GetSecurityCode
-
-`func (o *CardInfoUpdateRequest) GetSecurityCode() string`
-
-GetSecurityCode returns the SecurityCode field if non-nil, zero value otherwise.
-
-### GetSecurityCodeOk
-
-`func (o *CardInfoUpdateRequest) GetSecurityCodeOk() (*string, bool)`
-
-GetSecurityCodeOk returns a tuple with the SecurityCode field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSecurityCode
-
-`func (o *CardInfoUpdateRequest) SetSecurityCode(v string)`
-
-SetSecurityCode sets SecurityCode field to given value.
+SetAuthHash sets AuthHash field to given value.
 
 
 

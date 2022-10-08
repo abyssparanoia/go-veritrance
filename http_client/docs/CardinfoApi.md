@@ -211,7 +211,7 @@ No authorization required
 
 ## PaynowidV1UpdateCardinfo
 
-> AccountResponse PaynowidV1UpdateCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
+> AccountResponse PaynowidV1UpdateCardinfo(ctx).Body(body).Execute()
 
 当該会員 ID、およびカード ID に紐付けられたカード情報を更新します
 
@@ -230,12 +230,11 @@ import (
 )
 
 func main() {
-    params := "params_example" // string | 
-    authHash := "authHash_example" // string | 
+    body := "body_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CardinfoApi.PaynowidV1UpdateCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
+    resp, r, err := apiClient.CardinfoApi.PaynowidV1UpdateCardinfo(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CardinfoApi.PaynowidV1UpdateCardinfo``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -256,8 +255,7 @@ Other parameters are passed through a pointer to a apiPaynowidV1UpdateCardinfoRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **string** |  | 
- **authHash** | **string** |  | 
+ **body** | **string** |  | 
 
 ### Return type
 
@@ -269,7 +267,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: text/plain
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
