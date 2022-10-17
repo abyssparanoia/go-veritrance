@@ -22,35 +22,29 @@ import (
 // CardApiService CardApi service
 type CardApiService service
 
-type ApiPaynowidV1AuthorizeCardinfoRequest struct {
+type ApiPaynowV1AuthorizeCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardApiService
-	params *string
-	authHash *string
+	body *string
 }
 
-func (r ApiPaynowidV1AuthorizeCardinfoRequest) Params(params string) ApiPaynowidV1AuthorizeCardinfoRequest {
-	r.params = &params
+func (r ApiPaynowV1AuthorizeCardinfoRequest) Body(body string) ApiPaynowV1AuthorizeCardinfoRequest {
+	r.body = &body
 	return r
 }
 
-func (r ApiPaynowidV1AuthorizeCardinfoRequest) AuthHash(authHash string) ApiPaynowidV1AuthorizeCardinfoRequest {
-	r.authHash = &authHash
-	return r
-}
-
-func (r ApiPaynowidV1AuthorizeCardinfoRequest) Execute() (*CardAuthorizeResponse, *http.Response, error) {
-	return r.ApiService.PaynowidV1AuthorizeCardinfoExecute(r)
+func (r ApiPaynowV1AuthorizeCardinfoRequest) Execute() (*CardAuthorizeResponse, *http.Response, error) {
+	return r.ApiService.PaynowV1AuthorizeCardinfoExecute(r)
 }
 
 /*
-PaynowidV1AuthorizeCardinfo 決済の与信を行います
+PaynowV1AuthorizeCardinfo 決済の与信を行います
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPaynowidV1AuthorizeCardinfoRequest
+ @return ApiPaynowV1AuthorizeCardinfoRequest
 */
-func (a *CardApiService) PaynowidV1AuthorizeCardinfo(ctx context.Context) ApiPaynowidV1AuthorizeCardinfoRequest {
-	return ApiPaynowidV1AuthorizeCardinfoRequest{
+func (a *CardApiService) PaynowV1AuthorizeCardinfo(ctx context.Context) ApiPaynowV1AuthorizeCardinfoRequest {
+	return ApiPaynowV1AuthorizeCardinfoRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -58,7 +52,7 @@ func (a *CardApiService) PaynowidV1AuthorizeCardinfo(ctx context.Context) ApiPay
 
 // Execute executes the request
 //  @return CardAuthorizeResponse
-func (a *CardApiService) PaynowidV1AuthorizeCardinfoExecute(r ApiPaynowidV1AuthorizeCardinfoRequest) (*CardAuthorizeResponse, *http.Response, error) {
+func (a *CardApiService) PaynowV1AuthorizeCardinfoExecute(r ApiPaynowV1AuthorizeCardinfoRequest) (*CardAuthorizeResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -66,25 +60,19 @@ func (a *CardApiService) PaynowidV1AuthorizeCardinfoExecute(r ApiPaynowidV1Autho
 		localVarReturnValue  *CardAuthorizeResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardApiService.PaynowidV1AuthorizeCardinfo")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardApiService.PaynowV1AuthorizeCardinfo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/paynowid/v1/Authorize/card"
+	localVarPath := localBasePath + "/paynow/v2/Authorize/card"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.params == nil {
-		return localVarReturnValue, nil, reportError("params is required and must be specified")
-	}
-	if r.authHash == nil {
-		return localVarReturnValue, nil, reportError("authHash is required and must be specified")
-	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
+	localVarHTTPContentTypes := []string{"text/plain"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -100,8 +88,8 @@ func (a *CardApiService) PaynowidV1AuthorizeCardinfoExecute(r ApiPaynowidV1Autho
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	localVarFormParams.Add("params", parameterToString(*r.params, ""))
-	localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
+	// body params
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -139,35 +127,29 @@ func (a *CardApiService) PaynowidV1AuthorizeCardinfoExecute(r ApiPaynowidV1Autho
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPaynowidV1CancelCardinfoRequest struct {
+type ApiPaynowV1CancelCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardApiService
-	params *string
-	authHash *string
+	body *string
 }
 
-func (r ApiPaynowidV1CancelCardinfoRequest) Params(params string) ApiPaynowidV1CancelCardinfoRequest {
-	r.params = &params
+func (r ApiPaynowV1CancelCardinfoRequest) Body(body string) ApiPaynowV1CancelCardinfoRequest {
+	r.body = &body
 	return r
 }
 
-func (r ApiPaynowidV1CancelCardinfoRequest) AuthHash(authHash string) ApiPaynowidV1CancelCardinfoRequest {
-	r.authHash = &authHash
-	return r
-}
-
-func (r ApiPaynowidV1CancelCardinfoRequest) Execute() (*CardCancelResponse, *http.Response, error) {
-	return r.ApiService.PaynowidV1CancelCardinfoExecute(r)
+func (r ApiPaynowV1CancelCardinfoRequest) Execute() (*CardCancelResponse, *http.Response, error) {
+	return r.ApiService.PaynowV1CancelCardinfoExecute(r)
 }
 
 /*
-PaynowidV1CancelCardinfo 決済のキャンセルを行います
+PaynowV1CancelCardinfo 決済のキャンセルを行います
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPaynowidV1CancelCardinfoRequest
+ @return ApiPaynowV1CancelCardinfoRequest
 */
-func (a *CardApiService) PaynowidV1CancelCardinfo(ctx context.Context) ApiPaynowidV1CancelCardinfoRequest {
-	return ApiPaynowidV1CancelCardinfoRequest{
+func (a *CardApiService) PaynowV1CancelCardinfo(ctx context.Context) ApiPaynowV1CancelCardinfoRequest {
+	return ApiPaynowV1CancelCardinfoRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -175,7 +157,7 @@ func (a *CardApiService) PaynowidV1CancelCardinfo(ctx context.Context) ApiPaynow
 
 // Execute executes the request
 //  @return CardCancelResponse
-func (a *CardApiService) PaynowidV1CancelCardinfoExecute(r ApiPaynowidV1CancelCardinfoRequest) (*CardCancelResponse, *http.Response, error) {
+func (a *CardApiService) PaynowV1CancelCardinfoExecute(r ApiPaynowV1CancelCardinfoRequest) (*CardCancelResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -183,25 +165,19 @@ func (a *CardApiService) PaynowidV1CancelCardinfoExecute(r ApiPaynowidV1CancelCa
 		localVarReturnValue  *CardCancelResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardApiService.PaynowidV1CancelCardinfo")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardApiService.PaynowV1CancelCardinfo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/paynowid/v1/Cancel/card"
+	localVarPath := localBasePath + "/paynow/v1/Cancel/card"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.params == nil {
-		return localVarReturnValue, nil, reportError("params is required and must be specified")
-	}
-	if r.authHash == nil {
-		return localVarReturnValue, nil, reportError("authHash is required and must be specified")
-	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
+	localVarHTTPContentTypes := []string{"text/plain"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -217,8 +193,8 @@ func (a *CardApiService) PaynowidV1CancelCardinfoExecute(r ApiPaynowidV1CancelCa
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	localVarFormParams.Add("params", parameterToString(*r.params, ""))
-	localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
+	// body params
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -256,35 +232,29 @@ func (a *CardApiService) PaynowidV1CancelCardinfoExecute(r ApiPaynowidV1CancelCa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPaynowidV1CaptureCardinfoRequest struct {
+type ApiPaynowV1CaptureCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardApiService
-	params *string
-	authHash *string
+	body *string
 }
 
-func (r ApiPaynowidV1CaptureCardinfoRequest) Params(params string) ApiPaynowidV1CaptureCardinfoRequest {
-	r.params = &params
+func (r ApiPaynowV1CaptureCardinfoRequest) Body(body string) ApiPaynowV1CaptureCardinfoRequest {
+	r.body = &body
 	return r
 }
 
-func (r ApiPaynowidV1CaptureCardinfoRequest) AuthHash(authHash string) ApiPaynowidV1CaptureCardinfoRequest {
-	r.authHash = &authHash
-	return r
-}
-
-func (r ApiPaynowidV1CaptureCardinfoRequest) Execute() (*CardCaptureResponse, *http.Response, error) {
-	return r.ApiService.PaynowidV1CaptureCardinfoExecute(r)
+func (r ApiPaynowV1CaptureCardinfoRequest) Execute() (*CardCaptureResponse, *http.Response, error) {
+	return r.ApiService.PaynowV1CaptureCardinfoExecute(r)
 }
 
 /*
-PaynowidV1CaptureCardinfo 決済の売上確定を行います
+PaynowV1CaptureCardinfo 決済の売上確定を行います
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPaynowidV1CaptureCardinfoRequest
+ @return ApiPaynowV1CaptureCardinfoRequest
 */
-func (a *CardApiService) PaynowidV1CaptureCardinfo(ctx context.Context) ApiPaynowidV1CaptureCardinfoRequest {
-	return ApiPaynowidV1CaptureCardinfoRequest{
+func (a *CardApiService) PaynowV1CaptureCardinfo(ctx context.Context) ApiPaynowV1CaptureCardinfoRequest {
+	return ApiPaynowV1CaptureCardinfoRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -292,7 +262,7 @@ func (a *CardApiService) PaynowidV1CaptureCardinfo(ctx context.Context) ApiPayno
 
 // Execute executes the request
 //  @return CardCaptureResponse
-func (a *CardApiService) PaynowidV1CaptureCardinfoExecute(r ApiPaynowidV1CaptureCardinfoRequest) (*CardCaptureResponse, *http.Response, error) {
+func (a *CardApiService) PaynowV1CaptureCardinfoExecute(r ApiPaynowV1CaptureCardinfoRequest) (*CardCaptureResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -300,25 +270,19 @@ func (a *CardApiService) PaynowidV1CaptureCardinfoExecute(r ApiPaynowidV1Capture
 		localVarReturnValue  *CardCaptureResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardApiService.PaynowidV1CaptureCardinfo")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardApiService.PaynowV1CaptureCardinfo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/paynowid/v1/Capture/card"
+	localVarPath := localBasePath + "/paynow/v1/Capture/card"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.params == nil {
-		return localVarReturnValue, nil, reportError("params is required and must be specified")
-	}
-	if r.authHash == nil {
-		return localVarReturnValue, nil, reportError("authHash is required and must be specified")
-	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
+	localVarHTTPContentTypes := []string{"text/plain"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -334,8 +298,8 @@ func (a *CardApiService) PaynowidV1CaptureCardinfoExecute(r ApiPaynowidV1Capture
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	localVarFormParams.Add("params", parameterToString(*r.params, ""))
-	localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
+	// body params
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -373,35 +337,29 @@ func (a *CardApiService) PaynowidV1CaptureCardinfoExecute(r ApiPaynowidV1Capture
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPaynowidV1ReAuthorizeCardinfoRequest struct {
+type ApiPaynowV1ReAuthorizeCardinfoRequest struct {
 	ctx context.Context
 	ApiService *CardApiService
-	params *string
-	authHash *string
+	body *string
 }
 
-func (r ApiPaynowidV1ReAuthorizeCardinfoRequest) Params(params string) ApiPaynowidV1ReAuthorizeCardinfoRequest {
-	r.params = &params
+func (r ApiPaynowV1ReAuthorizeCardinfoRequest) Body(body string) ApiPaynowV1ReAuthorizeCardinfoRequest {
+	r.body = &body
 	return r
 }
 
-func (r ApiPaynowidV1ReAuthorizeCardinfoRequest) AuthHash(authHash string) ApiPaynowidV1ReAuthorizeCardinfoRequest {
-	r.authHash = &authHash
-	return r
-}
-
-func (r ApiPaynowidV1ReAuthorizeCardinfoRequest) Execute() (*CardAuthorizeResponse, *http.Response, error) {
-	return r.ApiService.PaynowidV1ReAuthorizeCardinfoExecute(r)
+func (r ApiPaynowV1ReAuthorizeCardinfoRequest) Execute() (*CardAuthorizeResponse, *http.Response, error) {
+	return r.ApiService.PaynowV1ReAuthorizeCardinfoExecute(r)
 }
 
 /*
-PaynowidV1ReAuthorizeCardinfo 決済の再与信を行います
+PaynowV1ReAuthorizeCardinfo 決済の再与信を行います
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPaynowidV1ReAuthorizeCardinfoRequest
+ @return ApiPaynowV1ReAuthorizeCardinfoRequest
 */
-func (a *CardApiService) PaynowidV1ReAuthorizeCardinfo(ctx context.Context) ApiPaynowidV1ReAuthorizeCardinfoRequest {
-	return ApiPaynowidV1ReAuthorizeCardinfoRequest{
+func (a *CardApiService) PaynowV1ReAuthorizeCardinfo(ctx context.Context) ApiPaynowV1ReAuthorizeCardinfoRequest {
+	return ApiPaynowV1ReAuthorizeCardinfoRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -409,7 +367,7 @@ func (a *CardApiService) PaynowidV1ReAuthorizeCardinfo(ctx context.Context) ApiP
 
 // Execute executes the request
 //  @return CardAuthorizeResponse
-func (a *CardApiService) PaynowidV1ReAuthorizeCardinfoExecute(r ApiPaynowidV1ReAuthorizeCardinfoRequest) (*CardAuthorizeResponse, *http.Response, error) {
+func (a *CardApiService) PaynowV1ReAuthorizeCardinfoExecute(r ApiPaynowV1ReAuthorizeCardinfoRequest) (*CardAuthorizeResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -417,25 +375,19 @@ func (a *CardApiService) PaynowidV1ReAuthorizeCardinfoExecute(r ApiPaynowidV1ReA
 		localVarReturnValue  *CardAuthorizeResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardApiService.PaynowidV1ReAuthorizeCardinfo")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CardApiService.PaynowV1ReAuthorizeCardinfo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/paynowid/v1/ReAuthorize/card"
+	localVarPath := localBasePath + "/paynow/v1/ReAuthorize/card"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.params == nil {
-		return localVarReturnValue, nil, reportError("params is required and must be specified")
-	}
-	if r.authHash == nil {
-		return localVarReturnValue, nil, reportError("authHash is required and must be specified")
-	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
+	localVarHTTPContentTypes := []string{"text/plain"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -451,8 +403,8 @@ func (a *CardApiService) PaynowidV1ReAuthorizeCardinfoExecute(r ApiPaynowidV1ReA
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	localVarFormParams.Add("params", parameterToString(*r.params, ""))
-	localVarFormParams.Add("authHash", parameterToString(*r.authHash, ""))
+	// body params
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
