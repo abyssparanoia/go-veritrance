@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PayNowIdResponse** | Pointer to [**AccountResponsePayNowIdResponse**](AccountResponsePayNowIdResponse.md) |  | [optional] 
-**ServiceType** | Pointer to **string** | 要求電文を送信した決済サービスタイプ | [optional] 
+**ServiceType** | **string** | 要求電文を送信した決済サービスタイプ | 
 **Status** | Pointer to **string** | 処理結果コード | [optional] 
-**VResultCode** | Pointer to **string** | 処理の結果を詳細に表すコード 4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。  | [optional] 
-**Mstatus** | Pointer to [**Status**](Status.md) |  | [optional] 
-**MerrMsg** | Pointer to **string** | 処理結果を日本語で表示します。 | [optional] 
-**MarchTxn** | Pointer to **string** | 決済サーバーにて決済処理電文（内部処理も含む）毎に付与する ID １つの取引 ID に対して、複数の ID が付与されます。  | [optional] 
-**OrderId** | Pointer to **string** | 決済要求時に店舗様にて任意に採番し送信された取引 ID | [optional] 
-**CustTxn** | Pointer to **string** | 決済サーバーがオーダー（取引 ID）と紐付ける為に採番する ID | [optional] 
-**TxnVersion** | Pointer to **string** | 電文のバージョン | [optional] 
+**VResultCode** | **string** | 処理の結果を詳細に表すコード 4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。  | 
+**Mstatus** | [**Status**](Status.md) |  | 
+**MerrMsg** | **string** | 処理結果を日本語で表示します。 | 
+**MarchTxn** | **string** | 決済サーバーにて決済処理電文（内部処理も含む）毎に付与する ID １つの取引 ID に対して、複数の ID が付与されます。  | 
+**OrderId** | **string** | 決済要求時に店舗様にて任意に採番し送信された取引 ID | 
+**CustTxn** | **string** | 決済サーバーがオーダー（取引 ID）と紐付ける為に採番する ID | 
+**TxnVersion** | **string** | 電文のバージョン | 
 **CardTransactiontype** | Pointer to **string** |  | [optional] 
 **GatewayRequestDate** | Pointer to **time.Time** |  | [optional] 
 **GatewayResponseDate** | Pointer to **time.Time** |  | [optional] 
@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 
 ### NewCardAuthorizeResponse
 
-`func NewCardAuthorizeResponse() *CardAuthorizeResponse`
+`func NewCardAuthorizeResponse(serviceType string, vResultCode string, mstatus Status, merrMsg string, marchTxn string, orderId string, custTxn string, txnVersion string, ) *CardAuthorizeResponse`
 
 NewCardAuthorizeResponse instantiates a new CardAuthorizeResponse object
 This constructor will assign default values to properties that have it defined,
@@ -93,11 +93,6 @@ and a boolean to check if the value has been set.
 
 SetServiceType sets ServiceType field to given value.
 
-### HasServiceType
-
-`func (o *CardAuthorizeResponse) HasServiceType() bool`
-
-HasServiceType returns a boolean if a field has been set.
 
 ### GetStatus
 
@@ -143,11 +138,6 @@ and a boolean to check if the value has been set.
 
 SetVResultCode sets VResultCode field to given value.
 
-### HasVResultCode
-
-`func (o *CardAuthorizeResponse) HasVResultCode() bool`
-
-HasVResultCode returns a boolean if a field has been set.
 
 ### GetMstatus
 
@@ -168,11 +158,6 @@ and a boolean to check if the value has been set.
 
 SetMstatus sets Mstatus field to given value.
 
-### HasMstatus
-
-`func (o *CardAuthorizeResponse) HasMstatus() bool`
-
-HasMstatus returns a boolean if a field has been set.
 
 ### GetMerrMsg
 
@@ -193,11 +178,6 @@ and a boolean to check if the value has been set.
 
 SetMerrMsg sets MerrMsg field to given value.
 
-### HasMerrMsg
-
-`func (o *CardAuthorizeResponse) HasMerrMsg() bool`
-
-HasMerrMsg returns a boolean if a field has been set.
 
 ### GetMarchTxn
 
@@ -218,11 +198,6 @@ and a boolean to check if the value has been set.
 
 SetMarchTxn sets MarchTxn field to given value.
 
-### HasMarchTxn
-
-`func (o *CardAuthorizeResponse) HasMarchTxn() bool`
-
-HasMarchTxn returns a boolean if a field has been set.
 
 ### GetOrderId
 
@@ -243,11 +218,6 @@ and a boolean to check if the value has been set.
 
 SetOrderId sets OrderId field to given value.
 
-### HasOrderId
-
-`func (o *CardAuthorizeResponse) HasOrderId() bool`
-
-HasOrderId returns a boolean if a field has been set.
 
 ### GetCustTxn
 
@@ -268,11 +238,6 @@ and a boolean to check if the value has been set.
 
 SetCustTxn sets CustTxn field to given value.
 
-### HasCustTxn
-
-`func (o *CardAuthorizeResponse) HasCustTxn() bool`
-
-HasCustTxn returns a boolean if a field has been set.
 
 ### GetTxnVersion
 
@@ -293,11 +258,6 @@ and a boolean to check if the value has been set.
 
 SetTxnVersion sets TxnVersion field to given value.
 
-### HasTxnVersion
-
-`func (o *CardAuthorizeResponse) HasTxnVersion() bool`
-
-HasTxnVersion returns a boolean if a field has been set.
 
 ### GetCardTransactiontype
 
