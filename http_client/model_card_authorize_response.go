@@ -17,12 +17,14 @@ import (
 
 // CardAuthorizeResponse struct for CardAuthorizeResponse
 type CardAuthorizeResponse struct {
+	PayNowIdResponse *AccountResponsePayNowIdResponse `json:"payNowIdResponse,omitempty"`
 	// 要求電文を送信した決済サービスタイプ
 	ServiceType *string `json:"serviceType,omitempty"`
 	// 処理結果コード
 	Status *string `json:"status,omitempty"`
 	// 処理の結果を詳細に表すコード 4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。 
 	VResultCode *string `json:"vResultCode,omitempty"`
+	Mstatus *Status `json:"mstatus,omitempty"`
 	// 処理結果を日本語で表示します。
 	MerrMsg *string `json:"merrMsg,omitempty"`
 	// 決済サーバーにて決済処理電文（内部処理も含む）毎に付与する ID １つの取引 ID に対して、複数の ID が付与されます。 
@@ -65,6 +67,38 @@ func NewCardAuthorizeResponse() *CardAuthorizeResponse {
 func NewCardAuthorizeResponseWithDefaults() *CardAuthorizeResponse {
 	this := CardAuthorizeResponse{}
 	return &this
+}
+
+// GetPayNowIdResponse returns the PayNowIdResponse field value if set, zero value otherwise.
+func (o *CardAuthorizeResponse) GetPayNowIdResponse() AccountResponsePayNowIdResponse {
+	if o == nil || o.PayNowIdResponse == nil {
+		var ret AccountResponsePayNowIdResponse
+		return ret
+	}
+	return *o.PayNowIdResponse
+}
+
+// GetPayNowIdResponseOk returns a tuple with the PayNowIdResponse field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CardAuthorizeResponse) GetPayNowIdResponseOk() (*AccountResponsePayNowIdResponse, bool) {
+	if o == nil || o.PayNowIdResponse == nil {
+		return nil, false
+	}
+	return o.PayNowIdResponse, true
+}
+
+// HasPayNowIdResponse returns a boolean if a field has been set.
+func (o *CardAuthorizeResponse) HasPayNowIdResponse() bool {
+	if o != nil && o.PayNowIdResponse != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPayNowIdResponse gets a reference to the given AccountResponsePayNowIdResponse and assigns it to the PayNowIdResponse field.
+func (o *CardAuthorizeResponse) SetPayNowIdResponse(v AccountResponsePayNowIdResponse) {
+	o.PayNowIdResponse = &v
 }
 
 // GetServiceType returns the ServiceType field value if set, zero value otherwise.
@@ -161,6 +195,38 @@ func (o *CardAuthorizeResponse) HasVResultCode() bool {
 // SetVResultCode gets a reference to the given string and assigns it to the VResultCode field.
 func (o *CardAuthorizeResponse) SetVResultCode(v string) {
 	o.VResultCode = &v
+}
+
+// GetMstatus returns the Mstatus field value if set, zero value otherwise.
+func (o *CardAuthorizeResponse) GetMstatus() Status {
+	if o == nil || o.Mstatus == nil {
+		var ret Status
+		return ret
+	}
+	return *o.Mstatus
+}
+
+// GetMstatusOk returns a tuple with the Mstatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CardAuthorizeResponse) GetMstatusOk() (*Status, bool) {
+	if o == nil || o.Mstatus == nil {
+		return nil, false
+	}
+	return o.Mstatus, true
+}
+
+// HasMstatus returns a boolean if a field has been set.
+func (o *CardAuthorizeResponse) HasMstatus() bool {
+	if o != nil && o.Mstatus != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMstatus gets a reference to the given Status and assigns it to the Mstatus field.
+func (o *CardAuthorizeResponse) SetMstatus(v Status) {
+	o.Mstatus = &v
 }
 
 // GetMerrMsg returns the MerrMsg field value if set, zero value otherwise.
@@ -805,6 +871,9 @@ func (o *CardAuthorizeResponse) SetAcquirerCode(v string) {
 
 func (o CardAuthorizeResponse) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.PayNowIdResponse != nil {
+		toSerialize["payNowIdResponse"] = o.PayNowIdResponse
+	}
 	if o.ServiceType != nil {
 		toSerialize["serviceType"] = o.ServiceType
 	}
@@ -813,6 +882,9 @@ func (o CardAuthorizeResponse) MarshalJSON() ([]byte, error) {
 	}
 	if o.VResultCode != nil {
 		toSerialize["vResultCode"] = o.VResultCode
+	}
+	if o.Mstatus != nil {
+		toSerialize["mstatus"] = o.Mstatus
 	}
 	if o.MerrMsg != nil {
 		toSerialize["merrMsg"] = o.MerrMsg
