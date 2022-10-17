@@ -45,6 +45,7 @@ type CardAuthorizeResponse struct {
 	ConnectedCenterId *string `json:"connectedCenterId,omitempty"`
 	CenterRequestNumber *string `json:"centerRequestNumber,omitempty"`
 	CenterReferenceNumber *string `json:"centerReferenceNumber,omitempty"`
+	ReqAmount *string `json:"reqAmount,omitempty"`
 	ResReturnReferenceNumber *string `json:"resReturnReferenceNumber,omitempty"`
 	ResAuthCode *string `json:"resAuthCode,omitempty"`
 	ResActionCode *string `json:"resActionCode,omitempty"`
@@ -653,6 +654,38 @@ func (o *CardAuthorizeResponse) SetCenterReferenceNumber(v string) {
 	o.CenterReferenceNumber = &v
 }
 
+// GetReqAmount returns the ReqAmount field value if set, zero value otherwise.
+func (o *CardAuthorizeResponse) GetReqAmount() string {
+	if o == nil || o.ReqAmount == nil {
+		var ret string
+		return ret
+	}
+	return *o.ReqAmount
+}
+
+// GetReqAmountOk returns a tuple with the ReqAmount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CardAuthorizeResponse) GetReqAmountOk() (*string, bool) {
+	if o == nil || o.ReqAmount == nil {
+		return nil, false
+	}
+	return o.ReqAmount, true
+}
+
+// HasReqAmount returns a boolean if a field has been set.
+func (o *CardAuthorizeResponse) HasReqAmount() bool {
+	if o != nil && o.ReqAmount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetReqAmount gets a reference to the given string and assigns it to the ReqAmount field.
+func (o *CardAuthorizeResponse) SetReqAmount(v string) {
+	o.ReqAmount = &v
+}
+
 // GetResReturnReferenceNumber returns the ResReturnReferenceNumber field value if set, zero value otherwise.
 func (o *CardAuthorizeResponse) GetResReturnReferenceNumber() string {
 	if o == nil || o.ResReturnReferenceNumber == nil {
@@ -874,6 +907,9 @@ func (o CardAuthorizeResponse) MarshalJSON() ([]byte, error) {
 	}
 	if o.CenterReferenceNumber != nil {
 		toSerialize["centerReferenceNumber"] = o.CenterReferenceNumber
+	}
+	if o.ReqAmount != nil {
+		toSerialize["reqAmount"] = o.ReqAmount
 	}
 	if o.ResReturnReferenceNumber != nil {
 		toSerialize["resReturnReferenceNumber"] = o.ResReturnReferenceNumber
