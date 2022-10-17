@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **ConnectedCenterId** | Pointer to **string** |  | [optional] 
 **CenterRequestNumber** | Pointer to **string** |  | [optional] 
 **CenterReferenceNumber** | Pointer to **string** |  | [optional] 
+**ReqAmount** | Pointer to **string** |  | [optional] 
 **ResReturnReferenceNumber** | Pointer to **string** |  | [optional] 
 **ResAuthCode** | Pointer to **string** |  | [optional] 
 **ResActionCode** | Pointer to **string** |  | [optional] 
@@ -508,6 +509,31 @@ SetCenterReferenceNumber sets CenterReferenceNumber field to given value.
 `func (o *CardAuthorizeResponse) HasCenterReferenceNumber() bool`
 
 HasCenterReferenceNumber returns a boolean if a field has been set.
+
+### GetReqAmount
+
+`func (o *CardAuthorizeResponse) GetReqAmount() string`
+
+GetReqAmount returns the ReqAmount field if non-nil, zero value otherwise.
+
+### GetReqAmountOk
+
+`func (o *CardAuthorizeResponse) GetReqAmountOk() (*string, bool)`
+
+GetReqAmountOk returns a tuple with the ReqAmount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReqAmount
+
+`func (o *CardAuthorizeResponse) SetReqAmount(v string)`
+
+SetReqAmount sets ReqAmount field to given value.
+
+### HasReqAmount
+
+`func (o *CardAuthorizeResponse) HasReqAmount() bool`
+
+HasReqAmount returns a boolean if a field has been set.
 
 ### GetResReturnReferenceNumber
 

@@ -88,6 +88,8 @@ CardAuthorizeResponse:
       type: string
     centerReferenceNumber:
       type: string
+    reqAmount:
+      type: string
     resReturnReferenceNumber:
       type: string
     resAuthCode:

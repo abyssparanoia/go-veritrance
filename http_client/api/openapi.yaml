@@ -443,6 +443,7 @@ components:
         mstatus: null
         merrMsg: merrMsg
         resActionCode: resActionCode
+        reqAmount: reqAmount
         cardTransactiontype: cardTransactiontype
         vResultCode: vResultCode
         loopback: 6
@@ -522,6 +523,8 @@ components:
         centerRequestNumber:
           type: string
         centerReferenceNumber:
+          type: string
+        reqAmount:
           type: string
         resReturnReferenceNumber:
           type: string
