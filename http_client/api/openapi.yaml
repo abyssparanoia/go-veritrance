@@ -933,11 +933,10 @@ components:
       required:
       - payNowIdParam
       type: object
-    CardAuthorizeRequest_params_allOf_payNowIdParam_accountParam:
+    CardAuthorizeRequest_params_allOf_payNowIdParam:
       properties:
-        accountId:
-          example: account-1662828780
-          type: string
+        accountParam:
+          $ref: '#/components/schemas/AccountAddRequestParams_allOf_payNowIdParam_accountParam'
         orderId:
           example: order-1662828780
           type: string
@@ -981,15 +980,9 @@ components:
             "false"： 与信のみ
           type: boolean
       required:
-      - accountId
-      - orderId
-      type: object
-    CardAuthorizeRequest_params_allOf_payNowIdParam:
-      properties:
-        accountParam:
-          $ref: '#/components/schemas/CardAuthorizeRequest_params_allOf_payNowIdParam_accountParam'
-      required:
       - accountParam
+      - amount
+      - orderId
       type: object
     CardAuthorizeRequest_params_allOf:
       properties:
@@ -1003,8 +996,12 @@ components:
       required:
       - payNowIdParam
       type: object
-    CardReAuthorizeRequest_params_allOf_payNowIdParam_accountParam:
+    CardReAuthorizeRequest_params_allOf_payNowIdParam:
       properties:
+        accountParam:
+          required:
+          - accountId
+          type: object
         accountId:
           example: account-1662828780
           type: string
@@ -1054,16 +1051,10 @@ components:
             "false"： 与信のみ
           type: boolean
       required:
-      - accountId
+      - accountParam
+      - amount
       - orderId
       - originalOrderId
-      type: object
-    CardReAuthorizeRequest_params_allOf_payNowIdParam:
-      properties:
-        accountParam:
-          $ref: '#/components/schemas/CardReAuthorizeRequest_params_allOf_payNowIdParam_accountParam'
-      required:
-      - accountParam
       type: object
     CardReAuthorizeRequest_params_allOf:
       properties:

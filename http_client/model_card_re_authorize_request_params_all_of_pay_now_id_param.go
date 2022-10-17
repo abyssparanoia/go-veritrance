@@ -16,16 +16,37 @@ import (
 
 // CardReAuthorizeRequestParamsAllOfPayNowIdParam struct for CardReAuthorizeRequestParamsAllOfPayNowIdParam
 type CardReAuthorizeRequestParamsAllOfPayNowIdParam struct {
-	AccountParam CardReAuthorizeRequestParamsAllOfPayNowIdParamAccountParam `json:"accountParam"`
+	AccountParam map[string]interface{} `json:"accountParam"`
+	AccountId *string `json:"accountId,omitempty"`
+	OrderId string `json:"orderId"`
+	OriginalOrderId string `json:"originalOrderId"`
+	Amount string `json:"amount"`
+	// トークンサーバーが発行した、クレジットカード情報の識別に用いるトークンの値
+	Token *string `json:"token,omitempty"`
+	// （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+	CardNumber *string `json:"cardNumber,omitempty"`
+	// （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+	CardExpire *string `json:"cardExpire,omitempty"`
+	// （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+	SecurityCode *string `json:"securityCode,omitempty"`
+	// カードオプションタイプ （MPI 有り/無し）
+	CardOptionType *string `json:"cardOptionType,omitempty"`
+	// 支払種別 \"10\"： 一括払い \"21\"： ボーナス一括 \"61Cxx\"： 分割払い、xx に分割回数指定 “80”： リボルビング払い ※指定が無い場合は、\"10\"（一括払い）が適用されます。 
+	Jpo *string `json:"jpo,omitempty"`
+	// 売上フラグ \"true\"： 与信・売上 \"false\"： 与信のみ 
+	WithCapture *bool `json:"withCapture,omitempty"`
 }
 
 // NewCardReAuthorizeRequestParamsAllOfPayNowIdParam instantiates a new CardReAuthorizeRequestParamsAllOfPayNowIdParam object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCardReAuthorizeRequestParamsAllOfPayNowIdParam(accountParam CardReAuthorizeRequestParamsAllOfPayNowIdParamAccountParam) *CardReAuthorizeRequestParamsAllOfPayNowIdParam {
+func NewCardReAuthorizeRequestParamsAllOfPayNowIdParam(accountParam map[string]interface{}, orderId string, originalOrderId string, amount string) *CardReAuthorizeRequestParamsAllOfPayNowIdParam {
 	this := CardReAuthorizeRequestParamsAllOfPayNowIdParam{}
 	this.AccountParam = accountParam
+	this.OrderId = orderId
+	this.OriginalOrderId = originalOrderId
+	this.Amount = amount
 	return &this
 }
 
@@ -38,9 +59,9 @@ func NewCardReAuthorizeRequestParamsAllOfPayNowIdParamWithDefaults() *CardReAuth
 }
 
 // GetAccountParam returns the AccountParam field value
-func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetAccountParam() CardReAuthorizeRequestParamsAllOfPayNowIdParamAccountParam {
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetAccountParam() map[string]interface{} {
 	if o == nil {
-		var ret CardReAuthorizeRequestParamsAllOfPayNowIdParamAccountParam
+		var ret map[string]interface{}
 		return ret
 	}
 
@@ -49,22 +70,383 @@ func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetAccountParam() CardR
 
 // GetAccountParamOk returns a tuple with the AccountParam field value
 // and a boolean to check if the value has been set.
-func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetAccountParamOk() (*CardReAuthorizeRequestParamsAllOfPayNowIdParamAccountParam, bool) {
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetAccountParamOk() (map[string]interface{}, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.AccountParam, true
+	return o.AccountParam, true
 }
 
 // SetAccountParam sets field value
-func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) SetAccountParam(v CardReAuthorizeRequestParamsAllOfPayNowIdParamAccountParam) {
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) SetAccountParam(v map[string]interface{}) {
 	o.AccountParam = v
+}
+
+// GetAccountId returns the AccountId field value if set, zero value otherwise.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetAccountId() string {
+	if o == nil || o.AccountId == nil {
+		var ret string
+		return ret
+	}
+	return *o.AccountId
+}
+
+// GetAccountIdOk returns a tuple with the AccountId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetAccountIdOk() (*string, bool) {
+	if o == nil || o.AccountId == nil {
+		return nil, false
+	}
+	return o.AccountId, true
+}
+
+// HasAccountId returns a boolean if a field has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) HasAccountId() bool {
+	if o != nil && o.AccountId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAccountId gets a reference to the given string and assigns it to the AccountId field.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) SetAccountId(v string) {
+	o.AccountId = &v
+}
+
+// GetOrderId returns the OrderId field value
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetOrderId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.OrderId
+}
+
+// GetOrderIdOk returns a tuple with the OrderId field value
+// and a boolean to check if the value has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetOrderIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.OrderId, true
+}
+
+// SetOrderId sets field value
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) SetOrderId(v string) {
+	o.OrderId = v
+}
+
+// GetOriginalOrderId returns the OriginalOrderId field value
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetOriginalOrderId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.OriginalOrderId
+}
+
+// GetOriginalOrderIdOk returns a tuple with the OriginalOrderId field value
+// and a boolean to check if the value has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetOriginalOrderIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.OriginalOrderId, true
+}
+
+// SetOriginalOrderId sets field value
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) SetOriginalOrderId(v string) {
+	o.OriginalOrderId = v
+}
+
+// GetAmount returns the Amount field value
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetAmount() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Amount
+}
+
+// GetAmountOk returns a tuple with the Amount field value
+// and a boolean to check if the value has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetAmountOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Amount, true
+}
+
+// SetAmount sets field value
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) SetAmount(v string) {
+	o.Amount = v
+}
+
+// GetToken returns the Token field value if set, zero value otherwise.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetToken() string {
+	if o == nil || o.Token == nil {
+		var ret string
+		return ret
+	}
+	return *o.Token
+}
+
+// GetTokenOk returns a tuple with the Token field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetTokenOk() (*string, bool) {
+	if o == nil || o.Token == nil {
+		return nil, false
+	}
+	return o.Token, true
+}
+
+// HasToken returns a boolean if a field has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) HasToken() bool {
+	if o != nil && o.Token != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetToken gets a reference to the given string and assigns it to the Token field.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) SetToken(v string) {
+	o.Token = &v
+}
+
+// GetCardNumber returns the CardNumber field value if set, zero value otherwise.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetCardNumber() string {
+	if o == nil || o.CardNumber == nil {
+		var ret string
+		return ret
+	}
+	return *o.CardNumber
+}
+
+// GetCardNumberOk returns a tuple with the CardNumber field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetCardNumberOk() (*string, bool) {
+	if o == nil || o.CardNumber == nil {
+		return nil, false
+	}
+	return o.CardNumber, true
+}
+
+// HasCardNumber returns a boolean if a field has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) HasCardNumber() bool {
+	if o != nil && o.CardNumber != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCardNumber gets a reference to the given string and assigns it to the CardNumber field.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) SetCardNumber(v string) {
+	o.CardNumber = &v
+}
+
+// GetCardExpire returns the CardExpire field value if set, zero value otherwise.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetCardExpire() string {
+	if o == nil || o.CardExpire == nil {
+		var ret string
+		return ret
+	}
+	return *o.CardExpire
+}
+
+// GetCardExpireOk returns a tuple with the CardExpire field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetCardExpireOk() (*string, bool) {
+	if o == nil || o.CardExpire == nil {
+		return nil, false
+	}
+	return o.CardExpire, true
+}
+
+// HasCardExpire returns a boolean if a field has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) HasCardExpire() bool {
+	if o != nil && o.CardExpire != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCardExpire gets a reference to the given string and assigns it to the CardExpire field.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) SetCardExpire(v string) {
+	o.CardExpire = &v
+}
+
+// GetSecurityCode returns the SecurityCode field value if set, zero value otherwise.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetSecurityCode() string {
+	if o == nil || o.SecurityCode == nil {
+		var ret string
+		return ret
+	}
+	return *o.SecurityCode
+}
+
+// GetSecurityCodeOk returns a tuple with the SecurityCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetSecurityCodeOk() (*string, bool) {
+	if o == nil || o.SecurityCode == nil {
+		return nil, false
+	}
+	return o.SecurityCode, true
+}
+
+// HasSecurityCode returns a boolean if a field has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) HasSecurityCode() bool {
+	if o != nil && o.SecurityCode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSecurityCode gets a reference to the given string and assigns it to the SecurityCode field.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) SetSecurityCode(v string) {
+	o.SecurityCode = &v
+}
+
+// GetCardOptionType returns the CardOptionType field value if set, zero value otherwise.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetCardOptionType() string {
+	if o == nil || o.CardOptionType == nil {
+		var ret string
+		return ret
+	}
+	return *o.CardOptionType
+}
+
+// GetCardOptionTypeOk returns a tuple with the CardOptionType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetCardOptionTypeOk() (*string, bool) {
+	if o == nil || o.CardOptionType == nil {
+		return nil, false
+	}
+	return o.CardOptionType, true
+}
+
+// HasCardOptionType returns a boolean if a field has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) HasCardOptionType() bool {
+	if o != nil && o.CardOptionType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCardOptionType gets a reference to the given string and assigns it to the CardOptionType field.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) SetCardOptionType(v string) {
+	o.CardOptionType = &v
+}
+
+// GetJpo returns the Jpo field value if set, zero value otherwise.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetJpo() string {
+	if o == nil || o.Jpo == nil {
+		var ret string
+		return ret
+	}
+	return *o.Jpo
+}
+
+// GetJpoOk returns a tuple with the Jpo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetJpoOk() (*string, bool) {
+	if o == nil || o.Jpo == nil {
+		return nil, false
+	}
+	return o.Jpo, true
+}
+
+// HasJpo returns a boolean if a field has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) HasJpo() bool {
+	if o != nil && o.Jpo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetJpo gets a reference to the given string and assigns it to the Jpo field.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) SetJpo(v string) {
+	o.Jpo = &v
+}
+
+// GetWithCapture returns the WithCapture field value if set, zero value otherwise.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetWithCapture() bool {
+	if o == nil || o.WithCapture == nil {
+		var ret bool
+		return ret
+	}
+	return *o.WithCapture
+}
+
+// GetWithCaptureOk returns a tuple with the WithCapture field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) GetWithCaptureOk() (*bool, bool) {
+	if o == nil || o.WithCapture == nil {
+		return nil, false
+	}
+	return o.WithCapture, true
+}
+
+// HasWithCapture returns a boolean if a field has been set.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) HasWithCapture() bool {
+	if o != nil && o.WithCapture != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWithCapture gets a reference to the given bool and assigns it to the WithCapture field.
+func (o *CardReAuthorizeRequestParamsAllOfPayNowIdParam) SetWithCapture(v bool) {
+	o.WithCapture = &v
 }
 
 func (o CardReAuthorizeRequestParamsAllOfPayNowIdParam) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["accountParam"] = o.AccountParam
+	}
+	if o.AccountId != nil {
+		toSerialize["accountId"] = o.AccountId
+	}
+	if true {
+		toSerialize["orderId"] = o.OrderId
+	}
+	if true {
+		toSerialize["originalOrderId"] = o.OriginalOrderId
+	}
+	if true {
+		toSerialize["amount"] = o.Amount
+	}
+	if o.Token != nil {
+		toSerialize["token"] = o.Token
+	}
+	if o.CardNumber != nil {
+		toSerialize["cardNumber"] = o.CardNumber
+	}
+	if o.CardExpire != nil {
+		toSerialize["cardExpire"] = o.CardExpire
+	}
+	if o.SecurityCode != nil {
+		toSerialize["securityCode"] = o.SecurityCode
+	}
+	if o.CardOptionType != nil {
+		toSerialize["cardOptionType"] = o.CardOptionType
+	}
+	if o.Jpo != nil {
+		toSerialize["jpo"] = o.Jpo
+	}
+	if o.WithCapture != nil {
+		toSerialize["withCapture"] = o.WithCapture
 	}
 	return json.Marshal(toSerialize)
 }
