@@ -21,6 +21,14 @@ PayNowIdResponse:
 CardAuthorizeResponse:
   type: object
   properties:
+    payNowIdResponse:
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/AbstractPayNowIdResponse"
+        - type: object
+          properties:
+            account:
+              $ref: ./account.v1.yaml
     serviceType:
       type: string
       description: 要求電文を送信した決済サービスタイプ
@@ -35,6 +43,8 @@ CardAuthorizeResponse:
         処理の結果を詳細に表すコード
         4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。
       type: string
+    mstatus:
+      $ref: "#/components/schemas/Status"
     merrMsg:
       type: string
       description: 処理結果を日本語で表示します。

@@ -435,29 +435,33 @@ components:
     CardAuthorizeResponse:
       example:
         serviceType: serviceType
-        centerReferenceNumber: centerReferenceNumber
         txnVersion: txnVersion
-        gatewayRequestDate: 2000-01-23T04:56:07.000+00:00
         orderId: orderId
         centerRequestNumber: centerRequestNumber
         pending: 0
-        gatewayResponseDate: 2000-01-23T04:56:07.000+00:00
         centerRequestDate: 2000-01-23T04:56:07.000+00:00
+        mstatus: null
+        merrMsg: merrMsg
+        resActionCode: resActionCode
+        cardTransactiontype: cardTransactiontype
+        vResultCode: vResultCode
+        loopback: 6
+        centerReferenceNumber: centerReferenceNumber
+        payNowIdResponse: null
+        gatewayRequestDate: 2000-01-23T04:56:07.000+00:00
+        gatewayResponseDate: 2000-01-23T04:56:07.000+00:00
         centerResponseDate: 2000-01-23T04:56:07.000+00:00
         custTxn: custTxn
         marchTxn: marchTxn
         resReturnReferenceNumber: resReturnReferenceNumber
         connectedCenterId: jcn
-        merrMsg: merrMsg
         resAuthCode: resAuthCode
-        resActionCode: resActionCode
         resCenterErrorCode: resCenterErrorCode
-        cardTransactiontype: cardTransactiontype
         acquirerCode: acquirerCode
-        vResultCode: vResultCode
         status: success
-        loopback: 6
       properties:
+        payNowIdResponse:
+          $ref: '#/components/schemas/AccountResponse_payNowIdResponse'
         serviceType:
           description: 要求電文を送信した決済サービスタイプ
           type: string
@@ -473,6 +477,8 @@ components:
             処理の結果を詳細に表すコード
             4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。
           type: string
+        mstatus:
+          $ref: '#/components/schemas/Status'
         merrMsg:
           description: 処理結果を日本語で表示します。
           type: string

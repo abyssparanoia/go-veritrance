@@ -4,9 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**PayNowIdResponse** | Pointer to [**AccountResponsePayNowIdResponse**](AccountResponsePayNowIdResponse.md) |  | [optional] 
 **ServiceType** | Pointer to **string** | 要求電文を送信した決済サービスタイプ | [optional] 
 **Status** | Pointer to **string** | 処理結果コード | [optional] 
 **VResultCode** | Pointer to **string** | 処理の結果を詳細に表すコード 4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。  | [optional] 
+**Mstatus** | Pointer to [**Status**](Status.md) |  | [optional] 
 **MerrMsg** | Pointer to **string** | 処理結果を日本語で表示します。 | [optional] 
 **MarchTxn** | Pointer to **string** | 決済サーバーにて決済処理電文（内部処理も含む）毎に付与する ID １つの取引 ID に対して、複数の ID が付与されます。  | [optional] 
 **OrderId** | Pointer to **string** | 決済要求時に店舗様にて任意に採番し送信された取引 ID | [optional] 
@@ -46,6 +48,31 @@ will change when the set of required properties is changed
 NewCardAuthorizeResponseWithDefaults instantiates a new CardAuthorizeResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPayNowIdResponse
+
+`func (o *CardAuthorizeResponse) GetPayNowIdResponse() AccountResponsePayNowIdResponse`
+
+GetPayNowIdResponse returns the PayNowIdResponse field if non-nil, zero value otherwise.
+
+### GetPayNowIdResponseOk
+
+`func (o *CardAuthorizeResponse) GetPayNowIdResponseOk() (*AccountResponsePayNowIdResponse, bool)`
+
+GetPayNowIdResponseOk returns a tuple with the PayNowIdResponse field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPayNowIdResponse
+
+`func (o *CardAuthorizeResponse) SetPayNowIdResponse(v AccountResponsePayNowIdResponse)`
+
+SetPayNowIdResponse sets PayNowIdResponse field to given value.
+
+### HasPayNowIdResponse
+
+`func (o *CardAuthorizeResponse) HasPayNowIdResponse() bool`
+
+HasPayNowIdResponse returns a boolean if a field has been set.
 
 ### GetServiceType
 
@@ -121,6 +148,31 @@ SetVResultCode sets VResultCode field to given value.
 `func (o *CardAuthorizeResponse) HasVResultCode() bool`
 
 HasVResultCode returns a boolean if a field has been set.
+
+### GetMstatus
+
+`func (o *CardAuthorizeResponse) GetMstatus() Status`
+
+GetMstatus returns the Mstatus field if non-nil, zero value otherwise.
+
+### GetMstatusOk
+
+`func (o *CardAuthorizeResponse) GetMstatusOk() (*Status, bool)`
+
+GetMstatusOk returns a tuple with the Mstatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMstatus
+
+`func (o *CardAuthorizeResponse) SetMstatus(v Status)`
+
+SetMstatus sets Mstatus field to given value.
+
+### HasMstatus
+
+`func (o *CardAuthorizeResponse) HasMstatus() bool`
+
+HasMstatus returns a boolean if a field has been set.
 
 ### GetMerrMsg
 
