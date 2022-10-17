@@ -4,16 +4,16 @@ All URIs are relative to *https://api.veritrans.co.jp:443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PaynowidV1AuthorizeCardinfo**](CardApi.md#PaynowidV1AuthorizeCardinfo) | **Post** /paynowid/v1/Authorize/card | 決済の与信を行います
-[**PaynowidV1CancelCardinfo**](CardApi.md#PaynowidV1CancelCardinfo) | **Post** /paynowid/v1/Cancel/card | 決済のキャンセルを行います
-[**PaynowidV1CaptureCardinfo**](CardApi.md#PaynowidV1CaptureCardinfo) | **Post** /paynowid/v1/Capture/card | 決済の売上確定を行います
-[**PaynowidV1ReAuthorizeCardinfo**](CardApi.md#PaynowidV1ReAuthorizeCardinfo) | **Post** /paynowid/v1/ReAuthorize/card | 決済の再与信を行います
+[**PaynowV1AuthorizeCardinfo**](CardApi.md#PaynowV1AuthorizeCardinfo) | **Post** /paynow/v2/Authorize/card | 決済の与信を行います
+[**PaynowV1CancelCardinfo**](CardApi.md#PaynowV1CancelCardinfo) | **Post** /paynow/v1/Cancel/card | 決済のキャンセルを行います
+[**PaynowV1CaptureCardinfo**](CardApi.md#PaynowV1CaptureCardinfo) | **Post** /paynow/v1/Capture/card | 決済の売上確定を行います
+[**PaynowV1ReAuthorizeCardinfo**](CardApi.md#PaynowV1ReAuthorizeCardinfo) | **Post** /paynow/v1/ReAuthorize/card | 決済の再与信を行います
 
 
 
-## PaynowidV1AuthorizeCardinfo
+## PaynowV1AuthorizeCardinfo
 
-> CardAuthorizeResponse PaynowidV1AuthorizeCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
+> CardAuthorizeResponse PaynowV1AuthorizeCardinfo(ctx).Body(body).Execute()
 
 決済の与信を行います
 
@@ -30,18 +30,17 @@ import (
 )
 
 func main() {
-    params := "params_example" // string | 
-    authHash := "authHash_example" // string | 
+    body := "body_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CardApi.PaynowidV1AuthorizeCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
+    resp, r, err := apiClient.CardApi.PaynowV1AuthorizeCardinfo(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CardApi.PaynowidV1AuthorizeCardinfo``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CardApi.PaynowV1AuthorizeCardinfo``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PaynowidV1AuthorizeCardinfo`: CardAuthorizeResponse
-    fmt.Fprintf(os.Stdout, "Response from `CardApi.PaynowidV1AuthorizeCardinfo`: %v\n", resp)
+    // response from `PaynowV1AuthorizeCardinfo`: CardAuthorizeResponse
+    fmt.Fprintf(os.Stdout, "Response from `CardApi.PaynowV1AuthorizeCardinfo`: %v\n", resp)
 }
 ```
 
@@ -51,13 +50,12 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPaynowidV1AuthorizeCardinfoRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPaynowV1AuthorizeCardinfoRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **string** |  | 
- **authHash** | **string** |  | 
+ **body** | **string** |  | 
 
 ### Return type
 
@@ -69,7 +67,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: text/plain
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -77,9 +75,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PaynowidV1CancelCardinfo
+## PaynowV1CancelCardinfo
 
-> CardCancelResponse PaynowidV1CancelCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
+> CardCancelResponse PaynowV1CancelCardinfo(ctx).Body(body).Execute()
 
 決済のキャンセルを行います
 
@@ -96,18 +94,17 @@ import (
 )
 
 func main() {
-    params := "params_example" // string | 
-    authHash := "authHash_example" // string | 
+    body := "body_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CardApi.PaynowidV1CancelCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
+    resp, r, err := apiClient.CardApi.PaynowV1CancelCardinfo(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CardApi.PaynowidV1CancelCardinfo``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CardApi.PaynowV1CancelCardinfo``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PaynowidV1CancelCardinfo`: CardCancelResponse
-    fmt.Fprintf(os.Stdout, "Response from `CardApi.PaynowidV1CancelCardinfo`: %v\n", resp)
+    // response from `PaynowV1CancelCardinfo`: CardCancelResponse
+    fmt.Fprintf(os.Stdout, "Response from `CardApi.PaynowV1CancelCardinfo`: %v\n", resp)
 }
 ```
 
@@ -117,13 +114,12 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPaynowidV1CancelCardinfoRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPaynowV1CancelCardinfoRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **string** |  | 
- **authHash** | **string** |  | 
+ **body** | **string** |  | 
 
 ### Return type
 
@@ -135,7 +131,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: text/plain
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -143,9 +139,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PaynowidV1CaptureCardinfo
+## PaynowV1CaptureCardinfo
 
-> CardCaptureResponse PaynowidV1CaptureCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
+> CardCaptureResponse PaynowV1CaptureCardinfo(ctx).Body(body).Execute()
 
 決済の売上確定を行います
 
@@ -162,18 +158,17 @@ import (
 )
 
 func main() {
-    params := "params_example" // string | 
-    authHash := "authHash_example" // string | 
+    body := "body_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CardApi.PaynowidV1CaptureCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
+    resp, r, err := apiClient.CardApi.PaynowV1CaptureCardinfo(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CardApi.PaynowidV1CaptureCardinfo``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CardApi.PaynowV1CaptureCardinfo``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PaynowidV1CaptureCardinfo`: CardCaptureResponse
-    fmt.Fprintf(os.Stdout, "Response from `CardApi.PaynowidV1CaptureCardinfo`: %v\n", resp)
+    // response from `PaynowV1CaptureCardinfo`: CardCaptureResponse
+    fmt.Fprintf(os.Stdout, "Response from `CardApi.PaynowV1CaptureCardinfo`: %v\n", resp)
 }
 ```
 
@@ -183,13 +178,12 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPaynowidV1CaptureCardinfoRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPaynowV1CaptureCardinfoRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **string** |  | 
- **authHash** | **string** |  | 
+ **body** | **string** |  | 
 
 ### Return type
 
@@ -201,7 +195,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: text/plain
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -209,9 +203,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PaynowidV1ReAuthorizeCardinfo
+## PaynowV1ReAuthorizeCardinfo
 
-> CardAuthorizeResponse PaynowidV1ReAuthorizeCardinfo(ctx).Params(params).AuthHash(authHash).Execute()
+> CardAuthorizeResponse PaynowV1ReAuthorizeCardinfo(ctx).Body(body).Execute()
 
 決済の再与信を行います
 
@@ -228,18 +222,17 @@ import (
 )
 
 func main() {
-    params := "params_example" // string | 
-    authHash := "authHash_example" // string | 
+    body := "body_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CardApi.PaynowidV1ReAuthorizeCardinfo(context.Background()).Params(params).AuthHash(authHash).Execute()
+    resp, r, err := apiClient.CardApi.PaynowV1ReAuthorizeCardinfo(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CardApi.PaynowidV1ReAuthorizeCardinfo``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CardApi.PaynowV1ReAuthorizeCardinfo``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PaynowidV1ReAuthorizeCardinfo`: CardAuthorizeResponse
-    fmt.Fprintf(os.Stdout, "Response from `CardApi.PaynowidV1ReAuthorizeCardinfo`: %v\n", resp)
+    // response from `PaynowV1ReAuthorizeCardinfo`: CardAuthorizeResponse
+    fmt.Fprintf(os.Stdout, "Response from `CardApi.PaynowV1ReAuthorizeCardinfo`: %v\n", resp)
 }
 ```
 
@@ -249,13 +242,12 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPaynowidV1ReAuthorizeCardinfoRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPaynowV1ReAuthorizeCardinfoRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **string** |  | 
- **authHash** | **string** |  | 
+ **body** | **string** |  | 
 
 ### Return type
 
@@ -267,7 +259,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: text/plain
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

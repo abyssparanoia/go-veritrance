@@ -24,7 +24,10 @@ docs/AccountUpdateRequest.md
 docs/AccountV1.md
 docs/CardApi.md
 docs/CardAuthorizeRequest.md
-docs/CardAuthorizeRequestAllOf.md
+docs/CardAuthorizeRequestParams.md
+docs/CardAuthorizeRequestParamsAllOf.md
+docs/CardAuthorizeRequestParamsAllOfPayNowIdParam.md
+docs/CardAuthorizeRequestParamsAllOfPayNowIdParamAccountParam.md
 docs/CardAuthorizeResponse.md
 docs/CardCancelRequest.md
 docs/CardCancelResponse.md
@@ -53,7 +56,10 @@ docs/CardInfoUpdateRequestParamsAllOfPayNowIdParamAccountParam.md
 docs/CardInfoUpdateRequestParamsAllOfPayNowIdParamAccountParamCardParam.md
 docs/CardInfoV1.md
 docs/CardReAuthorizeRequest.md
-docs/CardReAuthorizeRequestAllOf.md
+docs/CardReAuthorizeRequestParams.md
+docs/CardReAuthorizeRequestParamsAllOf.md
+docs/CardReAuthorizeRequestParamsAllOfPayNowIdParam.md
+docs/CardReAuthorizeRequestParamsAllOfPayNowIdParamAccountParam.md
 docs/CardinfoApi.md
 docs/PayNowIdResponse.md
 docs/Result.md
@@ -76,7 +82,10 @@ model_account_response_pay_now_id_response_all_of.go
 model_account_update_request.go
 model_account_v1.go
 model_card_authorize_request.go
-model_card_authorize_request_all_of.go
+model_card_authorize_request_params.go
+model_card_authorize_request_params_all_of.go
+model_card_authorize_request_params_all_of_pay_now_id_param.go
+model_card_authorize_request_params_all_of_pay_now_id_param_account_param.go
 model_card_authorize_response.go
 model_card_cancel_request.go
 model_card_cancel_response.go
@@ -105,7 +114,10 @@ model_card_info_update_request_params_all_of_pay_now_id_param_account_param.go
 model_card_info_update_request_params_all_of_pay_now_id_param_account_param_card_param.go
 model_card_info_v1.go
 model_card_re_authorize_request.go
-model_card_re_authorize_request_all_of.go
+model_card_re_authorize_request_params.go
+model_card_re_authorize_request_params_all_of.go
+model_card_re_authorize_request_params_all_of_pay_now_id_param.go
+model_card_re_authorize_request_params_all_of_pay_now_id_param_account_param.go
 model_pay_now_id_response.go
 model_result.go
 model_status.go

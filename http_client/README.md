@@ -83,10 +83,10 @@ Class | Method | HTTP request | Description
 *AccountApi* | [**PaynowidV1AddAccount**](docs/AccountApi.md#paynowidv1addaccount) | **Post** /paynowid/v1/Add/account | 会員情報を追加します。
 *AccountApi* | [**PaynowidV1DeleteAccount**](docs/AccountApi.md#paynowidv1deleteaccount) | **Post** /paynowid/v1/Delete/account | 会員 ID の会員情報を、指定された「退会年月日」に削除します。
 *AccountApi* | [**PaynowidV1UpdateAccount**](docs/AccountApi.md#paynowidv1updateaccount) | **Post** /paynowid/v1/Update/account | 会員 ID の「入会年月日」を更新します。
-*CardApi* | [**PaynowidV1AuthorizeCardinfo**](docs/CardApi.md#paynowidv1authorizecardinfo) | **Post** /paynowid/v1/Authorize/card | 決済の与信を行います
-*CardApi* | [**PaynowidV1CancelCardinfo**](docs/CardApi.md#paynowidv1cancelcardinfo) | **Post** /paynowid/v1/Cancel/card | 決済のキャンセルを行います
-*CardApi* | [**PaynowidV1CaptureCardinfo**](docs/CardApi.md#paynowidv1capturecardinfo) | **Post** /paynowid/v1/Capture/card | 決済の売上確定を行います
-*CardApi* | [**PaynowidV1ReAuthorizeCardinfo**](docs/CardApi.md#paynowidv1reauthorizecardinfo) | **Post** /paynowid/v1/ReAuthorize/card | 決済の再与信を行います
+*CardApi* | [**PaynowV1AuthorizeCardinfo**](docs/CardApi.md#paynowv1authorizecardinfo) | **Post** /paynow/v2/Authorize/card | 決済の与信を行います
+*CardApi* | [**PaynowV1CancelCardinfo**](docs/CardApi.md#paynowv1cancelcardinfo) | **Post** /paynow/v1/Cancel/card | 決済のキャンセルを行います
+*CardApi* | [**PaynowV1CaptureCardinfo**](docs/CardApi.md#paynowv1capturecardinfo) | **Post** /paynow/v1/Capture/card | 決済の売上確定を行います
+*CardApi* | [**PaynowV1ReAuthorizeCardinfo**](docs/CardApi.md#paynowv1reauthorizecardinfo) | **Post** /paynow/v1/ReAuthorize/card | 決済の再与信を行います
 *CardinfoApi* | [**PaynowidV1AddCardinfo**](docs/CardinfoApi.md#paynowidv1addcardinfo) | **Post** /paynowid/v1/Add/cardinfo | 会員 ID にカード情報を紐付けて登録します
 *CardinfoApi* | [**PaynowidV1DeleteCardinfo**](docs/CardinfoApi.md#paynowidv1deletecardinfo) | **Post** /paynowid/v1/Delete/cardinfo | 会員 ID に紐付けられたカード情報を削除します
 *CardinfoApi* | [**PaynowidV1GetCardinfo**](docs/CardinfoApi.md#paynowidv1getcardinfo) | **Post** /paynowid/v1/Get/cardinfo | 会員 ID に紐付けられた課金情報を取得します
@@ -110,7 +110,10 @@ Class | Method | HTTP request | Description
  - [AccountUpdateRequest](docs/AccountUpdateRequest.md)
  - [AccountV1](docs/AccountV1.md)
  - [CardAuthorizeRequest](docs/CardAuthorizeRequest.md)
- - [CardAuthorizeRequestAllOf](docs/CardAuthorizeRequestAllOf.md)
+ - [CardAuthorizeRequestParams](docs/CardAuthorizeRequestParams.md)
+ - [CardAuthorizeRequestParamsAllOf](docs/CardAuthorizeRequestParamsAllOf.md)
+ - [CardAuthorizeRequestParamsAllOfPayNowIdParam](docs/CardAuthorizeRequestParamsAllOfPayNowIdParam.md)
+ - [CardAuthorizeRequestParamsAllOfPayNowIdParamAccountParam](docs/CardAuthorizeRequestParamsAllOfPayNowIdParamAccountParam.md)
  - [CardAuthorizeResponse](docs/CardAuthorizeResponse.md)
  - [CardCancelRequest](docs/CardCancelRequest.md)
  - [CardCancelResponse](docs/CardCancelResponse.md)
@@ -139,7 +142,10 @@ Class | Method | HTTP request | Description
  - [CardInfoUpdateRequestParamsAllOfPayNowIdParamAccountParamCardParam](docs/CardInfoUpdateRequestParamsAllOfPayNowIdParamAccountParamCardParam.md)
  - [CardInfoV1](docs/CardInfoV1.md)
  - [CardReAuthorizeRequest](docs/CardReAuthorizeRequest.md)
- - [CardReAuthorizeRequestAllOf](docs/CardReAuthorizeRequestAllOf.md)
+ - [CardReAuthorizeRequestParams](docs/CardReAuthorizeRequestParams.md)
+ - [CardReAuthorizeRequestParamsAllOf](docs/CardReAuthorizeRequestParamsAllOf.md)
+ - [CardReAuthorizeRequestParamsAllOfPayNowIdParam](docs/CardReAuthorizeRequestParamsAllOfPayNowIdParam.md)
+ - [CardReAuthorizeRequestParamsAllOfPayNowIdParamAccountParam](docs/CardReAuthorizeRequestParamsAllOfPayNowIdParamAccountParam.md)
  - [PayNowIdResponse](docs/PayNowIdResponse.md)
  - [Result](docs/Result.md)
  - [Status](docs/Status.md)

@@ -156,14 +156,14 @@ paths:
       summary: 会員 ID に紐付けられたカード情報を削除します
       tags:
       - Cardinfo
-  /paynowid/v1/Authorize/card:
+  /paynow/v2/Authorize/card:
     post:
-      operationId: paynowid-v1-authorize-cardinfo
+      operationId: paynow-v1-authorize-cardinfo
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          text/plain:
             schema:
-              $ref: '#/components/schemas/paynowid_v1_update_account_request'
+              type: string
       responses:
         "200":
           content:
@@ -174,14 +174,14 @@ paths:
       summary: 決済の与信を行います
       tags:
       - Card
-  /paynowid/v1/ReAuthorize/card:
+  /paynow/v1/ReAuthorize/card:
     post:
-      operationId: paynowid-v1-reAuthorize-cardinfo
+      operationId: paynow-v1-reAuthorize-cardinfo
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          text/plain:
             schema:
-              $ref: '#/components/schemas/paynowid_v1_update_account_request'
+              type: string
       responses:
         "200":
           content:
@@ -192,14 +192,14 @@ paths:
       summary: 決済の再与信を行います
       tags:
       - Card
-  /paynowid/v1/Capture/card:
+  /paynow/v1/Capture/card:
     post:
-      operationId: paynowid-v1-capture-cardinfo
+      operationId: paynow-v1-capture-cardinfo
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          text/plain:
             schema:
-              $ref: '#/components/schemas/paynowid_v1_update_account_request'
+              type: string
       responses:
         "200":
           content:
@@ -210,14 +210,14 @@ paths:
       summary: 決済の売上確定を行います
       tags:
       - Card
-  /paynowid/v1/Cancel/card:
+  /paynow/v1/Cancel/card:
     post:
-      operationId: paynowid-v1-cancel-cardinfo
+      operationId: paynow-v1-cancel-cardinfo
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          text/plain:
             schema:
-              $ref: '#/components/schemas/paynowid_v1_update_account_request'
+              type: string
       responses:
         "200":
           content:
@@ -297,20 +297,24 @@ components:
       - params
       type: object
     CardAuthorizeRequest:
-      allOf:
-      - $ref: '#/components/schemas/AbstractPayNowRequest'
-      - $ref: '#/components/schemas/CardAuthorizeRequest_allOf'
+      properties:
+        params:
+          $ref: '#/components/schemas/CardAuthorizeRequest_params'
+        authHash:
+          type: string
       required:
-      - orderId
-      - originalOrderId
+      - authHash
+      - params
       type: object
     CardReAuthorizeRequest:
-      allOf:
-      - $ref: '#/components/schemas/AbstractPayNowRequest'
-      - $ref: '#/components/schemas/CardReAuthorizeRequest_allOf'
+      properties:
+        params:
+          $ref: '#/components/schemas/CardReAuthorizeRequest_params'
+        authHash:
+          type: string
       required:
-      - amount
-      - orderId
+      - authHash
+      - params
       type: object
     CardCaptureRequest:
       allOf:
@@ -929,8 +933,81 @@ components:
       required:
       - payNowIdParam
       type: object
-    CardAuthorizeRequest_allOf:
+    CardAuthorizeRequest_params_allOf_payNowIdParam_accountParam:
       properties:
+        accountId:
+          example: account-1662828780
+          type: string
+        orderId:
+          example: order-1662828780
+          type: string
+        amount:
+          example: "1000"
+          type: string
+        token:
+          description: トークンサーバーが発行した、クレジットカード情報の識別に用いるトークンの値
+          example: abcdef01-2345-6789-abcd-ef0123456789
+          type: string
+        cardNumber:
+          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+          example: "4111111111111111"
+          type: string
+        cardExpire:
+          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+          example: 12/25
+          type: string
+        securityCode:
+          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+          example: "123"
+          type: string
+        cardOptionType:
+          description: カードオプションタイプ （MPI 有り/無し）
+          enum:
+          - mpi
+          type: string
+        jpo:
+          description: |
+            支払種別
+            "10"： 一括払い
+            "21"： ボーナス一括
+            "61Cxx"： 分割払い、xx に分割回数指定
+            “80”： リボルビング払い
+            ※指定が無い場合は、"10"（一括払い）が適用されます。
+          type: string
+        withCapture:
+          description: |
+            売上フラグ
+            "true"： 与信・売上
+            "false"： 与信のみ
+          type: boolean
+      required:
+      - accountId
+      - orderId
+      type: object
+    CardAuthorizeRequest_params_allOf_payNowIdParam:
+      properties:
+        accountParam:
+          $ref: '#/components/schemas/CardAuthorizeRequest_params_allOf_payNowIdParam_accountParam'
+      required:
+      - accountParam
+      type: object
+    CardAuthorizeRequest_params_allOf:
+      properties:
+        payNowIdParam:
+          $ref: '#/components/schemas/CardAuthorizeRequest_params_allOf_payNowIdParam'
+      type: object
+    CardAuthorizeRequest_params:
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/CardAuthorizeRequest_params_allOf'
+      required:
+      - payNowIdParam
+      type: object
+    CardReAuthorizeRequest_params_allOf_payNowIdParam_accountParam:
+      properties:
+        accountId:
+          example: account-1662828780
+          type: string
         orderId:
           example: order-1662828780
           type: string
@@ -976,51 +1053,29 @@ components:
             "true"： 与信・売上
             "false"： 与信のみ
           type: boolean
+      required:
+      - accountId
+      - orderId
+      - originalOrderId
       type: object
-    CardReAuthorizeRequest_allOf:
+    CardReAuthorizeRequest_params_allOf_payNowIdParam:
       properties:
-        orderId:
-          example: order-1662828780
-          type: string
-        amount:
-          example: "1000"
-          type: string
-        token:
-          description: トークンサーバーが発行した、クレジットカード情報の識別に用いるトークンの値
-          example: abcdef01-2345-6789-abcd-ef0123456789
-          type: string
-        cardNumber:
-          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-          example: "4111111111111111"
-          type: string
-        cardExpire:
-          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-          example: 12/25
-          type: string
-        securityCode:
-          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-          example: "123"
-          type: string
-        cardOptionType:
-          description: カードオプションタイプ （MPI 有り/無し）
-          enum:
-          - mpi
-          type: string
-        jpo:
-          description: |
-            支払種別
-            "10"： 一括払い
-            "21"： ボーナス一括
-            "61Cxx"： 分割払い、xx に分割回数指定
-            “80”： リボルビング払い
-            ※指定が無い場合は、"10"（一括払い）が適用されます。
-          type: string
-        withCapture:
-          description: |
-            売上フラグ
-            "true"： 与信・売上
-            "false"： 与信のみ
-          type: boolean
+        accountParam:
+          $ref: '#/components/schemas/CardReAuthorizeRequest_params_allOf_payNowIdParam_accountParam'
+      required:
+      - accountParam
+      type: object
+    CardReAuthorizeRequest_params_allOf:
+      properties:
+        payNowIdParam:
+          $ref: '#/components/schemas/CardReAuthorizeRequest_params_allOf_payNowIdParam'
+      type: object
+    CardReAuthorizeRequest_params:
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/CardReAuthorizeRequest_params_allOf'
+      required:
+      - payNowIdParam
       type: object
     CardCaptureRequest_allOf:
       properties:
