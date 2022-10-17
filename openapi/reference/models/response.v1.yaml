@@ -98,15 +98,15 @@ CardAuthorizeResponse:
       type: string
     acquirerCode:
       type: string
-    required:
-      - serviceType
-      - mstatus
-      - vResultCode
-      - merrMsg
-      - marchTxn
-      - orderId
-      - custTxn
-      - txnVersion
+  required:
+    - serviceType
+    - mstatus
+    - vResultCode
+    - merrMsg
+    - marchTxn
+    - orderId
+    - custTxn
+    - txnVersion
 CardCaptureResponse:
   type: object
   properties:

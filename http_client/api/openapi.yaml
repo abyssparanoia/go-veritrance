@@ -533,6 +533,15 @@ components:
           type: string
         acquirerCode:
           type: string
+      required:
+      - custTxn
+      - marchTxn
+      - merrMsg
+      - mstatus
+      - orderId
+      - serviceType
+      - txnVersion
+      - vResultCode
       type: object
     CardCaptureResponse:
       example:
