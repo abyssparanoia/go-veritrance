@@ -27,7 +27,6 @@ docs/CardAuthorizeRequest.md
 docs/CardAuthorizeRequestParams.md
 docs/CardAuthorizeRequestParamsAllOf.md
 docs/CardAuthorizeRequestParamsAllOfPayNowIdParam.md
-docs/CardAuthorizeRequestParamsAllOfPayNowIdParamAccountParam.md
 docs/CardAuthorizeResponse.md
 docs/CardCancelRequest.md
 docs/CardCancelResponse.md
@@ -59,7 +58,6 @@ docs/CardReAuthorizeRequest.md
 docs/CardReAuthorizeRequestParams.md
 docs/CardReAuthorizeRequestParamsAllOf.md
 docs/CardReAuthorizeRequestParamsAllOfPayNowIdParam.md
-docs/CardReAuthorizeRequestParamsAllOfPayNowIdParamAccountParam.md
 docs/CardinfoApi.md
 docs/PayNowIdResponse.md
 docs/Result.md
@@ -85,7 +83,6 @@ model_card_authorize_request.go
 model_card_authorize_request_params.go
 model_card_authorize_request_params_all_of.go
 model_card_authorize_request_params_all_of_pay_now_id_param.go
-model_card_authorize_request_params_all_of_pay_now_id_param_account_param.go
 model_card_authorize_response.go
 model_card_cancel_request.go
 model_card_cancel_response.go
@@ -117,7 +114,6 @@ model_card_re_authorize_request.go
 model_card_re_authorize_request_params.go
 model_card_re_authorize_request_params_all_of.go
 model_card_re_authorize_request_params_all_of_pay_now_id_param.go
-model_card_re_authorize_request_params_all_of_pay_now_id_param_account_param.go
 model_pay_now_id_response.go
 model_result.go
 model_status.go
