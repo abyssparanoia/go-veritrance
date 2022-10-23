@@ -258,7 +258,7 @@ components:
         pending:
           type: integer
         loopback:
-          type: integer
+          type: string
         connectedCenterId:
           enum:
             - jcn

@@ -519,7 +519,7 @@ components:
           reqAmount: reqAmount
           cardTransactiontype: cardTransactiontype
           vResultCode: vResultCode
-          loopback: 6
+          loopback: loopback
           centerReferenceNumber: centerReferenceNumber
           gatewayRequestDate: gatewayRequestDate
           gatewayResponseDate: gatewayResponseDate
@@ -553,7 +553,7 @@ components:
         reqAmount: reqAmount
         cardTransactiontype: cardTransactiontype
         vResultCode: vResultCode
-        loopback: 6
+        loopback: loopback
         centerReferenceNumber: centerReferenceNumber
         gatewayRequestDate: gatewayRequestDate
         gatewayResponseDate: gatewayResponseDate
@@ -614,7 +614,7 @@ components:
         pending:
           type: integer
         loopback:
-          type: integer
+          type: string
         connectedCenterId:
           enum:
           - jcn

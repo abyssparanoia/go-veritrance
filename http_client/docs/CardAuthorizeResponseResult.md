@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **CenterRequestDate** | Pointer to **string** |  | [optional] 
 **CenterResponseDate** | Pointer to **string** |  | [optional] 
 **Pending** | Pointer to **int32** |  | [optional] 
-**Loopback** | Pointer to **int32** |  | [optional] 
+**Loopback** | Pointer to **string** |  | [optional] 
 **ConnectedCenterId** | Pointer to **string** |  | [optional] 
 **CenterRequestNumber** | Pointer to **string** |  | [optional] 
 **CenterReferenceNumber** | Pointer to **string** |  | [optional] 
@@ -386,20 +386,20 @@ HasPending returns a boolean if a field has been set.
 
 ### GetLoopback
 
-`func (o *CardAuthorizeResponseResult) GetLoopback() int32`
+`func (o *CardAuthorizeResponseResult) GetLoopback() string`
 
 GetLoopback returns the Loopback field if non-nil, zero value otherwise.
 
 ### GetLoopbackOk
 
-`func (o *CardAuthorizeResponseResult) GetLoopbackOk() (*int32, bool)`
+`func (o *CardAuthorizeResponseResult) GetLoopbackOk() (*string, bool)`
 
 GetLoopbackOk returns a tuple with the Loopback field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLoopback
 
-`func (o *CardAuthorizeResponseResult) SetLoopback(v int32)`
+`func (o *CardAuthorizeResponseResult) SetLoopback(v string)`
 
 SetLoopback sets Loopback field to given value.
 
