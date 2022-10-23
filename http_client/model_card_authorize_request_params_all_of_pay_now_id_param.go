@@ -16,7 +16,7 @@ import (
 
 // CardAuthorizeRequestParamsAllOfPayNowIdParam struct for CardAuthorizeRequestParamsAllOfPayNowIdParam
 type CardAuthorizeRequestParamsAllOfPayNowIdParam struct {
-	AccountParam AccountAddRequestParamsAllOfPayNowIdParamAccountParam `json:"accountParam"`
+	AccountParam CardAuthorizeRequestAccountParam `json:"accountParam"`
 	OrderId string `json:"orderId"`
 	Amount string `json:"amount"`
 	CurrencyUnit CurrencyUnit `json:"currencyUnit"`
@@ -40,7 +40,7 @@ type CardAuthorizeRequestParamsAllOfPayNowIdParam struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCardAuthorizeRequestParamsAllOfPayNowIdParam(accountParam AccountAddRequestParamsAllOfPayNowIdParamAccountParam, orderId string, amount string, currencyUnit CurrencyUnit) *CardAuthorizeRequestParamsAllOfPayNowIdParam {
+func NewCardAuthorizeRequestParamsAllOfPayNowIdParam(accountParam CardAuthorizeRequestAccountParam, orderId string, amount string, currencyUnit CurrencyUnit) *CardAuthorizeRequestParamsAllOfPayNowIdParam {
 	this := CardAuthorizeRequestParamsAllOfPayNowIdParam{}
 	this.AccountParam = accountParam
 	this.OrderId = orderId
@@ -58,9 +58,9 @@ func NewCardAuthorizeRequestParamsAllOfPayNowIdParamWithDefaults() *CardAuthoriz
 }
 
 // GetAccountParam returns the AccountParam field value
-func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) GetAccountParam() AccountAddRequestParamsAllOfPayNowIdParamAccountParam {
+func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) GetAccountParam() CardAuthorizeRequestAccountParam {
 	if o == nil {
-		var ret AccountAddRequestParamsAllOfPayNowIdParamAccountParam
+		var ret CardAuthorizeRequestAccountParam
 		return ret
 	}
 
@@ -69,7 +69,7 @@ func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) GetAccountParam() Account
 
 // GetAccountParamOk returns a tuple with the AccountParam field value
 // and a boolean to check if the value has been set.
-func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) GetAccountParamOk() (*AccountAddRequestParamsAllOfPayNowIdParamAccountParam, bool) {
+func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) GetAccountParamOk() (*CardAuthorizeRequestAccountParam, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -77,7 +77,7 @@ func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) GetAccountParamOk() (*Acc
 }
 
 // SetAccountParam sets field value
-func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) SetAccountParam(v AccountAddRequestParamsAllOfPayNowIdParamAccountParam) {
+func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) SetAccountParam(v CardAuthorizeRequestAccountParam) {
 	o.AccountParam = v
 }
 
