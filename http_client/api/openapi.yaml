@@ -512,7 +512,7 @@ components:
           orderId: orderId
           centerRequestNumber: centerRequestNumber
           pending: 0
-          centerRequestDate: 2000-01-23T04:56:07.000+00:00
+          centerRequestDate: centerRequestDate
           mstatus: null
           merrMsg: merrMsg
           resActionCode: resActionCode
@@ -521,9 +521,9 @@ components:
           vResultCode: vResultCode
           loopback: 6
           centerReferenceNumber: centerReferenceNumber
-          gatewayRequestDate: 2000-01-23T04:56:07.000+00:00
-          gatewayResponseDate: 2000-01-23T04:56:07.000+00:00
-          centerResponseDate: 2000-01-23T04:56:07.000+00:00
+          gatewayRequestDate: gatewayRequestDate
+          gatewayResponseDate: gatewayResponseDate
+          centerResponseDate: centerResponseDate
           custTxn: custTxn
           marchTxn: marchTxn
           resReturnReferenceNumber: resReturnReferenceNumber
@@ -546,7 +546,7 @@ components:
         orderId: orderId
         centerRequestNumber: centerRequestNumber
         pending: 0
-        centerRequestDate: 2000-01-23T04:56:07.000+00:00
+        centerRequestDate: centerRequestDate
         mstatus: null
         merrMsg: merrMsg
         resActionCode: resActionCode
@@ -555,9 +555,9 @@ components:
         vResultCode: vResultCode
         loopback: 6
         centerReferenceNumber: centerReferenceNumber
-        gatewayRequestDate: 2000-01-23T04:56:07.000+00:00
-        gatewayResponseDate: 2000-01-23T04:56:07.000+00:00
-        centerResponseDate: 2000-01-23T04:56:07.000+00:00
+        gatewayRequestDate: gatewayRequestDate
+        gatewayResponseDate: gatewayResponseDate
+        centerResponseDate: centerResponseDate
         custTxn: custTxn
         marchTxn: marchTxn
         resReturnReferenceNumber: resReturnReferenceNumber
@@ -604,16 +604,12 @@ components:
         cardTransactiontype:
           type: string
         gatewayRequestDate:
-          format: date-time
           type: string
         gatewayResponseDate:
-          format: date-time
           type: string
         centerRequestDate:
-          format: date-time
           type: string
         centerResponseDate:
-          format: date-time
           type: string
         pending:
           type: integer
