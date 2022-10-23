@@ -38,7 +38,7 @@ type CardAuthorizeResponseResult struct {
 	GatewayResponseDate *string `json:"gatewayResponseDate,omitempty"`
 	CenterRequestDate *string `json:"centerRequestDate,omitempty"`
 	CenterResponseDate *string `json:"centerResponseDate,omitempty"`
-	Pending *int32 `json:"pending,omitempty"`
+	Pending *string `json:"pending,omitempty"`
 	Loopback *string `json:"loopback,omitempty"`
 	ConnectedCenterId *string `json:"connectedCenterId,omitempty"`
 	CenterRequestNumber *string `json:"centerRequestNumber,omitempty"`
@@ -461,9 +461,9 @@ func (o *CardAuthorizeResponseResult) SetCenterResponseDate(v string) {
 }
 
 // GetPending returns the Pending field value if set, zero value otherwise.
-func (o *CardAuthorizeResponseResult) GetPending() int32 {
+func (o *CardAuthorizeResponseResult) GetPending() string {
 	if o == nil || o.Pending == nil {
-		var ret int32
+		var ret string
 		return ret
 	}
 	return *o.Pending
@@ -471,7 +471,7 @@ func (o *CardAuthorizeResponseResult) GetPending() int32 {
 
 // GetPendingOk returns a tuple with the Pending field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CardAuthorizeResponseResult) GetPendingOk() (*int32, bool) {
+func (o *CardAuthorizeResponseResult) GetPendingOk() (*string, bool) {
 	if o == nil || o.Pending == nil {
 		return nil, false
 	}
@@ -487,8 +487,8 @@ func (o *CardAuthorizeResponseResult) HasPending() bool {
 	return false
 }
 
-// SetPending gets a reference to the given int32 and assigns it to the Pending field.
-func (o *CardAuthorizeResponseResult) SetPending(v int32) {
+// SetPending gets a reference to the given string and assigns it to the Pending field.
+func (o *CardAuthorizeResponseResult) SetPending(v string) {
 	o.Pending = &v
 }
 

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **GatewayResponseDate** | Pointer to **string** |  | [optional] 
 **CenterRequestDate** | Pointer to **string** |  | [optional] 
 **CenterResponseDate** | Pointer to **string** |  | [optional] 
-**Pending** | Pointer to **int32** |  | [optional] 
+**Pending** | Pointer to **string** |  | [optional] 
 **Loopback** | Pointer to **string** |  | [optional] 
 **ConnectedCenterId** | Pointer to **string** |  | [optional] 
 **CenterRequestNumber** | Pointer to **string** |  | [optional] 
@@ -361,20 +361,20 @@ HasCenterResponseDate returns a boolean if a field has been set.
 
 ### GetPending
 
-`func (o *CardAuthorizeResponseResult) GetPending() int32`
+`func (o *CardAuthorizeResponseResult) GetPending() string`
 
 GetPending returns the Pending field if non-nil, zero value otherwise.
 
 ### GetPendingOk
 
-`func (o *CardAuthorizeResponseResult) GetPendingOk() (*int32, bool)`
+`func (o *CardAuthorizeResponseResult) GetPendingOk() (*string, bool)`
 
 GetPendingOk returns a tuple with the Pending field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPending
 
-`func (o *CardAuthorizeResponseResult) SetPending(v int32)`
+`func (o *CardAuthorizeResponseResult) SetPending(v string)`
 
 SetPending sets Pending field to given value.
 

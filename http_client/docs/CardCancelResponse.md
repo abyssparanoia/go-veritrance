@@ -13,12 +13,12 @@ Name | Type | Description | Notes
 **CustTxn** | Pointer to **string** | 決済サーバーがオーダー（取引 ID）と紐付ける為に採番する ID | [optional] 
 **TxnVersion** | Pointer to **string** | 電文のバージョン | [optional] 
 **CardTransactiontype** | Pointer to **string** |  | [optional] 
-**GatewayRequestDate** | Pointer to **time.Time** |  | [optional] 
-**GatewayResponseDate** | Pointer to **time.Time** |  | [optional] 
-**CenterRequestDate** | Pointer to **time.Time** |  | [optional] 
-**CenterResponseDate** | Pointer to **time.Time** |  | [optional] 
-**Pending** | Pointer to **int32** |  | [optional] 
-**Loopback** | Pointer to **int32** |  | [optional] 
+**GatewayRequestDate** | Pointer to **string** |  | [optional] 
+**GatewayResponseDate** | Pointer to **string** |  | [optional] 
+**CenterRequestDate** | Pointer to **string** |  | [optional] 
+**CenterResponseDate** | Pointer to **string** |  | [optional] 
+**Pending** | Pointer to **string** |  | [optional] 
+**Loopback** | Pointer to **string** |  | [optional] 
 **ConnectedCenterId** | Pointer to **string** |  | [optional] 
 **CenterRequestNumber** | Pointer to **string** |  | [optional] 
 **CenterReferenceNumber** | Pointer to **string** |  | [optional] 
@@ -274,20 +274,20 @@ HasCardTransactiontype returns a boolean if a field has been set.
 
 ### GetGatewayRequestDate
 
-`func (o *CardCancelResponse) GetGatewayRequestDate() time.Time`
+`func (o *CardCancelResponse) GetGatewayRequestDate() string`
 
 GetGatewayRequestDate returns the GatewayRequestDate field if non-nil, zero value otherwise.
 
 ### GetGatewayRequestDateOk
 
-`func (o *CardCancelResponse) GetGatewayRequestDateOk() (*time.Time, bool)`
+`func (o *CardCancelResponse) GetGatewayRequestDateOk() (*string, bool)`
 
 GetGatewayRequestDateOk returns a tuple with the GatewayRequestDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGatewayRequestDate
 
-`func (o *CardCancelResponse) SetGatewayRequestDate(v time.Time)`
+`func (o *CardCancelResponse) SetGatewayRequestDate(v string)`
 
 SetGatewayRequestDate sets GatewayRequestDate field to given value.
 
@@ -299,20 +299,20 @@ HasGatewayRequestDate returns a boolean if a field has been set.
 
 ### GetGatewayResponseDate
 
-`func (o *CardCancelResponse) GetGatewayResponseDate() time.Time`
+`func (o *CardCancelResponse) GetGatewayResponseDate() string`
 
 GetGatewayResponseDate returns the GatewayResponseDate field if non-nil, zero value otherwise.
 
 ### GetGatewayResponseDateOk
 
-`func (o *CardCancelResponse) GetGatewayResponseDateOk() (*time.Time, bool)`
+`func (o *CardCancelResponse) GetGatewayResponseDateOk() (*string, bool)`
 
 GetGatewayResponseDateOk returns a tuple with the GatewayResponseDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGatewayResponseDate
 
-`func (o *CardCancelResponse) SetGatewayResponseDate(v time.Time)`
+`func (o *CardCancelResponse) SetGatewayResponseDate(v string)`
 
 SetGatewayResponseDate sets GatewayResponseDate field to given value.
 
@@ -324,20 +324,20 @@ HasGatewayResponseDate returns a boolean if a field has been set.
 
 ### GetCenterRequestDate
 
-`func (o *CardCancelResponse) GetCenterRequestDate() time.Time`
+`func (o *CardCancelResponse) GetCenterRequestDate() string`
 
 GetCenterRequestDate returns the CenterRequestDate field if non-nil, zero value otherwise.
 
 ### GetCenterRequestDateOk
 
-`func (o *CardCancelResponse) GetCenterRequestDateOk() (*time.Time, bool)`
+`func (o *CardCancelResponse) GetCenterRequestDateOk() (*string, bool)`
 
 GetCenterRequestDateOk returns a tuple with the CenterRequestDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCenterRequestDate
 
-`func (o *CardCancelResponse) SetCenterRequestDate(v time.Time)`
+`func (o *CardCancelResponse) SetCenterRequestDate(v string)`
 
 SetCenterRequestDate sets CenterRequestDate field to given value.
 
@@ -349,20 +349,20 @@ HasCenterRequestDate returns a boolean if a field has been set.
 
 ### GetCenterResponseDate
 
-`func (o *CardCancelResponse) GetCenterResponseDate() time.Time`
+`func (o *CardCancelResponse) GetCenterResponseDate() string`
 
 GetCenterResponseDate returns the CenterResponseDate field if non-nil, zero value otherwise.
 
 ### GetCenterResponseDateOk
 
-`func (o *CardCancelResponse) GetCenterResponseDateOk() (*time.Time, bool)`
+`func (o *CardCancelResponse) GetCenterResponseDateOk() (*string, bool)`
 
 GetCenterResponseDateOk returns a tuple with the CenterResponseDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCenterResponseDate
 
-`func (o *CardCancelResponse) SetCenterResponseDate(v time.Time)`
+`func (o *CardCancelResponse) SetCenterResponseDate(v string)`
 
 SetCenterResponseDate sets CenterResponseDate field to given value.
 
@@ -374,20 +374,20 @@ HasCenterResponseDate returns a boolean if a field has been set.
 
 ### GetPending
 
-`func (o *CardCancelResponse) GetPending() int32`
+`func (o *CardCancelResponse) GetPending() string`
 
 GetPending returns the Pending field if non-nil, zero value otherwise.
 
 ### GetPendingOk
 
-`func (o *CardCancelResponse) GetPendingOk() (*int32, bool)`
+`func (o *CardCancelResponse) GetPendingOk() (*string, bool)`
 
 GetPendingOk returns a tuple with the Pending field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPending
 
-`func (o *CardCancelResponse) SetPending(v int32)`
+`func (o *CardCancelResponse) SetPending(v string)`
 
 SetPending sets Pending field to given value.
 
@@ -399,20 +399,20 @@ HasPending returns a boolean if a field has been set.
 
 ### GetLoopback
 
-`func (o *CardCancelResponse) GetLoopback() int32`
+`func (o *CardCancelResponse) GetLoopback() string`
 
 GetLoopback returns the Loopback field if non-nil, zero value otherwise.
 
 ### GetLoopbackOk
 
-`func (o *CardCancelResponse) GetLoopbackOk() (*int32, bool)`
+`func (o *CardCancelResponse) GetLoopbackOk() (*string, bool)`
 
 GetLoopbackOk returns a tuple with the Loopback field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLoopback
 
-`func (o *CardCancelResponse) SetLoopback(v int32)`
+`func (o *CardCancelResponse) SetLoopback(v string)`
 
 SetLoopback sets Loopback field to given value.
 

@@ -12,7 +12,6 @@ package veritrance_paynow
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // CardCancelResponse struct for CardCancelResponse
@@ -34,12 +33,12 @@ type CardCancelResponse struct {
 	// 電文のバージョン
 	TxnVersion *string `json:"txnVersion,omitempty"`
 	CardTransactiontype *string `json:"cardTransactiontype,omitempty"`
-	GatewayRequestDate *time.Time `json:"gatewayRequestDate,omitempty"`
-	GatewayResponseDate *time.Time `json:"gatewayResponseDate,omitempty"`
-	CenterRequestDate *time.Time `json:"centerRequestDate,omitempty"`
-	CenterResponseDate *time.Time `json:"centerResponseDate,omitempty"`
-	Pending *int32 `json:"pending,omitempty"`
-	Loopback *int32 `json:"loopback,omitempty"`
+	GatewayRequestDate *string `json:"gatewayRequestDate,omitempty"`
+	GatewayResponseDate *string `json:"gatewayResponseDate,omitempty"`
+	CenterRequestDate *string `json:"centerRequestDate,omitempty"`
+	CenterResponseDate *string `json:"centerResponseDate,omitempty"`
+	Pending *string `json:"pending,omitempty"`
+	Loopback *string `json:"loopback,omitempty"`
 	ConnectedCenterId *string `json:"connectedCenterId,omitempty"`
 	CenterRequestNumber *string `json:"centerRequestNumber,omitempty"`
 	CenterReferenceNumber *string `json:"centerReferenceNumber,omitempty"`
@@ -356,9 +355,9 @@ func (o *CardCancelResponse) SetCardTransactiontype(v string) {
 }
 
 // GetGatewayRequestDate returns the GatewayRequestDate field value if set, zero value otherwise.
-func (o *CardCancelResponse) GetGatewayRequestDate() time.Time {
+func (o *CardCancelResponse) GetGatewayRequestDate() string {
 	if o == nil || o.GatewayRequestDate == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.GatewayRequestDate
@@ -366,7 +365,7 @@ func (o *CardCancelResponse) GetGatewayRequestDate() time.Time {
 
 // GetGatewayRequestDateOk returns a tuple with the GatewayRequestDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CardCancelResponse) GetGatewayRequestDateOk() (*time.Time, bool) {
+func (o *CardCancelResponse) GetGatewayRequestDateOk() (*string, bool) {
 	if o == nil || o.GatewayRequestDate == nil {
 		return nil, false
 	}
@@ -382,15 +381,15 @@ func (o *CardCancelResponse) HasGatewayRequestDate() bool {
 	return false
 }
 
-// SetGatewayRequestDate gets a reference to the given time.Time and assigns it to the GatewayRequestDate field.
-func (o *CardCancelResponse) SetGatewayRequestDate(v time.Time) {
+// SetGatewayRequestDate gets a reference to the given string and assigns it to the GatewayRequestDate field.
+func (o *CardCancelResponse) SetGatewayRequestDate(v string) {
 	o.GatewayRequestDate = &v
 }
 
 // GetGatewayResponseDate returns the GatewayResponseDate field value if set, zero value otherwise.
-func (o *CardCancelResponse) GetGatewayResponseDate() time.Time {
+func (o *CardCancelResponse) GetGatewayResponseDate() string {
 	if o == nil || o.GatewayResponseDate == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.GatewayResponseDate
@@ -398,7 +397,7 @@ func (o *CardCancelResponse) GetGatewayResponseDate() time.Time {
 
 // GetGatewayResponseDateOk returns a tuple with the GatewayResponseDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CardCancelResponse) GetGatewayResponseDateOk() (*time.Time, bool) {
+func (o *CardCancelResponse) GetGatewayResponseDateOk() (*string, bool) {
 	if o == nil || o.GatewayResponseDate == nil {
 		return nil, false
 	}
@@ -414,15 +413,15 @@ func (o *CardCancelResponse) HasGatewayResponseDate() bool {
 	return false
 }
 
-// SetGatewayResponseDate gets a reference to the given time.Time and assigns it to the GatewayResponseDate field.
-func (o *CardCancelResponse) SetGatewayResponseDate(v time.Time) {
+// SetGatewayResponseDate gets a reference to the given string and assigns it to the GatewayResponseDate field.
+func (o *CardCancelResponse) SetGatewayResponseDate(v string) {
 	o.GatewayResponseDate = &v
 }
 
 // GetCenterRequestDate returns the CenterRequestDate field value if set, zero value otherwise.
-func (o *CardCancelResponse) GetCenterRequestDate() time.Time {
+func (o *CardCancelResponse) GetCenterRequestDate() string {
 	if o == nil || o.CenterRequestDate == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.CenterRequestDate
@@ -430,7 +429,7 @@ func (o *CardCancelResponse) GetCenterRequestDate() time.Time {
 
 // GetCenterRequestDateOk returns a tuple with the CenterRequestDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CardCancelResponse) GetCenterRequestDateOk() (*time.Time, bool) {
+func (o *CardCancelResponse) GetCenterRequestDateOk() (*string, bool) {
 	if o == nil || o.CenterRequestDate == nil {
 		return nil, false
 	}
@@ -446,15 +445,15 @@ func (o *CardCancelResponse) HasCenterRequestDate() bool {
 	return false
 }
 
-// SetCenterRequestDate gets a reference to the given time.Time and assigns it to the CenterRequestDate field.
-func (o *CardCancelResponse) SetCenterRequestDate(v time.Time) {
+// SetCenterRequestDate gets a reference to the given string and assigns it to the CenterRequestDate field.
+func (o *CardCancelResponse) SetCenterRequestDate(v string) {
 	o.CenterRequestDate = &v
 }
 
 // GetCenterResponseDate returns the CenterResponseDate field value if set, zero value otherwise.
-func (o *CardCancelResponse) GetCenterResponseDate() time.Time {
+func (o *CardCancelResponse) GetCenterResponseDate() string {
 	if o == nil || o.CenterResponseDate == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.CenterResponseDate
@@ -462,7 +461,7 @@ func (o *CardCancelResponse) GetCenterResponseDate() time.Time {
 
 // GetCenterResponseDateOk returns a tuple with the CenterResponseDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CardCancelResponse) GetCenterResponseDateOk() (*time.Time, bool) {
+func (o *CardCancelResponse) GetCenterResponseDateOk() (*string, bool) {
 	if o == nil || o.CenterResponseDate == nil {
 		return nil, false
 	}
@@ -478,15 +477,15 @@ func (o *CardCancelResponse) HasCenterResponseDate() bool {
 	return false
 }
 
-// SetCenterResponseDate gets a reference to the given time.Time and assigns it to the CenterResponseDate field.
-func (o *CardCancelResponse) SetCenterResponseDate(v time.Time) {
+// SetCenterResponseDate gets a reference to the given string and assigns it to the CenterResponseDate field.
+func (o *CardCancelResponse) SetCenterResponseDate(v string) {
 	o.CenterResponseDate = &v
 }
 
 // GetPending returns the Pending field value if set, zero value otherwise.
-func (o *CardCancelResponse) GetPending() int32 {
+func (o *CardCancelResponse) GetPending() string {
 	if o == nil || o.Pending == nil {
-		var ret int32
+		var ret string
 		return ret
 	}
 	return *o.Pending
@@ -494,7 +493,7 @@ func (o *CardCancelResponse) GetPending() int32 {
 
 // GetPendingOk returns a tuple with the Pending field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CardCancelResponse) GetPendingOk() (*int32, bool) {
+func (o *CardCancelResponse) GetPendingOk() (*string, bool) {
 	if o == nil || o.Pending == nil {
 		return nil, false
 	}
@@ -510,15 +509,15 @@ func (o *CardCancelResponse) HasPending() bool {
 	return false
 }
 
-// SetPending gets a reference to the given int32 and assigns it to the Pending field.
-func (o *CardCancelResponse) SetPending(v int32) {
+// SetPending gets a reference to the given string and assigns it to the Pending field.
+func (o *CardCancelResponse) SetPending(v string) {
 	o.Pending = &v
 }
 
 // GetLoopback returns the Loopback field value if set, zero value otherwise.
-func (o *CardCancelResponse) GetLoopback() int32 {
+func (o *CardCancelResponse) GetLoopback() string {
 	if o == nil || o.Loopback == nil {
-		var ret int32
+		var ret string
 		return ret
 	}
 	return *o.Loopback
@@ -526,7 +525,7 @@ func (o *CardCancelResponse) GetLoopback() int32 {
 
 // GetLoopbackOk returns a tuple with the Loopback field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CardCancelResponse) GetLoopbackOk() (*int32, bool) {
+func (o *CardCancelResponse) GetLoopbackOk() (*string, bool) {
 	if o == nil || o.Loopback == nil {
 		return nil, false
 	}
@@ -542,8 +541,8 @@ func (o *CardCancelResponse) HasLoopback() bool {
 	return false
 }
 
-// SetLoopback gets a reference to the given int32 and assigns it to the Loopback field.
-func (o *CardCancelResponse) SetLoopback(v int32) {
+// SetLoopback gets a reference to the given string and assigns it to the Loopback field.
+func (o *CardCancelResponse) SetLoopback(v string) {
 	o.Loopback = &v
 }
 

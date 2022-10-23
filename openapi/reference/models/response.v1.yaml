@@ -69,20 +69,16 @@ CardCaptureResponse:
       type: string
     gatewayRequestDate:
       type: string
-      format: date-time
     gatewayResponseDate:
       type: string
-      format: date-time
     centerRequestDate:
       type: string
-      format: date-time
     centerResponseDate:
       type: string
-      format: date-time
     pending:
-      type: integer
+      type: string
     loopback:
-      type: integer
+      type: string
     connectedCenterId:
       enum:
         - jcn
@@ -148,20 +144,16 @@ CardCancelResponse:
       type: string
     gatewayRequestDate:
       type: string
-      format: date-time
     gatewayResponseDate:
       type: string
-      format: date-time
     centerRequestDate:
       type: string
-      format: date-time
     centerResponseDate:
       type: string
-      format: date-time
     pending:
-      type: integer
+      type: string
     loopback:
-      type: integer
+      type: string
     connectedCenterId:
       enum:
         - jcn
@@ -256,7 +248,7 @@ components:
         centerResponseDate:
           type: string
         pending:
-          type: integer
+          type: string
         loopback:
           type: string
         connectedCenterId:
