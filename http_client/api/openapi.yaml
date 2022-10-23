@@ -506,6 +506,41 @@ components:
       type: object
     CardAuthorizeResponse:
       example:
+        result:
+          serviceType: serviceType
+          txnVersion: txnVersion
+          orderId: orderId
+          centerRequestNumber: centerRequestNumber
+          pending: 0
+          centerRequestDate: 2000-01-23T04:56:07.000+00:00
+          mstatus: null
+          merrMsg: merrMsg
+          resActionCode: resActionCode
+          reqAmount: reqAmount
+          cardTransactiontype: cardTransactiontype
+          vResultCode: vResultCode
+          loopback: 6
+          centerReferenceNumber: centerReferenceNumber
+          gatewayRequestDate: 2000-01-23T04:56:07.000+00:00
+          gatewayResponseDate: 2000-01-23T04:56:07.000+00:00
+          centerResponseDate: 2000-01-23T04:56:07.000+00:00
+          custTxn: custTxn
+          marchTxn: marchTxn
+          resReturnReferenceNumber: resReturnReferenceNumber
+          connectedCenterId: jcn
+          resAuthCode: resAuthCode
+          resCenterErrorCode: resCenterErrorCode
+          acquirerCode: acquirerCode
+          status: success
+        payNowIdResponse: null
+      properties:
+        payNowIdResponse:
+          $ref: '#/components/schemas/AccountResponse_payNowIdResponse'
+        result:
+          $ref: '#/components/schemas/CardAuthorizeResponseResult'
+      type: object
+    CardAuthorizeResponseResult:
+      example:
         serviceType: serviceType
         txnVersion: txnVersion
         orderId: orderId
@@ -520,7 +555,6 @@ components:
         vResultCode: vResultCode
         loopback: 6
         centerReferenceNumber: centerReferenceNumber
-        payNowIdResponse: null
         gatewayRequestDate: 2000-01-23T04:56:07.000+00:00
         gatewayResponseDate: 2000-01-23T04:56:07.000+00:00
         centerResponseDate: 2000-01-23T04:56:07.000+00:00
@@ -533,8 +567,6 @@ components:
         acquirerCode: acquirerCode
         status: success
       properties:
-        payNowIdResponse:
-          $ref: '#/components/schemas/AccountResponse_payNowIdResponse'
         serviceType:
           description: 要求電文を送信した決済サービスタイプ
           type: string

@@ -115,7 +115,6 @@ func (a *CardApiService) PaynowV1AuthorizeCardinfoExecute(r ApiPaynowV1Authorize
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	println("client.decode", string(localVarBody))
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{

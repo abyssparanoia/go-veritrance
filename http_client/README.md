@@ -117,6 +117,7 @@ Class | Method | HTTP request | Description
  - [CardAuthorizeRequestParamsAllOf](docs/CardAuthorizeRequestParamsAllOf.md)
  - [CardAuthorizeRequestParamsAllOfPayNowIdParam](docs/CardAuthorizeRequestParamsAllOfPayNowIdParam.md)
  - [CardAuthorizeResponse](docs/CardAuthorizeResponse.md)
+ - [CardAuthorizeResponseResult](docs/CardAuthorizeResponseResult.md)
  - [CardCancelRequest](docs/CardCancelRequest.md)
  - [CardCancelResponse](docs/CardCancelResponse.md)
  - [CardCaptureRequest](docs/CardCaptureRequest.md)
