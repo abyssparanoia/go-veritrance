@@ -19,6 +19,7 @@ type CardAuthorizeRequestParamsAllOfPayNowIdParam struct {
 	AccountParam AccountAddRequestParamsAllOfPayNowIdParamAccountParam `json:"accountParam"`
 	OrderId string `json:"orderId"`
 	Amount string `json:"amount"`
+	CurrencyUnit CurrencyUnit `json:"currencyUnit"`
 	// トークンサーバーが発行した、クレジットカード情報の識別に用いるトークンの値
 	Token *string `json:"token,omitempty"`
 	// （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
@@ -39,11 +40,12 @@ type CardAuthorizeRequestParamsAllOfPayNowIdParam struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCardAuthorizeRequestParamsAllOfPayNowIdParam(accountParam AccountAddRequestParamsAllOfPayNowIdParamAccountParam, orderId string, amount string) *CardAuthorizeRequestParamsAllOfPayNowIdParam {
+func NewCardAuthorizeRequestParamsAllOfPayNowIdParam(accountParam AccountAddRequestParamsAllOfPayNowIdParamAccountParam, orderId string, amount string, currencyUnit CurrencyUnit) *CardAuthorizeRequestParamsAllOfPayNowIdParam {
 	this := CardAuthorizeRequestParamsAllOfPayNowIdParam{}
 	this.AccountParam = accountParam
 	this.OrderId = orderId
 	this.Amount = amount
+	this.CurrencyUnit = currencyUnit
 	return &this
 }
 
@@ -125,6 +127,30 @@ func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) GetAmountOk() (*string, b
 // SetAmount sets field value
 func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) SetAmount(v string) {
 	o.Amount = v
+}
+
+// GetCurrencyUnit returns the CurrencyUnit field value
+func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) GetCurrencyUnit() CurrencyUnit {
+	if o == nil {
+		var ret CurrencyUnit
+		return ret
+	}
+
+	return o.CurrencyUnit
+}
+
+// GetCurrencyUnitOk returns a tuple with the CurrencyUnit field value
+// and a boolean to check if the value has been set.
+func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) GetCurrencyUnitOk() (*CurrencyUnit, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CurrencyUnit, true
+}
+
+// SetCurrencyUnit sets field value
+func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) SetCurrencyUnit(v CurrencyUnit) {
+	o.CurrencyUnit = v
 }
 
 // GetToken returns the Token field value if set, zero value otherwise.
@@ -361,6 +387,9 @@ func (o CardAuthorizeRequestParamsAllOfPayNowIdParam) MarshalJSON() ([]byte, err
 	}
 	if true {
 		toSerialize["amount"] = o.Amount
+	}
+	if true {
+		toSerialize["currencyUnit"] = o.CurrencyUnit
 	}
 	if o.Token != nil {
 		toSerialize["token"] = o.Token

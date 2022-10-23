@@ -59,6 +59,7 @@ docs/CardReAuthorizeRequestParams.md
 docs/CardReAuthorizeRequestParamsAllOf.md
 docs/CardReAuthorizeRequestParamsAllOfPayNowIdParam.md
 docs/CardinfoApi.md
+docs/CurrencyUnit.md
 docs/PayNowIdResponse.md
 docs/Result.md
 docs/Status.md
@@ -114,6 +115,7 @@ model_card_re_authorize_request.go
 model_card_re_authorize_request_params.go
 model_card_re_authorize_request_params_all_of.go
 model_card_re_authorize_request_params_all_of_pay_now_id_param.go
+model_currency_unit.go
 model_pay_now_id_response.go
 model_result.go
 model_status.go

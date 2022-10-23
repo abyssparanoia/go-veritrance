@@ -144,6 +144,7 @@ Class | Method | HTTP request | Description
  - [CardReAuthorizeRequestParams](docs/CardReAuthorizeRequestParams.md)
  - [CardReAuthorizeRequestParamsAllOf](docs/CardReAuthorizeRequestParamsAllOf.md)
  - [CardReAuthorizeRequestParamsAllOfPayNowIdParam](docs/CardReAuthorizeRequestParamsAllOfPayNowIdParam.md)
+ - [CurrencyUnit](docs/CurrencyUnit.md)
  - [PayNowIdResponse](docs/PayNowIdResponse.md)
  - [Result](docs/Result.md)
  - [Status](docs/Status.md)
