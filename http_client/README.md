@@ -112,6 +112,7 @@ Class | Method | HTTP request | Description
  - [CardAuthorizeRequest](docs/CardAuthorizeRequest.md)
  - [CardAuthorizeRequestAccountParam](docs/CardAuthorizeRequestAccountParam.md)
  - [CardAuthorizeRequestCardParam](docs/CardAuthorizeRequestCardParam.md)
+ - [CardAuthorizeRequestParam](docs/CardAuthorizeRequestParam.md)
  - [CardAuthorizeRequestParams](docs/CardAuthorizeRequestParams.md)
  - [CardAuthorizeRequestParamsAllOf](docs/CardAuthorizeRequestParamsAllOf.md)
  - [CardAuthorizeRequestParamsAllOfPayNowIdParam](docs/CardAuthorizeRequestParamsAllOfPayNowIdParam.md)

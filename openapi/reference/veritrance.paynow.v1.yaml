@@ -459,6 +459,9 @@ components:
           type: object
           required:
             - payNowIdParam
+            - orderId
+            - amount
+            - currencyUnit
           allOf:
             - $ref: "#/components/schemas/AbstractPayNowRequest"
             - type: object
@@ -467,55 +470,10 @@ components:
                   type: object
                   required:
                     - accountParam
-                    - orderId
-                    - amount
-                    - currencyUnit
                   properties:
                     accountParam:
                       $ref: "#/components/schemas/CardAuthorizeRequestAccountParam"
-                    orderId:
-                      type: string
-                      example: order-1662828780
-                    amount:
-                      type: string
-                      example: 1000
-                    currencyUnit:
-                      $ref: "#/components/schemas/CurrencyUnit"
-                    token:
-                      type: string
-                      example: abcdef01-2345-6789-abcd-ef0123456789
-                      description: トークンサーバーが発行した、クレジットカード情報の識別に用いるトークンの値
-                    cardNumber:
-                      type: string
-                      example: 4111111111111111
-                      description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-                    cardExpire:
-                      type: string
-                      example: 12/25
-                      description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-                    securityCode:
-                      type: string
-                      example: 123
-                      description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-                    cardOptionType:
-                      description: カードオプションタイプ （MPI 有り/無し）
-                      enum:
-                        - mpi
-                    jpo:
-                      type: string
-                      description: |
-                        支払種別
-                        "10"： 一括払い
-                        "21"： ボーナス一括
-                        "61Cxx"： 分割払い、xx に分割回数指定
-                        “80”： リボルビング払い
-                        ※指定が無い場合は、"10"（一括払い）が適用されます。
-                    withCapture:
-                      type: boolean
-                      description: |
-                        売上フラグ
-                        "true"： 与信・売上
-                        "false"： 与信のみ
+            - $ref: "#/components/schemas/CardAuthorizeRequestParam"
         authHash:
           type: string
     CardReAuthorizeRequest:
@@ -637,6 +595,52 @@ components:
         - txnVersion
         - dummyRequest
         - merchantCcid
+    CardAuthorizeRequestParam:
+      type: object
+      properties:
+        orderId:
+          type: string
+          example: order-1662828780
+        amount:
+          type: string
+          example: 1000
+        currencyUnit:
+          $ref: "#/components/schemas/CurrencyUnit"
+        token:
+          type: string
+          example: abcdef01-2345-6789-abcd-ef0123456789
+          description: トークンサーバーが発行した、クレジットカード情報の識別に用いるトークンの値
+        cardNumber:
+          type: string
+          example: 4111111111111111
+          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+        cardExpire:
+          type: string
+          example: 12/25
+          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+        securityCode:
+          type: string
+          example: 123
+          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+        cardOptionType:
+          description: カードオプションタイプ （MPI 有り/無し）
+          enum:
+            - mpi
+        jpo:
+          type: string
+          description: |
+            支払種別
+            "10"： 一括払い
+            "21"： ボーナス一括
+            "61Cxx"： 分割払い、xx に分割回数指定
+            “80”： リボルビング払い
+            ※指定が無い場合は、"10"（一括払い）が適用されます。
+        withCapture:
+          type: boolean
+          description: |
+            売上フラグ
+            "true"： 与信・売上
+            "false"： 与信のみ
     CardAuthorizeRequestAccountParam:
       type: object
       required:

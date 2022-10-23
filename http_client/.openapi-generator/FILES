@@ -26,6 +26,7 @@ docs/CardApi.md
 docs/CardAuthorizeRequest.md
 docs/CardAuthorizeRequestAccountParam.md
 docs/CardAuthorizeRequestCardParam.md
+docs/CardAuthorizeRequestParam.md
 docs/CardAuthorizeRequestParams.md
 docs/CardAuthorizeRequestParamsAllOf.md
 docs/CardAuthorizeRequestParamsAllOfPayNowIdParam.md
@@ -85,6 +86,7 @@ model_account_v1.go
 model_card_authorize_request.go
 model_card_authorize_request_account_param.go
 model_card_authorize_request_card_param.go
+model_card_authorize_request_param.go
 model_card_authorize_request_params.go
 model_card_authorize_request_params_all_of.go
 model_card_authorize_request_params_all_of_pay_now_id_param.go
