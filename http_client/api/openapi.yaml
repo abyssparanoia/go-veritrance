@@ -511,7 +511,7 @@ components:
           txnVersion: txnVersion
           orderId: orderId
           centerRequestNumber: centerRequestNumber
-          pending: 0
+          pending: pending
           centerRequestDate: centerRequestDate
           mstatus: null
           merrMsg: merrMsg
@@ -545,7 +545,7 @@ components:
         txnVersion: txnVersion
         orderId: orderId
         centerRequestNumber: centerRequestNumber
-        pending: 0
+        pending: pending
         centerRequestDate: centerRequestDate
         mstatus: null
         merrMsg: merrMsg
@@ -612,7 +612,7 @@ components:
         centerResponseDate:
           type: string
         pending:
-          type: integer
+          type: string
         loopback:
           type: string
         connectedCenterId:
@@ -651,13 +651,13 @@ components:
         serviceType: serviceType
         centerReferenceNumber: centerReferenceNumber
         txnVersion: txnVersion
-        gatewayRequestDate: 2000-01-23T04:56:07.000+00:00
+        gatewayRequestDate: gatewayRequestDate
         orderId: orderId
         centerRequestNumber: centerRequestNumber
-        pending: 0
-        gatewayResponseDate: 2000-01-23T04:56:07.000+00:00
-        centerRequestDate: 2000-01-23T04:56:07.000+00:00
-        centerResponseDate: 2000-01-23T04:56:07.000+00:00
+        pending: pending
+        gatewayResponseDate: gatewayResponseDate
+        centerRequestDate: centerRequestDate
+        centerResponseDate: centerResponseDate
         custTxn: custTxn
         marchTxn: marchTxn
         resReturnReferenceNumber: resReturnReferenceNumber
@@ -670,7 +670,7 @@ components:
         acquirerCode: acquirerCode
         vResultCode: vResultCode
         status: success
-        loopback: 6
+        loopback: loopback
       properties:
         serviceType:
           description: 要求電文を送信した決済サービスタイプ
@@ -707,21 +707,17 @@ components:
         cardTransactiontype:
           type: string
         gatewayRequestDate:
-          format: date-time
           type: string
         gatewayResponseDate:
-          format: date-time
           type: string
         centerRequestDate:
-          format: date-time
           type: string
         centerResponseDate:
-          format: date-time
           type: string
         pending:
-          type: integer
+          type: string
         loopback:
-          type: integer
+          type: string
         connectedCenterId:
           enum:
           - jcn
@@ -747,13 +743,13 @@ components:
         serviceType: serviceType
         centerReferenceNumber: centerReferenceNumber
         txnVersion: txnVersion
-        gatewayRequestDate: 2000-01-23T04:56:07.000+00:00
+        gatewayRequestDate: gatewayRequestDate
         orderId: orderId
         centerRequestNumber: centerRequestNumber
-        pending: 0
-        gatewayResponseDate: 2000-01-23T04:56:07.000+00:00
-        centerRequestDate: 2000-01-23T04:56:07.000+00:00
-        centerResponseDate: 2000-01-23T04:56:07.000+00:00
+        pending: pending
+        gatewayResponseDate: gatewayResponseDate
+        centerRequestDate: centerRequestDate
+        centerResponseDate: centerResponseDate
         custTxn: custTxn
         marchTxn: marchTxn
         resReturnReferenceNumber: resReturnReferenceNumber
@@ -766,7 +762,7 @@ components:
         acquirerCode: acquirerCode
         vResultCode: vResultCode
         status: success
-        loopback: 6
+        loopback: loopback
       properties:
         serviceType:
           description: 要求電文を送信した決済サービスタイプ
@@ -803,21 +799,17 @@ components:
         cardTransactiontype:
           type: string
         gatewayRequestDate:
-          format: date-time
           type: string
         gatewayResponseDate:
-          format: date-time
           type: string
         centerRequestDate:
-          format: date-time
           type: string
         centerResponseDate:
-          format: date-time
           type: string
         pending:
-          type: integer
+          type: string
         loopback:
-          type: integer
+          type: string
         connectedCenterId:
           enum:
           - jcn
