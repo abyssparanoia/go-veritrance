@@ -39,7 +39,7 @@ type CardAuthorizeResponseResult struct {
 	CenterRequestDate *string `json:"centerRequestDate,omitempty"`
 	CenterResponseDate *string `json:"centerResponseDate,omitempty"`
 	Pending *int32 `json:"pending,omitempty"`
-	Loopback *int32 `json:"loopback,omitempty"`
+	Loopback *string `json:"loopback,omitempty"`
 	ConnectedCenterId *string `json:"connectedCenterId,omitempty"`
 	CenterRequestNumber *string `json:"centerRequestNumber,omitempty"`
 	CenterReferenceNumber *string `json:"centerReferenceNumber,omitempty"`
@@ -493,9 +493,9 @@ func (o *CardAuthorizeResponseResult) SetPending(v int32) {
 }
 
 // GetLoopback returns the Loopback field value if set, zero value otherwise.
-func (o *CardAuthorizeResponseResult) GetLoopback() int32 {
+func (o *CardAuthorizeResponseResult) GetLoopback() string {
 	if o == nil || o.Loopback == nil {
-		var ret int32
+		var ret string
 		return ret
 	}
 	return *o.Loopback
@@ -503,7 +503,7 @@ func (o *CardAuthorizeResponseResult) GetLoopback() int32 {
 
 // GetLoopbackOk returns a tuple with the Loopback field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CardAuthorizeResponseResult) GetLoopbackOk() (*int32, bool) {
+func (o *CardAuthorizeResponseResult) GetLoopbackOk() (*string, bool) {
 	if o == nil || o.Loopback == nil {
 		return nil, false
 	}
@@ -519,8 +519,8 @@ func (o *CardAuthorizeResponseResult) HasLoopback() bool {
 	return false
 }
 
-// SetLoopback gets a reference to the given int32 and assigns it to the Loopback field.
-func (o *CardAuthorizeResponseResult) SetLoopback(v int32) {
+// SetLoopback gets a reference to the given string and assigns it to the Loopback field.
+func (o *CardAuthorizeResponseResult) SetLoopback(v string) {
 	o.Loopback = &v
 }
 
