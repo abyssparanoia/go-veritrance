@@ -346,6 +346,53 @@ components:
       - merchantCcid
       - txnVersion
       type: object
+    CardAuthorizeRequestParam:
+      properties:
+        orderId:
+          example: order-1662828780
+          type: string
+        amount:
+          example: "1000"
+          type: string
+        currencyUnit:
+          $ref: '#/components/schemas/CurrencyUnit'
+        token:
+          description: トークンサーバーが発行した、クレジットカード情報の識別に用いるトークンの値
+          example: abcdef01-2345-6789-abcd-ef0123456789
+          type: string
+        cardNumber:
+          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+          example: "4111111111111111"
+          type: string
+        cardExpire:
+          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+          example: 12/25
+          type: string
+        securityCode:
+          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
+          example: "123"
+          type: string
+        cardOptionType:
+          description: カードオプションタイプ （MPI 有り/無し）
+          enum:
+          - mpi
+          type: string
+        jpo:
+          description: |
+            支払種別
+            "10"： 一括払い
+            "21"： ボーナス一括
+            "61Cxx"： 分割払い、xx に分割回数指定
+            “80”： リボルビング払い
+            ※指定が無い場合は、"10"（一括払い）が適用されます。
+          type: string
+        withCapture:
+          description: |
+            売上フラグ
+            "true"： 与信・売上
+            "false"： 与信のみ
+          type: boolean
+      type: object
     CardAuthorizeRequestAccountParam:
       properties:
         accountId:
@@ -980,55 +1027,8 @@ components:
       properties:
         accountParam:
           $ref: '#/components/schemas/CardAuthorizeRequestAccountParam'
-        orderId:
-          example: order-1662828780
-          type: string
-        amount:
-          example: "1000"
-          type: string
-        currencyUnit:
-          $ref: '#/components/schemas/CurrencyUnit'
-        token:
-          description: トークンサーバーが発行した、クレジットカード情報の識別に用いるトークンの値
-          example: abcdef01-2345-6789-abcd-ef0123456789
-          type: string
-        cardNumber:
-          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-          example: "4111111111111111"
-          type: string
-        cardExpire:
-          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-          example: 12/25
-          type: string
-        securityCode:
-          description: （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。
-          example: "123"
-          type: string
-        cardOptionType:
-          description: カードオプションタイプ （MPI 有り/無し）
-          enum:
-          - mpi
-          type: string
-        jpo:
-          description: |
-            支払種別
-            "10"： 一括払い
-            "21"： ボーナス一括
-            "61Cxx"： 分割払い、xx に分割回数指定
-            “80”： リボルビング払い
-            ※指定が無い場合は、"10"（一括払い）が適用されます。
-          type: string
-        withCapture:
-          description: |
-            売上フラグ
-            "true"： 与信・売上
-            "false"： 与信のみ
-          type: boolean
       required:
       - accountParam
-      - amount
-      - currencyUnit
-      - orderId
       type: object
     CardAuthorizeRequest_params_allOf:
       properties:
@@ -1039,7 +1039,11 @@ components:
       allOf:
       - $ref: '#/components/schemas/AbstractPayNowRequest'
       - $ref: '#/components/schemas/CardAuthorizeRequest_params_allOf'
+      - $ref: '#/components/schemas/CardAuthorizeRequestParam'
       required:
+      - amount
+      - currencyUnit
+      - orderId
       - payNowIdParam
       type: object
     CardReAuthorizeRequest_params_allOf_payNowIdParam:
