@@ -469,6 +469,7 @@ components:
                     - accountParam
                     - orderId
                     - amount
+                    - currencyUnit
                   properties:
                     accountParam:
                       type: object
@@ -484,6 +485,8 @@ components:
                     amount:
                       type: string
                       example: 1000
+                    currencyUnit:
+                      $ref: "#/components/schemas/CurrencyUnit"
                     token:
                       type: string
                       example: abcdef01-2345-6789-abcd-ef0123456789
@@ -640,3 +643,9 @@ components:
         - txnVersion
         - dummyRequest
         - merchantCcid
+    CurrencyUnit:
+      description: 通貨コード
+      enum:
+        - usd
+        - jpy
+      type: string

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **AccountParam** | [**AccountAddRequestParamsAllOfPayNowIdParamAccountParam**](AccountAddRequestParamsAllOfPayNowIdParamAccountParam.md) |  | 
 **OrderId** | **string** |  | 
 **Amount** | **string** |  | 
+**CurrencyUnit** | [**CurrencyUnit**](CurrencyUnit.md) |  | 
 **Token** | Pointer to **string** | トークンサーバーが発行した、クレジットカード情報の識別に用いるトークンの値 | [optional] 
 **CardNumber** | Pointer to **string** | （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。 | [optional] 
 **CardExpire** | Pointer to **string** | （重要）カード情報の非保持（非通過、非保持）への対応のため、通常は設定しないでください。 | [optional] 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewCardAuthorizeRequestParamsAllOfPayNowIdParam
 
-`func NewCardAuthorizeRequestParamsAllOfPayNowIdParam(accountParam AccountAddRequestParamsAllOfPayNowIdParamAccountParam, orderId string, amount string, ) *CardAuthorizeRequestParamsAllOfPayNowIdParam`
+`func NewCardAuthorizeRequestParamsAllOfPayNowIdParam(accountParam AccountAddRequestParamsAllOfPayNowIdParamAccountParam, orderId string, amount string, currencyUnit CurrencyUnit, ) *CardAuthorizeRequestParamsAllOfPayNowIdParam`
 
 NewCardAuthorizeRequestParamsAllOfPayNowIdParam instantiates a new CardAuthorizeRequestParamsAllOfPayNowIdParam object
 This constructor will assign default values to properties that have it defined,
@@ -92,6 +93,26 @@ and a boolean to check if the value has been set.
 `func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) SetAmount(v string)`
 
 SetAmount sets Amount field to given value.
+
+
+### GetCurrencyUnit
+
+`func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) GetCurrencyUnit() CurrencyUnit`
+
+GetCurrencyUnit returns the CurrencyUnit field if non-nil, zero value otherwise.
+
+### GetCurrencyUnitOk
+
+`func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) GetCurrencyUnitOk() (*CurrencyUnit, bool)`
+
+GetCurrencyUnitOk returns a tuple with the CurrencyUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrencyUnit
+
+`func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) SetCurrencyUnit(v CurrencyUnit)`
+
+SetCurrencyUnit sets CurrencyUnit field to given value.
 
 
 ### GetToken
