@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountParam** | [**AccountAddRequestParamsAllOfPayNowIdParamAccountParam**](AccountAddRequestParamsAllOfPayNowIdParamAccountParam.md) |  | 
+**AccountParam** | [**CardAuthorizeRequestAccountParam**](CardAuthorizeRequestAccountParam.md) |  | 
 **OrderId** | **string** |  | 
 **Amount** | **string** |  | 
 **CurrencyUnit** | [**CurrencyUnit**](CurrencyUnit.md) |  | 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewCardAuthorizeRequestParamsAllOfPayNowIdParam
 
-`func NewCardAuthorizeRequestParamsAllOfPayNowIdParam(accountParam AccountAddRequestParamsAllOfPayNowIdParamAccountParam, orderId string, amount string, currencyUnit CurrencyUnit, ) *CardAuthorizeRequestParamsAllOfPayNowIdParam`
+`func NewCardAuthorizeRequestParamsAllOfPayNowIdParam(accountParam CardAuthorizeRequestAccountParam, orderId string, amount string, currencyUnit CurrencyUnit, ) *CardAuthorizeRequestParamsAllOfPayNowIdParam`
 
 NewCardAuthorizeRequestParamsAllOfPayNowIdParam instantiates a new CardAuthorizeRequestParamsAllOfPayNowIdParam object
 This constructor will assign default values to properties that have it defined,
@@ -37,20 +37,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAccountParam
 
-`func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) GetAccountParam() AccountAddRequestParamsAllOfPayNowIdParamAccountParam`
+`func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) GetAccountParam() CardAuthorizeRequestAccountParam`
 
 GetAccountParam returns the AccountParam field if non-nil, zero value otherwise.
 
 ### GetAccountParamOk
 
-`func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) GetAccountParamOk() (*AccountAddRequestParamsAllOfPayNowIdParamAccountParam, bool)`
+`func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) GetAccountParamOk() (*CardAuthorizeRequestAccountParam, bool)`
 
 GetAccountParamOk returns a tuple with the AccountParam field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAccountParam
 
-`func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) SetAccountParam(v AccountAddRequestParamsAllOfPayNowIdParamAccountParam)`
+`func (o *CardAuthorizeRequestParamsAllOfPayNowIdParam) SetAccountParam(v CardAuthorizeRequestAccountParam)`
 
 SetAccountParam sets AccountParam field to given value.
 

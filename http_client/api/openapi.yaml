@@ -346,6 +346,25 @@ components:
       - merchantCcid
       - txnVersion
       type: object
+    CardAuthorizeRequestAccountParam:
+      properties:
+        accountId:
+          example: account-1662828780
+          type: string
+        cardParam:
+          $ref: '#/components/schemas/CardAuthorizeRequestCardParam'
+      required:
+      - accountId
+      - cardParam
+      type: object
+    CardAuthorizeRequestCardParam:
+      properties:
+        cardId:
+          example: card-1662828780
+          type: string
+      required:
+      - cardId
+      type: object
     CurrencyUnit:
       description: 通貨コード
       enum:
@@ -960,7 +979,7 @@ components:
     CardAuthorizeRequest_params_allOf_payNowIdParam:
       properties:
         accountParam:
-          $ref: '#/components/schemas/AccountAddRequestParams_allOf_payNowIdParam_accountParam'
+          $ref: '#/components/schemas/CardAuthorizeRequestAccountParam'
         orderId:
           example: order-1662828780
           type: string

@@ -110,6 +110,8 @@ Class | Method | HTTP request | Description
  - [AccountUpdateRequest](docs/AccountUpdateRequest.md)
  - [AccountV1](docs/AccountV1.md)
  - [CardAuthorizeRequest](docs/CardAuthorizeRequest.md)
+ - [CardAuthorizeRequestAccountParam](docs/CardAuthorizeRequestAccountParam.md)
+ - [CardAuthorizeRequestCardParam](docs/CardAuthorizeRequestCardParam.md)
  - [CardAuthorizeRequestParams](docs/CardAuthorizeRequestParams.md)
  - [CardAuthorizeRequestParamsAllOf](docs/CardAuthorizeRequestParamsAllOf.md)
  - [CardAuthorizeRequestParamsAllOfPayNowIdParam](docs/CardAuthorizeRequestParamsAllOfPayNowIdParam.md)

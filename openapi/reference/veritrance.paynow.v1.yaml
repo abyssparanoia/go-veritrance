@@ -472,13 +472,7 @@ components:
                     - currencyUnit
                   properties:
                     accountParam:
-                      type: object
-                      required:
-                        - accountId
-                      properties:
-                        accountId:
-                          type: string
-                          example: account-1662828780
+                      $ref: "#/components/schemas/CardAuthorizeRequestAccountParam"
                     orderId:
                       type: string
                       example: order-1662828780
@@ -643,6 +637,25 @@ components:
         - txnVersion
         - dummyRequest
         - merchantCcid
+    CardAuthorizeRequestAccountParam:
+      type: object
+      required:
+        - accountId
+        - cardParam
+      properties:
+        accountId:
+          type: string
+          example: account-1662828780
+        cardParam:
+          $ref: "#/components/schemas/CardAuthorizeRequestCardParam"
+    CardAuthorizeRequestCardParam:
+      type: object
+      required:
+        - cardId
+      properties:
+        cardId:
+          type: string
+          example: card-1662828780
     CurrencyUnit:
       description: 通貨コード
       enum:
