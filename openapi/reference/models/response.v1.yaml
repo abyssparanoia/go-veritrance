@@ -249,16 +249,12 @@ components:
           type: string
         gatewayRequestDate:
           type: string
-          format: date-time
         gatewayResponseDate:
           type: string
-          format: date-time
         centerRequestDate:
           type: string
-          format: date-time
         centerResponseDate:
           type: string
-          format: date-time
         pending:
           type: integer
         loopback:

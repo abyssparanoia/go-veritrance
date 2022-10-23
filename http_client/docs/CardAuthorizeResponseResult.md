@@ -14,10 +14,10 @@ Name | Type | Description | Notes
 **CustTxn** | **string** | 決済サーバーがオーダー（取引 ID）と紐付ける為に採番する ID | 
 **TxnVersion** | **string** | 電文のバージョン | 
 **CardTransactiontype** | Pointer to **string** |  | [optional] 
-**GatewayRequestDate** | Pointer to **time.Time** |  | [optional] 
-**GatewayResponseDate** | Pointer to **time.Time** |  | [optional] 
-**CenterRequestDate** | Pointer to **time.Time** |  | [optional] 
-**CenterResponseDate** | Pointer to **time.Time** |  | [optional] 
+**GatewayRequestDate** | Pointer to **string** |  | [optional] 
+**GatewayResponseDate** | Pointer to **string** |  | [optional] 
+**CenterRequestDate** | Pointer to **string** |  | [optional] 
+**CenterResponseDate** | Pointer to **string** |  | [optional] 
 **Pending** | Pointer to **int32** |  | [optional] 
 **Loopback** | Pointer to **int32** |  | [optional] 
 **ConnectedCenterId** | Pointer to **string** |  | [optional] 
@@ -261,20 +261,20 @@ HasCardTransactiontype returns a boolean if a field has been set.
 
 ### GetGatewayRequestDate
 
-`func (o *CardAuthorizeResponseResult) GetGatewayRequestDate() time.Time`
+`func (o *CardAuthorizeResponseResult) GetGatewayRequestDate() string`
 
 GetGatewayRequestDate returns the GatewayRequestDate field if non-nil, zero value otherwise.
 
 ### GetGatewayRequestDateOk
 
-`func (o *CardAuthorizeResponseResult) GetGatewayRequestDateOk() (*time.Time, bool)`
+`func (o *CardAuthorizeResponseResult) GetGatewayRequestDateOk() (*string, bool)`
 
 GetGatewayRequestDateOk returns a tuple with the GatewayRequestDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGatewayRequestDate
 
-`func (o *CardAuthorizeResponseResult) SetGatewayRequestDate(v time.Time)`
+`func (o *CardAuthorizeResponseResult) SetGatewayRequestDate(v string)`
 
 SetGatewayRequestDate sets GatewayRequestDate field to given value.
 
@@ -286,20 +286,20 @@ HasGatewayRequestDate returns a boolean if a field has been set.
 
 ### GetGatewayResponseDate
 
-`func (o *CardAuthorizeResponseResult) GetGatewayResponseDate() time.Time`
+`func (o *CardAuthorizeResponseResult) GetGatewayResponseDate() string`
 
 GetGatewayResponseDate returns the GatewayResponseDate field if non-nil, zero value otherwise.
 
 ### GetGatewayResponseDateOk
 
-`func (o *CardAuthorizeResponseResult) GetGatewayResponseDateOk() (*time.Time, bool)`
+`func (o *CardAuthorizeResponseResult) GetGatewayResponseDateOk() (*string, bool)`
 
 GetGatewayResponseDateOk returns a tuple with the GatewayResponseDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGatewayResponseDate
 
-`func (o *CardAuthorizeResponseResult) SetGatewayResponseDate(v time.Time)`
+`func (o *CardAuthorizeResponseResult) SetGatewayResponseDate(v string)`
 
 SetGatewayResponseDate sets GatewayResponseDate field to given value.
 
@@ -311,20 +311,20 @@ HasGatewayResponseDate returns a boolean if a field has been set.
 
 ### GetCenterRequestDate
 
-`func (o *CardAuthorizeResponseResult) GetCenterRequestDate() time.Time`
+`func (o *CardAuthorizeResponseResult) GetCenterRequestDate() string`
 
 GetCenterRequestDate returns the CenterRequestDate field if non-nil, zero value otherwise.
 
 ### GetCenterRequestDateOk
 
-`func (o *CardAuthorizeResponseResult) GetCenterRequestDateOk() (*time.Time, bool)`
+`func (o *CardAuthorizeResponseResult) GetCenterRequestDateOk() (*string, bool)`
 
 GetCenterRequestDateOk returns a tuple with the CenterRequestDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCenterRequestDate
 
-`func (o *CardAuthorizeResponseResult) SetCenterRequestDate(v time.Time)`
+`func (o *CardAuthorizeResponseResult) SetCenterRequestDate(v string)`
 
 SetCenterRequestDate sets CenterRequestDate field to given value.
 
@@ -336,20 +336,20 @@ HasCenterRequestDate returns a boolean if a field has been set.
 
 ### GetCenterResponseDate
 
-`func (o *CardAuthorizeResponseResult) GetCenterResponseDate() time.Time`
+`func (o *CardAuthorizeResponseResult) GetCenterResponseDate() string`
 
 GetCenterResponseDate returns the CenterResponseDate field if non-nil, zero value otherwise.
 
 ### GetCenterResponseDateOk
 
-`func (o *CardAuthorizeResponseResult) GetCenterResponseDateOk() (*time.Time, bool)`
+`func (o *CardAuthorizeResponseResult) GetCenterResponseDateOk() (*string, bool)`
 
 GetCenterResponseDateOk returns a tuple with the CenterResponseDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCenterResponseDate
 
-`func (o *CardAuthorizeResponseResult) SetCenterResponseDate(v time.Time)`
+`func (o *CardAuthorizeResponseResult) SetCenterResponseDate(v string)`
 
 SetCenterResponseDate sets CenterResponseDate field to given value.
 

@@ -12,7 +12,6 @@ package veritrance_paynow
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // CardAuthorizeResponseResult struct for CardAuthorizeResponseResult
@@ -35,10 +34,10 @@ type CardAuthorizeResponseResult struct {
 	// 電文のバージョン
 	TxnVersion string `json:"txnVersion"`
 	CardTransactiontype *string `json:"cardTransactiontype,omitempty"`
-	GatewayRequestDate *time.Time `json:"gatewayRequestDate,omitempty"`
-	GatewayResponseDate *time.Time `json:"gatewayResponseDate,omitempty"`
-	CenterRequestDate *time.Time `json:"centerRequestDate,omitempty"`
-	CenterResponseDate *time.Time `json:"centerResponseDate,omitempty"`
+	GatewayRequestDate *string `json:"gatewayRequestDate,omitempty"`
+	GatewayResponseDate *string `json:"gatewayResponseDate,omitempty"`
+	CenterRequestDate *string `json:"centerRequestDate,omitempty"`
+	CenterResponseDate *string `json:"centerResponseDate,omitempty"`
 	Pending *int32 `json:"pending,omitempty"`
 	Loopback *int32 `json:"loopback,omitempty"`
 	ConnectedCenterId *string `json:"connectedCenterId,omitempty"`
@@ -334,9 +333,9 @@ func (o *CardAuthorizeResponseResult) SetCardTransactiontype(v string) {
 }
 
 // GetGatewayRequestDate returns the GatewayRequestDate field value if set, zero value otherwise.
-func (o *CardAuthorizeResponseResult) GetGatewayRequestDate() time.Time {
+func (o *CardAuthorizeResponseResult) GetGatewayRequestDate() string {
 	if o == nil || o.GatewayRequestDate == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.GatewayRequestDate
@@ -344,7 +343,7 @@ func (o *CardAuthorizeResponseResult) GetGatewayRequestDate() time.Time {
 
 // GetGatewayRequestDateOk returns a tuple with the GatewayRequestDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CardAuthorizeResponseResult) GetGatewayRequestDateOk() (*time.Time, bool) {
+func (o *CardAuthorizeResponseResult) GetGatewayRequestDateOk() (*string, bool) {
 	if o == nil || o.GatewayRequestDate == nil {
 		return nil, false
 	}
@@ -360,15 +359,15 @@ func (o *CardAuthorizeResponseResult) HasGatewayRequestDate() bool {
 	return false
 }
 
-// SetGatewayRequestDate gets a reference to the given time.Time and assigns it to the GatewayRequestDate field.
-func (o *CardAuthorizeResponseResult) SetGatewayRequestDate(v time.Time) {
+// SetGatewayRequestDate gets a reference to the given string and assigns it to the GatewayRequestDate field.
+func (o *CardAuthorizeResponseResult) SetGatewayRequestDate(v string) {
 	o.GatewayRequestDate = &v
 }
 
 // GetGatewayResponseDate returns the GatewayResponseDate field value if set, zero value otherwise.
-func (o *CardAuthorizeResponseResult) GetGatewayResponseDate() time.Time {
+func (o *CardAuthorizeResponseResult) GetGatewayResponseDate() string {
 	if o == nil || o.GatewayResponseDate == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.GatewayResponseDate
@@ -376,7 +375,7 @@ func (o *CardAuthorizeResponseResult) GetGatewayResponseDate() time.Time {
 
 // GetGatewayResponseDateOk returns a tuple with the GatewayResponseDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CardAuthorizeResponseResult) GetGatewayResponseDateOk() (*time.Time, bool) {
+func (o *CardAuthorizeResponseResult) GetGatewayResponseDateOk() (*string, bool) {
 	if o == nil || o.GatewayResponseDate == nil {
 		return nil, false
 	}
@@ -392,15 +391,15 @@ func (o *CardAuthorizeResponseResult) HasGatewayResponseDate() bool {
 	return false
 }
 
-// SetGatewayResponseDate gets a reference to the given time.Time and assigns it to the GatewayResponseDate field.
-func (o *CardAuthorizeResponseResult) SetGatewayResponseDate(v time.Time) {
+// SetGatewayResponseDate gets a reference to the given string and assigns it to the GatewayResponseDate field.
+func (o *CardAuthorizeResponseResult) SetGatewayResponseDate(v string) {
 	o.GatewayResponseDate = &v
 }
 
 // GetCenterRequestDate returns the CenterRequestDate field value if set, zero value otherwise.
-func (o *CardAuthorizeResponseResult) GetCenterRequestDate() time.Time {
+func (o *CardAuthorizeResponseResult) GetCenterRequestDate() string {
 	if o == nil || o.CenterRequestDate == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.CenterRequestDate
@@ -408,7 +407,7 @@ func (o *CardAuthorizeResponseResult) GetCenterRequestDate() time.Time {
 
 // GetCenterRequestDateOk returns a tuple with the CenterRequestDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CardAuthorizeResponseResult) GetCenterRequestDateOk() (*time.Time, bool) {
+func (o *CardAuthorizeResponseResult) GetCenterRequestDateOk() (*string, bool) {
 	if o == nil || o.CenterRequestDate == nil {
 		return nil, false
 	}
@@ -424,15 +423,15 @@ func (o *CardAuthorizeResponseResult) HasCenterRequestDate() bool {
 	return false
 }
 
-// SetCenterRequestDate gets a reference to the given time.Time and assigns it to the CenterRequestDate field.
-func (o *CardAuthorizeResponseResult) SetCenterRequestDate(v time.Time) {
+// SetCenterRequestDate gets a reference to the given string and assigns it to the CenterRequestDate field.
+func (o *CardAuthorizeResponseResult) SetCenterRequestDate(v string) {
 	o.CenterRequestDate = &v
 }
 
 // GetCenterResponseDate returns the CenterResponseDate field value if set, zero value otherwise.
-func (o *CardAuthorizeResponseResult) GetCenterResponseDate() time.Time {
+func (o *CardAuthorizeResponseResult) GetCenterResponseDate() string {
 	if o == nil || o.CenterResponseDate == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.CenterResponseDate
@@ -440,7 +439,7 @@ func (o *CardAuthorizeResponseResult) GetCenterResponseDate() time.Time {
 
 // GetCenterResponseDateOk returns a tuple with the CenterResponseDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CardAuthorizeResponseResult) GetCenterResponseDateOk() (*time.Time, bool) {
+func (o *CardAuthorizeResponseResult) GetCenterResponseDateOk() (*string, bool) {
 	if o == nil || o.CenterResponseDate == nil {
 		return nil, false
 	}
@@ -456,8 +455,8 @@ func (o *CardAuthorizeResponseResult) HasCenterResponseDate() bool {
 	return false
 }
 
-// SetCenterResponseDate gets a reference to the given time.Time and assigns it to the CenterResponseDate field.
-func (o *CardAuthorizeResponseResult) SetCenterResponseDate(v time.Time) {
+// SetCenterResponseDate gets a reference to the given string and assigns it to the CenterResponseDate field.
+func (o *CardAuthorizeResponseResult) SetCenterResponseDate(v string) {
 	o.CenterResponseDate = &v
 }
 
