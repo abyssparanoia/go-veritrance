@@ -688,6 +688,7 @@ components:
           pending: pending
           gatewayResponseDate: gatewayResponseDate
           centerRequestDate: centerRequestDate
+          mstatus: null
           centerResponseDate: centerResponseDate
           custTxn: custTxn
           marchTxn: marchTxn
@@ -720,6 +721,7 @@ components:
         pending: pending
         gatewayResponseDate: gatewayResponseDate
         centerRequestDate: centerRequestDate
+        mstatus: null
         centerResponseDate: centerResponseDate
         custTxn: custTxn
         marchTxn: marchTxn
@@ -750,6 +752,8 @@ components:
             処理の結果を詳細に表すコード
             4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。
           type: string
+        mstatus:
+          $ref: '#/components/schemas/Status'
         merrMsg:
           description: 処理結果を日本語で表示します。
           type: string
@@ -800,6 +804,15 @@ components:
           type: string
         acquirerCode:
           type: string
+      required:
+      - custTxn
+      - marchTxn
+      - merrMsg
+      - mstatus
+      - orderId
+      - serviceType
+      - txnVersion
+      - vResultCode
       type: object
     CardCancelResponse:
       example:
@@ -813,6 +826,7 @@ components:
           pending: pending
           gatewayResponseDate: gatewayResponseDate
           centerRequestDate: centerRequestDate
+          mstatus: null
           centerResponseDate: centerResponseDate
           custTxn: custTxn
           marchTxn: marchTxn
@@ -845,6 +859,7 @@ components:
         pending: pending
         gatewayResponseDate: gatewayResponseDate
         centerRequestDate: centerRequestDate
+        mstatus: null
         centerResponseDate: centerResponseDate
         custTxn: custTxn
         marchTxn: marchTxn
@@ -875,6 +890,8 @@ components:
             処理の結果を詳細に表すコード
             4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。
           type: string
+        mstatus:
+          $ref: '#/components/schemas/Status'
         merrMsg:
           description: 処理結果を日本語で表示します。
           type: string
@@ -925,6 +942,15 @@ components:
           type: string
         acquirerCode:
           type: string
+      required:
+      - custTxn
+      - marchTxn
+      - merrMsg
+      - mstatus
+      - orderId
+      - serviceType
+      - txnVersion
+      - vResultCode
       type: object
     account.v1:
       description: 会員情報
