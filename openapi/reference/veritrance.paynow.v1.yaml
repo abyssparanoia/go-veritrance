@@ -209,9 +209,9 @@ paths:
             application/json:
               schema:
                 $ref: ./models/response.v1.yaml#/CardAuthorizeResponse
-  "/paynow/v1/Capture/card":
+  "/paynow/v2/Capture/card":
     post:
-      operationId: paynow-v1-capture-cardinfo
+      operationId: paynow-v2-capture-cardinfo
       summary: 決済の売上確定を行います
       tags:
         - Card
@@ -227,9 +227,9 @@ paths:
             application/json:
               schema:
                 $ref: ./models/response.v1.yaml#/CardCaptureResponse
-  "/paynow/v1/Cancel/card":
+  "/paynow/v2/Cancel/card":
     post:
-      operationId: paynow-v1-cancel-cardinfo
+      operationId: paynow-v2-cancel-cardinfo
       summary: 決済のキャンセルを行います
       tags:
         - Card
@@ -677,8 +677,6 @@ components:
         amount:
           type: string
           example: 1000
-        currencyUnit:
-          $ref: "#/components/schemas/CurrencyUnit"
     CardCancelRequestParam:
       type: object
       required:
@@ -692,8 +690,6 @@ components:
         amount:
           type: string
           example: 1000
-        currencyUnit:
-          $ref: "#/components/schemas/CurrencyUnit"
     CurrencyUnit:
       description: 通貨コード
       enum:

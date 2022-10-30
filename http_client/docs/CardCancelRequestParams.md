@@ -9,13 +9,12 @@ Name | Type | Description | Notes
 **MerchantCcid** | **string** |  | 
 **OrderId** | **string** |  | 
 **Amount** | **string** |  | 
-**CurrencyUnit** | [**CurrencyUnit**](CurrencyUnit.md) |  | 
 
 ## Methods
 
 ### NewCardCancelRequestParams
 
-`func NewCardCancelRequestParams(txnVersion string, dummyRequest string, merchantCcid string, orderId string, amount string, currencyUnit CurrencyUnit, ) *CardCancelRequestParams`
+`func NewCardCancelRequestParams(txnVersion string, dummyRequest string, merchantCcid string, orderId string, amount string, ) *CardCancelRequestParams`
 
 NewCardCancelRequestParams instantiates a new CardCancelRequestParams object
 This constructor will assign default values to properties that have it defined,
@@ -128,26 +127,6 @@ and a boolean to check if the value has been set.
 `func (o *CardCancelRequestParams) SetAmount(v string)`
 
 SetAmount sets Amount field to given value.
-
-
-### GetCurrencyUnit
-
-`func (o *CardCancelRequestParams) GetCurrencyUnit() CurrencyUnit`
-
-GetCurrencyUnit returns the CurrencyUnit field if non-nil, zero value otherwise.
-
-### GetCurrencyUnitOk
-
-`func (o *CardCancelRequestParams) GetCurrencyUnitOk() (*CurrencyUnit, bool)`
-
-GetCurrencyUnitOk returns a tuple with the CurrencyUnit field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCurrencyUnit
-
-`func (o *CardCancelRequestParams) SetCurrencyUnit(v CurrencyUnit)`
-
-SetCurrencyUnit sets CurrencyUnit field to given value.
 
 
 

@@ -18,18 +18,16 @@ import (
 type CardCancelRequestParam struct {
 	OrderId string `json:"orderId"`
 	Amount string `json:"amount"`
-	CurrencyUnit CurrencyUnit `json:"currencyUnit"`
 }
 
 // NewCardCancelRequestParam instantiates a new CardCancelRequestParam object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCardCancelRequestParam(orderId string, amount string, currencyUnit CurrencyUnit) *CardCancelRequestParam {
+func NewCardCancelRequestParam(orderId string, amount string) *CardCancelRequestParam {
 	this := CardCancelRequestParam{}
 	this.OrderId = orderId
 	this.Amount = amount
-	this.CurrencyUnit = currencyUnit
 	return &this
 }
 
@@ -89,30 +87,6 @@ func (o *CardCancelRequestParam) SetAmount(v string) {
 	o.Amount = v
 }
 
-// GetCurrencyUnit returns the CurrencyUnit field value
-func (o *CardCancelRequestParam) GetCurrencyUnit() CurrencyUnit {
-	if o == nil {
-		var ret CurrencyUnit
-		return ret
-	}
-
-	return o.CurrencyUnit
-}
-
-// GetCurrencyUnitOk returns a tuple with the CurrencyUnit field value
-// and a boolean to check if the value has been set.
-func (o *CardCancelRequestParam) GetCurrencyUnitOk() (*CurrencyUnit, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.CurrencyUnit, true
-}
-
-// SetCurrencyUnit sets field value
-func (o *CardCancelRequestParam) SetCurrencyUnit(v CurrencyUnit) {
-	o.CurrencyUnit = v
-}
-
 func (o CardCancelRequestParam) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -120,9 +94,6 @@ func (o CardCancelRequestParam) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["amount"] = o.Amount
-	}
-	if true {
-		toSerialize["currencyUnit"] = o.CurrencyUnit
 	}
 	return json.Marshal(toSerialize)
 }

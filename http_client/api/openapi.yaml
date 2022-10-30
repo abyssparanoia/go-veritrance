@@ -192,9 +192,9 @@ paths:
       summary: 決済の再与信を行います
       tags:
       - Card
-  /paynow/v1/Capture/card:
+  /paynow/v2/Capture/card:
     post:
-      operationId: paynow-v1-capture-cardinfo
+      operationId: paynow-v2-capture-cardinfo
       requestBody:
         content:
           text/plain:
@@ -210,9 +210,9 @@ paths:
       summary: 決済の売上確定を行います
       tags:
       - Card
-  /paynow/v1/Cancel/card:
+  /paynow/v2/Cancel/card:
     post:
-      operationId: paynow-v1-cancel-cardinfo
+      operationId: paynow-v2-cancel-cardinfo
       requestBody:
         content:
           text/plain:
@@ -424,8 +424,6 @@ components:
         amount:
           example: "1000"
           type: string
-        currencyUnit:
-          $ref: '#/components/schemas/CurrencyUnit'
       required:
       - amount
       - currencyUnit
@@ -439,8 +437,6 @@ components:
         amount:
           example: "1000"
           type: string
-        currencyUnit:
-          $ref: '#/components/schemas/CurrencyUnit'
       required:
       - amount
       - currencyUnit
