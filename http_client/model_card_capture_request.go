@@ -16,24 +16,18 @@ import (
 
 // CardCaptureRequest struct for CardCaptureRequest
 type CardCaptureRequest struct {
-	TxnVersion string `json:"txnVersion"`
-	DummyRequest string `json:"dummyRequest"`
-	MerchantCcid string `json:"merchantCcid"`
-	OrderId string `json:"orderId"`
-	Amount string `json:"amount"`
+	Params CardCaptureRequestParams `json:"params"`
+	AuthHash string `json:"authHash"`
 }
 
 // NewCardCaptureRequest instantiates a new CardCaptureRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCardCaptureRequest(txnVersion string, dummyRequest string, merchantCcid string, orderId string, amount string) *CardCaptureRequest {
+func NewCardCaptureRequest(params CardCaptureRequestParams, authHash string) *CardCaptureRequest {
 	this := CardCaptureRequest{}
-	this.TxnVersion = txnVersion
-	this.DummyRequest = dummyRequest
-	this.MerchantCcid = merchantCcid
-	this.OrderId = orderId
-	this.Amount = amount
+	this.Params = params
+	this.AuthHash = authHash
 	return &this
 }
 
@@ -45,142 +39,61 @@ func NewCardCaptureRequestWithDefaults() *CardCaptureRequest {
 	return &this
 }
 
-// GetTxnVersion returns the TxnVersion field value
-func (o *CardCaptureRequest) GetTxnVersion() string {
+// GetParams returns the Params field value
+func (o *CardCaptureRequest) GetParams() CardCaptureRequestParams {
+	if o == nil {
+		var ret CardCaptureRequestParams
+		return ret
+	}
+
+	return o.Params
+}
+
+// GetParamsOk returns a tuple with the Params field value
+// and a boolean to check if the value has been set.
+func (o *CardCaptureRequest) GetParamsOk() (*CardCaptureRequestParams, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Params, true
+}
+
+// SetParams sets field value
+func (o *CardCaptureRequest) SetParams(v CardCaptureRequestParams) {
+	o.Params = v
+}
+
+// GetAuthHash returns the AuthHash field value
+func (o *CardCaptureRequest) GetAuthHash() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.TxnVersion
+	return o.AuthHash
 }
 
-// GetTxnVersionOk returns a tuple with the TxnVersion field value
+// GetAuthHashOk returns a tuple with the AuthHash field value
 // and a boolean to check if the value has been set.
-func (o *CardCaptureRequest) GetTxnVersionOk() (*string, bool) {
+func (o *CardCaptureRequest) GetAuthHashOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.TxnVersion, true
+	return &o.AuthHash, true
 }
 
-// SetTxnVersion sets field value
-func (o *CardCaptureRequest) SetTxnVersion(v string) {
-	o.TxnVersion = v
-}
-
-// GetDummyRequest returns the DummyRequest field value
-func (o *CardCaptureRequest) GetDummyRequest() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.DummyRequest
-}
-
-// GetDummyRequestOk returns a tuple with the DummyRequest field value
-// and a boolean to check if the value has been set.
-func (o *CardCaptureRequest) GetDummyRequestOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.DummyRequest, true
-}
-
-// SetDummyRequest sets field value
-func (o *CardCaptureRequest) SetDummyRequest(v string) {
-	o.DummyRequest = v
-}
-
-// GetMerchantCcid returns the MerchantCcid field value
-func (o *CardCaptureRequest) GetMerchantCcid() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.MerchantCcid
-}
-
-// GetMerchantCcidOk returns a tuple with the MerchantCcid field value
-// and a boolean to check if the value has been set.
-func (o *CardCaptureRequest) GetMerchantCcidOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.MerchantCcid, true
-}
-
-// SetMerchantCcid sets field value
-func (o *CardCaptureRequest) SetMerchantCcid(v string) {
-	o.MerchantCcid = v
-}
-
-// GetOrderId returns the OrderId field value
-func (o *CardCaptureRequest) GetOrderId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.OrderId
-}
-
-// GetOrderIdOk returns a tuple with the OrderId field value
-// and a boolean to check if the value has been set.
-func (o *CardCaptureRequest) GetOrderIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.OrderId, true
-}
-
-// SetOrderId sets field value
-func (o *CardCaptureRequest) SetOrderId(v string) {
-	o.OrderId = v
-}
-
-// GetAmount returns the Amount field value
-func (o *CardCaptureRequest) GetAmount() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Amount
-}
-
-// GetAmountOk returns a tuple with the Amount field value
-// and a boolean to check if the value has been set.
-func (o *CardCaptureRequest) GetAmountOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Amount, true
-}
-
-// SetAmount sets field value
-func (o *CardCaptureRequest) SetAmount(v string) {
-	o.Amount = v
+// SetAuthHash sets field value
+func (o *CardCaptureRequest) SetAuthHash(v string) {
+	o.AuthHash = v
 }
 
 func (o CardCaptureRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
-		toSerialize["txnVersion"] = o.TxnVersion
+		toSerialize["params"] = o.Params
 	}
 	if true {
-		toSerialize["dummyRequest"] = o.DummyRequest
-	}
-	if true {
-		toSerialize["merchantCcid"] = o.MerchantCcid
-	}
-	if true {
-		toSerialize["orderId"] = o.OrderId
-	}
-	if true {
-		toSerialize["amount"] = o.Amount
+		toSerialize["authHash"] = o.AuthHash
 	}
 	return json.Marshal(toSerialize)
 }

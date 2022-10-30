@@ -192,9 +192,9 @@ paths:
       summary: 決済の再与信を行います
       tags:
       - Card
-  /paynow/v1/Capture/card:
+  /paynow/v2/Capture/card:
     post:
-      operationId: paynow-v1-capture-cardinfo
+      operationId: paynow-v2-capture-cardinfo
       requestBody:
         content:
           text/plain:
@@ -210,9 +210,9 @@ paths:
       summary: 決済の売上確定を行います
       tags:
       - Card
-  /paynow/v1/Cancel/card:
+  /paynow/v2/Cancel/card:
     post:
-      operationId: paynow-v1-cancel-cardinfo
+      operationId: paynow-v2-cancel-cardinfo
       requestBody:
         content:
           text/plain:
@@ -317,20 +317,24 @@ components:
       - params
       type: object
     CardCaptureRequest:
-      allOf:
-      - $ref: '#/components/schemas/AbstractPayNowRequest'
-      - $ref: '#/components/schemas/CardCaptureRequest_allOf'
+      properties:
+        params:
+          $ref: '#/components/schemas/CardCaptureRequest_params'
+        authHash:
+          type: string
       required:
-      - amount
-      - orderId
+      - authHash
+      - params
       type: object
     CardCancelRequest:
-      allOf:
-      - $ref: '#/components/schemas/AbstractPayNowRequest'
-      - $ref: '#/components/schemas/CardCaptureRequest_allOf'
+      properties:
+        params:
+          $ref: '#/components/schemas/CardCancelRequest_params'
+        authHash:
+          type: string
       required:
-      - amount
-      - orderId
+      - authHash
+      - params
       type: object
     AbstractPayNowRequest:
       description: PayNowのリクエストに必須なパラメーター群
@@ -411,6 +415,32 @@ components:
           type: string
       required:
       - cardId
+      type: object
+    CardCaptureRequestParam:
+      properties:
+        orderId:
+          example: order-1662828780
+          type: string
+        amount:
+          example: "1000"
+          type: string
+      required:
+      - amount
+      - currencyUnit
+      - orderId
+      type: object
+    CardCancelRequestParam:
+      properties:
+        orderId:
+          example: order-1662828780
+          type: string
+        amount:
+          example: "1000"
+          type: string
+      required:
+      - amount
+      - currencyUnit
+      - orderId
       type: object
     CurrencyUnit:
       description: 通貨コード
@@ -648,6 +678,39 @@ components:
       type: object
     CardCaptureResponse:
       example:
+        result:
+          serviceType: serviceType
+          centerReferenceNumber: centerReferenceNumber
+          txnVersion: txnVersion
+          gatewayRequestDate: gatewayRequestDate
+          orderId: orderId
+          centerRequestNumber: centerRequestNumber
+          pending: pending
+          gatewayResponseDate: gatewayResponseDate
+          centerRequestDate: centerRequestDate
+          centerResponseDate: centerResponseDate
+          custTxn: custTxn
+          marchTxn: marchTxn
+          resReturnReferenceNumber: resReturnReferenceNumber
+          connectedCenterId: jcn
+          merrMsg: merrMsg
+          resAuthCode: resAuthCode
+          resActionCode: resActionCode
+          resCenterErrorCode: resCenterErrorCode
+          cardTransactiontype: cardTransactiontype
+          acquirerCode: acquirerCode
+          vResultCode: vResultCode
+          status: success
+          loopback: loopback
+        payNowIdResponse: null
+      properties:
+        payNowIdResponse:
+          $ref: '#/components/schemas/AccountResponse_payNowIdResponse'
+        result:
+          $ref: '#/components/schemas/CardCaptureResponseResult'
+      type: object
+    CardCaptureResponseResult:
+      example:
         serviceType: serviceType
         centerReferenceNumber: centerReferenceNumber
         txnVersion: txnVersion
@@ -739,6 +802,39 @@ components:
           type: string
       type: object
     CardCancelResponse:
+      example:
+        result:
+          serviceType: serviceType
+          centerReferenceNumber: centerReferenceNumber
+          txnVersion: txnVersion
+          gatewayRequestDate: gatewayRequestDate
+          orderId: orderId
+          centerRequestNumber: centerRequestNumber
+          pending: pending
+          gatewayResponseDate: gatewayResponseDate
+          centerRequestDate: centerRequestDate
+          centerResponseDate: centerResponseDate
+          custTxn: custTxn
+          marchTxn: marchTxn
+          resReturnReferenceNumber: resReturnReferenceNumber
+          connectedCenterId: jcn
+          merrMsg: merrMsg
+          resAuthCode: resAuthCode
+          resActionCode: resActionCode
+          resCenterErrorCode: resCenterErrorCode
+          cardTransactiontype: cardTransactiontype
+          acquirerCode: acquirerCode
+          vResultCode: vResultCode
+          status: success
+          loopback: loopback
+        payNowIdResponse: null
+      properties:
+        payNowIdResponse:
+          $ref: '#/components/schemas/AccountResponse_payNowIdResponse'
+        result:
+          $ref: '#/components/schemas/CardCancelResponseResult'
+      type: object
+    CardCancelResponseResult:
       example:
         serviceType: serviceType
         centerReferenceNumber: centerReferenceNumber
@@ -1138,14 +1234,23 @@ components:
       required:
       - payNowIdParam
       type: object
-    CardCaptureRequest_allOf:
-      properties:
-        orderId:
-          example: order-1662828780
-          type: string
-        amount:
-          example: "1000"
-          type: string
+    CardCaptureRequest_params:
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/CardCaptureRequestParam'
+      required:
+      - amount
+      - currencyUnit
+      - orderId
+      type: object
+    CardCancelRequest_params:
+      allOf:
+      - $ref: '#/components/schemas/AbstractPayNowRequest'
+      - $ref: '#/components/schemas/CardCancelRequestParam'
+      required:
+      - amount
+      - currencyUnit
+      - orderId
       type: object
     AccountResponse_payNowIdResponse_allOf:
       properties:

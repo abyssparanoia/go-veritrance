@@ -84,9 +84,9 @@ Class | Method | HTTP request | Description
 *AccountApi* | [**PaynowidV1DeleteAccount**](docs/AccountApi.md#paynowidv1deleteaccount) | **Post** /paynowid/v1/Delete/account | 会員 ID の会員情報を、指定された「退会年月日」に削除します。
 *AccountApi* | [**PaynowidV1UpdateAccount**](docs/AccountApi.md#paynowidv1updateaccount) | **Post** /paynowid/v1/Update/account | 会員 ID の「入会年月日」を更新します。
 *CardApi* | [**PaynowV1AuthorizeCardinfo**](docs/CardApi.md#paynowv1authorizecardinfo) | **Post** /paynow/v2/Authorize/card | 決済の与信を行います
-*CardApi* | [**PaynowV1CancelCardinfo**](docs/CardApi.md#paynowv1cancelcardinfo) | **Post** /paynow/v1/Cancel/card | 決済のキャンセルを行います
-*CardApi* | [**PaynowV1CaptureCardinfo**](docs/CardApi.md#paynowv1capturecardinfo) | **Post** /paynow/v1/Capture/card | 決済の売上確定を行います
 *CardApi* | [**PaynowV1ReAuthorizeCardinfo**](docs/CardApi.md#paynowv1reauthorizecardinfo) | **Post** /paynow/v1/ReAuthorize/card | 決済の再与信を行います
+*CardApi* | [**PaynowV2CancelCardinfo**](docs/CardApi.md#paynowv2cancelcardinfo) | **Post** /paynow/v2/Cancel/card | 決済のキャンセルを行います
+*CardApi* | [**PaynowV2CaptureCardinfo**](docs/CardApi.md#paynowv2capturecardinfo) | **Post** /paynow/v2/Capture/card | 決済の売上確定を行います
 *CardinfoApi* | [**PaynowidV1AddCardinfo**](docs/CardinfoApi.md#paynowidv1addcardinfo) | **Post** /paynowid/v1/Add/cardinfo | 会員 ID にカード情報を紐付けて登録します
 *CardinfoApi* | [**PaynowidV1DeleteCardinfo**](docs/CardinfoApi.md#paynowidv1deletecardinfo) | **Post** /paynowid/v1/Delete/cardinfo | 会員 ID に紐付けられたカード情報を削除します
 *CardinfoApi* | [**PaynowidV1GetCardinfo**](docs/CardinfoApi.md#paynowidv1getcardinfo) | **Post** /paynowid/v1/Get/cardinfo | 会員 ID に紐付けられた課金情報を取得します
@@ -119,10 +119,15 @@ Class | Method | HTTP request | Description
  - [CardAuthorizeResponse](docs/CardAuthorizeResponse.md)
  - [CardAuthorizeResponseResult](docs/CardAuthorizeResponseResult.md)
  - [CardCancelRequest](docs/CardCancelRequest.md)
+ - [CardCancelRequestParam](docs/CardCancelRequestParam.md)
+ - [CardCancelRequestParams](docs/CardCancelRequestParams.md)
  - [CardCancelResponse](docs/CardCancelResponse.md)
+ - [CardCancelResponseResult](docs/CardCancelResponseResult.md)
  - [CardCaptureRequest](docs/CardCaptureRequest.md)
- - [CardCaptureRequestAllOf](docs/CardCaptureRequestAllOf.md)
+ - [CardCaptureRequestParam](docs/CardCaptureRequestParam.md)
+ - [CardCaptureRequestParams](docs/CardCaptureRequestParams.md)
  - [CardCaptureResponse](docs/CardCaptureResponse.md)
+ - [CardCaptureResponseResult](docs/CardCaptureResponseResult.md)
  - [CardInfoAddRequest](docs/CardInfoAddRequest.md)
  - [CardInfoAddRequestParams](docs/CardInfoAddRequestParams.md)
  - [CardInfoAddRequestParamsAllOf](docs/CardInfoAddRequestParamsAllOf.md)

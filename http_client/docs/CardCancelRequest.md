@@ -4,17 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TxnVersion** | **string** |  | 
-**DummyRequest** | **string** |  | 
-**MerchantCcid** | **string** |  | 
-**OrderId** | **string** |  | 
-**Amount** | **string** |  | 
+**Params** | [**CardCancelRequestParams**](CardCancelRequestParams.md) |  | 
+**AuthHash** | **string** |  | 
 
 ## Methods
 
 ### NewCardCancelRequest
 
-`func NewCardCancelRequest(txnVersion string, dummyRequest string, merchantCcid string, orderId string, amount string, ) *CardCancelRequest`
+`func NewCardCancelRequest(params CardCancelRequestParams, authHash string, ) *CardCancelRequest`
 
 NewCardCancelRequest instantiates a new CardCancelRequest object
 This constructor will assign default values to properties that have it defined,
@@ -29,104 +26,44 @@ NewCardCancelRequestWithDefaults instantiates a new CardCancelRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetTxnVersion
+### GetParams
 
-`func (o *CardCancelRequest) GetTxnVersion() string`
+`func (o *CardCancelRequest) GetParams() CardCancelRequestParams`
 
-GetTxnVersion returns the TxnVersion field if non-nil, zero value otherwise.
+GetParams returns the Params field if non-nil, zero value otherwise.
 
-### GetTxnVersionOk
+### GetParamsOk
 
-`func (o *CardCancelRequest) GetTxnVersionOk() (*string, bool)`
+`func (o *CardCancelRequest) GetParamsOk() (*CardCancelRequestParams, bool)`
 
-GetTxnVersionOk returns a tuple with the TxnVersion field if it's non-nil, zero value otherwise
+GetParamsOk returns a tuple with the Params field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTxnVersion
+### SetParams
 
-`func (o *CardCancelRequest) SetTxnVersion(v string)`
+`func (o *CardCancelRequest) SetParams(v CardCancelRequestParams)`
 
-SetTxnVersion sets TxnVersion field to given value.
+SetParams sets Params field to given value.
 
 
-### GetDummyRequest
+### GetAuthHash
 
-`func (o *CardCancelRequest) GetDummyRequest() string`
+`func (o *CardCancelRequest) GetAuthHash() string`
 
-GetDummyRequest returns the DummyRequest field if non-nil, zero value otherwise.
+GetAuthHash returns the AuthHash field if non-nil, zero value otherwise.
 
-### GetDummyRequestOk
+### GetAuthHashOk
 
-`func (o *CardCancelRequest) GetDummyRequestOk() (*string, bool)`
+`func (o *CardCancelRequest) GetAuthHashOk() (*string, bool)`
 
-GetDummyRequestOk returns a tuple with the DummyRequest field if it's non-nil, zero value otherwise
+GetAuthHashOk returns a tuple with the AuthHash field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDummyRequest
+### SetAuthHash
 
-`func (o *CardCancelRequest) SetDummyRequest(v string)`
+`func (o *CardCancelRequest) SetAuthHash(v string)`
 
-SetDummyRequest sets DummyRequest field to given value.
-
-
-### GetMerchantCcid
-
-`func (o *CardCancelRequest) GetMerchantCcid() string`
-
-GetMerchantCcid returns the MerchantCcid field if non-nil, zero value otherwise.
-
-### GetMerchantCcidOk
-
-`func (o *CardCancelRequest) GetMerchantCcidOk() (*string, bool)`
-
-GetMerchantCcidOk returns a tuple with the MerchantCcid field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMerchantCcid
-
-`func (o *CardCancelRequest) SetMerchantCcid(v string)`
-
-SetMerchantCcid sets MerchantCcid field to given value.
-
-
-### GetOrderId
-
-`func (o *CardCancelRequest) GetOrderId() string`
-
-GetOrderId returns the OrderId field if non-nil, zero value otherwise.
-
-### GetOrderIdOk
-
-`func (o *CardCancelRequest) GetOrderIdOk() (*string, bool)`
-
-GetOrderIdOk returns a tuple with the OrderId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOrderId
-
-`func (o *CardCancelRequest) SetOrderId(v string)`
-
-SetOrderId sets OrderId field to given value.
-
-
-### GetAmount
-
-`func (o *CardCancelRequest) GetAmount() string`
-
-GetAmount returns the Amount field if non-nil, zero value otherwise.
-
-### GetAmountOk
-
-`func (o *CardCancelRequest) GetAmountOk() (*string, bool)`
-
-GetAmountOk returns a tuple with the Amount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAmount
-
-`func (o *CardCancelRequest) SetAmount(v string)`
-
-SetAmount sets Amount field to given value.
+SetAuthHash sets AuthHash field to given value.
 
 
 

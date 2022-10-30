@@ -34,153 +34,29 @@ CardAuthorizeResponse:
 CardCaptureResponse:
   type: object
   properties:
-    serviceType:
-      type: string
-      description: 要求電文を送信した決済サービスタイプ
-    status:
-      description: 処理結果コード
-      enum:
-        - success
-        - failure
-        - pending
-    vResultCode:
-      description: |
-        処理の結果を詳細に表すコード
-        4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。
-      type: string
-    merrMsg:
-      type: string
-      description: 処理結果を日本語で表示します。
-    marchTxn:
-      type: string
-      description: |
-        決済サーバーにて決済処理電文（内部処理も含む）毎に付与する ID
-        １つの取引 ID に対して、複数の ID が付与されます。
-    orderId:
-      type: string
-      description: 決済要求時に店舗様にて任意に採番し送信された取引 ID
-    custTxn:
-      type: string
-      description: 決済サーバーがオーダー（取引 ID）と紐付ける為に採番する ID
-    txnVersion:
-      type: string
-      description: 電文のバージョン
-    cardTransactiontype:
-      type: string
-    gatewayRequestDate:
-      type: string
-    gatewayResponseDate:
-      type: string
-    centerRequestDate:
-      type: string
-    centerResponseDate:
-      type: string
-    pending:
-      type: string
-    loopback:
-      type: string
-    connectedCenterId:
-      enum:
-        - jcn
-        - cafis
-    centerRequestNumber:
-      type: string
-    centerReferenceNumber:
-      type: string
-    resReturnReferenceNumber:
-      type: string
-    resAuthCode:
-      type: string
-    resActionCode:
-      type: string
-    resCenterErrorCode:
-      type: string
-    acquirerCode:
-      type: string
-    required:
-      - serviceType
-      - mstatus
-      - vResultCode
-      - merrMsg
-      - marchTxn
-      - orderId
-      - custTxn
-      - txnVersion
+    payNowIdResponse:
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/AbstractPayNowIdResponse"
+        - type: object
+          properties:
+            account:
+              $ref: ./account.v1.yaml
+    result:
+      $ref: "#/components/schemas/CardCaptureResponseResult"
 CardCancelResponse:
   type: object
   properties:
-    serviceType:
-      type: string
-      description: 要求電文を送信した決済サービスタイプ
-    status:
-      description: 処理結果コード
-      enum:
-        - success
-        - failure
-        - pending
-    vResultCode:
-      description: |
-        処理の結果を詳細に表すコード
-        4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。
-      type: string
-    merrMsg:
-      type: string
-      description: 処理結果を日本語で表示します。
-    marchTxn:
-      type: string
-      description: |
-        決済サーバーにて決済処理電文（内部処理も含む）毎に付与する ID
-        １つの取引 ID に対して、複数の ID が付与されます。
-    orderId:
-      type: string
-      description: 決済要求時に店舗様にて任意に採番し送信された取引 ID
-    custTxn:
-      type: string
-      description: 決済サーバーがオーダー（取引 ID）と紐付ける為に採番する ID
-    txnVersion:
-      type: string
-      description: 電文のバージョン
-    cardTransactiontype:
-      type: string
-    gatewayRequestDate:
-      type: string
-    gatewayResponseDate:
-      type: string
-    centerRequestDate:
-      type: string
-    centerResponseDate:
-      type: string
-    pending:
-      type: string
-    loopback:
-      type: string
-    connectedCenterId:
-      enum:
-        - jcn
-        - cafis
-    centerRequestNumber:
-      type: string
-    centerReferenceNumber:
-      type: string
-    resReturnReferenceNumber:
-      type: string
-    resAuthCode:
-      type: string
-    resActionCode:
-      type: string
-    resCenterErrorCode:
-      type: string
-    acquirerCode:
-      type: string
-    required:
-      - serviceType
-      - mstatus
-      - vResultCode
-      - merrMsg
-      - marchTxn
-      - orderId
-      - custTxn
-      - txnVersion
+    payNowIdResponse:
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/AbstractPayNowIdResponse"
+        - type: object
+          properties:
+            account:
+              $ref: ./account.v1.yaml
+    result:
+      $ref: "#/components/schemas/CardCancelResponseResult"
 components:
   schemas:
     AbstractPayNowIdResponse:
@@ -280,6 +156,156 @@ components:
         - orderId
         - custTxn
         - txnVersion
+    CardCancelResponseResult:
+      type: object
+      properties:
+        serviceType:
+          type: string
+          description: 要求電文を送信した決済サービスタイプ
+        status:
+          description: 処理結果コード
+          enum:
+            - success
+            - failure
+            - pending
+        vResultCode:
+          description: |
+            処理の結果を詳細に表すコード
+            4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。
+          type: string
+        merrMsg:
+          type: string
+          description: 処理結果を日本語で表示します。
+        marchTxn:
+          type: string
+          description: |
+            決済サーバーにて決済処理電文（内部処理も含む）毎に付与する ID
+            １つの取引 ID に対して、複数の ID が付与されます。
+        orderId:
+          type: string
+          description: 決済要求時に店舗様にて任意に採番し送信された取引 ID
+        custTxn:
+          type: string
+          description: 決済サーバーがオーダー（取引 ID）と紐付ける為に採番する ID
+        txnVersion:
+          type: string
+          description: 電文のバージョン
+        cardTransactiontype:
+          type: string
+        gatewayRequestDate:
+          type: string
+        gatewayResponseDate:
+          type: string
+        centerRequestDate:
+          type: string
+        centerResponseDate:
+          type: string
+        pending:
+          type: string
+        loopback:
+          type: string
+        connectedCenterId:
+          enum:
+            - jcn
+            - cafis
+        centerRequestNumber:
+          type: string
+        centerReferenceNumber:
+          type: string
+        resReturnReferenceNumber:
+          type: string
+        resAuthCode:
+          type: string
+        resActionCode:
+          type: string
+        resCenterErrorCode:
+          type: string
+        acquirerCode:
+          type: string
+        required:
+          - serviceType
+          - mstatus
+          - vResultCode
+          - merrMsg
+          - marchTxn
+          - orderId
+          - custTxn
+          - txnVersion
+    CardCaptureResponseResult:
+      type: object
+      properties:
+        serviceType:
+          type: string
+          description: 要求電文を送信した決済サービスタイプ
+        status:
+          description: 処理結果コード
+          enum:
+            - success
+            - failure
+            - pending
+        vResultCode:
+          description: |
+            処理の結果を詳細に表すコード
+            4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。
+          type: string
+        merrMsg:
+          type: string
+          description: 処理結果を日本語で表示します。
+        marchTxn:
+          type: string
+          description: |
+            決済サーバーにて決済処理電文（内部処理も含む）毎に付与する ID
+            １つの取引 ID に対して、複数の ID が付与されます。
+        orderId:
+          type: string
+          description: 決済要求時に店舗様にて任意に採番し送信された取引 ID
+        custTxn:
+          type: string
+          description: 決済サーバーがオーダー（取引 ID）と紐付ける為に採番する ID
+        txnVersion:
+          type: string
+          description: 電文のバージョン
+        cardTransactiontype:
+          type: string
+        gatewayRequestDate:
+          type: string
+        gatewayResponseDate:
+          type: string
+        centerRequestDate:
+          type: string
+        centerResponseDate:
+          type: string
+        pending:
+          type: string
+        loopback:
+          type: string
+        connectedCenterId:
+          enum:
+            - jcn
+            - cafis
+        centerRequestNumber:
+          type: string
+        centerReferenceNumber:
+          type: string
+        resReturnReferenceNumber:
+          type: string
+        resAuthCode:
+          type: string
+        resActionCode:
+          type: string
+        resCenterErrorCode:
+          type: string
+        acquirerCode:
+          type: string
+        required:
+          - serviceType
+          - mstatus
+          - vResultCode
+          - merrMsg
+          - marchTxn
+          - orderId
+          - custTxn
+          - txnVersion
     Result:
       type: object
       properties:
