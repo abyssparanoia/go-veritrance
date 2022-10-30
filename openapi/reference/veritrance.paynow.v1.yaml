@@ -554,33 +554,37 @@ components:
     CardCaptureRequest:
       type: object
       required:
-        - orderId
-        - amount
-      allOf:
-        - $ref: "#/components/schemas/AbstractPayNowRequest"
-        - type: object
-          properties:
-            orderId:
-              type: string
-              example: order-1662828780
-            amount:
-              type: string
-              example: 1000
+        - params
+        - authHash
+      properties:
+        params:
+          type: object
+          required:
+            - orderId
+            - amount
+            - currencyUnit
+          allOf:
+            - $ref: "#/components/schemas/AbstractPayNowRequest"
+            - $ref: "#/components/schemas/CardCaptureRequestParam"
+        authHash:
+          type: string
     CardCancelRequest:
       type: object
       required:
-        - orderId
-        - amount
-      allOf:
-        - $ref: "#/components/schemas/AbstractPayNowRequest"
-        - type: object
-          properties:
-            orderId:
-              type: string
-              example: order-1662828780
-            amount:
-              type: string
-              example: 1000
+        - params
+        - authHash
+      properties:
+        params:
+          type: object
+          required:
+            - orderId
+            - amount
+            - currencyUnit
+          allOf:
+            - $ref: "#/components/schemas/AbstractPayNowRequest"
+            - $ref: "#/components/schemas/CardCancelRequestParam"
+        authHash:
+          type: string
     AbstractPayNowRequest:
       description: PayNowのリクエストに必須なパラメーター群
       type: object
@@ -660,6 +664,36 @@ components:
         cardId:
           type: string
           example: card-1662828780
+    CardCaptureRequestParam:
+      type: object
+      required:
+        - orderId
+        - amount
+        - currencyUnit
+      properties:
+        orderId:
+          type: string
+          example: order-1662828780
+        amount:
+          type: string
+          example: 1000
+        currencyUnit:
+          $ref: "#/components/schemas/CurrencyUnit"
+    CardCancelRequestParam:
+      type: object
+      required:
+        - orderId
+        - amount
+        - currencyUnit
+      properties:
+        orderId:
+          type: string
+          example: order-1662828780
+        amount:
+          type: string
+          example: 1000
+        currencyUnit:
+          $ref: "#/components/schemas/CurrencyUnit"
     CurrencyUnit:
       description: 通貨コード
       enum:
