@@ -173,6 +173,8 @@ components:
             処理の結果を詳細に表すコード
             4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。
           type: string
+        mstatus:
+          $ref: "#/components/schemas/Status"
         merrMsg:
           type: string
           description: 処理結果を日本語で表示します。
@@ -222,15 +224,15 @@ components:
           type: string
         acquirerCode:
           type: string
-        required:
-          - serviceType
-          - mstatus
-          - vResultCode
-          - merrMsg
-          - marchTxn
-          - orderId
-          - custTxn
-          - txnVersion
+      required:
+        - serviceType
+        - mstatus
+        - vResultCode
+        - merrMsg
+        - marchTxn
+        - orderId
+        - custTxn
+        - txnVersion
     CardCaptureResponseResult:
       type: object
       properties:
@@ -248,6 +250,8 @@ components:
             処理の結果を詳細に表すコード
             4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。
           type: string
+        mstatus:
+          $ref: "#/components/schemas/Status"
         merrMsg:
           type: string
           description: 処理結果を日本語で表示します。
@@ -297,15 +301,15 @@ components:
           type: string
         acquirerCode:
           type: string
-        required:
-          - serviceType
-          - mstatus
-          - vResultCode
-          - merrMsg
-          - marchTxn
-          - orderId
-          - custTxn
-          - txnVersion
+      required:
+        - serviceType
+        - mstatus
+        - vResultCode
+        - merrMsg
+        - marchTxn
+        - orderId
+        - custTxn
+        - txnVersion
     Result:
       type: object
       properties:

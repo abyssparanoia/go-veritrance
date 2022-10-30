@@ -17,21 +17,22 @@ import (
 // CardCaptureResponseResult struct for CardCaptureResponseResult
 type CardCaptureResponseResult struct {
 	// 要求電文を送信した決済サービスタイプ
-	ServiceType *string `json:"serviceType,omitempty"`
+	ServiceType string `json:"serviceType"`
 	// 処理結果コード
 	Status *string `json:"status,omitempty"`
 	// 処理の結果を詳細に表すコード 4 桁ずつ 4 つのブロックで構成され、各ブロックでサービス毎の処理結果を表します。 
-	VResultCode *string `json:"vResultCode,omitempty"`
+	VResultCode string `json:"vResultCode"`
+	Mstatus Status `json:"mstatus"`
 	// 処理結果を日本語で表示します。
-	MerrMsg *string `json:"merrMsg,omitempty"`
+	MerrMsg string `json:"merrMsg"`
 	// 決済サーバーにて決済処理電文（内部処理も含む）毎に付与する ID １つの取引 ID に対して、複数の ID が付与されます。 
-	MarchTxn *string `json:"marchTxn,omitempty"`
+	MarchTxn string `json:"marchTxn"`
 	// 決済要求時に店舗様にて任意に採番し送信された取引 ID
-	OrderId *string `json:"orderId,omitempty"`
+	OrderId string `json:"orderId"`
 	// 決済サーバーがオーダー（取引 ID）と紐付ける為に採番する ID
-	CustTxn *string `json:"custTxn,omitempty"`
+	CustTxn string `json:"custTxn"`
 	// 電文のバージョン
-	TxnVersion *string `json:"txnVersion,omitempty"`
+	TxnVersion string `json:"txnVersion"`
 	CardTransactiontype *string `json:"cardTransactiontype,omitempty"`
 	GatewayRequestDate *string `json:"gatewayRequestDate,omitempty"`
 	GatewayResponseDate *string `json:"gatewayResponseDate,omitempty"`
@@ -53,8 +54,16 @@ type CardCaptureResponseResult struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCardCaptureResponseResult() *CardCaptureResponseResult {
+func NewCardCaptureResponseResult(serviceType string, vResultCode string, mstatus Status, merrMsg string, marchTxn string, orderId string, custTxn string, txnVersion string) *CardCaptureResponseResult {
 	this := CardCaptureResponseResult{}
+	this.ServiceType = serviceType
+	this.VResultCode = vResultCode
+	this.Mstatus = mstatus
+	this.MerrMsg = merrMsg
+	this.MarchTxn = marchTxn
+	this.OrderId = orderId
+	this.CustTxn = custTxn
+	this.TxnVersion = txnVersion
 	return &this
 }
 
@@ -66,36 +75,28 @@ func NewCardCaptureResponseResultWithDefaults() *CardCaptureResponseResult {
 	return &this
 }
 
-// GetServiceType returns the ServiceType field value if set, zero value otherwise.
+// GetServiceType returns the ServiceType field value
 func (o *CardCaptureResponseResult) GetServiceType() string {
-	if o == nil || o.ServiceType == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ServiceType
+
+	return o.ServiceType
 }
 
-// GetServiceTypeOk returns a tuple with the ServiceType field value if set, nil otherwise
+// GetServiceTypeOk returns a tuple with the ServiceType field value
 // and a boolean to check if the value has been set.
 func (o *CardCaptureResponseResult) GetServiceTypeOk() (*string, bool) {
-	if o == nil || o.ServiceType == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.ServiceType, true
+	return &o.ServiceType, true
 }
 
-// HasServiceType returns a boolean if a field has been set.
-func (o *CardCaptureResponseResult) HasServiceType() bool {
-	if o != nil && o.ServiceType != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetServiceType gets a reference to the given string and assigns it to the ServiceType field.
+// SetServiceType sets field value
 func (o *CardCaptureResponseResult) SetServiceType(v string) {
-	o.ServiceType = &v
+	o.ServiceType = v
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
@@ -130,196 +131,172 @@ func (o *CardCaptureResponseResult) SetStatus(v string) {
 	o.Status = &v
 }
 
-// GetVResultCode returns the VResultCode field value if set, zero value otherwise.
+// GetVResultCode returns the VResultCode field value
 func (o *CardCaptureResponseResult) GetVResultCode() string {
-	if o == nil || o.VResultCode == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.VResultCode
+
+	return o.VResultCode
 }
 
-// GetVResultCodeOk returns a tuple with the VResultCode field value if set, nil otherwise
+// GetVResultCodeOk returns a tuple with the VResultCode field value
 // and a boolean to check if the value has been set.
 func (o *CardCaptureResponseResult) GetVResultCodeOk() (*string, bool) {
-	if o == nil || o.VResultCode == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.VResultCode, true
+	return &o.VResultCode, true
 }
 
-// HasVResultCode returns a boolean if a field has been set.
-func (o *CardCaptureResponseResult) HasVResultCode() bool {
-	if o != nil && o.VResultCode != nil {
-		return true
+// SetVResultCode sets field value
+func (o *CardCaptureResponseResult) SetVResultCode(v string) {
+	o.VResultCode = v
+}
+
+// GetMstatus returns the Mstatus field value
+func (o *CardCaptureResponseResult) GetMstatus() Status {
+	if o == nil {
+		var ret Status
+		return ret
 	}
 
-	return false
+	return o.Mstatus
 }
 
-// SetVResultCode gets a reference to the given string and assigns it to the VResultCode field.
-func (o *CardCaptureResponseResult) SetVResultCode(v string) {
-	o.VResultCode = &v
+// GetMstatusOk returns a tuple with the Mstatus field value
+// and a boolean to check if the value has been set.
+func (o *CardCaptureResponseResult) GetMstatusOk() (*Status, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Mstatus, true
 }
 
-// GetMerrMsg returns the MerrMsg field value if set, zero value otherwise.
+// SetMstatus sets field value
+func (o *CardCaptureResponseResult) SetMstatus(v Status) {
+	o.Mstatus = v
+}
+
+// GetMerrMsg returns the MerrMsg field value
 func (o *CardCaptureResponseResult) GetMerrMsg() string {
-	if o == nil || o.MerrMsg == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.MerrMsg
+
+	return o.MerrMsg
 }
 
-// GetMerrMsgOk returns a tuple with the MerrMsg field value if set, nil otherwise
+// GetMerrMsgOk returns a tuple with the MerrMsg field value
 // and a boolean to check if the value has been set.
 func (o *CardCaptureResponseResult) GetMerrMsgOk() (*string, bool) {
-	if o == nil || o.MerrMsg == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.MerrMsg, true
+	return &o.MerrMsg, true
 }
 
-// HasMerrMsg returns a boolean if a field has been set.
-func (o *CardCaptureResponseResult) HasMerrMsg() bool {
-	if o != nil && o.MerrMsg != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetMerrMsg gets a reference to the given string and assigns it to the MerrMsg field.
+// SetMerrMsg sets field value
 func (o *CardCaptureResponseResult) SetMerrMsg(v string) {
-	o.MerrMsg = &v
+	o.MerrMsg = v
 }
 
-// GetMarchTxn returns the MarchTxn field value if set, zero value otherwise.
+// GetMarchTxn returns the MarchTxn field value
 func (o *CardCaptureResponseResult) GetMarchTxn() string {
-	if o == nil || o.MarchTxn == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.MarchTxn
+
+	return o.MarchTxn
 }
 
-// GetMarchTxnOk returns a tuple with the MarchTxn field value if set, nil otherwise
+// GetMarchTxnOk returns a tuple with the MarchTxn field value
 // and a boolean to check if the value has been set.
 func (o *CardCaptureResponseResult) GetMarchTxnOk() (*string, bool) {
-	if o == nil || o.MarchTxn == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.MarchTxn, true
+	return &o.MarchTxn, true
 }
 
-// HasMarchTxn returns a boolean if a field has been set.
-func (o *CardCaptureResponseResult) HasMarchTxn() bool {
-	if o != nil && o.MarchTxn != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetMarchTxn gets a reference to the given string and assigns it to the MarchTxn field.
+// SetMarchTxn sets field value
 func (o *CardCaptureResponseResult) SetMarchTxn(v string) {
-	o.MarchTxn = &v
+	o.MarchTxn = v
 }
 
-// GetOrderId returns the OrderId field value if set, zero value otherwise.
+// GetOrderId returns the OrderId field value
 func (o *CardCaptureResponseResult) GetOrderId() string {
-	if o == nil || o.OrderId == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.OrderId
+
+	return o.OrderId
 }
 
-// GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
+// GetOrderIdOk returns a tuple with the OrderId field value
 // and a boolean to check if the value has been set.
 func (o *CardCaptureResponseResult) GetOrderIdOk() (*string, bool) {
-	if o == nil || o.OrderId == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrderId, true
+	return &o.OrderId, true
 }
 
-// HasOrderId returns a boolean if a field has been set.
-func (o *CardCaptureResponseResult) HasOrderId() bool {
-	if o != nil && o.OrderId != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderId gets a reference to the given string and assigns it to the OrderId field.
+// SetOrderId sets field value
 func (o *CardCaptureResponseResult) SetOrderId(v string) {
-	o.OrderId = &v
+	o.OrderId = v
 }
 
-// GetCustTxn returns the CustTxn field value if set, zero value otherwise.
+// GetCustTxn returns the CustTxn field value
 func (o *CardCaptureResponseResult) GetCustTxn() string {
-	if o == nil || o.CustTxn == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CustTxn
+
+	return o.CustTxn
 }
 
-// GetCustTxnOk returns a tuple with the CustTxn field value if set, nil otherwise
+// GetCustTxnOk returns a tuple with the CustTxn field value
 // and a boolean to check if the value has been set.
 func (o *CardCaptureResponseResult) GetCustTxnOk() (*string, bool) {
-	if o == nil || o.CustTxn == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.CustTxn, true
+	return &o.CustTxn, true
 }
 
-// HasCustTxn returns a boolean if a field has been set.
-func (o *CardCaptureResponseResult) HasCustTxn() bool {
-	if o != nil && o.CustTxn != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetCustTxn gets a reference to the given string and assigns it to the CustTxn field.
+// SetCustTxn sets field value
 func (o *CardCaptureResponseResult) SetCustTxn(v string) {
-	o.CustTxn = &v
+	o.CustTxn = v
 }
 
-// GetTxnVersion returns the TxnVersion field value if set, zero value otherwise.
+// GetTxnVersion returns the TxnVersion field value
 func (o *CardCaptureResponseResult) GetTxnVersion() string {
-	if o == nil || o.TxnVersion == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TxnVersion
+
+	return o.TxnVersion
 }
 
-// GetTxnVersionOk returns a tuple with the TxnVersion field value if set, nil otherwise
+// GetTxnVersionOk returns a tuple with the TxnVersion field value
 // and a boolean to check if the value has been set.
 func (o *CardCaptureResponseResult) GetTxnVersionOk() (*string, bool) {
-	if o == nil || o.TxnVersion == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.TxnVersion, true
+	return &o.TxnVersion, true
 }
 
-// HasTxnVersion returns a boolean if a field has been set.
-func (o *CardCaptureResponseResult) HasTxnVersion() bool {
-	if o != nil && o.TxnVersion != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTxnVersion gets a reference to the given string and assigns it to the TxnVersion field.
+// SetTxnVersion sets field value
 func (o *CardCaptureResponseResult) SetTxnVersion(v string) {
-	o.TxnVersion = &v
+	o.TxnVersion = v
 }
 
 // GetCardTransactiontype returns the CardTransactiontype field value if set, zero value otherwise.
@@ -804,28 +781,31 @@ func (o *CardCaptureResponseResult) SetAcquirerCode(v string) {
 
 func (o CardCaptureResponseResult) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ServiceType != nil {
+	if true {
 		toSerialize["serviceType"] = o.ServiceType
 	}
 	if o.Status != nil {
 		toSerialize["status"] = o.Status
 	}
-	if o.VResultCode != nil {
+	if true {
 		toSerialize["vResultCode"] = o.VResultCode
 	}
-	if o.MerrMsg != nil {
+	if true {
+		toSerialize["mstatus"] = o.Mstatus
+	}
+	if true {
 		toSerialize["merrMsg"] = o.MerrMsg
 	}
-	if o.MarchTxn != nil {
+	if true {
 		toSerialize["marchTxn"] = o.MarchTxn
 	}
-	if o.OrderId != nil {
+	if true {
 		toSerialize["orderId"] = o.OrderId
 	}
-	if o.CustTxn != nil {
+	if true {
 		toSerialize["custTxn"] = o.CustTxn
 	}
-	if o.TxnVersion != nil {
+	if true {
 		toSerialize["txnVersion"] = o.TxnVersion
 	}
 	if o.CardTransactiontype != nil {
